@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Hôm nay đi đâu? · Where to go today? 🧭</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Pinyon+Script&family=Playfair+Display:wght@500;700&family=Quicksand:wght@500;700&display=swap">
+<style>
+:root{--ink:#241a33;--card:#ffffffb8;--line:#ffffffd0;--bg1:#ffd6f3;--bg2:#d6ecff;--bg3:#d9ffec;--bg4:#fff3cf;--bg5:#e8d6ff;--holo:linear-gradient(100deg,#ff7ad0,#7ab4ff,#5de0b0,#ffc65c,#b183ff,#ff7ad0);
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--ink:#f7ecff;--card:#2b1d3dc4;--line:#ffffff30;--bg1:#3b1d4d;--bg2:#1d2f4d;--bg3:#1d4d3c;--bg4:#4d411d;--bg5:#301d4d;color-scheme:dark}}
+:root[data-theme="dark"]{--ink:#f7ecff;--card:#2b1d3dc4;--line:#ffffff30;--bg1:#3b1d4d;--bg2:#1d2f4d;--bg3:#1d4d3c;--bg4:#4d411d;--bg5:#301d4d;color-scheme:dark}
+*{box-sizing:border-box;margin:0}
+body{min-height:100vh;color:var(--ink);font-family:Quicksand,system-ui,sans-serif;font-weight:500;background:linear-gradient(115deg,var(--bg1),var(--bg2),var(--bg3),var(--bg4),var(--bg5),var(--bg1)) 0 0/400% 400%;animation:bg 18s linear infinite;padding:18px 5vw 60px;overflow-x:hidden}
+@keyframes bg{to{background-position:400% 0}}
+.wrap{max-width:860px;margin:auto}
+.top{display:flex;justify-content:space-between;align-items:center;font-size:14px;font-weight:700}
+.top a{text-decoration:none;color:inherit}
+#lg,.btn,.tab,.opt{font:700 15px Quicksand,sans-serif;cursor:pointer;border:0;color:#241a33}
+#lg{padding:6px 14px;border-radius:99px;background:var(--card);color:var(--ink);border:1.5px solid var(--line)}
+.holo{background:var(--holo);background-size:300% 100%;-webkit-background-clip:text;background-clip:text;color:transparent;animation:sh 6s linear infinite}
+@keyframes sh{to{background-position:300% 0}}
+.kick{text-align:center;margin-top:26px;font-family:'Pinyon Script',cursive;font-size:34px}
+h1{font-family:'Playfair Display',serif;font-size:clamp(36px,8vw,62px);text-align:center;line-height:1.1}
+.sub{text-align:center;max-width:560px;margin:10px auto 22px;opacity:.85}
+.tabs{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin-bottom:16px}
+.tab{padding:9px 15px;border-radius:99px;background:var(--card);color:var(--ink);border:1.5px solid var(--line)}
+.tab.on{background:var(--holo);background-size:200%;color:#241a33;box-shadow:0 6px 18px #b183ff55}
+.card{background:var(--card);backdrop-filter:blur(12px);border:1.5px solid var(--line);border-radius:28px;padding:22px;box-shadow:0 10px 34px #b183ff2e;margin-bottom:16px}
+h2,h3{font-family:'Playfair Display',serif;margin-bottom:10px}
+textarea{width:100%;min-height:78px;border-radius:16px;border:1.5px solid var(--line);background:#ffffff55;color:var(--ink);padding:10px 12px;font:500 15px Quicksand,sans-serif;resize:vertical}
+small.u{display:block;margin-top:6px;opacity:.75}
+.btn{padding:11px 22px;border-radius:99px;background:var(--holo);background-size:200%;margin:6px 6px 0 0;transition:.2s;box-shadow:0 6px 16px #7ab4ff55}
+.btn:hover{transform:translateY(-2px) scale(1.04)}
+.btn.g{background:var(--card);color:var(--ink);border:1.5px solid var(--line);box-shadow:none}
+.mid{text-align:center}
+.opts{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px}
+.opt{padding:14px;border-radius:20px;background:#ffffffaa;border:1.5px solid var(--line);transition:.2s}
+.opt:hover{background:var(--holo);transform:rotate(-1.5deg) scale(1.04)}
+.dots{display:flex;gap:6px;justify-content:center;margin-bottom:10px}.dots i{width:10px;height:10px;border-radius:50%;background:var(--line)}.dots i.on{background:#ff7ad0}
+.wh{position:relative;width:min(320px,80vw);margin:6px auto 14px}.wh canvas{width:100%;border-radius:50%;border:6px solid #fff;box-shadow:0 8px 30px #b183ff66}
+.ptr{position:absolute;top:-16px;left:50%;transform:translateX(-50%);font-size:30px;z-index:2;font-style:normal}
+.chips{display:flex;flex-wrap:wrap;gap:6px;justify-content:center;margin-top:12px}.chips span{padding:4px 11px;border-radius:99px;font-size:13px;color:#241a33}
+.lane{display:flex;align-items:center;gap:8px;margin:7px 0}.ln{flex:0 0 36%;font-size:13px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.track{flex:1;height:34px;border-radius:99px;background:repeating-linear-gradient(90deg,#8ad8ff55 0 12px,#8ad8ff22 12px 24px);position:relative}
+.dk{position:absolute;left:0;top:2px;font-size:26px;font-style:normal}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(92px,1fr));gap:10px;perspective:700px}
+.pc{height:128px;border:0;background:none;position:relative;cursor:pointer;transform-style:preserve-3d;transition:transform .7s,opacity .5s}
+.pc span{position:absolute;inset:0;display:grid;place-items:center;align-content:center;border-radius:18px;backface-visibility:hidden;font-size:40px;text-align:center;padding:6px;border:2px solid #fff}
+.pc .bk{background:var(--holo);background-size:300%;animation:sh 5s linear infinite}
+.pc .fr{background:#fffffff0;color:#241a33;transform:rotateY(180deg)}.pc small{font:700 12px Quicksand;display:block}
+.pc.open{transform:rotateY(180deg)}.pc.dim{opacity:.4}
+.coin{width:130px;height:130px;margin:10px auto;transform-style:preserve-3d;transition:transform 2s cubic-bezier(.2,.7,.2,1);perspective:600px;position:relative}
+.coin span{position:absolute;inset:0;border-radius:50%;display:grid;place-items:center;font-size:56px;backface-visibility:hidden;background:var(--holo);border:5px solid #fff;box-shadow:0 8px 24px #b183ff66}
+.coin span+span{transform:rotateY(180deg)}
+.cups{position:relative;height:130px;width:340px;max-width:100%;margin:6px auto}
+.cup{position:absolute;top:0;width:100px;height:120px;border:0;background:none;font-size:70px;cursor:pointer;transition:left .35s,transform .3s}
+.cup.up{transform:translateY(-34px)}.cup small{display:block;font:700 12px Quicksand;color:var(--ink)}
+.die{font-size:110px;text-align:center;line-height:1.1}
+.res{text-align:center;animation:pop .5s}@keyframes pop{from{transform:scale(.7);opacity:0}}
+.res .big{font-size:76px}.res h2{font-size:30px}
+a.btn{display:inline-block;text-decoration:none}
+.foot{text-align:center;font-size:13px;opacity:.75;max-width:600px;margin:20px auto 0}
+.float{position:fixed;font-size:30px;pointer-events:none;animation:fl 6s ease-in-out infinite;z-index:0}@keyframes fl{50%{transform:translateY(-16px) rotate(10deg)}}
+.wrap{position:relative;z-index:1}
+</style>
+</head>
+<body>
+<span class="float" style="top:12%;left:3%">🦄</span><span class="float" style="top:60%;right:3%;animation-delay:1.5s">🌈</span><span class="float" style="top:85%;left:8%;animation-delay:3s">💖</span>
+<div class="wrap">
+<div class="top"><a href="https://alessandratran.com/">← alessandratran.com</a><button id="lg" type="button"></button></div>
+<div class="kick holo" id="kick"></div>
+<h1 class="holo" id="h1"></h1>
+<p class="sub" id="sub"></p>
+<div class="tabs" id="tabs"></div>
+<div class="card" id="opt"><h3 id="oh"></h3><textarea id="mine"></textarea><small class="u" id="used"></small></div>
+<div class="card mid" id="stage"></div>
+<div class="card res" id="res" hidden></div>
+<p class="foot" id="foot"></p>
+</div>
+<script>
+var RAW="🛋️|Quán cà phê sách|Bookstore café|ci1\n🌿|Cà phê sân vườn|Garden café|co1\n🏙️|Cà phê view cao|Rooftop café|co1\n📚|Hiệu sách lớn|Big bookstore|ci0\n🌳|Công viên gần nhà|Nearby park|co0\n🌅|Ngắm hoàng hôn bên sông|Sunset by the river|co0\n💆‍♀️|Spa & massage|Spa day|ci2\n🌷|Vườn hoa theo mùa|Flower garden|co1\n🎧|Quán cà phê vinyl|Vinyl café|ci1\n🍵|Tiệm trà matcha|Matcha tea house|ci1\n🕯️|Xưởng làm nến thơm|Candle-making studio|ci2\n🐈|Cà phê mèo|Cat café|ci1\n🐶|Cà phê chó|Dog café|ci1\n📖|Thư viện|Public library|ci0\n🏖️|Biển Vũng Tàu|Vung Tau beach|co1\n🌊|Biển Cần Giờ|Can Gio beach|co1\n🏔️|Cuối tuần ở Đà Lạt|Weekend in Da Lat|co2\n🏝️|Phú Quốc|Phu Quoc island|co2\n🌄|Mũi Né|Mui Ne|co2\n🧺|Picnic ngoài trời|Picnic in the park|co0\n🎤|Karaoke|Karaoke|fi1\n🎳|Bowling|Bowling|fi1\n🕹️|Khu game arcade|Arcade|fi1\n🎬|Rạp chiếu phim|Movie theater|fi1\n🎡|Công viên giải trí|Amusement park|fo2\n🧩|Escape room|Escape room|fi2\n🎲|Quán board game|Board game café|fi1\n🛼|Trượt patin|Roller skating|fo1\n🔫|Laser tag|Laser tag|fi2\n📸|Photobooth|Photobooth|fi1\n🎪|Chợ đêm|Night market|fo1\n💃|Học thử lớp nhảy|Try a dance class|fi2\n🎻|Quán nhạc acoustic|Live acoustic café|fi1\n🍹|Bar rooftop|Rooftop bar|fo2\n🪩|Disco / club|Nightclub|fi2\n🎠|Đầm Sen|Dam Sen park|fo1\n🎨|Tô tượng / vẽ tranh|Paint-your-own workshop|fi1\n🏃‍♀️|Chạy bộ Tao Đàn|Jog at Tao Dan park|ao0\n🚴|Đạp xe Thủ Thiêm|Cycling in Thu Thiem|ao0\n🧘‍♀️|Lớp yoga|Yoga class|ai1\n🏊|Đi bơi|Swimming|ai1\n🥾|Đi bộ đường dài|Hiking|ao1\n⛰️|Leo núi Bà Đen|Climb Ba Den mountain|ao1\n🏸|Cầu lông|Badminton|ai1\n⚽|Đá bóng mini|Mini football|ao1\n🛹|Skatepark|Skatepark|ao0\n🏋️‍♀️|Phòng gym|Gym session|ai1\n🛶|Chèo kayak / SUP|Kayak or paddleboard|ao2\n🚶‍♀️|Dạo phố đi bộ Nguyễn Huệ|Stroll Nguyen Hue walking street|ao0\n🎾|Tennis|Tennis|ao1\n🧗‍♀️|Leo tường trong nhà|Indoor bouldering|ai2\n🏍️|Đi phượt ngoại ô|Motorbike day trip|ao1\n🪁|Thả diều|Kite flying|ao0\n🏓|Pickleball|Pickleball|ao1\n🏛️|Bảo tàng Chứng tích Chiến tranh|War Remnants Museum|ki1\n🖼️|Triển lãm nghệ thuật|Art exhibition|ki1\n🏯|Dinh Độc Lập|Independence Palace|ki1\n⛪|Nhà thờ Đức Bà & Bưu điện|Notre-Dame Cathedral & Post Office|ko0\n🛕|Đi chùa|Temple visit|ko0\n🏮|Chợ Lớn|Cholon Chinatown|ko0\n🎭|Xem kịch / nhạc kịch|Theater show|ki2\n🎶|Nhà hát Thành phố|Opera house show|ki2\n📷|Săn ảnh phố|Street photography walk|ko0\n🏺|Lớp làm gốm|Pottery class|ki2\n💐|Chợ hoa|Flower market|ko0\n🚤|Tour miền Tây|Mekong Delta day trip|ko2\n🍜|Phở / bún sáng|Pho or noodle breakfast|ei1\n🥖|Bánh mì Sài Gòn|Saigon banh mi|eo0\n🍢|Ăn vặt vỉa hè|Street food crawl|eo1\n🍣|Sushi|Sushi|ei2\n🍲|Lẩu|Hotpot|ei2\n🍰|Tiệm bánh ngọt|Dessert shop|ei1\n🍦|Kem / chè|Ice cream or chè|ei1\n🧋|Trà sữa|Bubble tea|ei1\n🍕|Pizza|Pizza|ei1\n🥩|Đồ nướng|Korean BBQ|ei2\n🦞|Hải sản|Seafood|eo2\n🍷|Wine bar|Wine bar|ei2\n🥐|Brunch|Brunch spot|ei2\n🥗|Ăn healthy|Healthy bowl|ei1\n🛍️|Trung tâm thương mại|Shopping mall|si1\n👗|Tiệm đồ si / vintage|Thrift & vintage store|si1\n🏪|Chợ Bến Thành|Ben Thanh market|so1\n👠|Phố thời trang|Fashion street|so1\n💄|Mua mỹ phẩm|Beauty store|si1\n🕶️|Local brand|Local brand stores|si1\n📓|Cửa hàng văn phòng phẩm|Stationery shop|si1\n🪞|Phố đồ cổ|Antique street|so1\n🎁|Cửa hàng quà tặng|Gift shop|si1\n🧸|Cửa hàng đồ chơi|Toy store|si1";
+var ITEMS=RAW.split("\n").map(function(l){var p=l.split("|");return{e:p[0],vi:p[1],en:p[2],t:p[3]}});
+var T={en:{kick:"time to pick a spot ✨",h1:"Where to go today? 🧭",sub:"Take the quiz, spin the wheel, race the ducks, draw lots, or write your own options and let fate decide.",quiz:"🧠 Quiz",wheel:"🎡 Wheel",duck:"🦆 Duck race",draw:"🧧 Draw lots",coin:"🪙 Coin",cards:"🃏 Cards",shell:"🥤 Shell game",dice:"🎲 Dice",oh:"✏️ Your own options",ph:"One option per line (2 or more lines and we’ll use yours instead of ours)…",u1:"Using your {n} options 💖",u0:"Using random picks from our {n} ideas 🌈",spin:"🌀 Spin!",race:"🏁 Start race!",flip:"🪙 Flip!",roll:"🎲 Roll!",shuf:"🔀 Shuffle!",ns:"✨ New set",again:"🔁 Try again",maps:"📍 Open in Google Maps",fate:"🔮 Fate says…",pick:"👆 Pick one!",cup:"👆 Shuffle, then pick a cup!",heads:"👑 Heads",tails:"🌸 Tails",foot:"The ideas are general suggestions. Open Google Maps to see the newest ratings, hours and distance near you.",q:["💭 What’s your mood?","🏠 Inside or outside?","💰 What’s the budget?"],o:[["🌿","Chill"],["🎉","Fun"],["💪","Active"],["🏛️","Culture"],["🍜","Foodie"],["🛍️","Shopping"],["🎁","Surprise me"],["🏠","Indoors"],["🌤️","Outdoors"],["🤷","Either"],["🆓","Free"],["💸","Cheap"],["💎","Treat myself"]]},
+vi:{kick:"đến giờ chọn chỗ chơi rồi ✨",h1:"Hôm nay đi đâu? 🧭",sub:"Làm quiz, quay vòng quay, xem vịt đua, bốc thăm, hoặc tự viết lựa chọn của bạn rồi để số phận quyết định.",quiz:"🧠 Hỏi đáp",wheel:"🎡 Vòng quay",duck:"🦆 Đua vịt",draw:"🧧 Bốc thăm",coin:"🪙 Tung xu",cards:"🃏 Rút bài",shell:"🥤 Tráo cốc",dice:"🎲 Xúc xắc",oh:"✏️ Lựa chọn của bạn",ph:"Mỗi dòng một lựa chọn (từ 2 dòng trở lên sẽ dùng danh sách của bạn)…",u1:"Đang dùng {n} lựa chọn của bạn 💖",u0:"Đang chọn ngẫu nhiên từ {n} gợi ý có sẵn 🌈",spin:"🌀 Quay!",race:"🏁 Bắt đầu đua!",flip:"🪙 Tung!",roll:"🎲 Gieo!",shuf:"🔀 Tráo!",ns:"✨ Bộ mới",again:"🔁 Thử lại",maps:"📍 Mở Google Maps",fate:"🔮 Số phận chọn…",pick:"👆 Chọn một nhé!",cup:"👆 Tráo xong rồi chọn một cốc!",heads:"👑 Mặt ngửa",tails:"🌸 Mặt sấp",foot:"Các gợi ý chỉ mang tính tham khảo. Hãy mở Google Maps để xem đánh giá, giờ mở cửa và khoảng cách mới nhất gần bạn.",q:["💭 Hôm nay bạn thấy thế nào?","🏠 Trong nhà hay ngoài trời?","💰 Ngân sách bao nhiêu?"],o:[["🌿","Thư giãn"],["🎉","Vui chơi"],["💪","Vận động"],["🏛️","Văn hóa"],["🍜","Ăn uống"],["🛍️","Mua sắm"],["🎁","Bất ngờ đi"],["🏠","Trong nhà"],["🌤️","Ngoài trời"],["🤷","Sao cũng được"],["🆓","Miễn phí"],["💸","Rẻ rẻ"],["💎","Chiều bản thân"]]}};
+var L="en",tab="quiz",S={},qi=0,ans=[],rot=0,turns=0,last=null;
+var $=function(s){return document.querySelector(s)},t=function(k){return T[L][k]},nm=function(i){return i[L]};
+function shuf(a){a=a.slice();for(var i=a.length-1;i>0;i--){var j=Math.floor(Math.random()*(i+1)),x=a[i];a[i]=a[j];a[j]=x}return a}
+function custom(){var v=$("#mine").value.split("\n").map(function(s){return s.trim()}).filter(Boolean);return v.length>=2?v.slice(0,30).map(function(s){return{e:"✨",vi:s,en:s,c:1}}):null}
+function getSet(n){var c=custom();return c?shuf(c).slice(0,n):shuf(ITEMS).slice(0,n)}
+function col(i){return"hsl("+(i*53%360)+",90%,82%)"}
+function res(it,note){var r=$("#res"),q=it.c?it.en:it.en+" near me";r.hidden=false;
+r.innerHTML='<div class="holo" style="font-family:Pinyon Script,cursive;font-size:30px">'+t("fate")+'</div><div class="big">'+it.e+'</div><h2>'+nm(it)+'</h2><a class="btn" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query='+encodeURIComponent(q)+'">'+t("maps")+'</a><button class="btn g" id="rr">'+t("again")+'</button>';
+$("#rr").onclick=function(){r.hidden=true;S[tab]=null;if(tab==="quiz"){qi=0;ans=[]}render()};r.scrollIntoView({behavior:"smooth",block:"nearest"})}
+function setTabs(){$("#tabs").innerHTML=["quiz","wheel","duck","draw","coin","cards","shell","dice"].map(function(k){return'<button class="tab'+(k===tab?" on":"")+'" data-k="'+k+'">'+t(k)+'</button>'}).join("");
+document.querySelectorAll(".tab").forEach(function(b){b.onclick=function(){tab=b.dataset.k;$("#res").hidden=true;render()}})}
+function ns(){return'<button class="btn g" id="ns">'+t("ns")+'</button>'}
+function bindNs(){var b=$("#ns");if(b)b.onclick=function(){S[tab]=null;$("#res").hidden=true;render()}}
+function rQuiz(){var h="";if(qi<3){var off=[0,7,10][qi],n=[7,3,3][qi];h='<div class="dots">'+[0,1,2].map(function(i){return'<i class="'+(i<=qi?"on":"")+'"></i>'}).join("")+'</div><h3>'+t("q")[qi]+'</h3><div class="opts">'+t("o").slice(off,off+n).map(function(o,i){return'<button class="opt" data-i="'+i+'">'+o[0]+" "+o[1]+'</button>'}).join("")+'</div>';
+$("#stage").innerHTML=h;document.querySelectorAll(".opt").forEach(function(b){b.onclick=function(){ans[qi]=+b.dataset.i;qi++;if(qi===3)done();else rQuiz()}})}
+else{$("#stage").innerHTML='<h3>🎉 '+t("fate")+'</h3><button class="btn" id="qa">'+t("again")+'</button>';$("#qa").onclick=function(){qi=0;ans=[];$("#res").hidden=true;rQuiz()}}}
+function done(){var m="cfaeks".charAt(0),mood=["c","f","a","k","e","s",""][ans[0]],pl=["i","o",""][ans[1]],bd=ans[2],f=function(rp){return ITEMS.filter(function(x){return(!mood||x.t[0]===mood)&&(!rp&&pl?x.t[1]===pl:true)&&+x.t[2]<=bd})},p=f(false);if(!p.length)p=f(true);if(!p.length)p=ITEMS;rQuiz();res(shuf(p)[0])}
+function rWheel(){var s=S.wheel||(S.wheel=getSet(12)),n=s.length;
+$("#stage").innerHTML='<div class="wh"><i class="ptr">🔻</i><canvas id="cv" width="360" height="360"></canvas></div><button class="btn" id="go">'+t("spin")+'</button>'+ns()+'<div class="chips">'+s.map(function(it,i){return'<span style="background:'+col(i)+'">'+it.e+" "+nm(it)+'</span>'}).join("")+'</div>';
+var cv=$("#cv"),c=cv.getContext("2d"),a=2*Math.PI/n;
+s.forEach(function(it,i){c.beginPath();c.moveTo(180,180);c.arc(180,180,180,-Math.PI/2+i*a,-Math.PI/2+(i+1)*a);c.fillStyle=col(i);c.fill();c.save();c.translate(180,180);c.rotate(-Math.PI/2+(i+.5)*a);c.font="30px serif";c.textAlign="right";c.fillText(it.e,150,10);c.restore()});
+cv.style.transform="rotate("+rot+"deg)";
+$("#go").onclick=function(){var go=this;go.disabled=true;rot+=1440+Math.random()*360;cv.style.transition="transform 4.5s cubic-bezier(.15,.8,.1,1)";cv.style.transform="rotate("+rot+"deg)";
+setTimeout(function(){go.disabled=false;var i=Math.floor(((360-rot%360)%360)/(360/n));res(s[i])},4700)};bindNs()}
+function rDuck(){var s=S.duck||(S.duck=getSet(6));
+$("#stage").innerHTML=s.map(function(it){return'<div class="lane"><span class="ln">'+it.e+" "+nm(it)+'</span><div class="track"><i class="dk">🦆</i></div></div>'}).join("")+'<button class="btn" id="go">'+t("race")+'</button>'+ns();
+$("#go").onclick=function(){var go=this;go.disabled=true,d=s.map(function(){return 3+Math.random()*3.5}),ks=document.querySelectorAll(".dk");
+ks.forEach(function(k){k.style.transition="none";k.style.transform="none"});void document.body.offsetWidth;
+ks.forEach(function(k,i){k.style.transition="transform "+d[i]+"s ease-in-out";k.style.transform="translateX("+(k.parentNode.clientWidth-36)+"px)"});
+setTimeout(function(){go.disabled=false;res(s[d.indexOf(Math.min.apply(0,d))])},Math.max.apply(0,d)*1000+400)};bindNs()}
+function rPick(k,n,back){var s=S[k]||(S[k]=getSet(n));
+$("#stage").innerHTML='<h3>'+t("pick")+'</h3><div class="cards">'+s.map(function(it,i){return'<button class="pc" data-i="'+i+'"><span class="bk">'+back+'</span><span class="fr">'+it.e+'<small>'+nm(it)+'</small></span></button>'}).join("")+'</div>'+ns();
+document.querySelectorAll(".pc").forEach(function(b){b.onclick=function(){if(document.querySelector(".pc.open"))return;b.classList.add("open");document.querySelectorAll(".pc:not(.open)").forEach(function(x){x.classList.add("dim")});setTimeout(function(){res(s[+b.dataset.i])},800)}});bindNs()}
+function rCoin(){var s=S.coin||(S.coin=getSet(2));
+$("#stage").innerHTML='<div class="coin" id="cn"><span>👑</span><span>🌸</span></div><p>'+t("heads")+': <b>'+s[0].e+" "+nm(s[0])+'</b><br>'+t("tails")+': <b>'+s[1].e+" "+nm(s[1])+'</b></p><button class="btn" id="go">'+t("flip")+'</button>'+ns();
+var cn=$("#cn");cn.style.transform="rotateY("+turns+"deg)";
+$("#go").onclick=function(){var go=this,tl=Math.random()<.5;go.disabled=true;turns=Math.ceil(turns/360)*360+1440+(tl?180:0);cn.style.transform="rotateY("+turns+"deg)";setTimeout(function(){go.disabled=false;res(s[tl?1:0])},2100)};bindNs()}
+function rShell(){var s=S.shell||(S.shell=getSet(3)),pos=[0,1,2],busy=false;
+$("#stage").innerHTML='<h3>'+t("cup")+'</h3><div class="cups">'+s.map(function(it,i){return'<button class="cup" data-i="'+i+'" style="left:'+i*110+'px">🥤</button>'}).join("")+'</div><button class="btn" id="go">'+t("shuf")+'</button>'+ns();
+var cs=document.querySelectorAll(".cup");
+$("#go").onclick=function(){if(busy)return;busy=true;var k=0,iv=setInterval(function(){var a=Math.floor(Math.random()*3),b=(a+1+Math.floor(Math.random()*2))%3,x=pos[a];pos[a]=pos[b];pos[b]=x;cs.forEach(function(c,i){c.style.left=pos[i]*110+"px"});if(++k>8){clearInterval(iv);busy=false}},420)};
+cs.forEach(function(c){c.onclick=function(){if(busy)return;c.classList.add("up");setTimeout(function(){res(s[+c.dataset.i])},700)}});bindNs()}
+function rDice(){var s=S.dice||(S.dice=getSet(6)),F="⚀⚁⚂⚃⚄⚅";
+$("#stage").innerHTML='<div class="die" id="dd">🎲</div><div class="chips">'+s.map(function(it,i){return'<span style="background:'+col(i)+'">'+F[i]+" "+it.e+" "+nm(it)+'</span>'}).join("")+'</div><button class="btn" id="go">'+t("roll")+'</button>'+ns();
+$("#go").onclick=function(){var go=this,k=0;go.disabled=true;var iv=setInterval(function(){$("#dd").textContent=F[Math.floor(Math.random()*6)];if(++k>14){clearInterval(iv);var r=Math.floor(Math.random()*6);$("#dd").textContent=F[r];go.disabled=false;setTimeout(function(){res(s[r])},400)}},90)};bindNs()}
+function render(){setTabs();({quiz:rQuiz,wheel:rWheel,duck:rDuck,draw:function(){rPick("draw",8,"🧧")},coin:rCoin,cards:function(){rPick("cards",5,"🃏")},shell:rShell,dice:rDice})[tab]();upd()}
+function upd(){var c=custom();$("#used").textContent=c?t("u1").replace("{n}",Math.min(c.length,30)):t("u0").replace("{n}",ITEMS.length)}
+function lang(l){L=l;document.documentElement.lang=l;$("#kick").textContent=t("kick");$("#h1").textContent=t("h1");$("#sub").textContent=t("sub");$("#oh").textContent=t("oh");$("#mine").placeholder=t("ph");$("#foot").textContent=t("foot");$("#lg").textContent=l==="en"?"🌐 Tiếng Việt":"🌐 English";document.title=l==="en"?"Where to go today? 🧭 · Hôm nay đi đâu?":"Hôm nay đi đâu? 🧭 · Where to go today?";if(!$("#res").hidden)$("#res").hidden=true;render()}
+$("#lg").onclick=function(){var n=L==="en"?"vi":"en";lang(n);try{localStorage.setItem("lang",n)}catch(e){}};
+$("#mine").oninput=function(){S={};if(tab!=="quiz"){$("#res").hidden=true;render()}else upd()};
+var s0="en";try{s0=localStorage.getItem("lang")||"en"}catch(e){}
+lang(s0==="vi"?"vi":"en");
+</script>
+</body>
+</html>
