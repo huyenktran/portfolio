@@ -1,0 +1,706 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<title>Alessandra Tran Recipe</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,800&family=Be+Vietnam+Pro:wght@400;500;700&display=swap">
+<style>
+/* Bố cục: header và footer giống trang Dự án; thân trang là blog hai cột (bài + thanh bên) với ô tìm kiếm lớn ở đầu; chủ blog có thanh công cụ riêng */
+:root{
+  --bg:#F2F2F6; --surface:#FFFFFF; --ink:#16141F; --muted:#5C5A6B; --line:#DAD9E3; --soft:#E8E8F0;
+  --accent:#4E7F2B; --accent-ink:#FFFFFF; --hot:#D52F14; --shadow:#16141F; --mark:#FBE48A;
+  --f-display:'Bricolage Grotesque','Be Vietnam Pro',system-ui,sans-serif;
+  --f-body:'Be Vietnam Pro',system-ui,-apple-system,'Segoe UI',Roboto,sans-serif;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#101018; --surface:#1A1A25; --ink:#F1F0F7; --muted:#A3A1B5; --line:#2E2D3D; --soft:#232331;
+    --accent:#9BD36B; --accent-ink:#10200A; --hot:#FF6B4A; --shadow:#000000; --mark:#5E5120; color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#101018; --surface:#1A1A25; --ink:#F1F0F7; --muted:#A3A1B5; --line:#2E2D3D; --soft:#232331;
+  --accent:#9BD36B; --accent-ink:#10200A; --hot:#FF6B4A; --shadow:#000000; --mark:#5E5120; color-scheme:dark;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--ink);font-family:var(--f-body);font-size:16px;line-height:1.55;
+  padding-left:max(16px, env(safe-area-inset-left, 0px));padding-right:max(16px, env(safe-area-inset-right, 0px));padding-block:0}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top, 0px);z-index:30;background:var(--bg)}
+.wrap{max-width:1040px;margin:0 auto;min-width:0;padding-bottom:24px}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--hot);outline-offset:2px}
+button,input,select,textarea{font-family:var(--f-body);color:inherit}
+mark{background:var(--mark);color:inherit;border-radius:3px;padding:0 1px}
+[hidden]{display:none!important}
+
+/* Header (giống trang Dự án) */
+.head{position:sticky;top:env(safe-area-inset-top, 0px);z-index:20;background:var(--bg);border-bottom:1px solid var(--line);
+  margin-inline:calc(-1 * max(16px, env(safe-area-inset-left, 0px)));padding-inline:max(16px, env(safe-area-inset-left, 0px))}
+.head-in{max-width:1040px;margin:0 auto;display:flex;flex-wrap:wrap;align-items:center;gap:8px 20px;padding-block:10px}
+.back{display:inline-flex;align-items:center;gap:8px;font:700 14px var(--f-body);text-decoration:none;border:2px solid var(--ink);border-radius:999px;padding:8px 16px;min-height:42px;background:var(--surface);box-shadow:0 3px 0 var(--shadow);white-space:nowrap}
+.back:hover{background:var(--soft)}
+.back:active{transform:translateY(2px);box-shadow:0 1px 0 var(--shadow)}
+.nav{display:flex;gap:2px;overflow-x:auto;min-width:0;flex:1 1 320px;scrollbar-width:none;margin:0;padding:0;list-style:none}
+.nav::-webkit-scrollbar{display:none}
+.nav a{display:block;white-space:nowrap;text-decoration:none;font:500 14px var(--f-body);color:var(--muted);padding:10px 12px;border-radius:999px}
+.nav a:hover{color:var(--ink);background:var(--soft)}
+.nav a[aria-current="page"]{background:var(--ink);color:var(--bg)}
+
+/* Nút */
+.btn{border:2px solid var(--ink);background:var(--surface);color:var(--ink);font:700 15px var(--f-body);padding:10px 18px;border-radius:999px;cursor:pointer;min-height:44px;text-decoration:none;display:inline-flex;align-items:center;justify-content:center;gap:8px;box-shadow:0 3px 0 var(--shadow);text-align:center}
+.btn:hover{background:var(--soft)}
+.btn:active{transform:translateY(2px);box-shadow:0 1px 0 var(--shadow)}
+.btn.primary{background:var(--accent);color:var(--accent-ink)}
+.btn.primary:hover{filter:brightness(1.08)}
+.btn.danger{background:var(--hot);color:#fff}
+.btn:disabled{opacity:.55;cursor:default;transform:none}
+.btn.sm{min-height:38px;padding:6px 14px;font-size:14px}
+.link{background:none;border:0;color:var(--muted);font:500 14px var(--f-body);text-decoration:underline;text-underline-offset:3px;cursor:pointer;padding:10px 4px;min-height:40px}
+.link:hover{color:var(--ink)}
+
+/* Thanh chủ blog */
+.owner{display:flex;flex-wrap:wrap;align-items:center;gap:8px 12px;margin-top:16px;padding:10px 14px;border:2px dashed var(--accent);border-radius:16px;font-size:14px}
+.owner b{font:700 12px var(--f-body);letter-spacing:.08em;text-transform:uppercase;color:var(--accent);margin-right:auto}
+
+/* Đầu trang */
+.hero{padding-block:clamp(28px,6vw,60px) 20px}
+.crumb{margin:0 0 12px;font:700 12px var(--f-body);letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+.crumb a{text-decoration:none}.crumb a:hover{text-decoration:underline}
+h1{margin:0;font:800 clamp(52px,13vw,120px)/.92 var(--f-display);letter-spacing:-.04em}
+h1 em{font-style:normal;color:var(--accent)}
+.lede{margin:16px 0 0;max-width:56ch;color:var(--muted);font-size:17px}
+.search{position:relative;margin-top:24px;max-width:640px}
+.search input{width:100%;border:2px solid var(--ink);background:var(--surface);border-radius:999px;padding:14px 48px 14px 22px;font:500 17px var(--f-body);min-height:56px;box-shadow:0 4px 0 var(--shadow)}
+.search input::placeholder{color:var(--muted)}
+.search button{position:absolute;right:8px;top:50%;transform:translateY(-50%);width:40px;height:40px;border-radius:50%;border:0;background:var(--soft);cursor:pointer;font-size:18px}
+.kbd{position:absolute;right:20px;top:50%;transform:translateY(-50%);font:700 12px var(--f-body);color:var(--muted);border:1.5px solid var(--line);border-radius:6px;padding:2px 8px;pointer-events:none}
+.search input:not(:placeholder-shown)~.kbd{display:none}
+.meta-line{margin:12px 0 0;font-size:14px;color:var(--muted)}
+
+/* Bố cục blog */
+.cols{display:grid;grid-template-columns:minmax(0,1fr) 280px;gap:32px;margin-top:20px;align-items:start}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:18px}
+.chip{border:2px solid var(--line);background:var(--surface);border-radius:999px;padding:7px 14px;font:500 14px var(--f-body);cursor:pointer;min-height:40px}
+.chip:hover{border-color:var(--ink)}
+.chip[aria-pressed="true"]{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+.chip i{font-style:normal;opacity:.65;margin-left:6px;font-variant-numeric:tabular-nums}
+.posts{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,250px),1fr));gap:16px;padding:0;margin:0;list-style:none}
+.pc{background:var(--surface);border:2px solid var(--ink);border-radius:20px;overflow:hidden;display:flex;flex-direction:column;min-width:0;box-shadow:0 5px 0 var(--shadow);transition:transform .15s,box-shadow .15s}
+.pc:hover{transform:translateY(-3px);box-shadow:0 8px 0 var(--shadow)}
+.pc a.cover{display:block;aspect-ratio:4/3;background:var(--soft);position:relative;overflow:hidden;border-bottom:2px solid var(--ink)}
+.pc a.cover img{width:100%;height:100%;object-fit:cover;display:block}
+.ph{position:absolute;inset:0;display:grid;place-items:center;font:800 96px/1 var(--f-display);color:var(--accent);opacity:.9;letter-spacing:-.04em}
+.pc-body{padding:16px 18px 18px;display:flex;flex-direction:column;gap:6px;flex:1;min-width:0}
+.pc-cat{font:700 12px var(--f-body);letter-spacing:.08em;text-transform:uppercase;color:var(--muted);display:flex;gap:8px;flex-wrap:wrap;align-items:center}
+.badge{font:700 11px var(--f-body);letter-spacing:.04em;text-transform:none;background:var(--soft);border-radius:999px;padding:2px 8px;color:var(--muted)}
+.badge.ok{background:var(--accent);color:var(--accent-ink)}
+.badge.warn{background:var(--hot);color:#fff}
+.pc h2{margin:0;font:800 24px/1.1 var(--f-display);letter-spacing:-.02em;text-wrap:balance;overflow-wrap:anywhere}
+.pc h2 a{text-decoration:none}
+.pc h2 a:hover{text-decoration:underline;text-underline-offset:3px}
+.pc p{margin:0;color:var(--muted);font-size:14px}
+.pc .hit{font-size:13px;color:var(--ink);background:var(--soft);border-radius:10px;padding:6px 10px}
+.pc-foot{margin-top:auto;padding-top:8px;display:flex;flex-wrap:wrap;gap:4px 14px;font-size:13px;color:var(--muted)}
+.empty{padding:36px 20px;border:2px dashed var(--line);border-radius:20px;color:var(--muted);text-align:center}
+.empty h3{margin:0 0 6px;font:800 22px var(--f-display);color:var(--ink)}
+.empty .btn{margin-top:14px}
+
+/* Thanh bên */
+.side{display:grid;gap:16px;min-width:0}
+.w{background:var(--surface);border:1px solid var(--line);border-radius:18px;padding:16px 18px;min-width:0}
+.w h3{margin:0 0 10px;font:700 12px var(--f-body);letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+.w ul{margin:0;padding:0;list-style:none;display:grid;gap:2px}
+.w li button,.w li a{width:100%;display:flex;justify-content:space-between;gap:10px;text-align:left;background:none;border:0;padding:7px 0;cursor:pointer;font:500 15px var(--f-body);text-decoration:none;color:var(--ink);min-height:36px;overflow-wrap:anywhere}
+.w li button:hover,.w li a:hover{text-decoration:underline;text-underline-offset:3px}
+.w li i{font-style:normal;color:var(--muted);font-variant-numeric:tabular-nums}
+.tagcloud{display:flex;flex-wrap:wrap;gap:6px}
+.tg{border:1.5px solid var(--line);background:none;border-radius:999px;padding:4px 12px;font:500 13px var(--f-body);cursor:pointer;min-height:34px}
+.tg:hover,.tg[aria-pressed="true"]{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+.about{font-size:14px;color:var(--muted);margin:0}
+
+/* Bài viết */
+.art{max-width:760px;margin:0 auto;padding-top:24px}
+.art-nav{display:flex;flex-wrap:wrap;gap:8px;justify-content:space-between;align-items:center}
+.art h1{font:800 clamp(34px,8vw,64px)/1 var(--f-display);letter-spacing:-.03em;margin:18px 0 0;text-wrap:balance;overflow-wrap:anywhere}
+.art .sum{font-size:18px;color:var(--muted);margin:14px 0 0}
+.facts{display:grid;grid-template-columns:repeat(auto-fit,minmax(110px,1fr));gap:1px;background:var(--line);border:1px solid var(--line);border-radius:16px;overflow:hidden;margin:22px 0}
+.facts div{background:var(--surface);padding:12px 14px}
+.facts dt{font:700 11px var(--f-body);letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+.facts dd{margin:2px 0 0;font:700 18px var(--f-display)}
+.hero-img{display:block;width:100%;aspect-ratio:3/2;object-fit:cover;border:2px solid var(--ink);border-radius:20px;margin-top:22px;background:var(--soft)}
+.art h2{font:800 28px/1.1 var(--f-display);letter-spacing:-.02em;margin:34px 0 12px}
+.ing{background:var(--surface);border:2px solid var(--ink);border-radius:20px;padding:6px 20px 16px;box-shadow:0 5px 0 var(--shadow)}
+.ing h2{margin-top:18px}
+.ing h4{margin:16px 0 4px;font:700 12px var(--f-body);letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+.ing ul{list-style:none;margin:0;padding:0}
+.ing li label{display:flex;gap:12px;align-items:flex-start;padding:8px 0;border-bottom:1px solid var(--line);cursor:pointer;overflow-wrap:anywhere}
+.ing li:last-child label{border-bottom:0}
+.ing input{width:20px;height:20px;margin:2px 0 0;accent-color:var(--accent);flex:none}
+.ing input:checked+span{text-decoration:line-through;color:var(--muted)}
+.ing-tools{display:flex;gap:8px;flex-wrap:wrap;margin-top:10px}
+.steps{list-style:none;margin:0;padding:0;display:grid;gap:14px;counter-reset:s}
+.steps li{counter-increment:s;display:grid;grid-template-columns:44px minmax(0,1fr);gap:14px;align-items:start}
+.steps li::before{content:counter(s);width:44px;height:44px;border-radius:50%;background:var(--accent);color:var(--accent-ink);display:grid;place-items:center;font:800 20px var(--f-display)}
+.steps li p{margin:0;padding-top:8px;overflow-wrap:anywhere}
+.note{border-radius:16px;background:var(--soft);padding:14px 18px;margin-top:28px;overflow-wrap:anywhere}
+.note b{display:block;font:700 12px var(--f-body);letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin-bottom:4px}
+.art .tagcloud{margin-top:26px}
+.pn{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,240px),1fr));gap:12px;margin-top:36px}
+.pn a{border:2px solid var(--line);border-radius:16px;padding:12px 16px;text-decoration:none;display:block;min-width:0;overflow-wrap:anywhere}
+.pn a:hover{border-color:var(--ink)}
+.pn small{display:block;font:700 11px var(--f-body);letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+.pn b{font:800 18px/1.2 var(--f-display)}
+
+/* Trình soạn thảo */
+.ed{max-width:760px;margin:0 auto;padding-top:24px}
+.ed h1{font-size:clamp(34px,8vw,56px);margin:10px 0 6px}
+.ed .hint{color:var(--muted);margin:0 0 20px;font-size:15px}
+.form{display:grid;gap:18px}
+.fld{display:grid;gap:6px;min-width:0}
+.fld>label,.fld>span.l{font:700 14px var(--f-body)}
+.fld small{color:var(--muted);font-size:13px;font-weight:400}
+.fld input[type=text],.fld input[type=number],.fld select,.fld textarea{width:100%;border:2px solid var(--line);background:var(--surface);border-radius:14px;padding:11px 14px;font:400 16px var(--f-body);min-height:46px}
+.fld textarea{min-height:140px;resize:vertical;line-height:1.5}
+.fld input:focus,.fld select:focus,.fld textarea:focus{border-color:var(--ink);outline:none}
+.row{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,160px),1fr));gap:14px}
+.cover-box{display:flex;flex-wrap:wrap;gap:14px;align-items:center}
+.cover-box img{width:160px;aspect-ratio:4/3;object-fit:cover;border-radius:14px;border:2px solid var(--ink);background:var(--soft)}
+.cover-box .none{width:160px;aspect-ratio:4/3;border-radius:14px;border:2px dashed var(--line);display:grid;place-items:center;color:var(--muted);font-size:13px;text-align:center}
+.bar{display:flex;flex-wrap:wrap;gap:10px;align-items:center;position:sticky;bottom:0;background:var(--bg);padding:12px 0 max(12px, env(safe-area-inset-bottom, 0px));border-top:1px solid var(--line);margin-top:6px}
+.status{font-size:14px;color:var(--muted);min-height:1.4em}
+.status.err{color:var(--hot)}
+.status.ok{color:var(--accent)}
+
+/* Quản lý */
+.mg{max-width:900px;margin:0 auto;padding-top:24px}
+.mg h1{font-size:clamp(34px,8vw,56px);margin:10px 0 16px}
+.mrow{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:8px 16px;align-items:center;padding:14px 0;border-bottom:1px solid var(--line)}
+.mrow b{font:700 17px/1.25 var(--f-body);overflow-wrap:anywhere}
+.mrow small{display:block;color:var(--muted);font-size:13px;margin-top:2px}
+.mact{display:flex;flex-wrap:wrap;gap:8px}
+
+/* Footer (giống trang Dự án) */
+.foot{margin-top:64px;border-top:1px solid var(--line);margin-inline:calc(-1 * max(16px, env(safe-area-inset-left, 0px)));padding-inline:max(16px, env(safe-area-inset-left, 0px));padding-bottom:max(28px, env(safe-area-inset-bottom, 0px));background:var(--surface)}
+.foot-in{max-width:1040px;margin:0 auto;padding-top:36px;display:grid;grid-template-columns:minmax(0,1.4fr) repeat(2,minmax(0,1fr));gap:28px}
+.foot h4{margin:0 0 10px;font:700 12px var(--f-body);letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+.foot ul{margin:0;padding:0;list-style:none;display:grid;gap:2px}
+.foot a,.foot .lnk{font:500 15px var(--f-body);text-decoration:none;color:var(--ink);background:none;border:0;padding:6px 0;cursor:pointer;text-align:left;min-height:36px;display:inline-block}
+.foot a:hover,.foot .lnk:hover{text-decoration:underline;text-underline-offset:3px}
+.brand{font:800 24px var(--f-display);letter-spacing:-.02em;margin:0}
+.foot-desc{margin:8px 0 0;color:var(--muted);font-size:14px;max-width:34ch}
+.legal{max-width:1040px;margin:28px auto 0;padding-top:18px;border-top:1px solid var(--line);display:flex;flex-wrap:wrap;gap:8px 24px;justify-content:space-between;font-size:13px;color:var(--muted)}
+.legal .links{display:flex;flex-wrap:wrap;gap:4px 20px}
+.legal .lnk{font:500 13px var(--f-body);color:var(--ink);text-decoration:underline;text-underline-offset:3px;min-height:36px;padding:6px 0;background:none;border:0;cursor:pointer}
+
+/* Popup */
+.modal{position:fixed;inset:0;z-index:50;display:grid;place-items:center;padding:16px;background:rgba(10,10,18,.62)}
+.mbox{background:var(--surface);color:var(--ink);border:2px solid var(--ink);border-radius:20px;width:min(100%,640px);max-height:min(86vh,720px);display:flex;flex-direction:column;box-shadow:0 8px 0 var(--shadow);min-width:0}
+.mhead{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:18px 20px;border-bottom:1px solid var(--line)}
+.mhead h2{margin:0;font:800 24px var(--f-display);letter-spacing:-.02em}
+.x{border:2px solid var(--ink);background:var(--surface);border-radius:999px;width:44px;height:44px;cursor:pointer;font-size:20px;line-height:1;flex:none}
+.x:hover{background:var(--soft)}
+.mbody{padding:18px 20px 24px;overflow-y:auto;font-size:15px}
+.mbody h3{margin:22px 0 6px;font:700 16px var(--f-body)}
+.mbody h3:first-of-type{margin-top:6px}
+.mbody p,.mbody li{margin:0 0 8px;color:var(--muted)}
+.mbody ul{padding-left:20px;margin:0 0 8px}
+.mbody .upd{font-size:13px}
+
+@media (max-width:820px){
+  .cols{grid-template-columns:minmax(0,1fr)}
+  .foot-in{grid-template-columns:1fr 1fr}
+  .foot-in>div:first-child{grid-column:1/-1}
+}
+@media (max-width:520px){.mrow{grid-template-columns:minmax(0,1fr)}}
+@media (prefers-reduced-motion: reduce){html{scroll-behavior:auto}.pc{transition:none}}
+</style>
+
+<header class="head">
+  <div class="head-in">
+    <a class="back" href="https://www.alessandratran.com/" target="_blank" rel="noopener"><span aria-hidden="true">←</span> Về trang chủ</a>
+    <nav aria-label="Các mục của trang"><ul class="nav">
+      <li><a href="https://www.alessandratran.com/#portfolio" target="_blank" rel="noopener">Portfolio</a></li>
+      <li><a href="https://www.alessandratran.com/#blog" target="_blank" rel="noopener">Blog</a></li>
+      <li><a href="https://www.alessandratran.com/#review" target="_blank" rel="noopener">Review</a></li>
+      <li><a href="#" id="nav-recipe" aria-current="page">Recipe</a></li>
+      <li><a href="https://www.alessandratran.com/#fashion" target="_blank" rel="noopener">Thời trang</a></li>
+      <li><a href="https://www.alessandratran.com/#matcha" target="_blank" rel="noopener">Matcha</a></li>
+      <li><a href="https://www.alessandratran.com/#learning" target="_blank" rel="noopener">Đang học</a></li>
+      <li><a href="https://www.alessandratran.com/#achievement" target="_blank" rel="noopener">Thành tựu</a></li>
+    </ul></nav>
+  </div>
+</header>
+
+<main class="wrap">
+  <div class="owner" id="owner" hidden>
+    <b>Chủ blog</b>
+    <a class="btn sm primary" href="#editor">+ Viết bài mới</a>
+    <a class="btn sm" href="#manage">Quản lý bài viết</a>
+  </div>
+
+  <!-- Danh sách -->
+  <section id="v-list">
+    <div class="hero">
+      <p class="crumb"><a href="https://www.alessandratran.com/" target="_blank" rel="noopener">alessandratran.com</a> / recipe</p>
+      <h1>Recipe<em>.</em></h1>
+      <p class="lede">Những công thức mình đã nấu, ghi lại nguyên liệu, các bước và ghi chú sau mỗi lần làm. Gõ tên món, nguyên liệu hoặc từ khóa để tìm trong tất cả các bài.</p>
+      <div class="search" role="search">
+        <input id="q" type="search" placeholder="Tìm món, nguyên liệu, cách làm…" aria-label="Tìm công thức" autocomplete="off" enterkeyhint="search">
+        <span class="kbd" aria-hidden="true">/</span>
+        <button type="button" id="q-clear" aria-label="Xóa tìm kiếm" hidden>×</button>
+      </div>
+      <p class="meta-line" id="count" aria-live="polite"></p>
+    </div>
+    <div class="cols">
+      <div>
+        <div class="chips" id="chips" role="group" aria-label="Lọc theo danh mục"></div>
+        <ul class="posts" id="posts"></ul>
+      </div>
+      <aside class="side" aria-label="Thanh bên">
+        <div class="w"><h3>Về blog</h3><p class="about">Công thức và ghi chú nấu ăn của Alessandra. Bài nào cũng được viết lại sau khi nấu thật.</p></div>
+        <div class="w"><h3>Danh mục</h3><ul id="s-cats"></ul></div>
+        <div class="w"><h3>Mới đăng</h3><ul id="s-recent"></ul></div>
+        <div class="w"><h3>Thẻ</h3><div class="tagcloud" id="s-tags"></div></div>
+      </aside>
+    </div>
+  </section>
+
+  <!-- Bài viết -->
+  <section id="v-post" hidden></section>
+
+  <!-- Soạn bài -->
+  <section id="v-editor" hidden></section>
+
+  <!-- Quản lý -->
+  <section id="v-manage" hidden></section>
+</main>
+
+<footer class="foot">
+  <div class="foot-in">
+    <div>
+      <p class="brand">Alessandra Tran</p>
+      <p class="foot-desc">Công thức, dự án và ghi chú hằng ngày.</p>
+    </div>
+    <div>
+      <h4>Khám phá</h4>
+      <ul>
+        <li><a href="https://www.alessandratran.com/" target="_blank" rel="noopener">Trang chủ</a></li>
+        <li><a href="https://www.alessandratran.com/#portfolio" target="_blank" rel="noopener">Portfolio</a></li>
+        <li><a href="https://www.alessandratran.com/#blog" target="_blank" rel="noopener">Blog</a></li>
+        <li><a href="https://www.alessandratran.com/#review" target="_blank" rel="noopener">Review</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4>Đời sống</h4>
+      <ul>
+        <li><a href="#">Recipe</a></li>
+        <li><a href="https://www.alessandratran.com/#fashion" target="_blank" rel="noopener">Thời trang</a></li>
+        <li><a href="https://www.alessandratran.com/#matcha" target="_blank" rel="noopener">Matcha</a></li>
+        <li><a href="https://www.alessandratran.com/#learning" target="_blank" rel="noopener">Đang học</a></li>
+        <li><a href="https://www.alessandratran.com/#achievement" target="_blank" rel="noopener">Thành tựu</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="legal">
+    <span id="copy">© 2026 Alessandra Tran. Bảo lưu mọi quyền.</span>
+    <span class="links">
+      <button class="lnk" type="button" data-modal="privacy">Chính sách bảo mật</button>
+      <button class="lnk" type="button" data-modal="terms">Điều khoản sử dụng</button>
+    </span>
+  </div>
+  <p class="legal" style="margin-top:0;border-top:0;padding-top:6px">Toàn bộ nội dung, hình ảnh, công thức và thiết kế trên website này là tài sản của Alessandra Tran. Không sao chép, phân phối hoặc dùng lại khi chưa được cho phép bằng văn bản.</p>
+</footer>
+
+<div class="modal" id="modal" hidden>
+  <div class="mbox" role="dialog" aria-modal="true" aria-labelledby="m-title">
+    <div class="mhead"><h2 id="m-title"></h2><button class="x" type="button" id="m-close" aria-label="Đóng">×</button></div>
+    <div class="mbody" id="m-body" tabindex="0"></div>
+  </div>
+</div>
+
+<script>
+/* ===== Hàm thuần: bỏ dấu tiếng Việt, tìm kiếm, làm nổi từ khóa ===== */
+function fold(s){
+  return String(s||'').normalize('NFC').split('').map(function(c){
+    var b=c.normalize('NFD').replace(/[̀-ͯ]/g,'');
+    if(c==='đ')b='d';if(c==='Đ')b='D';
+    return (b.length===1?b:c).toLowerCase();
+  }).join('');
+}
+function esc(s){return String(s==null?'':s).replace(/[&<>"']/g,function(c){return{'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c];});}
+function tokens(q){return fold(q).split(/\s+/).filter(Boolean);}
+function hi(text,toks){
+  var t=String(text||'').normalize('NFC');
+  if(!toks||!toks.length)return esc(t);
+  var f=fold(t),mark=new Array(t.length+1).join('0').split('');
+  toks.forEach(function(k){var i=f.indexOf(k);while(i>=0){for(var j=i;j<i+k.length;j++)mark[j]='1';i=f.indexOf(k,i+k.length);}});
+  var out='',open=false;
+  for(var i=0;i<t.length;i++){
+    if(mark[i]==='1'&&!open){out+='<mark>';open=true;}
+    if(mark[i]!=='1'&&open){out+='</mark>';open=false;}
+    out+=esc(t[i]);
+  }
+  return out+(open?'</mark>':'');
+}
+function fields(p){
+  return {
+    title:p.title||'',summary:p.summary||'',category:p.category||'',tags:(p.tags||[]).join(' '),
+    ingredients:(p.ingredients||[]).join('\n'),steps:(p.steps||[]).join('\n'),note:p.note||''
+  };
+}
+/* Trả về null nếu không khớp, ngược lại điểm và dòng khớp đầu tiên */
+function matchPost(p,toks){
+  if(!toks.length)return{score:0,hit:null};
+  var F=fields(p),fl={};Object.keys(F).forEach(function(k){fl[k]=fold(F[k]);});
+  var all=Object.keys(fl).map(function(k){return fl[k];}).join('\n');
+  for(var i=0;i<toks.length;i++)if(all.indexOf(toks[i])<0)return null;
+  var w={title:10,tags:6,category:5,summary:4,ingredients:3,steps:1,note:1},score=0;
+  toks.forEach(function(k){Object.keys(fl).forEach(function(f){if(fl[f].indexOf(k)>=0)score+=w[f];});});
+  var hit=null;
+  if(fl.title.indexOf(toks[0])<0&&fl.summary.indexOf(toks[0])<0){
+    [['ingredients','Nguyên liệu'],['steps','Cách làm'],['note','Ghi chú']].some(function(x){
+      var lines=F[x[0]].split('\n');
+      for(var i=0;i<lines.length;i++){if(fold(lines[i]).indexOf(toks[0])>=0){hit={label:x[1],text:lines[i]};return true;}}
+      return false;
+    });
+  }
+  return{score:score,hit:hit};
+}
+function slugify(s){
+  var x=fold(s).replace(/[^a-z0-9]+/g,'-').replace(/^-+|-+$/g,'').slice(0,40);
+  return (x||'bai-viet')+'-'+Math.random().toString(36).slice(2,6);
+}
+function lines(s){return String(s||'').split('\n').map(function(x){return x.trim();}).filter(Boolean);}
+</script>
+
+<script>
+(function(){
+var $=function(s,r){return(r||document).querySelector(s);};
+var $$=function(s,r){return Array.prototype.slice.call((r||document).querySelectorAll(s));};
+var CATS=['Món chính','Món ăn vặt','Bánh & tráng miệng','Đồ uống','Món chay','Salad & món nhẹ'];
+var LEVELS=['Dễ','Vừa','Khó'];
+var db=null,user=null,canEdit=false,assets=null;
+var posts=[],drafts=[],loaded=false,loadErr='',loadTimer=null;
+var S={q:'',cat:'Tất cả',tag:''};
+
+function fmtDate(ms){if(!ms)return '';var d=new Date(ms);return String(d.getDate()).padStart(2,'0')+'/'+String(d.getMonth()+1).padStart(2,'0')+'/'+d.getFullYear();}
+function coverUrl(p){return p.coverId?'/_blob/'+encodeURIComponent(p.coverId):'';}
+function mins(p){return p.minutes?p.minutes+' phút':'';}
+
+/* ===== Tải dữ liệu ===== */
+function startDb(){
+  clearTimeout(loadTimer);
+  loadTimer=setTimeout(function(){if(!loaded){loadErr='Chưa tải được bài viết. Hãy kiểm tra kết nối rồi tải lại trang.';renderAll();}},10000);
+  db.collection('posts').orderBy('createdAt','desc').onSnapshot(function(s){
+    posts=s.docs.map(function(d){var o=d.data();o.id=d.id;return o;});
+    loaded=true;loadErr='';clearTimeout(loadTimer);renderAll();
+  },function(e){loaded=true;loadErr='Không đọc được dữ liệu ('+(e&&e.code||'lỗi')+').';renderAll();});
+}
+function startDrafts(){
+  db.collection('drafts').orderBy('updatedAt','desc').onSnapshot(function(s){
+    drafts=s.docs.map(function(d){var o=d.data();o.id=d.id;return o;});renderAll();
+  },function(){drafts=[];});
+}
+
+/* ===== Điều hướng ===== */
+function route(){
+  var h=location.hash.slice(1),r={v:'list'};
+  if(h.indexOf('post-')===0)r={v:'post',id:h.slice(5)};
+  else if(h==='editor'||h.indexOf('editor-')===0)r={v:'editor',id:h.slice(7)};
+  else if(h==='manage')r={v:'manage'};
+  if((r.v==='editor'||r.v==='manage')&&!canEdit)r={v:'list'};
+  return r;
+}
+var cur={v:'list'},editState=null;
+function renderAll(){
+  var r=route(),changed=r.v!==cur.v||r.id!==cur.id;cur=r;
+  $('#owner').hidden=!canEdit;
+  ['list','post','editor','manage'].forEach(function(v){$('#v-'+v).hidden=v!==r.v;});
+  $('#nav-recipe').setAttribute('aria-current',r.v==='list'?'page':'false');
+  if(r.v==='list')renderList();
+  else if(r.v==='post')renderPost(r.id);
+  else if(r.v==='manage')renderManage();
+  else if(r.v==='editor'&&(changed||!editState))openEditor(r.id);
+  if(changed)window.scrollTo({top:0,behavior:'auto'});
+}
+window.addEventListener('hashchange',function(){editState=null;renderAll();});
+
+/* ===== Danh sách ===== */
+function allCats(){
+  var m={};posts.forEach(function(p){if(p.category)m[p.category]=(m[p.category]||0)+1;});return m;
+}
+function allTags(){var m={};posts.forEach(function(p){(p.tags||[]).forEach(function(t){m[t]=(m[t]||0)+1;});});return m;}
+function renderList(){
+  var toks=tokens(S.q),cats=allCats(),tags=allTags();
+  var res=posts.map(function(p){return{p:p,m:matchPost(p,toks)};}).filter(function(x){
+    if(!x.m)return false;
+    if(S.cat!=='Tất cả'&&x.p.category!==S.cat)return false;
+    if(S.tag&&(x.p.tags||[]).indexOf(S.tag)<0)return false;
+    return true;
+  });
+  if(toks.length)res.sort(function(a,b){return b.m.score-a.m.score||b.p.createdAt-a.p.createdAt;});
+
+  $('#q-clear').hidden=!S.q;
+  var cnt=$('#count');
+  if(!loaded&&!loadErr)cnt.textContent='Đang tải bài viết…';
+  else if(loadErr)cnt.textContent=loadErr;
+  else if(toks.length||S.cat!=='Tất cả'||S.tag)cnt.textContent=res.length+' / '+posts.length+' công thức phù hợp';
+  else cnt.textContent=posts.length+' công thức';
+
+  var catNames=Object.keys(cats).sort();
+  $('#chips').innerHTML=['Tất cả'].concat(catNames).map(function(c){
+    var n=c==='Tất cả'?posts.length:cats[c];
+    return '<button class="chip" type="button" data-cat="'+esc(c)+'" aria-pressed="'+(c===S.cat)+'">'+esc(c)+'<i>'+n+'</i></button>';
+  }).join('');
+  $('#s-cats').innerHTML=catNames.length?catNames.map(function(c){return '<li><button type="button" data-cat="'+esc(c)+'">'+esc(c)+'<i>'+cats[c]+'</i></button></li>';}).join(''):'<li class="about">Chưa có danh mục.</li>';
+  $('#s-recent').innerHTML=posts.slice(0,5).map(function(p){return '<li><a href="#post-'+esc(p.id)+'">'+esc(p.title)+'</a></li>';}).join('')||'<li class="about">Chưa có bài.</li>';
+  var tg=Object.keys(tags).sort(function(a,b){return tags[b]-tags[a]||a.localeCompare(b);}).slice(0,24);
+  $('#s-tags').innerHTML=tg.map(function(t){return '<button class="tg" type="button" data-tag="'+esc(t)+'" aria-pressed="'+(t===S.tag)+'">'+esc(t)+'</button>';}).join('')||'<span class="about">Chưa có thẻ.</span>';
+
+  var ul=$('#posts');
+  if(!loaded&&!loadErr){ul.innerHTML='<li class="empty" style="grid-column:1/-1"><h3>Đang tải công thức…</h3></li>';return;}
+  if(loadErr&&!posts.length){ul.innerHTML='<li class="empty" style="grid-column:1/-1"><h3>Chưa mở được kho công thức</h3>'+esc(loadErr)+'</li>';return;}
+  if(!res.length){
+    ul.innerHTML='<li class="empty" style="grid-column:1/-1"><h3>'+(posts.length?'Không có công thức nào khớp':'Chưa có công thức nào')+'</h3>'+
+      (posts.length?'Thử từ khóa ngắn hơn, bỏ dấu hoặc đổi danh mục.<br><button class="btn sm" type="button" id="reset">Xóa bộ lọc</button>':
+      (canEdit?'Bài đầu tiên của bạn sẽ hiện ở đây.<br><a class="btn primary" href="#editor">Viết bài đầu tiên</a>':'Bài mới sẽ sớm xuất hiện ở đây.'))+'</li>';
+    return;
+  }
+  ul.innerHTML=res.map(function(x){
+    var p=x.p,img=coverUrl(p);
+    return '<li class="pc"><a class="cover" href="#post-'+esc(p.id)+'" tabindex="-1" aria-hidden="true">'+
+      (img?'<img src="'+esc(img)+'" alt="" loading="lazy">':'<span class="ph" aria-hidden="true">'+esc((p.title||'?').charAt(0).toUpperCase())+'</span>')+'</a>'+
+      '<div class="pc-body"><div class="pc-cat"><span>'+esc(p.category||'Chưa phân loại')+'</span>'+(p.sample?'<span class="badge warn">Bài mẫu</span>':'')+'</div>'+
+      '<h2><a href="#post-'+esc(p.id)+'">'+hi(p.title,toks)+'</a></h2>'+
+      (p.summary?'<p>'+hi(p.summary,toks)+'</p>':'')+
+      (x.m.hit?'<div class="hit"><b>'+esc(x.m.hit.label)+':</b> '+hi(x.m.hit.text,toks)+'</div>':'')+
+      '<div class="pc-foot">'+[mins(p),p.level,fmtDate(p.createdAt)].filter(Boolean).map(function(t){return '<span>'+esc(t)+'</span>';}).join('')+'</div></div></li>';
+  }).join('');
+}
+var qEl=$('#q');
+qEl.addEventListener('input',function(){S.q=qEl.value;renderList();});
+$('#q-clear').addEventListener('click',function(){S.q='';qEl.value='';renderList();qEl.focus();});
+document.addEventListener('keydown',function(e){
+  if(e.key==='/'&&cur.v==='list'&&!/INPUT|TEXTAREA|SELECT/.test(document.activeElement.tagName)&&modal.hidden){e.preventDefault();qEl.focus();}
+});
+document.addEventListener('click',function(e){
+  var c=e.target.closest('[data-cat]');if(c&&cur.v==='list'){S.cat=(S.cat===c.dataset.cat&&c.closest('.w'))?'Tất cả':c.dataset.cat;renderList();return;}
+  var t=e.target.closest('[data-tag]');if(t&&cur.v==='list'){S.tag=S.tag===t.dataset.tag?'':t.dataset.tag;renderList();return;}
+  if(e.target.closest('#reset')){S={q:'',cat:'Tất cả',tag:''};qEl.value='';renderList();}
+});
+
+/* ===== Bài viết ===== */
+function renderPost(id){
+  var el=$('#v-post'),p=posts.filter(function(x){return x.id===id;})[0];
+  if(!loaded&&!loadErr){el.innerHTML='<div class="art"><a class="link" href="#">← Tất cả công thức</a><p>Đang tải bài viết…</p></div>';return;}
+  if(!p){el.innerHTML='<div class="art"><a class="link" href="#">← Tất cả công thức</a><div class="empty"><h3>Không tìm thấy bài này</h3>Bài có thể đã được gỡ hoặc đường dẫn bị sai.<br><a class="btn" href="#">Xem tất cả công thức</a></div></div>';return;}
+  var i=posts.indexOf(p),newer=posts[i-1],older=posts[i+1],img=coverUrl(p);
+  var ing='',open=false;
+  (p.ingredients||[]).forEach(function(l){
+    if(l.indexOf('##')===0){if(open)ing+='</ul>';ing+='<h4>'+esc(l.replace(/^#+\s*/,''))+'</h4><ul>';open=true;}
+    else{if(!open){ing+='<ul>';open=true;}ing+='<li><label><input type="checkbox"><span>'+esc(l)+'</span></label></li>';}
+  });
+  if(open)ing+='</ul>';
+  var facts=[['Thời gian',mins(p)],['Khẩu phần',p.servings],['Độ khó',p.level],['Ngày đăng',fmtDate(p.createdAt)]].filter(function(f){return f[1];});
+  el.innerHTML='<article class="art">'+
+    '<div class="art-nav"><a class="link" href="#">← Tất cả công thức</a>'+(canEdit?'<a class="btn sm" href="#editor-'+esc(p.id)+'">Sửa bài này</a>':'')+'</div>'+
+    '<p class="crumb" style="margin-top:14px">'+esc(p.category||'Chưa phân loại')+(p.sample?' · <span class="badge warn">Bài mẫu</span>':'')+'</p>'+
+    '<h1>'+esc(p.title)+'</h1>'+(p.summary?'<p class="sum">'+esc(p.summary)+'</p>':'')+
+    (img?'<img class="hero-img" src="'+esc(img)+'" alt="'+esc(p.title)+'">':'')+
+    (facts.length?'<dl class="facts">'+facts.map(function(f){return '<div><dt>'+f[0]+'</dt><dd>'+esc(f[1])+'</dd></div>';}).join('')+'</dl>':'')+
+    '<div class="ing"><h2>Nguyên liệu</h2>'+ing+'<div class="ing-tools"><button class="btn sm" type="button" id="copy-ing">Sao chép nguyên liệu</button><button class="link" type="button" id="uncheck">Bỏ chọn hết</button><span class="status" id="copy-st" aria-live="polite"></span></div></div>'+
+    '<h2>Cách làm</h2><ol class="steps">'+(p.steps||[]).map(function(s){return '<li><p>'+esc(s)+'</p></li>';}).join('')+'</ol>'+
+    (p.note?'<div class="note"><b>Ghi chú</b>'+esc(p.note)+'</div>':'')+
+    ((p.tags||[]).length?'<div class="tagcloud">'+p.tags.map(function(t){return '<a class="tg" href="#" data-gotag="'+esc(t)+'">'+esc(t)+'</a>';}).join('')+'</div>':'')+
+    '<nav class="pn" aria-label="Bài khác">'+(newer?'<a href="#post-'+esc(newer.id)+'"><small>← Bài mới hơn</small><b>'+esc(newer.title)+'</b></a>':'')+(older?'<a href="#post-'+esc(older.id)+'"><small>Bài cũ hơn →</small><b>'+esc(older.title)+'</b></a>':'')+'</nav>'+
+    '</article>';
+  document.title=p.title+' · Alessandra Tran Recipe';
+  var plain=(p.ingredients||[]).map(function(l){return l.replace(/^#+\s*/,'');}).join('\n');
+  $('#copy-ing').addEventListener('click',function(){
+    var st=$('#copy-st');
+    function ok(){st.textContent='Đã sao chép';st.className='status ok';}
+    function fail(){st.textContent='Không sao chép được, hãy bôi đen và chép tay';st.className='status err';}
+    try{navigator.clipboard.writeText(plain).then(ok,fail);}catch(e){fail();}
+  });
+  $('#uncheck').addEventListener('click',function(){$$('.ing input').forEach(function(c){c.checked=false;});});
+}
+document.addEventListener('click',function(e){
+  var g=e.target.closest('[data-gotag]');
+  if(g){e.preventDefault();S={q:'',cat:'Tất cả',tag:g.dataset.gotag};qEl.value='';location.hash='';if(!location.hash)renderAll();}
+});
+
+/* ===== Quản lý ===== */
+var pendingDel=null;
+function renderManage(){
+  var el=$('#v-manage');
+  var rows=drafts.map(function(d){return{d:d,pub:false};}).concat(posts.map(function(p){return{d:p,pub:true};}));
+  el.innerHTML='<div class="mg"><a class="link" href="#">← Về danh sách</a><h1>Quản lý bài viết</h1>'+
+    '<div class="mact" style="margin-bottom:8px"><a class="btn primary" href="#editor">+ Viết bài mới</a></div>'+
+    (rows.length?rows.map(function(r){
+      var d=r.d,del=pendingDel===(r.pub?'p':'d')+d.id;
+      return '<div class="mrow"><div><b>'+esc(d.title||'(Chưa đặt tên)')+'</b><small><span class="badge '+(r.pub?'ok':'')+'">'+(r.pub?'Đã đăng':'Bản nháp')+'</span> '+(d.sample?'<span class="badge warn">Bài mẫu</span> ':'')+esc(d.category||'Chưa phân loại')+' · '+fmtDate(r.pub?d.createdAt:d.updatedAt)+'</small></div>'+
+        '<div class="mact">'+(r.pub?'<a class="btn sm" href="#post-'+esc(d.id)+'">Xem</a>':'')+
+        '<a class="btn sm" href="#editor-'+esc(d.id)+'">Sửa</a>'+
+        '<button class="btn sm'+(del?' danger':'')+'" type="button" data-del="'+(r.pub?'p':'d')+esc(d.id)+'">'+(del?'Bấm lần nữa để xóa':'Xóa')+'</button></div></div>';
+    }).join(''):'<div class="empty" style="margin-top:20px"><h3>Chưa có bài viết nào</h3>Bắt đầu bằng công thức bạn mới nấu gần đây.</div>')+
+    '<p class="status" id="mg-st" aria-live="polite"></p></div>';
+}
+document.addEventListener('click',function(e){
+  var b=e.target.closest('[data-del]');if(!b||!canEdit)return;
+  var key=b.dataset.del;
+  if(pendingDel!==key){pendingDel=key;renderManage();setTimeout(function(){if(pendingDel===key){pendingDel=null;if(cur.v==='manage')renderManage();}},4000);return;}
+  pendingDel=null;
+  var col=key.charAt(0)==='p'?'posts':'drafts',id=key.slice(1);
+  db.collection(col).doc(id).delete().then(function(){var s=$('#mg-st');if(s){s.textContent='Đã xóa';s.className='status ok';}},function(){var s=$('#mg-st');if(s){s.textContent='Không xóa được, bạn thử lại nhé';s.className='status err';}});
+});
+
+/* ===== Trình soạn thảo ===== */
+function blank(){return{title:'',summary:'',category:'',tags:[],minutes:null,servings:'',level:'Vừa',ingredients:[],steps:[],note:'',coverId:''};}
+function openEditor(id){
+  var src=null,isPub=false,isNew=!id;
+  if(id){
+    src=posts.filter(function(p){return p.id===id;})[0];if(src)isPub=true;
+    if(!src)src=drafts.filter(function(p){return p.id===id;})[0];
+    if(!src){
+      if(!loaded){$('#v-editor').innerHTML='<div class="ed"><p>Đang tải…</p></div>';editState=null;return;}
+      $('#v-editor').innerHTML='<div class="ed"><a class="link" href="#manage">← Quản lý bài viết</a><div class="empty"><h3>Không tìm thấy bài</h3></div></div>';editState=null;return;
+    }
+  }
+  var d=Object.assign(blank(),src||{});
+  editState={id:id||slugify('bai'),pub:isPub,isNew:isNew,coverId:d.coverId||'',createdAt:d.createdAt||0,sample:!!d.sample,fromDraft:!isPub&&!isNew};
+  var catOpts=CATS.concat(Object.keys(allCats()).filter(function(c){return CATS.indexOf(c)<0;}));
+  $('#v-editor').innerHTML='<div class="ed"><a class="link" href="#manage">← Quản lý bài viết</a>'+
+    '<h1>'+(isNew?'Viết công thức mới':'Sửa công thức')+'</h1>'+
+    '<p class="hint">Điền các ô bên dưới. Nguyên liệu và các bước viết mỗi dòng một mục.</p>'+
+    '<form class="form" id="f" novalidate>'+
+    '<div class="fld"><label for="f-title">Tên món</label><input type="text" id="f-title" maxlength="120" value="'+esc(d.title)+'" placeholder="Ví dụ: Bún thịt nướng"></div>'+
+    '<div class="fld"><label for="f-sum">Mô tả ngắn <small>(hiện trên thẻ bài và dưới tiêu đề)</small></label><input type="text" id="f-sum" maxlength="240" value="'+esc(d.summary)+'" placeholder="Một hai câu về món này"></div>'+
+    '<div class="row">'+
+      '<div class="fld"><label for="f-cat">Danh mục</label><input type="text" id="f-cat" list="cats" maxlength="40" value="'+esc(d.category)+'" placeholder="Chọn hoặc gõ mới"><datalist id="cats">'+catOpts.map(function(c){return '<option value="'+esc(c)+'">';}).join('')+'</datalist></div>'+
+      '<div class="fld"><label for="f-min">Thời gian (phút)</label><input type="number" id="f-min" min="1" max="1440" inputmode="numeric" value="'+(d.minutes||'')+'"></div>'+
+      '<div class="fld"><label for="f-srv">Khẩu phần</label><input type="text" id="f-srv" maxlength="30" value="'+esc(d.servings)+'" placeholder="2 người"></div>'+
+      '<div class="fld"><label for="f-lv">Độ khó</label><select id="f-lv">'+LEVELS.map(function(l){return '<option'+(l===d.level?' selected':'')+'>'+l+'</option>';}).join('')+'</select></div>'+
+    '</div>'+
+    '<div class="fld"><span class="l">Ảnh bìa</span><div class="cover-box" id="cover-box"></div></div>'+
+    '<div class="fld"><label for="f-ing">Nguyên liệu <small>(mỗi dòng một món; dòng bắt đầu bằng ## là tiêu đề nhóm, ví dụ ## Nước chấm)</small></label><textarea id="f-ing" placeholder="300g thịt ba chỉ&#10;2 củ sả">'+esc((d.ingredients||[]).join('\n'))+'</textarea></div>'+
+    '<div class="fld"><label for="f-steps">Cách làm <small>(mỗi dòng một bước)</small></label><textarea id="f-steps" style="min-height:180px" placeholder="Ướp thịt 30 phút…">'+esc((d.steps||[]).join('\n'))+'</textarea></div>'+
+    '<div class="fld"><label for="f-note">Ghi chú sau khi nấu <small>(không bắt buộc)</small></label><textarea id="f-note" style="min-height:90px">'+esc(d.note)+'</textarea></div>'+
+    '<div class="fld"><label for="f-tags">Thẻ <small>(cách nhau bằng dấu phẩy)</small></label><input type="text" id="f-tags" value="'+esc((d.tags||[]).join(', '))+'" placeholder="nhanh, mùa hè, ít dầu"></div>'+
+    '<div class="bar">'+
+      (isPub?'<button class="btn primary" type="submit" id="b-save">Cập nhật bài</button><button class="btn" type="button" id="b-unpub">Gỡ về nháp</button>':
+             '<button class="btn primary" type="submit" id="b-pub">Đăng bài</button><button class="btn" type="button" id="b-draft">Lưu nháp</button>')+
+      '<span class="status" id="f-st" aria-live="polite"></span></div>'+
+    '</form></div>';
+  drawCover();
+  $('#f').addEventListener('submit',function(e){e.preventDefault();saveEditor(isPub?'update':'publish');});
+  if(isPub)$('#b-unpub').addEventListener('click',function(){saveEditor('unpublish');});
+  else $('#b-draft').addEventListener('click',function(){saveEditor('draft');});
+}
+function drawCover(){
+  var box=$('#cover-box');if(!box||!editState)return;
+  var url=editState.coverId?'/_blob/'+encodeURIComponent(editState.coverId):'';
+  box.innerHTML=(url?'<img src="'+esc(url)+'" alt="Ảnh bìa hiện tại">':'<div class="none">Chưa có ảnh</div>')+
+    (assets?'<div style="display:grid;gap:8px"><label class="btn sm" for="f-file" style="cursor:pointer">'+(url?'Đổi ảnh':'Chọn ảnh')+'</label><input type="file" id="f-file" accept="image/*" style="position:absolute;opacity:0;width:1px;height:1px">'+(url?'<button class="link" type="button" id="cover-rm">Bỏ ảnh</button>':'')+'<span class="status" id="up-st" aria-live="polite"></span></div>':'<span class="status">Tải ảnh lên chưa dùng được ở phiên này.</span>');
+  var f=$('#f-file');if(f)f.addEventListener('change',function(){if(f.files[0])uploadCover(f.files[0]);});
+  var rm=$('#cover-rm');if(rm)rm.addEventListener('click',function(){editState.coverId='';drawCover();});
+}
+function shrink(file){
+  return new Promise(function(res,rej){
+    var img=new Image(),u=URL.createObjectURL(file);
+    img.onload=function(){
+      var m=1600,s=Math.min(1,m/Math.max(img.width,img.height)),c=document.createElement('canvas');
+      c.width=Math.round(img.width*s);c.height=Math.round(img.height*s);
+      c.getContext('2d').drawImage(img,0,0,c.width,c.height);URL.revokeObjectURL(u);
+      c.toBlob(function(b){b?res(b):rej(new Error('blob'));},'image/jpeg',.85);
+    };
+    img.onerror=function(){URL.revokeObjectURL(u);rej(new Error('img'));};img.src=u;
+  });
+}
+function uploadCover(file){
+  var st=$('#up-st');st.textContent='Đang tải ảnh lên…';st.className='status';
+  shrink(file).then(function(b){return assets.upload(b);}).then(function(r){
+    editState.coverId=r.id;drawCover();var s=$('#up-st');if(s){s.textContent='Đã tải ảnh lên';s.className='status ok';}
+  }).catch(function(){var s=$('#up-st');if(s){s.textContent='Không tải được ảnh, thử ảnh khác nhé';s.className='status err';}});
+}
+function saveEditor(mode){
+  var st=$('#f-st');function say(t,c){st.textContent=t;st.className='status '+(c||'');}
+  var data={
+    title:$('#f-title').value.trim(),summary:$('#f-sum').value.trim(),category:$('#f-cat').value.trim(),
+    minutes:parseInt($('#f-min').value,10)||null,servings:$('#f-srv').value.trim(),level:$('#f-lv').value,
+    ingredients:lines($('#f-ing').value),steps:lines($('#f-steps').value),note:$('#f-note').value.trim(),
+    tags:$('#f-tags').value.split(',').map(function(t){return t.trim();}).filter(Boolean).slice(0,12),
+    coverId:editState.coverId||'',sample:editState.sample
+  };
+  if(mode!=='draft'&&mode!=='unpublish'){
+    if(!data.title){say('Hãy nhập tên món','err');$('#f-title').focus();return;}
+    if(!data.ingredients.length){say('Hãy nhập ít nhất một nguyên liệu','err');$('#f-ing').focus();return;}
+    if(!data.steps.length){say('Hãy nhập ít nhất một bước làm','err');$('#f-steps').focus();return;}
+  } else if(!data.title){say('Hãy đặt tên món trước khi lưu','err');$('#f-title').focus();return;}
+  var id=editState.id,now=Date.now();
+  $$('#f button').forEach(function(b){b.disabled=true;});say('Đang lưu…');
+  var done;
+  if(mode==='draft'){data.updatedAt=now;done=db.collection('drafts').doc(id).set(data);}
+  else if(mode==='unpublish'){data.updatedAt=now;data.createdAt=editState.createdAt;done=db.collection('drafts').doc(id).set(data).then(function(){return db.collection('posts').doc(id).delete();});}
+  else{
+    data.createdAt=editState.createdAt||now;data.updatedAt=now;
+    done=db.collection('posts').doc(id).set(data).then(function(){return editState.fromDraft?db.collection('drafts').doc(id).delete():null;});
+  }
+  done.then(function(){
+    editState=null;
+    location.hash=mode==='update'||mode==='publish'?'post-'+id:'manage';
+  }).catch(function(e){
+    $$('#f button').forEach(function(b){b.disabled=false;});
+    say(e&&e.code==='quota_exceeded'?'Kho dữ liệu đã đầy, hãy xóa bớt bài cũ':'Không lưu được, bạn thử lại nhé','err');
+  });
+}
+
+/* ===== Popup pháp lý ===== */
+var DOCS={
+privacy:{t:'Chính sách bảo mật',b:
+'<p class="upd">Cập nhật lần cuối: tháng 11 năm 2026</p>'+
+'<h3>1. Phạm vi</h3><p>Chính sách này giải thích cách website alessandratran.com và trang Recipe xử lý thông tin của bạn khi truy cập.</p>'+
+'<h3>2. Thông tin chúng tôi xử lý</h3><ul><li>Từ khóa bạn gõ vào ô tìm kiếm được xử lý ngay trên trình duyệt của bạn để lọc bài viết.</li><li>Các lựa chọn nhỏ như ô nguyên liệu đã tick chỉ nằm trong trang đang mở và mất khi bạn tải lại.</li><li>Thông tin kỹ thuật cơ bản như loại thiết bị, trình duyệt và số lượt truy cập có thể được ghi nhận để cải thiện website.</li></ul>'+
+'<h3>3. Liên kết bên ngoài</h3><p>Một số liên kết dẫn đến dịch vụ bên thứ ba. Khi bạn mở các liên kết đó, chính sách bảo mật của dịch vụ tương ứng sẽ được áp dụng.</p>'+
+'<h3>4. Chia sẻ thông tin</h3><p>Chúng tôi không bán thông tin cá nhân của bạn.</p>'+
+'<h3>5. Quyền của bạn</h3><p>Bạn có quyền yêu cầu xem, sửa hoặc xóa thông tin cá nhân mà bạn đã gửi cho chúng tôi. Hãy liên hệ qua trang chủ alessandratran.com.</p>'+
+'<h3>6. Thay đổi chính sách</h3><p>Chính sách có thể được cập nhật. Ngày cập nhật gần nhất luôn được ghi ở đầu trang này.</p>'},
+terms:{t:'Điều khoản sử dụng',b:
+'<p class="upd">Cập nhật lần cuối: tháng 11 năm 2026</p>'+
+'<h3>1. Chấp nhận điều khoản</h3><p>Khi truy cập và sử dụng website alessandratran.com và trang Recipe, bạn đồng ý với các điều khoản dưới đây.</p>'+
+'<h3>2. Quyền sở hữu</h3><p>Toàn bộ công thức, bài viết, hình ảnh, thiết kế và mã nguồn trên website là tài sản của Alessandra Tran và được bảo vệ bởi luật sở hữu trí tuệ. Bạn không được sao chép, phân phối, đăng lại hoặc dùng cho mục đích thương mại khi chưa có sự đồng ý bằng văn bản.</p>'+
+'<h3>3. Sử dụng cá nhân</h3><p>Bạn được đọc và nấu theo công thức cho mục đích cá nhân, phi thương mại. Bạn không được dùng công cụ tự động để thu thập nội dung hàng loạt.</p>'+
+'<h3>4. Tính chất của công thức</h3><p>Công thức chỉ mang tính tham khảo. Kết quả phụ thuộc vào nguyên liệu, dụng cụ và cách nấu của bạn. Nếu bạn hoặc người ăn có dị ứng hoặc chế độ ăn đặc biệt, hãy tự kiểm tra nguyên liệu trước khi nấu.</p>'+
+'<h3>5. Giới hạn trách nhiệm</h3><p>Website được cung cấp "như hiện có". Chúng tôi không đảm bảo website luôn hoạt động liên tục hoặc không có lỗi và không chịu trách nhiệm với thiệt hại phát sinh từ việc nấu theo công thức.</p>'+
+'<h3>6. Thay đổi điều khoản</h3><p>Điều khoản có thể được cập nhật. Việc tiếp tục sử dụng website sau khi cập nhật nghĩa là bạn chấp nhận phiên bản mới.</p>'}
+};
+var modal=$('#modal'),lastFocus=null;
+function openModal(k){lastFocus=document.activeElement;$('#m-title').textContent=DOCS[k].t;$('#m-body').innerHTML=DOCS[k].b;$('#m-body').scrollTop=0;modal.hidden=false;document.body.style.overflow='hidden';$('#m-close').focus();}
+function closeModal(){modal.hidden=true;document.body.style.overflow='';if(lastFocus&&lastFocus.focus)lastFocus.focus();}
+document.addEventListener('click',function(e){
+  var b=e.target.closest('[data-modal]');if(b){openModal(b.dataset.modal);return;}
+  if(e.target===modal||e.target.closest('#m-close'))closeModal();
+});
+document.addEventListener('keydown',function(e){
+  if(modal.hidden)return;
+  if(e.key==='Escape'){closeModal();return;}
+  if(e.key==='Tab'){var f=[$('#m-close'),$('#m-body')],i=f.indexOf(document.activeElement);e.preventDefault();f[(i+(e.shiftKey?-1:1)+f.length)%f.length].focus();}
+});
+$('#copy').textContent='© '+new Date().getFullYear()+' Alessandra Tran. Bảo lưu mọi quyền.';
+
+/* ===== Khởi động ===== */
+renderAll();
+var cl=window.claude;
+if(!cl||!cl.use){loaded=true;loadErr='Trang này cần mở trong khung xem của Claude để đọc bài viết.';renderAll();return;}
+Promise.all([cl.use('db'),cl.use('user'),cl.use('assets')]).then(function(r){
+  db=r[0];user=r[1];assets=r[2];
+  if(!db){loaded=true;loadErr='Bạn cần đăng nhập để xem các công thức.';renderAll();return;}
+  startDb();
+  return (user?user.canEdit():Promise.resolve(false)).then(function(ce){
+    canEdit=!!ce;if(canEdit)startDrafts();renderAll();
+  });
+}).catch(function(){loaded=true;loadErr='Không kết nối được kho công thức.';renderAll();});
+})();
+</script>
+
+</body></html>
