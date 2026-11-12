@@ -1,0 +1,745 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Blog · Alessandra Tran</title>
+<meta name="description" content="Nhật ký và kiến thức tổng hợp của Alessandra Tran: ăn, mặc, học, nấu, và những điều nhỏ xinh.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@300;400;500;600&family=Pinyon+Script&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --pink:#f9d3e2;          /* baby pink */
+  --pink-soft:#fdeaf1;
+  --pink-deep:#e0568d;     /* chữ hồng */
+  --ink:#141114;
+  --white:#fff;
+  --muted:#6f6469;
+  --line:rgba(20,17,20,.12);
+  --script:'Pinyon Script','Playfair Display',cursive;
+  --serif:'Playfair Display',Georgia,serif;
+  /* TODO: thay bằng font trong ảnh mẫu của bạn */
+  --sans:'Be Vietnam Pro',system-ui,sans-serif;
+  --radius:22px;
+  --maxw:1180px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:var(--sans);color:var(--ink);background:var(--pink-soft);line-height:1.7;font-weight:400;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+img{max-width:100%;display:block}
+a{color:inherit;text-decoration:none}
+button{font:inherit;cursor:pointer;border:0;background:none;color:inherit}
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 24px}
+.script{font-family:var(--script);font-weight:400}
+.serif{font-family:var(--serif)}
+.eyebrow{font-size:.72rem;letter-spacing:.28em;text-transform:uppercase;color:var(--pink-deep);font-weight:500}
+
+/* ===== Header ===== */
+.site-header{position:sticky;top:0;z-index:50;background:rgba(253,234,241,.86);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
+.site-header .wrap{display:flex;align-items:center;gap:18px;height:72px}
+.back-cta{display:inline-flex;align-items:center;gap:8px;padding:9px 18px;border-radius:999px;background:var(--ink);color:var(--white);font-size:.8rem;font-weight:500;letter-spacing:.04em;white-space:nowrap;transition:.3s}
+.back-cta:hover{background:var(--pink-deep);transform:translateX(-3px)}
+.brand{font-family:var(--script);font-size:2rem;line-height:1;margin-right:auto;color:var(--ink);white-space:nowrap}
+.brand b{color:var(--pink-deep);font-weight:400}
+.nav{display:flex;gap:4px;align-items:center}
+.nav a{font-size:.8rem;padding:8px 12px;border-radius:999px;transition:.25s;white-space:nowrap}
+.nav a:hover{background:var(--pink)}
+.nav a.active{background:var(--pink);color:var(--pink-deep);font-weight:500}
+.icon-btn{width:40px;height:40px;border-radius:50%;display:grid;place-items:center;transition:.25s}
+.icon-btn:hover{background:var(--pink)}
+.burger{display:none}
+@media(max-width:1040px){
+  .nav{position:fixed;inset:72px 0 auto 0;background:var(--pink-soft);flex-direction:column;align-items:stretch;padding:14px 24px 24px;border-bottom:1px solid var(--line);transform:translateY(-130%);transition:.45s cubic-bezier(.2,.8,.2,1);z-index:-1}
+  .nav.open{transform:none}
+  .nav a{padding:12px 14px;font-size:.95rem}
+  .burger{display:grid}
+  .brand{margin-right:auto}
+}
+@media(max-width:560px){.back-cta span.long{display:none}.brand{font-size:1.7rem}}
+
+/* ===== Hero ===== */
+.hero{position:relative;background:linear-gradient(180deg,var(--pink) 0%,var(--pink-soft) 100%);padding:64px 0 120px;overflow:hidden}
+.hero .wrap{display:grid;grid-template-columns:1.15fr .85fr;gap:48px;align-items:center}
+.hero h1{font-family:var(--script);font-weight:400;font-size:clamp(3.4rem,8vw,6.6rem);line-height:.95;color:var(--ink);margin:14px 0 14px}
+.hero h1 em{font-style:normal;color:var(--pink-deep)}
+.hero p.lead{font-family:var(--serif);font-style:italic;font-size:1.2rem;color:#3b3238;max-width:30em}
+.searchbar{margin-top:30px;display:flex;background:var(--white);border-radius:999px;padding:6px;box-shadow:0 14px 40px rgba(224,86,141,.18);max-width:520px}
+.searchbar input{flex:1;border:0;outline:0;background:none;padding:0 20px;font:inherit;font-size:.95rem;min-width:0}
+.searchbar button{background:var(--ink);color:#fff;padding:12px 24px;border-radius:999px;font-size:.82rem;font-weight:500;transition:.3s}
+.searchbar button:hover{background:var(--pink-deep)}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:18px}
+.chip{font-size:.74rem;padding:6px 14px;border-radius:999px;border:1px solid var(--ink);transition:.25s;cursor:pointer;background:transparent}
+.chip:hover,.chip.on{background:var(--ink);color:#fff}
+.portrait{position:relative;justify-self:center;width:min(100%,380px)}
+.portrait .arch{aspect-ratio:3/4;border-radius:999px 999px 28px 28px;overflow:hidden;background:var(--white);border:8px solid var(--white);box-shadow:0 30px 70px rgba(224,86,141,.28)}
+.portrait .arch img{width:100%;height:100%;object-fit:cover}
+.portrait .tag{position:absolute;left:-26px;bottom:34px;background:var(--ink);color:#fff;padding:12px 20px;border-radius:16px;font-family:var(--script);font-size:1.7rem;line-height:1;transform:rotate(-5deg)}
+.portrait .spark{position:absolute;right:-14px;top:30px;color:var(--pink-deep);font-size:2.4rem;animation:float 5s ease-in-out infinite}
+@keyframes float{50%{transform:translateY(-12px) rotate(12deg)}}
+@media(max-width:860px){.hero .wrap{grid-template-columns:1fr}.portrait{order:-1;width:min(70%,280px)}}
+
+/* ===== Wave transitions ===== */
+.wave{display:block;width:100%;height:80px;margin-top:-79px;position:relative;z-index:2}
+.wave.flip{margin:-1px 0 0}
+.sec{position:relative;padding:80px 0}
+.sec.white{background:var(--white)}
+.sec.pink{background:var(--pink)}
+.sec.ink{background:var(--ink);color:#fff}
+.sec-head{text-align:center;margin-bottom:46px}
+.sec-head h2{font-family:var(--script);font-weight:400;font-size:clamp(2.6rem,6vw,4.4rem);line-height:1.05}
+.sec-head h2 em{font-style:normal;color:var(--pink-deep)}
+.sec.ink .sec-head h2 em{color:var(--pink)}
+.sec-head p{font-family:var(--serif);font-style:italic;color:var(--muted);margin-top:6px}
+.sec.ink .sec-head p{color:rgba(255,255,255,.65)}
+
+/* reveal */
+.rv{opacity:0;transform:translateY(34px);transition:opacity .9s cubic-bezier(.2,.8,.2,1),transform .9s cubic-bezier(.2,.8,.2,1)}
+.rv.in{opacity:1;transform:none}
+.view{animation:viewIn .6s cubic-bezier(.2,.8,.2,1)}
+@keyframes viewIn{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:none}}
+
+/* ===== Layout w/ sidebar ===== */
+.layout{display:grid;grid-template-columns:minmax(0,1fr) 320px;gap:46px;align-items:start}
+@media(max-width:960px){.layout{grid-template-columns:1fr}}
+
+/* ===== Cards ===== */
+.featured{display:grid;grid-template-columns:1.2fr 1fr;border-radius:var(--radius);overflow:hidden;background:var(--pink);margin-bottom:38px;transition:.4s}
+.featured:hover{transform:translateY(-4px);box-shadow:0 24px 60px rgba(224,86,141,.22)}
+.featured .im{min-height:340px;overflow:hidden}
+.featured .im img{width:100%;height:100%;object-fit:cover;transition:transform .8s}
+.featured:hover .im img{transform:scale(1.05)}
+.featured .tx{padding:38px;display:flex;flex-direction:column;justify-content:center;gap:12px}
+.featured h3{font-family:var(--serif);font-size:clamp(1.5rem,3vw,2.1rem);line-height:1.2;font-weight:600}
+@media(max-width:760px){.featured{grid-template-columns:1fr}.featured .im{min-height:220px}.featured .tx{padding:26px}}
+.grid{display:grid;grid-template-columns:repeat(2,1fr);gap:30px}
+@media(max-width:620px){.grid{grid-template-columns:1fr}}
+.card{background:var(--white);border-radius:var(--radius);overflow:hidden;display:flex;flex-direction:column;transition:.4s;border:1px solid var(--line)}
+.card:hover{transform:translateY(-6px);box-shadow:0 22px 50px rgba(224,86,141,.2)}
+.card .im{aspect-ratio:3/2;overflow:hidden;background:var(--pink)}
+.card .im img{width:100%;height:100%;object-fit:cover;transition:transform .8s}
+.card:hover .im img{transform:scale(1.07)}
+.card .tx{padding:22px 24px 26px;display:flex;flex-direction:column;gap:8px;flex:1}
+.card h3{font-family:var(--serif);font-size:1.28rem;line-height:1.3;font-weight:600}
+.card p{font-size:.88rem;color:var(--muted)}
+.meta{font-size:.74rem;color:var(--muted);display:flex;gap:10px;flex-wrap:wrap;align-items:center}
+.cat-pill{display:inline-block;font-size:.68rem;letter-spacing:.16em;text-transform:uppercase;color:var(--pink-deep);font-weight:600}
+.more{margin-top:auto;font-size:.8rem;font-weight:500;color:var(--pink-deep)}
+.more::after{content:" →";transition:.3s;display:inline-block}
+.card:hover .more::after,.featured:hover .more::after{transform:translateX(5px)}
+.empty{text-align:center;padding:60px 20px;color:var(--muted);font-family:var(--serif);font-style:italic;font-size:1.1rem}
+mark{background:var(--pink);color:inherit;padding:0 2px;border-radius:3px}
+
+/* pagination */
+.pager{display:flex;justify-content:center;gap:8px;margin-top:44px;flex-wrap:wrap}
+.pager button{min-width:42px;height:42px;border-radius:50%;border:1px solid var(--ink);font-size:.85rem;transition:.25s}
+.pager button:hover,.pager button.on{background:var(--ink);color:#fff}
+.pager button:disabled{opacity:.3;pointer-events:none}
+
+/* sidebar */
+.side{display:flex;flex-direction:column;gap:26px;position:sticky;top:96px}
+.widget{background:var(--white);border-radius:var(--radius);padding:26px;border:1px solid var(--line)}
+.widget h4{font-family:var(--script);font-weight:400;font-size:2rem;line-height:1;margin-bottom:14px;color:var(--pink-deep)}
+.about-w{text-align:center;background:var(--pink);border:0}
+.about-w .av{width:120px;height:120px;border-radius:50%;margin:0 auto 14px;overflow:hidden;border:5px solid #fff}
+.about-w .av img{width:100%;height:100%;object-fit:cover}
+.about-w p{font-size:.88rem}
+.about-w h4{color:var(--ink)}
+.list-links{list-style:none;display:flex;flex-direction:column;gap:10px}
+.list-links a{display:flex;justify-content:space-between;gap:10px;font-size:.9rem;padding-bottom:10px;border-bottom:1px dashed var(--line);transition:.2s}
+.list-links a:hover{color:var(--pink-deep);padding-left:4px}
+.list-links small{color:var(--muted)}
+.recent{display:flex;gap:12px;align-items:center}
+.recent img{width:64px;height:64px;border-radius:14px;object-fit:cover;flex:none}
+.recent span{font-family:var(--serif);font-size:.95rem;line-height:1.3}
+.tags{display:flex;flex-wrap:wrap;gap:8px}
+
+/* categories */
+.cat-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:20px}
+.cat-tile{position:relative;aspect-ratio:4/5;border-radius:var(--radius);overflow:hidden;display:flex;align-items:flex-end;padding:22px;color:#fff;transition:.4s}
+.cat-tile img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform .8s}
+.cat-tile::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 40%,rgba(20,17,20,.78))}
+.cat-tile:hover img{transform:scale(1.08)}
+.cat-tile div{position:relative;z-index:1}
+.cat-tile b{font-family:var(--serif);font-size:1.35rem;display:block;font-weight:600}
+.cat-tile small{opacity:.8}
+
+/* gallery strip */
+.gallery{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+.gallery figure{aspect-ratio:1;border-radius:18px;overflow:hidden;background:var(--pink);position:relative}
+.gallery figure:nth-child(2){transform:translateY(24px)}
+.gallery figure:nth-child(4){transform:translateY(24px)}
+.gallery img{width:100%;height:100%;object-fit:cover;transition:transform .8s}
+.gallery figure:hover img{transform:scale(1.08)}
+@media(max-width:700px){.gallery{grid-template-columns:repeat(2,1fr)}.gallery figure:nth-child(n){transform:none}}
+.gallery .slot{position:absolute;inset:0;display:grid;place-items:center;color:var(--pink-deep);font-size:.8rem;text-align:center;padding:10px}
+
+/* ===== Post page ===== */
+.post-hero{background:var(--pink);padding:60px 0 100px;text-align:center}
+.post-hero h1{font-family:var(--serif);font-weight:600;font-size:clamp(2rem,5vw,3.4rem);line-height:1.18;max-width:20em;margin:14px auto}
+.post-hero .meta{justify-content:center}
+.post-cover{max-width:960px;margin:-70px auto 0;padding:0 24px;position:relative;z-index:3}
+.post-cover img{width:100%;max-height:560px;object-fit:cover;border-radius:var(--radius);box-shadow:0 30px 70px rgba(224,86,141,.25);border:8px solid #fff}
+.article{max-width:720px;margin:0 auto;padding:54px 24px 30px;font-size:1.06rem;line-height:1.95}
+.article>*+*{margin-top:1.3em}
+.article h2,.article h3{font-family:var(--serif);line-height:1.3;font-weight:600;margin-top:1.9em}
+.article h2{font-size:1.7rem}.article h3{font-size:1.32rem;color:var(--pink-deep)}
+.article a{color:var(--pink-deep);text-decoration:underline;text-underline-offset:3px}
+.article blockquote{font-family:var(--serif);font-style:italic;font-size:1.3rem;border-left:4px solid var(--pink-deep);padding:6px 0 6px 22px;color:#3b3238}
+.article img{border-radius:18px;margin:1.6em auto}
+.article ul,.article ol{padding-left:1.4em}
+.article hr{border:0;text-align:center;margin:2.4em 0}
+.article hr::before{content:"✦  ✦  ✦";color:var(--pink-deep);letter-spacing:.5em}
+.article>p:first-of-type::first-letter{font-family:var(--script);font-size:4.6rem;float:left;line-height:.8;padding:8px 10px 0 0;color:var(--pink-deep)}
+.post-foot{max-width:720px;margin:0 auto;padding:0 24px 70px;display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:12px 24px;border-radius:999px;font-size:.82rem;font-weight:500;background:var(--ink);color:#fff;transition:.3s}
+.btn:hover{background:var(--pink-deep)}
+.btn.ghost{background:transparent;color:var(--ink);border:1px solid var(--ink)}
+.btn.ghost:hover{background:var(--ink);color:#fff}
+.btn.pink{background:var(--pink-deep)}
+.btn.pink:hover{background:var(--ink)}
+.btn.sm{padding:8px 16px;font-size:.76rem}
+
+/* page head (search/category) */
+.page-head{background:var(--pink);padding:54px 0 90px;text-align:center}
+.page-head h1{font-family:var(--script);font-weight:400;font-size:clamp(2.8rem,7vw,5rem);line-height:1}
+.page-head p{font-family:var(--serif);font-style:italic;margin-top:6px}
+.page-head .searchbar{margin:24px auto 0}
+
+/* ===== Footer ===== */
+.footer{background:var(--ink);color:#fff;padding:70px 0 0;position:relative}
+.footer .cols{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:40px;padding-bottom:50px}
+@media(max-width:860px){.footer .cols{grid-template-columns:1fr 1fr}}
+@media(max-width:520px){.footer .cols{grid-template-columns:1fr}}
+.footer .brand{font-size:2.6rem;color:#fff;display:block;margin-bottom:10px}
+.footer .brand b{color:var(--pink)}
+.footer p.about{color:rgba(255,255,255,.65);font-size:.9rem;max-width:26em}
+.footer h5{font-size:.72rem;letter-spacing:.24em;text-transform:uppercase;color:var(--pink);margin-bottom:16px;font-weight:600}
+.footer ul{list-style:none;display:flex;flex-direction:column;gap:10px}
+.footer li a,.footer li button{font-size:.88rem;color:rgba(255,255,255,.78);transition:.2s;text-align:left}
+.footer li a:hover,.footer li button:hover{color:var(--pink);padding-left:4px}
+.footer .bottom{border-top:1px solid rgba(255,255,255,.14);padding:22px 0;display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap;font-size:.8rem;color:rgba(255,255,255,.6)}
+.footer .bottom .legal{display:flex;gap:18px}
+.footer .bottom button{color:rgba(255,255,255,.8);text-decoration:underline;text-underline-offset:3px}
+.footer .bottom button:hover{color:var(--pink)}
+
+/* ===== Modal ===== */
+.modal{position:fixed;inset:0;z-index:100;display:none;place-items:center;padding:20px;background:rgba(20,17,20,.55);backdrop-filter:blur(6px)}
+.modal.open{display:grid;animation:fade .3s}
+@keyframes fade{from{opacity:0}}
+.modal .box{background:#fff;border-radius:var(--radius);width:min(100%,640px);max-height:86vh;overflow:auto;padding:38px;position:relative;animation:viewIn .45s cubic-bezier(.2,.8,.2,1)}
+.modal .box h3{font-family:var(--script);font-weight:400;font-size:2.8rem;line-height:1;color:var(--pink-deep);margin-bottom:6px}
+.modal .box h4{font-family:var(--serif);font-size:1.05rem;margin:20px 0 4px}
+.modal .box p,.modal .box li{font-size:.9rem;color:#3b3238}
+.modal .box ul{padding-left:1.2em}
+.modal .x{position:absolute;right:16px;top:16px;width:38px;height:38px;border-radius:50%;background:var(--pink);font-size:1.2rem}
+.modal .x:hover{background:var(--ink);color:#fff}
+
+/* ===== Admin ===== */
+.admin{padding:50px 0 90px;background:var(--pink-soft)}
+.admin h1{font-family:var(--script);font-weight:400;font-size:3.4rem;line-height:1;margin-bottom:6px}
+.admin-bar{display:flex;gap:10px;flex-wrap:wrap;margin:22px 0}
+.panel{background:#fff;border-radius:var(--radius);padding:26px;border:1px solid var(--line)}
+.table{width:100%;border-collapse:collapse;font-size:.88rem}
+.table th{font-size:.7rem;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);text-align:left;padding:10px;border-bottom:1px solid var(--line)}
+.table td{padding:12px 10px;border-bottom:1px dashed var(--line);vertical-align:middle}
+.table td.t{font-family:var(--serif);font-weight:600}
+.badge{font-size:.68rem;padding:3px 10px;border-radius:999px;background:var(--pink);color:var(--pink-deep);font-weight:600}
+.badge.draft{background:#eee;color:#666}
+.field{display:flex;flex-direction:column;gap:6px;margin-bottom:18px}
+.field label{font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);font-weight:600}
+.field input,.field select,.field textarea{font:inherit;padding:12px 14px;border:1px solid var(--line);border-radius:14px;background:#fff;outline:0;transition:.2s}
+.field input:focus,.field select:focus,.field textarea:focus,.editor:focus{border-color:var(--pink-deep);box-shadow:0 0 0 4px rgba(224,86,141,.12)}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+@media(max-width:620px){.two{grid-template-columns:1fr}}
+.toolbar{display:flex;flex-wrap:wrap;gap:6px;padding:8px;background:var(--pink-soft);border-radius:14px 14px 0 0;border:1px solid var(--line);border-bottom:0}
+.toolbar button{min-width:36px;height:34px;padding:0 10px;border-radius:10px;background:#fff;border:1px solid var(--line);font-size:.82rem}
+.toolbar button:hover{background:var(--ink);color:#fff}
+.editor{min-height:340px;padding:18px;border:1px solid var(--line);border-radius:0 0 14px 14px;background:#fff;outline:0;line-height:1.8}
+.editor>*+*{margin-top:1em}
+.editor img{max-height:320px;border-radius:12px}
+.editor h2,.editor h3{font-family:var(--serif)}
+.cover-prev{width:100%;aspect-ratio:16/9;border-radius:16px;object-fit:cover;background:var(--pink);margin-top:8px}
+.note{font-size:.8rem;color:var(--muted)}
+.login{max-width:420px;margin:60px auto;text-align:center}
+.toast{position:fixed;left:50%;bottom:28px;transform:translate(-50%,40px);background:var(--ink);color:#fff;padding:12px 22px;border-radius:999px;font-size:.85rem;opacity:0;pointer-events:none;transition:.4s;z-index:200}
+.toast.show{opacity:1;transform:translate(-50%,0)}
+.hide{display:none!important}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.rv{opacity:1;transform:none}}
+</style>
+</head>
+<body>
+
+<!-- ===== HEADER ===== -->
+<header class="site-header">
+  <div class="wrap">
+    <a class="back-cta" href="https://www.alessandratran.com/" aria-label="Về trang chủ">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+      <span><span class="long">Back to </span>homepage</span>
+    </a>
+    <a class="brand" href="#/" aria-label="Blog Alessandra Tran">Alessandra <b>Tran</b></a>
+    <nav class="nav" id="nav" aria-label="Các mục">
+      <a href="https://www.alessandratran.com/#portfolio">Portfolio</a>
+      <a href="https://www.alessandratran.com/blog/" class="active">Blog</a>
+      <a href="https://www.alessandratran.com/#review">Review</a>
+      <a href="https://www.alessandratran.com/#recipe">Recipe</a>
+      <a href="https://www.alessandratran.com/#fashion">Thời trang</a>
+      <a href="https://www.alessandratran.com/#matcha">Matcha</a>
+      <a href="https://www.alessandratran.com/#learning">Đang học</a>
+      <a href="https://www.alessandratran.com/#achievement">Thành tựu</a>
+    </nav>
+    <a class="icon-btn" href="#/search" aria-label="Tìm bài viết">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+    </a>
+    <button class="icon-btn burger" id="burger" aria-label="Mở menu">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+    </button>
+  </div>
+</header>
+
+<main id="app"></main>
+
+<!-- ===== FOOTER ===== -->
+<footer class="footer">
+  <div class="wrap">
+    <div class="cols">
+      <div>
+        <a class="brand" href="https://www.alessandratran.com/">Alessandra <b>Tran</b></a>
+        <p class="about">Nơi mình gom lại những điều đã biết, đã thử và đang học. Viết chậm, ghi nhớ lâu.</p>
+      </div>
+      <div>
+        <h5>Khám phá</h5>
+        <ul>
+          <li><a href="#/">Bài mới</a></li>
+          <li><a href="#/search">Tìm kiếm</a></li>
+          <li><a href="https://www.alessandratran.com/">Trang chủ</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5>Các mục</h5>
+        <ul>
+          <li><a href="https://www.alessandratran.com/#portfolio">Portfolio</a></li>
+          <li><a href="https://www.alessandratran.com/#recipe">Recipe</a></li>
+          <li><a href="https://www.alessandratran.com/#matcha">Matcha</a></li>
+          <li><a href="https://www.alessandratran.com/#learning">Đang học</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5>Pháp lý</h5>
+        <ul>
+          <li><button data-modal="privacy">Privacy Policy</button></li>
+          <li><button data-modal="terms">Terms &amp; Conditions</button></li>
+          <li><a href="#/admin">Quản lý bài viết</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="bottom">
+      <span>© <span id="yr"></span> Alessandra Tran. All rights reserved. Toàn bộ nội dung, hình ảnh và thiết kế trên trang này là tài sản của Alessandra Tran.</span>
+      <span class="legal"><button data-modal="privacy">Privacy Policy</button><button data-modal="terms">Terms &amp; Conditions</button></span>
+    </div>
+  </div>
+</footer>
+
+<!-- ===== MODALS ===== -->
+<div class="modal" id="modal-privacy" role="dialog" aria-modal="true" aria-label="Privacy Policy">
+  <div class="box">
+    <button class="x" data-close aria-label="Đóng">×</button>
+    <h3>Privacy Policy</h3>
+    <p class="note">Cập nhật lần cuối: 12/11/2026</p>
+    <h4>1. Thông tin được thu thập</h4>
+    <p>Trang này không yêu cầu đăng ký tài khoản. Khi bạn dùng ô tìm kiếm, nội dung tìm được xử lý ngay trên trình duyệt của bạn và không gửi đi đâu.</p>
+    <h4>2. Cookie và lưu trữ cục bộ</h4>
+    <p>Trang có thể dùng bộ nhớ của trình duyệt (localStorage) để ghi nhớ bài viết nháp của chủ trang. Người đọc không bị đặt cookie theo dõi bởi trang này.</p>
+    <h4>3. Dịch vụ bên thứ ba</h4>
+    <p>Phông chữ được tải từ Google Fonts, nên Google có thể ghi nhận địa chỉ IP của bạn theo chính sách của họ.</p>
+    <h4>4. Liên hệ</h4>
+    <p>Nếu bạn muốn hỏi về dữ liệu cá nhân, hãy liên hệ chủ trang qua các kênh ở trang chủ alessandratran.com.</p>
+    <p class="note" style="margin-top:18px">Đây là bản mẫu. Hãy chỉnh lại cho đúng với cách bạn thực sự vận hành trang (ví dụ nếu thêm Google Analytics hoặc bình luận).</p>
+  </div>
+</div>
+<div class="modal" id="modal-terms" role="dialog" aria-modal="true" aria-label="Terms and Conditions">
+  <div class="box">
+    <button class="x" data-close aria-label="Đóng">×</button>
+    <h3>Terms &amp; Conditions</h3>
+    <p class="note">Cập nhật lần cuối: 12/11/2026</p>
+    <h4>1. Quyền sở hữu</h4>
+    <p>Toàn bộ bài viết, hình ảnh, bố cục và thiết kế trên alessandratran.com là tài sản của Alessandra Tran, được bảo hộ bởi luật sở hữu trí tuệ.</p>
+    <h4>2. Sử dụng nội dung</h4>
+    <p>Bạn được đọc và chia sẻ liên kết tới bài viết. Việc sao chép, đăng lại hoặc dùng cho mục đích thương mại cần có sự đồng ý bằng văn bản của tác giả.</p>
+    <h4>3. Tính chính xác</h4>
+    <p>Các bài viết là kiến thức và quan điểm cá nhân tại thời điểm viết, không phải lời khuyên chuyên môn (y tế, tài chính, pháp lý).</p>
+    <h4>4. Liên kết ngoài</h4>
+    <p>Trang có thể dẫn tới website khác. Mình không chịu trách nhiệm về nội dung của các trang đó.</p>
+    <h4>5. Thay đổi</h4>
+    <p>Các điều khoản có thể được cập nhật mà không báo trước. Việc tiếp tục sử dụng trang đồng nghĩa với việc bạn chấp nhận bản mới nhất.</p>
+    <p class="note" style="margin-top:18px">Đây là bản mẫu, chưa phải tư vấn pháp lý. Hãy rà lại trước khi dùng chính thức.</p>
+  </div>
+</div>
+<div class="toast" id="toast"></div>
+
+<script>
+(function(){
+'use strict';
+
+/* ================= CONFIG ================= */
+var CONFIG = {
+  adminPasscode: 'alessandra',        // ĐỔI mã này. Lưu ý: chỉ là khoá giao diện, không phải bảo mật thật.
+  postsUrl: 'posts.json',             // file bài viết đã xuất (đặt cạnh index.html)
+  profileSrc: '',                     // vd 'assets/profile.jpg'; để trống thì dùng ảnh tải lên trong Quản lý
+  perPage: 6,
+  siteName: 'Alessandra Tran'
+};
+var LS_POSTS='atr_blog_posts_v1', LS_SET='atr_blog_settings_v1', SS_AUTH='atr_blog_auth';
+
+/* ================= HELPERS ================= */
+var $=function(s,r){return (r||document).querySelector(s)};
+var $$=function(s,r){return Array.prototype.slice.call((r||document).querySelectorAll(s))};
+function esc(s){return String(s==null?'':s).replace(/[&<>"']/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]})}
+function norm(s){return String(s||'').toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g,'').replace(/đ/g,'d')}
+function uid(){return 'p'+Date.now().toString(36)+Math.random().toString(36).slice(2,6)}
+function fmtDate(d){try{return new Date(d).toLocaleDateString('vi-VN',{day:'2-digit',month:'long',year:'numeric'})}catch(e){return d}}
+function strip(html){var t=document.createElement('div');t.innerHTML=html;return (t.textContent||'').replace(/\s+/g,' ').trim()}
+function readTime(html){return Math.max(1,Math.round(strip(html).split(' ').length/200))}
+function toast(m){var t=$('#toast');t.textContent=m;t.classList.add('show');clearTimeout(toast._t);toast._t=setTimeout(function(){t.classList.remove('show')},2600)}
+function ph(seed,label){
+  var h=0;for(var i=0;i<seed.length;i++)h=(h*31+seed.charCodeAt(i))>>>0;
+  var hues=[[ '#f9d3e2','#fbe9f0'],['#f6b9d1','#fde1ec'],['#fbd9e6','#fff'],['#f4c2d7','#fbe5ee']];
+  var p=hues[h%hues.length];
+  var svg='<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 400"><defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="'+p[0]+'"/><stop offset="1" stop-color="'+p[1]+'"/></linearGradient></defs><rect width="600" height="400" fill="url(#g)"/><circle cx="'+(120+h%360)+'" cy="'+(90+h%200)+'" r="'+(60+h%70)+'" fill="#fff" opacity=".45"/><text x="300" y="228" text-anchor="middle" font-family="Georgia,serif" font-style="italic" font-size="46" fill="#e0568d" opacity=".75">'+(label||'✦')+'</text></svg>';
+  return 'data:image/svg+xml;utf8,'+encodeURIComponent(svg);
+}
+function sanitize(html){
+  var doc=new DOMParser().parseFromString('<div id="r">'+html+'</div>','text/html');
+  var root=doc.getElementById('r');
+  $$('script,style,iframe,object,embed,link,meta,form,base',root).forEach(function(n){n.remove()});
+  $$('*',root).forEach(function(n){
+    Array.prototype.slice.call(n.attributes).forEach(function(a){
+      var name=a.name.toLowerCase(), val=a.value.trim().toLowerCase();
+      if(name.indexOf('on')===0||name==='style'||name==='srcdoc'){n.removeAttribute(a.name)}
+      else if((name==='href'||name==='src')&&/^(javascript|vbscript|data:text)/.test(val)){n.removeAttribute(a.name)}
+    });
+    if(n.tagName==='A'){n.setAttribute('rel','noopener noreferrer');if(/^https?:/i.test(n.getAttribute('href')||''))n.setAttribute('target','_blank')}
+  });
+  return root.innerHTML;
+}
+function resizeImage(file,max,q){
+  return new Promise(function(res,rej){
+    var fr=new FileReader();
+    fr.onerror=rej;
+    fr.onload=function(){
+      var im=new Image();
+      im.onerror=rej;
+      im.onload=function(){
+        var r=Math.min(1,max/Math.max(im.width,im.height));
+        var c=document.createElement('canvas');c.width=Math.round(im.width*r);c.height=Math.round(im.height*r);
+        c.getContext('2d').drawImage(im,0,0,c.width,c.height);
+        res(c.toDataURL('image/jpeg',q));
+      };
+      im.src=fr.result;
+    };
+    fr.readAsDataURL(file);
+  });
+}
+function pickImage(cb,max,q){
+  var i=document.createElement('input');i.type='file';i.accept='image/*';
+  i.onchange=function(){if(i.files[0])resizeImage(i.files[0],max||1200,q||.78).then(cb).catch(function(){toast('Không đọc được ảnh này')})};
+  i.click();
+}
+
+/* ================= DATA ================= */
+var settings=load(LS_SET,{profile:'',gallery:['','','','']});
+var posts=[], remoteLoaded=false;
+function load(k,d){try{var v=localStorage.getItem(k);return v?JSON.parse(v):d}catch(e){return d}}
+function saveSettings(){try{localStorage.setItem(LS_SET,JSON.stringify(settings))}catch(e){toast('Bộ nhớ trình duyệt đã đầy, hãy dùng ảnh nhỏ hơn hoặc xuất file')}}
+function savePosts(){try{localStorage.setItem(LS_POSTS,JSON.stringify(posts));return true}catch(e){toast('Bộ nhớ trình duyệt đã đầy. Hãy Xuất posts.json và dùng ảnh nhỏ hơn.');return false}}
+function seed(){
+  var d=function(n){var x=new Date();x.setDate(x.getDate()-n);return x.toISOString().slice(0,10)};
+  return [
+   {id:'s1',title:'Matcha buổi sáng: mình học pha sao cho đỡ đắng',excerpt:'Ghi lại những gì mình đã thử với bột matcha, nhiệt độ nước và cái chổi tre nhỏ xíu.',category:'Matcha',tags:['matcha','đồ uống'],cover:'',date:d(1),status:'published',content:'<p>Đây là bài mẫu để bạn xem giao diện. Hãy vào <b>Quản lý bài viết</b> để xoá hoặc sửa nó.</p><h2>Nước không nên sôi</h2><p>Khoảng 75 đến 80 độ là đủ để bột tan mà không bị gắt.</p><blockquote>Chậm một chút, ly matcha sẽ ngon hơn.</blockquote><h3>Dụng cụ</h3><ul><li>Chawan</li><li>Chasen</li><li>Rây mịn</li></ul>'},
+   {id:'s2',title:'Ghi chú tuần này: những điều mình đang học',excerpt:'Một danh sách nhỏ về kiến thức mình vừa gom được, viết lại cho dễ nhớ.',category:'Đang học',tags:['học tập','ghi chú'],cover:'',date:d(4),status:'published',content:'<p>Bài mẫu thứ hai. Bạn có thể chèn ảnh, tiêu đề, trích dẫn và liên kết trong trình soạn thảo.</p><h2>Cách mình ghi chú</h2><p>Viết lại bằng lời của mình, rồi gắn một ví dụ thật.</p>'},
+   {id:'s3',title:'Phối đồ tối giản với tông hồng nhạt',excerpt:'Vài công thức phối màu đơn giản mà mặc lên vẫn thấy mình.',category:'Thời trang',tags:['thời trang','màu sắc'],cover:'',date:d(9),status:'published',content:'<p>Bài mẫu thứ ba về thời trang. Thay bằng bài thật của bạn nhé.</p>'},
+   {id:'s4',title:'Công thức bánh mì phô mai bằng chảo',excerpt:'Không lò nướng vẫn làm được, mình thử đến lần thứ tư mới ưng.',category:'Recipe',tags:['recipe','bánh mì'],cover:'',date:d(15),status:'published',content:'<p>Bài mẫu thứ tư về công thức nấu ăn.</p><h2>Nguyên liệu</h2><ul><li>Bánh mì</li><li>Phô mai</li><li>Bơ</li></ul>'},
+   {id:'s5',title:'Review quán cà phê yên tĩnh để làm việc',excerpt:'Ổ cắm, wifi, tiếng ồn và cả loại ghế mình ngồi được ba tiếng.',category:'Review',tags:['review','cafe'],cover:'',date:d(22),status:'published',content:'<p>Bài mẫu thứ năm về review.</p>'},
+   {id:'s6',title:'Mình tổ chức thư viện ghi chú như thế nào',excerpt:'Từ một đống tab lộn xộn đến một nơi tìm lại được mọi thứ chỉ trong vài giây.',category:'Đang học',tags:['ghi chú','năng suất'],cover:'',date:d(30),status:'published',content:'<p>Bài mẫu thứ sáu.</p>'},
+   {id:'s7',title:'Bản nháp chưa đăng',excerpt:'Chỉ bạn thấy bài này trong khu quản lý.',category:'Nhật ký',tags:['nháp'],cover:'',date:d(2),status:'draft',content:'<p>Bài nháp mẫu.</p>'}
+  ];
+}
+function ensureData(){
+  var local=load(LS_POSTS,null);
+  if(local){posts=local;return Promise.resolve()}
+  return fetch(CONFIG.postsUrl,{cache:'no-cache'}).then(function(r){if(!r.ok)throw 0;return r.json()}).then(function(j){
+    posts=(j.posts||j||[]);
+    if(j.settings){settings=Object.assign(settings,j.settings)}
+    remoteLoaded=true;
+  }).catch(function(){posts=seed()});
+}
+function published(){return posts.filter(function(p){return p.status==='published'}).sort(function(a,b){return (b.date||'').localeCompare(a.date||'')})}
+function cats(){var m={};published().forEach(function(p){m[p.category||'Khác']=(m[p.category||'Khác']||0)+1});return Object.keys(m).sort().map(function(k){return {name:k,n:m[k]}})}
+function allTags(){var m={};published().forEach(function(p){(p.tags||[]).forEach(function(t){m[t]=(m[t]||0)+1})});return Object.keys(m).sort(function(a,b){return m[b]-m[a]}).slice(0,16)}
+function profileImg(){return settings.profile||CONFIG.profileSrc||ph('profile','Alessandra')}
+function coverOf(p){return p.cover||ph(p.id||p.title,(p.category||'✦'))}
+function search(q){
+  var t=norm(q).split(/\s+/).filter(Boolean);if(!t.length)return published();
+  return published().filter(function(p){var hay=norm([p.title,p.excerpt,p.category,(p.tags||[]).join(' '),strip(p.content)].join(' '));return t.every(function(w){return hay.indexOf(w)>-1})});
+}
+function hl(text,q){
+  var t=norm(q).split(/\s+/).filter(Boolean);if(!t.length)return esc(text);
+  var n=norm(text), out='', i=0;
+  while(i<text.length){
+    var hit=0;
+    for(var k=0;k<t.length;k++){if(n.substr(i,t[k].length)===t[k]&&t[k].length>hit)hit=t[k].length}
+    if(hit){out+='<mark>'+esc(text.substr(i,hit))+'</mark>';i+=hit}else{out+=esc(text[i]);i++}
+  }
+  return out;
+}
+
+/* ================= VIEW PARTS ================= */
+var WAVE_DOWN=function(fill){return '<svg class="wave" viewBox="0 0 1440 80" preserveAspectRatio="none" aria-hidden="true"><path fill="'+fill+'" d="M0 40C180 80 360 0 600 30s420 60 600 20c100-22 180-30 240-10V80H0Z"/></svg>'};
+var WAVE_UP=function(fill){return '<svg class="wave flip" viewBox="0 0 1440 80" preserveAspectRatio="none" aria-hidden="true"><path fill="'+fill+'" d="M0 0h1440v40c-60 20-140 12-240-10C1020-10 840 20 600 50S180 80 0 40Z"/></svg>'};
+
+/* sóng chuyển giữa 2 khối: màu "from" ở trên, "to" ở dưới */
+var WAVE_BETWEEN=function(from,to){return '<svg class="wave flip" style="background:'+to+';height:70px" viewBox="0 0 1440 80" preserveAspectRatio="none" aria-hidden="true"><path fill="'+from+'" d="M0 0h1440v40c-60 20-140 12-240-10C1020-10 840 20 600 50S180 80 0 40Z"/></svg>'};
+
+function card(p,q){
+  return '<a class="card rv" href="#/post/'+esc(p.id)+'"><div class="im"><img loading="lazy" src="'+esc(coverOf(p))+'" alt=""></div><div class="tx"><span class="cat-pill">'+esc(p.category||'Khác')+'</span><h3>'+hl(p.title,q||'')+'</h3><p>'+hl(p.excerpt||strip(p.content).slice(0,140),q||'')+'</p><div class="meta"><span>'+fmtDate(p.date)+'</span><span>·</span><span>'+readTime(p.content)+' phút đọc</span></div><span class="more">Đọc tiếp</span></div></a>';
+}
+function featured(p){
+  return '<a class="featured rv" href="#/post/'+esc(p.id)+'"><div class="im"><img src="'+esc(coverOf(p))+'" alt=""></div><div class="tx"><span class="cat-pill">'+esc(p.category||'Khác')+' · Mới nhất</span><h3>'+esc(p.title)+'</h3><p>'+esc(p.excerpt||strip(p.content).slice(0,170))+'</p><div class="meta"><span>'+fmtDate(p.date)+'</span><span>·</span><span>'+readTime(p.content)+' phút đọc</span></div><span class="more">Đọc bài viết</span></a>';
+}
+function sidebar(){
+  var rec=published().slice(0,4), c=cats(), t=allTags();
+  return '<aside class="side rv">'+
+   '<div class="widget about-w"><div class="av"><img src="'+esc(profileImg())+'" alt="Alessandra Tran"></div><h4>Xin chào!</h4><p>Mình là Alessandra. Blog này là nơi mình tổng hợp những gì đã biết, để sau này chính mình và bạn đều tìm lại được.</p></div>'+
+   '<div class="widget"><h4>Tìm bài</h4><form class="searchbar" data-search style="box-shadow:none;border:1px solid var(--line)"><input type="search" placeholder="Từ khoá..." aria-label="Tìm kiếm"><button type="submit">Tìm</button></form></div>'+
+   '<div class="widget"><h4>Chủ đề</h4><ul class="list-links">'+c.map(function(x){return '<li><a href="#/category/'+encodeURIComponent(x.name)+'"><span>'+esc(x.name)+'</span><small>'+x.n+'</small></a></li>'}).join('')+'</ul></div>'+
+   '<div class="widget"><h4>Mới đăng</h4><div style="display:flex;flex-direction:column;gap:14px">'+rec.map(function(p){return '<a class="recent" href="#/post/'+esc(p.id)+'"><img loading="lazy" src="'+esc(coverOf(p))+'" alt=""><span>'+esc(p.title)+'</span></a>'}).join('')+'</div></div>'+
+   (t.length?'<div class="widget"><h4>Thẻ</h4><div class="tags">'+t.map(function(x){return '<a class="chip" href="#/search?q='+encodeURIComponent(x)+'">#'+esc(x)+'</a>'}).join('')+'</div></div>':'')+
+  '</aside>';
+}
+function pager(total,page,base){
+  var pages=Math.ceil(total/CONFIG.perPage);if(pages<=1)return '';
+  var h='<div class="pager"><button '+(page<=1?'disabled':'')+' data-pg="'+(page-1)+'">←</button>';
+  for(var i=1;i<=pages;i++)h+='<button class="'+(i===page?'on':'')+'" data-pg="'+i+'">'+i+'</button>';
+  return h+'<button '+(page>=pages?'disabled':'')+' data-pg="'+(page+1)+'">→</button></div>';
+}
+
+/* ================= VIEWS ================= */
+var app=$('#app');
+function mount(html,after){
+  app.innerHTML='<div class="view">'+html+'</div>';
+  window.scrollTo({top:0,behavior:'instant'});
+  initReveal();
+  if(after)after();
+}
+function initReveal(){
+  var els=$$('.rv',app);
+  if(!('IntersectionObserver' in window)){els.forEach(function(e){e.classList.add('in')});return}
+  var io=new IntersectionObserver(function(en){en.forEach(function(e,i){if(e.isIntersecting){setTimeout(function(){e.target.classList.add('in')},(i%4)*70);io.unobserve(e.target)}})},{threshold:.12});
+  els.forEach(function(e){io.observe(e)});
+}
+function bindSearchForms(){
+  $$('[data-search]',app).forEach(function(f){f.addEventListener('submit',function(e){e.preventDefault();var v=f.querySelector('input').value.trim();location.hash='#/search?q='+encodeURIComponent(v)})});
+}
+function bindPager(fn){$$('[data-pg]',app).forEach(function(b){b.addEventListener('click',function(){fn(parseInt(b.dataset.pg,10))})})}
+
+function viewHome(page){
+  page=page||1;
+  var list=published(), first=list[0], rest=list.slice(1);
+  var per=CONFIG.perPage, slice=rest.slice((page-1)*per,page*per);
+  var c=cats();
+  var g=settings.gallery||[];
+  var gal=[0,1,2,3].map(function(i){return '<figure class="rv">'+(g[i]?'<img loading="lazy" src="'+esc(g[i])+'" alt="">':'<div class="slot">Khung ảnh '+(i+1)+'<br>thêm trong Quản lý</div>')+'</figure>'}).join('');
+  var chips=c.map(function(x){return '<a class="chip" href="#/category/'+encodeURIComponent(x.name)+'">'+esc(x.name)+'</a>'}).join('');
+  mount(
+   '<section class="hero"><div class="wrap">'+
+     '<div><span class="eyebrow">Blog cá nhân · Từ Sài Gòn</span><h1>Alessandra\'s <em>Journal</em></h1><p class="lead">Những điều mình đã biết, đã thử và đang học, viết lại thật nhẹ nhàng để dễ tìm và dễ nhớ.</p>'+
+     '<form class="searchbar" data-search><input type="search" placeholder="Tìm trong tất cả bài viết..." aria-label="Tìm kiếm"><button type="submit">Tìm kiếm</button></form>'+
+     '<div class="chips">'+chips+'</div></div>'+
+     '<div class="portrait"><div class="arch"><img src="'+esc(profileImg())+'" alt="Alessandra Tran"></div><span class="tag">Alessandra</span><span class="spark">✦</span></div>'+
+   '</div></section>'+WAVE_DOWN('#ffffff')+
+   '<section class="sec white" id="latest"><div class="wrap"><div class="sec-head rv"><span class="eyebrow">Bài viết</span><h2>Mới <em>đăng</em></h2><p>Những trang mình vừa viết xong</p></div>'+
+     '<div class="layout"><div>'+
+       (first&&page===1?featured(first):'')+
+       (slice.length?'<div class="grid">'+slice.map(function(p){return card(p)}).join('')+'</div>':(first?'':'<div class="empty">Chưa có bài viết nào. Hãy vào Quản lý để đăng bài đầu tiên.</div>'))+
+       pager(rest.length,page)+
+     '</div>'+sidebar()+'</div></div></section>'+
+   WAVE_BETWEEN('#ffffff','#f9d3e2')+
+   (c.length?'<section class="sec pink" id="topics"><div class="wrap"><div class="sec-head rv"><span class="eyebrow">Khám phá</span><h2>Theo <em>chủ đề</em></h2></div><div class="cat-grid">'+c.map(function(x){var p=published().filter(function(q){return (q.category||'Khác')===x.name})[0];return '<a class="cat-tile rv" href="#/category/'+encodeURIComponent(x.name)+'"><img loading="lazy" src="'+esc(coverOf(p))+'" alt=""><div><b>'+esc(x.name)+'</b><small>'+x.n+' bài viết</small></div></a>'}).join('')+'</div></div></section>':'')+
+   WAVE_BETWEEN('#f9d3e2','#141114')+
+   '<section class="sec ink" id="about"><div class="wrap"><div class="sec-head rv"><span class="eyebrow" style="color:var(--pink)">Một chút về mình</span><h2>Khoảnh khắc <em>nhỏ</em></h2><p>Những khung hình mình thích</p></div><div class="gallery">'+gal+'</div></div></section>'+
+   '<div style="background:var(--ink);height:1px"></div>',
+   function(){
+     bindSearchForms();
+     bindPager(function(n){viewHome(n);setTimeout(function(){var el=$('#latest');if(el)el.scrollIntoView()},30)});
+   });
+}
+
+function viewPost(id){
+  var p=posts.filter(function(x){return x.id===id})[0];
+  var isAdmin=sessionStorage.getItem(SS_AUTH)==='1';
+  if(!p||(p.status!=='published'&&!isAdmin)){mount('<section class="page-head"><h1>Không tìm thấy</h1><p>Bài viết này không tồn tại hoặc chưa được đăng.</p><p style="margin-top:20px"><a class="btn" href="#/">Về trang blog</a></p></section>');return}
+  var list=published(), i=list.findIndex(function(x){return x.id===id});
+  var prev=i>-1?list[i+1]:null, next=i>0?list[i-1]:null;
+  var related=list.filter(function(x){return x.id!==id&&x.category===p.category}).slice(0,2);
+  mount(
+   '<section class="post-hero"><div class="wrap"><a class="cat-pill" href="#/category/'+encodeURIComponent(p.category||'Khác')+'">'+esc(p.category||'Khác')+'</a><h1>'+esc(p.title)+'</h1><div class="meta"><span>'+fmtDate(p.date)+'</span><span>·</span><span>'+readTime(p.content)+' phút đọc</span>'+(p.status!=='published'?'<span class="badge draft">Bản nháp</span>':'')+'</div></div></section>'+
+   '<div class="post-cover"><img src="'+esc(coverOf(p))+'" alt=""></div>'+
+   '<article class="article">'+sanitize(p.content)+'</article>'+
+   ((p.tags&&p.tags.length)?'<div class="post-foot" style="padding-bottom:20px"><div class="tags">'+p.tags.map(function(t){return '<a class="chip" href="#/search?q='+encodeURIComponent(t)+'">#'+esc(t)+'</a>'}).join('')+'</div></div>':'')+
+   '<div class="post-foot">'+(prev?'<a class="btn ghost" href="#/post/'+esc(prev.id)+'">← '+esc(prev.title.slice(0,32))+(prev.title.length>32?'…':'')+'</a>':'<span></span>')+(next?'<a class="btn ghost" href="#/post/'+esc(next.id)+'">'+esc(next.title.slice(0,32))+(next.title.length>32?'…':'')+' →</a>':'')+'</div>'+
+   (related.length?'<section class="sec pink"><div class="wrap"><div class="sec-head rv"><h2>Có thể bạn <em>thích</em></h2></div><div class="grid" style="max-width:820px;margin:0 auto">'+related.map(function(x){return card(x)}).join('')+'</div></div></section>':'')
+  );
+  document.title=p.title+' · Blog Alessandra Tran';
+}
+
+function viewList(title,sub,list,page,baseQ,q){
+  page=page||1;
+  var slice=list.slice((page-1)*CONFIG.perPage,page*CONFIG.perPage);
+  return {html:
+   '<section class="page-head"><div class="wrap"><span class="eyebrow">'+esc(sub)+'</span><h1>'+esc(title)+'</h1>'+
+   (q!==undefined?'<form class="searchbar" data-livesearch><input type="search" value="'+esc(q)+'" placeholder="Gõ để tìm trong mọi bài viết..." aria-label="Tìm kiếm" autofocus><button type="submit">Tìm</button></form><p id="count" style="margin-top:14px">'+list.length+' kết quả</p>':'<p>'+list.length+' bài viết</p>')+
+   '</div></section>'+WAVE_DOWN('#ffffff')+
+   '<section class="sec white" style="padding-top:50px"><div class="wrap"><div class="layout"><div id="results">'+
+   (slice.length?'<div class="grid">'+slice.map(function(p){return card(p,q)}).join('')+'</div>'+pager(list.length,page):'<div class="empty">Không có bài viết nào phù hợp. Thử từ khoá khác nhé.</div>')+
+   '</div>'+sidebar()+'</div></div></section>'};
+}
+function viewCategory(name,page){
+  var list=published().filter(function(p){return (p.category||'Khác')===name});
+  var v=viewList(name,'Chủ đề',list,page);
+  mount(v.html,function(){bindSearchForms();bindPager(function(n){viewCategory(name,n)});document.title=name+' · Blog Alessandra Tran'});
+}
+function viewSearch(q,page){
+  q=q||'';
+  var v=viewList(q?('“'+q+'”'):'Tìm kiếm','Tìm trong tất cả bài viết',search(q),page,null,q);
+  mount(v.html,function(){
+    bindSearchForms();
+    var f=$('[data-livesearch]',app), inp=f.querySelector('input');
+    var run=function(){
+      var val=inp.value, list=search(val);
+      $('#count',app).textContent=list.length+' kết quả';
+      $('#results',app).innerHTML=list.length?'<div class="grid">'+list.slice(0,CONFIG.perPage*3).map(function(p){return card(p,val).replace('rv','rv in')}).join('')+'</div>':'<div class="empty">Không có bài viết nào phù hợp. Thử từ khoá khác nhé.</div>';
+      history.replaceState(null,'','#/search?q='+encodeURIComponent(val));
+    };
+    inp.addEventListener('input',run);
+    f.addEventListener('submit',function(e){e.preventDefault();run()});
+    if(q){run()}
+    inp.focus();
+    bindPager(function(n){viewSearch(q,n)});
+    document.title='Tìm kiếm · Blog Alessandra Tran';
+  });
+}
+
+/* ================= ADMIN ================= */
+function viewAdmin(){
+  if(sessionStorage.getItem(SS_AUTH)!=='1'){
+    mount('<section class="admin"><div class="wrap"><div class="panel login"><h1>Đăng nhập</h1><p class="note" style="margin-bottom:20px">Khu vực quản lý bài viết của Alessandra</p><div class="field"><input type="password" id="pw" placeholder="Mã truy cập" autocomplete="current-password"></div><button class="btn" id="go" style="width:100%;justify-content:center">Vào quản lý</button></div></div></section>',function(){
+      var go=function(){if($('#pw').value===CONFIG.adminPasscode){sessionStorage.setItem(SS_AUTH,'1');viewAdmin()}else{toast('Sai mã truy cập')}};
+      $('#go').onclick=go;$('#pw').addEventListener('keydown',function(e){if(e.key==='Enter')go()});$('#pw').focus();
+    });return;
+  }
+  var rows=posts.slice().sort(function(a,b){return (b.date||'').localeCompare(a.date||'')}).map(function(p){
+    return '<tr><td class="t">'+esc(p.title||'(không tiêu đề)')+'</td><td>'+esc(p.category||'')+'</td><td>'+esc(p.date||'')+'</td><td><span class="badge '+(p.status==='published'?'':'draft')+'">'+(p.status==='published'?'Đã đăng':'Nháp')+'</span></td><td style="white-space:nowrap"><a class="btn sm ghost" href="#/post/'+esc(p.id)+'">Xem</a> <button class="btn sm ghost" data-edit="'+esc(p.id)+'">Sửa</button> <button class="btn sm ghost" data-del="'+esc(p.id)+'">Xoá</button></td></tr>';
+  }).join('');
+  var g=settings.gallery||[];
+  mount('<section class="admin"><div class="wrap">'+
+   '<span class="eyebrow">Quản lý</span><h1>Bài viết của mình</h1>'+
+   '<div class="admin-bar"><button class="btn pink" id="new">+ Viết bài mới</button><button class="btn ghost" id="exp">Xuất posts.json</button><button class="btn ghost" id="imp">Nhập posts.json</button><button class="btn ghost" id="out">Đăng xuất</button></div>'+
+   '<div class="panel" style="overflow:auto"><table class="table"><thead><tr><th>Tiêu đề</th><th>Chủ đề</th><th>Ngày</th><th>Trạng thái</th><th></th></tr></thead><tbody>'+(rows||'<tr><td colspan="5" class="empty">Chưa có bài nào</td></tr>')+'</tbody></table></div>'+
+   '<div class="panel" style="margin-top:26px"><h4 class="script" style="font-size:2rem;color:var(--pink-deep);font-weight:400">Ảnh trên trang</h4><p class="note" style="margin-bottom:16px">Ảnh profile và 4 khung ảnh ở cuối trang blog.</p><div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:14px">'+
+     '<div><div class="note">Ảnh profile</div><img class="cover-prev" style="aspect-ratio:3/4" src="'+esc(profileImg())+'" alt=""><button class="btn sm ghost" style="margin-top:8px" data-setimg="profile">Đổi ảnh</button></div>'+
+     [0,1,2,3].map(function(i){return '<div><div class="note">Khung '+(i+1)+'</div><img class="cover-prev" style="aspect-ratio:1" src="'+esc(g[i]||ph('g'+i,'Ảnh '+(i+1)))+'" alt=""><button class="btn sm ghost" style="margin-top:8px" data-setimg="'+i+'">Đổi ảnh</button></div>'}).join('')+
+   '</div></div>'+
+   '<div class="panel" style="margin-top:26px"><h4 class="script" style="font-size:2rem;color:var(--pink-deep);font-weight:400">Cách đưa bài lên trang</h4><p class="note">Bài bạn viết ở đây được lưu trong trình duyệt này. Để người đọc ở thiết bị khác cũng thấy: bấm <b>Xuất posts.json</b>, rồi tải file đó lên cùng thư mục với trang blog (alessandratran.com/blog/posts.json). Trang sẽ tự đọc file này.</p></div>'+
+   '</div></section>',function(){
+    $('#new').onclick=function(){editPost()};
+    $('#out').onclick=function(){sessionStorage.removeItem(SS_AUTH);location.hash='#/';toast('Đã đăng xuất')};
+    $('#exp').onclick=function(){
+      var blob=new Blob([JSON.stringify({posts:posts,settings:{profile:settings.profile,gallery:settings.gallery}},null,1)],{type:'application/json'});
+      var a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download='posts.json';a.click();toast('Đã xuất posts.json');
+    };
+    $('#imp').onclick=function(){
+      var i=document.createElement('input');i.type='file';i.accept='application/json';
+      i.onchange=function(){var fr=new FileReader();fr.onload=function(){try{var j=JSON.parse(fr.result);posts=j.posts||j;if(j.settings)settings=Object.assign(settings,j.settings);savePosts();saveSettings();toast('Đã nhập bài viết');viewAdmin()}catch(e){toast('File không hợp lệ')}};fr.readAsText(i.files[0])};i.click();
+    };
+    $$('[data-edit]',app).forEach(function(b){b.onclick=function(){editPost(b.dataset.edit)}});
+    $$('[data-del]',app).forEach(function(b){b.onclick=function(){if(confirm('Xoá bài viết này?')){posts=posts.filter(function(p){return p.id!==b.dataset.del});savePosts();viewAdmin()}}});
+    $$('[data-setimg]',app).forEach(function(b){b.onclick=function(){pickImage(function(d){var k=b.dataset.setimg;if(k==='profile')settings.profile=d;else{settings.gallery=settings.gallery||['','','',''];settings.gallery[+k]=d}saveSettings();viewAdmin()},1000,.8)}});
+    document.title='Quản lý · Blog Alessandra Tran';
+  });
+}
+function editPost(id){
+  var p=posts.filter(function(x){return x.id===id})[0]||{id:uid(),title:'',excerpt:'',category:'',tags:[],cover:'',date:new Date().toISOString().slice(0,10),status:'draft',content:''};
+  var isNew=!posts.some(function(x){return x.id===p.id});
+  var catList=cats().map(function(c){return '<option value="'+esc(c.name)+'">'}).join('');
+  mount('<section class="admin"><div class="wrap" style="max-width:900px"><span class="eyebrow">'+(isNew?'Bài mới':'Chỉnh sửa')+'</span><h1>'+(isNew?'Viết bài mới':'Sửa bài viết')+'</h1>'+
+   '<div class="panel" style="margin-top:20px">'+
+   '<div class="field"><label>Tiêu đề</label><input id="f-title" value="'+esc(p.title)+'" placeholder="Tiêu đề bài viết"></div>'+
+   '<div class="field"><label>Mô tả ngắn</label><textarea id="f-ex" rows="2" placeholder="1 đến 2 câu hiện ngoài danh sách">'+esc(p.excerpt)+'</textarea></div>'+
+   '<div class="two"><div class="field"><label>Chủ đề</label><input id="f-cat" list="cl" value="'+esc(p.category)+'" placeholder="vd: Matcha"><datalist id="cl">'+catList+'</datalist></div><div class="field"><label>Thẻ (cách nhau dấu phẩy)</label><input id="f-tags" value="'+esc((p.tags||[]).join(', '))+'" placeholder="matcha, đồ uống"></div></div>'+
+   '<div class="two"><div class="field"><label>Ngày đăng</label><input type="date" id="f-date" value="'+esc(p.date)+'"></div><div class="field"><label>Trạng thái</label><select id="f-st"><option value="draft"'+(p.status!=='published'?' selected':'')+'>Nháp</option><option value="published"'+(p.status==='published'?' selected':'')+'>Đăng công khai</option></select></div></div>'+
+   '<div class="field"><label>Ảnh bìa</label><img class="cover-prev" id="cv" src="'+esc(coverOf(p))+'" alt=""><div style="display:flex;gap:8px;flex-wrap:wrap;margin-top:8px"><button class="btn sm ghost" id="cv-up" type="button">Tải ảnh lên</button><button class="btn sm ghost" id="cv-rm" type="button">Bỏ ảnh</button></div><input id="cv-url" placeholder="hoặc dán link ảnh (ưu tiên, nhẹ hơn tải lên)" style="margin-top:8px"></div>'+
+   '<div class="field"><label>Nội dung</label><div class="toolbar">'+
+     [['b','<b>B</b>','bold'],['i','<i>I</i>','italic'],['h2','H2','h2'],['h3','H3','h3'],['q','❝','quote'],['ul','• Danh sách','ul'],['ol','1. Danh sách','ol'],['a','Liên kết','link'],['img','Chèn ảnh','img'],['hr','✦','hr'],['x','Xoá định dạng','clear']].map(function(b){return '<button type="button" data-cmd="'+b[2]+'">'+b[1]+'</button>'}).join('')+
+   '</div><div class="editor" id="ed" contenteditable="true">'+sanitize(p.content)+'</div><span class="note">Ảnh chèn trong bài sẽ được thu nhỏ để nhẹ. Bộ nhớ trình duyệt có hạn, nếu bài nhiều ảnh hãy dùng link ảnh.</span></div>'+
+   '<div class="admin-bar" style="margin-bottom:0"><button class="btn pink" id="save">Lưu bài</button><button class="btn ghost" id="cancel">Huỷ</button></div></div></div></section>',function(){
+    var cover=p.cover||'';
+    $('#cv-up').onclick=function(){pickImage(function(d){cover=d;$('#cv').src=d},1400,.78)};
+    $('#cv-rm').onclick=function(){cover='';$('#cv').src=ph(p.id,'✦')};
+    $('#cv-url').addEventListener('change',function(){var v=this.value.trim();if(v){cover=v;$('#cv').src=v}});
+    var ed=$('#ed');
+    $$('[data-cmd]').forEach(function(b){b.onmousedown=function(e){e.preventDefault()};b.onclick=function(){
+      ed.focus();var c=b.dataset.cmd;
+      if(c==='bold')document.execCommand('bold');
+      else if(c==='italic')document.execCommand('italic');
+      else if(c==='h2')document.execCommand('formatBlock',false,'h2');
+      else if(c==='h3')document.execCommand('formatBlock',false,'h3');
+      else if(c==='quote')document.execCommand('formatBlock',false,'blockquote');
+      else if(c==='ul')document.execCommand('insertUnorderedList');
+      else if(c==='ol')document.execCommand('insertOrderedList');
+      else if(c==='hr')document.execCommand('insertHorizontalRule');
+      else if(c==='clear'){document.execCommand('removeFormat');document.execCommand('formatBlock',false,'p')}
+      else if(c==='link'){var u=prompt('Dán đường dẫn (https://...)');if(u&&/^https?:\/\//i.test(u))document.execCommand('createLink',false,u)}
+      else if(c==='img'){var u2=prompt('Dán link ảnh, hoặc để trống để tải ảnh lên từ máy');if(u2&&/^https?:\/\//i.test(u2)){document.execCommand('insertImage',false,u2)}else if(u2===''){pickImage(function(d){ed.focus();document.execCommand('insertImage',false,d)},1000,.72)}}
+    }});
+    $('#cancel').onclick=viewAdmin;
+    $('#save').onclick=function(){
+      var title=$('#f-title').value.trim();
+      if(!title){toast('Hãy nhập tiêu đề');return}
+      var content=sanitize(ed.innerHTML);
+      var np={id:p.id,title:title,excerpt:$('#f-ex').value.trim(),category:$('#f-cat').value.trim()||'Khác',tags:$('#f-tags').value.split(',').map(function(t){return t.trim()}).filter(Boolean),cover:cover,date:$('#f-date').value||new Date().toISOString().slice(0,10),status:$('#f-st').value,content:content};
+      var old=posts.slice();
+      if(isNew)posts.push(np);else posts=posts.map(function(x){return x.id===np.id?np:x});
+      if(savePosts()){toast(np.status==='published'?'Đã đăng bài':'Đã lưu bản nháp');viewAdmin()}else{posts=old}
+    };
+    document.title='Soạn bài · Blog Alessandra Tran';
+  });
+}
+
+/* ================= ROUTER ================= */
+function route(){
+  $('#nav').classList.remove('open');
+  document.title='Blog · Alessandra Tran';
+  var h=location.hash.replace(/^#/,'')||'/';
+  var qi=h.indexOf('?'), path=qi>-1?h.slice(0,qi):h, qs=qi>-1?h.slice(qi+1):'';
+  var params={};qs.split('&').forEach(function(kv){if(!kv)return;var a=kv.split('=');params[a[0]]=decodeURIComponent((a[1]||'').replace(/\+/g,' '))});
+  var m;
+  if(path==='/'||path==='')viewHome(1);
+  else if((m=path.match(/^\/post\/(.+)$/)))viewPost(decodeURIComponent(m[1]));
+  else if((m=path.match(/^\/category\/(.+)$/)))viewCategory(decodeURIComponent(m[1]),1);
+  else if(path==='/search')viewSearch(params.q||'',1);
+  else if(path==='/admin')viewAdmin();
+  else viewHome(1);
+}
+
+/* ================= INIT ================= */
+$('#yr').textContent=new Date().getFullYear();
+$('#burger').addEventListener('click',function(){$('#nav').classList.toggle('open')});
+$$('[data-modal]').forEach(function(b){b.addEventListener('click',function(){$('#modal-'+b.dataset.modal).classList.add('open')})});
+$$('.modal').forEach(function(m){m.addEventListener('click',function(e){if(e.target===m||e.target.hasAttribute('data-close'))m.classList.remove('open')})});
+document.addEventListener('keydown',function(e){if(e.key==='Escape')$$('.modal.open').forEach(function(m){m.classList.remove('open')})});
+window.addEventListener('hashchange',route);
+ensureData().then(route);
+})();
+</script>
+</body>
+</html>
