@@ -1,0 +1,317 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<title>Alessandra Tran Projects</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,800&family=Be+Vietnam+Pro:wght@400;500;700&display=swap">
+<style>
+/* Bố cục: header dính trên cùng, phần mở đầu có câu "Hôm nay ___ gì?" đổi chữ, lưới thẻ chữ lớn, footer doanh nghiệp 3 cột */
+:root{
+  --bg:#F2F2F6; --surface:#FFFFFF; --ink:#16141F; --muted:#5C5A6B; --line:#DAD9E3; --soft:#E8E8F0;
+  --accent:#4E7F2B; --accent-ink:#FFFFFF; --hot:#D52F14; --shadow:#16141F;
+  --f-display:'Bricolage Grotesque','Be Vietnam Pro',system-ui,sans-serif;
+  --f-body:'Be Vietnam Pro',system-ui,-apple-system,'Segoe UI',Roboto,sans-serif;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#101018; --surface:#1A1A25; --ink:#F1F0F7; --muted:#A3A1B5; --line:#2E2D3D; --soft:#232331;
+    --accent:#9BD36B; --accent-ink:#10200A; --hot:#FF6B4A; --shadow:#000000; color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#101018; --surface:#1A1A25; --ink:#F1F0F7; --muted:#A3A1B5; --line:#2E2D3D; --soft:#232331;
+  --accent:#9BD36B; --accent-ink:#10200A; --hot:#FF6B4A; --shadow:#000000; color-scheme:dark;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--ink);font-family:var(--f-body);font-size:16px;line-height:1.55;
+  padding-left:max(16px, env(safe-area-inset-left, 0px));padding-right:max(16px, env(safe-area-inset-right, 0px));padding-block:0}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top, 0px);z-index:30;background:var(--bg)}
+.wrap{max-width:1040px;margin:0 auto;min-width:0}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--hot);outline-offset:2px}
+button{font-family:var(--f-body);color:inherit}
+
+/* Header */
+.head{position:sticky;top:env(safe-area-inset-top, 0px);z-index:20;background:var(--bg);border-bottom:1px solid var(--line);
+  margin-inline:calc(-1 * max(16px, env(safe-area-inset-left, 0px))) ;padding-inline:max(16px, env(safe-area-inset-left, 0px))}
+.head-in{max-width:1040px;margin:0 auto;display:flex;flex-wrap:wrap;align-items:center;gap:8px 20px;padding-block:10px}
+.back{display:inline-flex;align-items:center;gap:8px;font:700 14px var(--f-body);text-decoration:none;border:2px solid var(--ink);border-radius:999px;padding:8px 16px;min-height:42px;background:var(--surface);box-shadow:0 3px 0 var(--shadow);white-space:nowrap}
+.back:hover{background:var(--soft)}
+.back:active{transform:translateY(2px);box-shadow:0 1px 0 var(--shadow)}
+.nav{display:flex;gap:2px;overflow-x:auto;min-width:0;flex:1 1 320px;scrollbar-width:none;margin:0;padding:0;list-style:none}
+.nav::-webkit-scrollbar{display:none}
+.nav a{display:block;white-space:nowrap;text-decoration:none;font:500 14px var(--f-body);color:var(--muted);padding:10px 12px;border-radius:999px}
+.nav a:hover{color:var(--ink);background:var(--soft)}
+
+/* Mở đầu */
+.hero{padding-block:clamp(36px,8vw,84px) clamp(24px,5vw,44px)}
+.crumb{margin:0 0 14px;font:700 12px var(--f-body);letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+.crumb a{text-decoration:none}
+.crumb a:hover{text-decoration:underline}
+h1{margin:0;font:800 clamp(44px,11.5vw,112px)/.95 var(--f-display);letter-spacing:-.035em;text-wrap:balance;min-height:2em}
+h1 .cyc{color:var(--accent);display:inline-block;transition:opacity .25s,transform .25s}
+h1 .cyc.out{opacity:0;transform:translateY(.15em)}
+.lede{margin:20px 0 0;max-width:58ch;color:var(--muted);font-size:17px}
+.stats{display:flex;flex-wrap:wrap;gap:8px 28px;margin:22px 0 0;padding:0;list-style:none;font-size:14px;color:var(--muted)}
+.stats b{color:var(--ink);font:800 20px var(--f-display);margin-right:4px;font-variant-numeric:tabular-nums}
+
+/* Bộ lọc */
+.filters{display:flex;flex-wrap:wrap;gap:8px;margin-block:8px 22px}
+.chip{border:2px solid var(--line);background:var(--surface);border-radius:999px;padding:8px 16px;font:500 14px var(--f-body);cursor:pointer;min-height:42px}
+.chip:hover{border-color:var(--ink)}
+.chip[aria-pressed="true"]{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+.chip i{font-style:normal;opacity:.65;margin-left:6px;font-variant-numeric:tabular-nums}
+
+/* Lưới thẻ */
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,300px),1fr));gap:16px;padding:0;margin:0;list-style:none}
+.card{background:var(--surface);border:2px solid var(--ink);border-radius:20px;padding:20px;display:flex;flex-direction:column;gap:10px;min-width:0;box-shadow:0 5px 0 var(--shadow);transition:transform .15s,box-shadow .15s}
+.card:hover{transform:translateY(-3px);box-shadow:0 8px 0 var(--shadow)}
+.card-top{display:flex;justify-content:space-between;align-items:center;gap:8px;font:700 12px var(--f-body);letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+.new{background:var(--hot);color:#fff;border-radius:999px;padding:3px 10px;letter-spacing:.04em}
+.pre{margin:8px 0 -6px;font:500 15px var(--f-body);color:var(--muted)}
+.card h2{margin:0;font:800 clamp(30px,6vw,40px)/1 var(--f-display);letter-spacing:-.03em;overflow-wrap:anywhere;text-wrap:balance}
+.card p.d{margin:2px 0 0;color:var(--muted);font-size:15px;flex:1}
+.tags{display:flex;flex-wrap:wrap;gap:6px;margin:4px 0 0;padding:0;list-style:none}
+.tags li{font:500 12px var(--f-body);padding:3px 10px;border-radius:999px;background:var(--soft)}
+.cta{margin-top:8px;align-self:flex-start;display:inline-flex;align-items:center;gap:8px;text-decoration:none;font:700 15px var(--f-body);background:var(--accent);color:var(--accent-ink);border-radius:999px;padding:11px 20px;min-height:44px}
+.cta:hover{filter:brightness(1.08)}
+.cta span{transition:transform .15s}
+.cta:hover span{transform:translateX(3px)}
+.empty{padding:40px 0;color:var(--muted)}
+
+/* Mời hợp tác / thêm dự án */
+.more{margin-block:44px 0;padding:24px;border:2px dashed var(--line);border-radius:20px;display:flex;flex-wrap:wrap;gap:12px 24px;align-items:center;justify-content:space-between}
+.more h3{margin:0;font:800 22px/1.2 var(--f-display);letter-spacing:-.02em}
+.more p{margin:4px 0 0;color:var(--muted);font-size:15px;max-width:48ch}
+.btn{border:2px solid var(--ink);background:var(--surface);color:var(--ink);font:700 15px var(--f-body);padding:11px 20px;border-radius:999px;cursor:pointer;min-height:44px;text-decoration:none;display:inline-flex;align-items:center;box-shadow:0 3px 0 var(--shadow)}
+.btn:hover{background:var(--soft)}
+
+/* Footer */
+.foot{margin-top:72px;border-top:1px solid var(--line);margin-inline:calc(-1 * max(16px, env(safe-area-inset-left, 0px)));padding-inline:max(16px, env(safe-area-inset-left, 0px));padding-bottom:max(28px, env(safe-area-inset-bottom, 0px));background:var(--surface)}
+.foot-in{max-width:1040px;margin:0 auto;padding-top:36px;display:grid;grid-template-columns:minmax(0,1.4fr) repeat(2,minmax(0,1fr));gap:28px}
+.foot h4{margin:0 0 10px;font:700 12px var(--f-body);letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+.foot ul{margin:0;padding:0;list-style:none;display:grid;gap:2px}
+.foot a,.foot .lnk{font:500 15px var(--f-body);text-decoration:none;color:var(--ink);background:none;border:0;padding:6px 0;cursor:pointer;text-align:left;min-height:36px;display:inline-block}
+.foot a:hover,.foot .lnk:hover{text-decoration:underline;text-underline-offset:3px}
+.brand{font:800 24px var(--f-display);letter-spacing:-.02em;margin:0}
+.foot-desc{margin:8px 0 0;color:var(--muted);font-size:14px;max-width:34ch}
+.legal{max-width:1040px;margin:28px auto 0;padding-top:18px;border-top:1px solid var(--line);display:flex;flex-wrap:wrap;gap:8px 24px;justify-content:space-between;font-size:13px;color:var(--muted)}
+.legal .links{display:flex;flex-wrap:wrap;gap:4px 20px}
+.legal .lnk{font:500 13px var(--f-body);color:var(--ink);text-decoration:underline;text-underline-offset:3px;min-height:36px;padding:6px 0}
+
+/* Popup */
+.modal{position:fixed;inset:0;z-index:50;display:grid;place-items:center;padding:16px;background:rgba(10,10,18,.62)}
+.modal[hidden]{display:none}
+.mbox{background:var(--surface);color:var(--ink);border:2px solid var(--ink);border-radius:20px;width:min(100%,640px);max-height:min(86vh,720px);display:flex;flex-direction:column;box-shadow:0 8px 0 var(--shadow);min-width:0}
+.mhead{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:18px 20px;border-bottom:1px solid var(--line)}
+.mhead h2{margin:0;font:800 24px var(--f-display);letter-spacing:-.02em}
+.x{border:2px solid var(--ink);background:var(--surface);border-radius:999px;width:44px;height:44px;cursor:pointer;font-size:20px;line-height:1;flex:none}
+.x:hover{background:var(--soft)}
+.mbody{padding:18px 20px 24px;overflow-y:auto;font-size:15px}
+.mbody h3{margin:22px 0 6px;font:700 16px var(--f-body)}
+.mbody h3:first-of-type{margin-top:6px}
+.mbody p,.mbody li{margin:0 0 8px;color:var(--muted)}
+.mbody ul{padding-left:20px;margin:0 0 8px}
+.mbody .upd{font-size:13px}
+
+@media (max-width:720px){
+  .foot-in{grid-template-columns:1fr 1fr}
+  .foot-in>div:first-child{grid-column:1/-1}
+}
+@media (prefers-reduced-motion: reduce){
+  html{scroll-behavior:auto}
+  .card,.cta span,h1 .cyc{transition:none}
+}
+</style>
+
+<header class="head">
+  <div class="head-in">
+    <a class="back" href="https://www.alessandratran.com/" target="_blank" rel="noopener"><span aria-hidden="true">←</span> Về trang chủ</a>
+    <nav aria-label="Các mục của trang"><ul class="nav">
+      <li><a href="https://www.alessandratran.com/#portfolio" target="_blank" rel="noopener">Portfolio</a></li>
+      <li><a href="https://www.alessandratran.com/#blog" target="_blank" rel="noopener">Blog</a></li>
+      <li><a href="https://www.alessandratran.com/#review" target="_blank" rel="noopener">Review</a></li>
+      <li><a href="https://www.alessandratran.com/#recipe" target="_blank" rel="noopener">Recipe</a></li>
+      <li><a href="https://www.alessandratran.com/#fashion" target="_blank" rel="noopener">Thời trang</a></li>
+      <li><a href="https://www.alessandratran.com/#matcha" target="_blank" rel="noopener">Matcha</a></li>
+      <li><a href="https://www.alessandratran.com/#learning" target="_blank" rel="noopener">Đang học</a></li>
+      <li><a href="https://www.alessandratran.com/#achievement" target="_blank" rel="noopener">Thành tựu</a></li>
+    </ul></nav>
+  </div>
+</header>
+
+<main class="wrap">
+  <section class="hero">
+    <p class="crumb"><a href="https://www.alessandratran.com/" target="_blank" rel="noopener">alessandratran.com</a> / dự án</p>
+    <h1>Hôm nay <span class="cyc" id="cyc">ăn</span> gì?</h1>
+    <p class="lede">Mỗi sáng mình tự hỏi cùng một câu hỏi nhỏ, nên mình làm cho mỗi câu một webapp riêng. Trả lời vài câu, quay vòng quay hoặc bốc thăm, rồi quyết định xong trong một phút.</p>
+    <ul class="stats" id="stats"></ul>
+  </section>
+
+  <div class="filters" id="filters" role="group" aria-label="Lọc theo nhóm"></div>
+  <ul class="grid" id="grid" aria-live="polite"></ul>
+
+  <aside class="more">
+    <div>
+      <h3>Còn nhiều câu hỏi "hôm nay" nữa</h3>
+      <p>Danh sách này còn dài thêm. Xem các mục khác của mình trên trang chủ.</p>
+    </div>
+    <a class="btn" href="https://www.alessandratran.com/" target="_blank" rel="noopener">Xem trang chủ</a>
+  </aside>
+</main>
+
+<footer class="foot">
+  <div class="foot-in">
+    <div>
+      <p class="brand">Alessandra Tran</p>
+      <p class="foot-desc">Những webapp nhỏ giúp bạn chọn nhanh việc của hôm nay.</p>
+    </div>
+    <div>
+      <h4>Khám phá</h4>
+      <ul>
+        <li><a href="https://www.alessandratran.com/" target="_blank" rel="noopener">Trang chủ</a></li>
+        <li><a href="https://www.alessandratran.com/#portfolio" target="_blank" rel="noopener">Portfolio</a></li>
+        <li><a href="https://www.alessandratran.com/#blog" target="_blank" rel="noopener">Blog</a></li>
+        <li><a href="https://www.alessandratran.com/#review" target="_blank" rel="noopener">Review</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4>Đời sống</h4>
+      <ul>
+        <li><a href="https://www.alessandratran.com/#recipe" target="_blank" rel="noopener">Recipe</a></li>
+        <li><a href="https://www.alessandratran.com/#fashion" target="_blank" rel="noopener">Thời trang</a></li>
+        <li><a href="https://www.alessandratran.com/#matcha" target="_blank" rel="noopener">Matcha</a></li>
+        <li><a href="https://www.alessandratran.com/#learning" target="_blank" rel="noopener">Đang học</a></li>
+        <li><a href="https://www.alessandratran.com/#achievement" target="_blank" rel="noopener">Thành tựu</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="legal">
+    <span id="copy">© 2026 Alessandra Tran. Bảo lưu mọi quyền.</span>
+    <span class="links">
+      <button class="lnk" type="button" data-modal="privacy">Chính sách bảo mật</button>
+      <button class="lnk" type="button" data-modal="terms">Điều khoản sử dụng</button>
+    </span>
+  </div>
+  <p class="legal" style="margin-top:0;border-top:0;padding-top:6px">Toàn bộ nội dung, mã nguồn, thiết kế và dữ liệu trên website này là tài sản của Alessandra Tran. Không sao chép, phân phối hoặc dùng lại khi chưa được cho phép bằng văn bản.</p>
+</footer>
+
+<div class="modal" id="modal" hidden>
+  <div class="mbox" role="dialog" aria-modal="true" aria-labelledby="m-title">
+    <div class="mhead"><h2 id="m-title"></h2><button class="x" type="button" id="m-close" aria-label="Đóng">×</button></div>
+    <div class="mbody" id="m-body" tabindex="0"></div>
+  </div>
+</div>
+
+<script>
+(function(){
+var BASE='https://www.alessandratran.com/project/';
+var CATS=['Tất cả','Ăn uống','Địa điểm','Giải trí','Đời sống'];
+/* slug, tiền tố, tiêu đề chính, nhóm, mô tả, thẻ, mới */
+var P=[
+['hom-nay-an-gi','Hôm nay','ăn gì?','Ăn uống','Trả lời vài câu hỏi, quay vòng quay hoặc cho vịt đua để chọn món cho bữa hôm nay. Hơn 60 món Á Âu, kèm link tìm quán trên Google Maps.',['Câu hỏi','Vòng quay','Đua vịt'],true],
+['hom-nay-mac-gi','Hôm nay','mặc gì?','Đời sống','Chọn trang phục theo thời tiết, dịp và tâm trạng. Gợi ý nhanh để không đứng trước tủ đồ cả buổi sáng.',['Thời tiết','Phối đồ']],
+['hom-nay-xem-phim-gi','Hôm nay','xem phim gì?','Giải trí','Chọn phim theo thể loại, thời lượng và người xem cùng. Có chế độ bốc thăm khi cả nhà không ai chịu quyết.',['Thể loại','Bốc thăm']],
+['hom-nay-nau-gi','Hôm nay','nấu gì?','Ăn uống','Gợi ý món nấu tại nhà theo nguyên liệu đang có, thời gian và số người ăn.',['Nguyên liệu','Công thức']],
+['hom-nay-doc-gi','Hôm nay','đọc gì?','Giải trí','Tìm cuốn sách hợp với tâm trạng và quỹ thời gian của bạn hôm nay, từ truyện ngắn đến sách dày.',['Sách','Tâm trạng']],
+['hom-nay-hat-gi','Hôm nay','hát gì?','Giải trí','Chọn bài cho buổi karaoke hoặc playlist theo giọng hát, thể loại và độ nhập tâm.',['Karaoke','Playlist']],
+['hom-nay-nghi-gi','Hôm nay','nghĩ gì?','Đời sống','Một câu hỏi, một câu trích hoặc một chủ đề nhỏ để suy ngẫm và viết vài dòng vào buổi sáng.',['Gợi ý viết','Suy ngẫm']],
+['hom-nay-choi-gi','Hôm nay','chơi gì?','Giải trí','Chọn trò chơi cho nhóm bạn, gia đình hoặc một mình, theo số người và thời gian rảnh.',['Board game','Nhóm bạn']],
+['hom-nay-lam-gi','Hôm nay','làm gì?','Đời sống','Một việc nhỏ cho ngày rảnh: dọn góc bàn, gọi cho bạn cũ hay thử một thứ mới.',['Việc nhỏ','Ngẫu nhiên']],
+['hom-nay-di-cafe-nao','Hôm nay','đi cafe nào?','Địa điểm','Chọn quán cafe theo không khí cần làm việc, trò chuyện hay ngồi một mình, kèm link Google Maps.',['Cafe','Google Maps']],
+['hom-nay-di-quan-an-nao','Hôm nay','đi quán ăn nào?','Địa điểm','Từ món đã chọn đến quán cụ thể. Lọc theo khu vực, mức giá và đánh giá để chốt quán nhanh.',['Quán ăn','Google Maps']],
+['hom-nay-checklist','Hôm nay','checklist','Đời sống','Danh sách việc cần làm của riêng hôm nay. Ít mục, tick xong là xong, sang ngày mới thì bắt đầu lại.',['Việc cần làm','Theo ngày']],
+['hom-nay-bucketlist','Hôm nay','bucketlist','Đời sống','Những điều muốn làm trong đời. Mỗi hôm rút một điều ra để tiến thêm một bước nhỏ.',['Mục tiêu','Rút thăm']],
+['hom-nay-tap-gi','Hôm nay','tập gì?','Đời sống','Chọn bài tập theo thời gian, dụng cụ và phần cơ thể muốn vận động, từ 10 phút đến một giờ.',['Thể dục','Theo thời gian']],
+['hom-nay-uong-gi','Hôm nay','uống gì?','Ăn uống','Matcha, trà sữa, cà phê hay nước ép. Chọn thức uống theo giờ trong ngày và độ ngọt mong muốn.',['Thức uống','Độ ngọt']],
+['hom-nay-di-dau','Hôm nay','đi đâu?','Địa điểm','Gợi ý nơi đi chơi theo thời gian, ngân sách và phương tiện, từ buổi tối gần nhà đến chuyến đi cuối tuần.',['Du lịch','Cuối tuần']]
+];
+var $=function(s){return document.querySelector(s);};
+var cur='Tất cả';
+function esc(s){return String(s).replace(/[&<>"]/g,function(c){return{'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c];});}
+
+/* Thống kê */
+var catCount={};P.forEach(function(p){catCount[p[3]]=(catCount[p[3]]||0)+1;});
+$('#stats').innerHTML='<li><b>'+P.length+'</b>dự án</li><li><b>'+(CATS.length-1)+'</b>nhóm</li><li>Mỗi dự án một đường dẫn riêng</li>';
+
+/* Bộ lọc */
+function renderFilters(){
+  $('#filters').innerHTML=CATS.map(function(c){
+    var n=c==='Tất cả'?P.length:(catCount[c]||0);
+    return '<button class="chip" type="button" data-c="'+esc(c)+'" aria-pressed="'+(c===cur)+'">'+esc(c)+'<i>'+n+'</i></button>';
+  }).join('');
+}
+$('#filters').addEventListener('click',function(e){
+  var b=e.target.closest('.chip');if(!b)return;
+  cur=b.dataset.c;renderFilters();renderGrid();
+});
+
+/* Lưới */
+function renderGrid(){
+  var list=P.filter(function(p){return cur==='Tất cả'||p[3]===cur;});
+  $('#grid').innerHTML=list.length?list.map(function(p){
+    var url=BASE+p[0];
+    return '<li class="card"><div class="card-top"><span>'+esc(p[3])+'</span>'+(p[6]?'<span class="new">Mới nhất</span>':'')+'</div>'+
+      '<p class="pre">'+esc(p[1])+'</p><h2>'+esc(p[2])+'</h2><p class="d">'+esc(p[4])+'</p>'+
+      '<ul class="tags">'+p[5].map(function(t){return '<li>'+esc(t)+'</li>';}).join('')+'</ul>'+
+      '<a class="cta" href="'+url+'" target="_blank" rel="noopener" aria-label="Mở dự án '+esc(p[1]+' '+p[2])+'">Mở dự án <span aria-hidden="true">→</span></a></li>';
+  }).join(''):'<li class="empty">Chưa có dự án nào trong nhóm này.</li>';
+}
+
+/* Chữ đổi trong tiêu đề */
+var WORDS=['ăn','mặc','xem phim','nấu','đọc','hát','nghĩ','chơi','làm','tập','uống'],wi=0,cyc=$('#cyc');
+var reduce=window.matchMedia('(prefers-reduced-motion: reduce)');
+setInterval(function(){
+  if(reduce.matches||document.hidden)return;
+  cyc.classList.add('out');
+  setTimeout(function(){wi=(wi+1)%WORDS.length;cyc.textContent=WORDS[wi];cyc.classList.remove('out');},260);
+},2200);
+
+/* Năm bản quyền */
+$('#copy').textContent='© '+new Date().getFullYear()+' Alessandra Tran. Bảo lưu mọi quyền.';
+
+/* Popup pháp lý */
+var DOCS={
+privacy:{t:'Chính sách bảo mật',b:
+'<p class="upd">Cập nhật lần cuối: tháng 11 năm 2026</p>'+
+'<h3>1. Phạm vi</h3><p>Chính sách này giải thích cách website alessandratran.com và các webapp "Hôm nay…" xử lý thông tin của bạn khi truy cập.</p>'+
+'<h3>2. Thông tin chúng tôi xử lý</h3><ul><li>Các lựa chọn bạn nhập trong webapp (ví dụ câu trả lời trong bộ câu hỏi) chủ yếu được xử lý ngay trên trình duyệt của bạn.</li><li>Một số tùy chọn nhỏ như nhóm món đã chọn có thể được lưu trong bộ nhớ của trình duyệt để tiện cho lần sau. Bạn có thể xóa dữ liệu này bất cứ lúc nào trong cài đặt trình duyệt.</li><li>Thông tin kỹ thuật cơ bản như loại thiết bị, trình duyệt và số lượt truy cập có thể được ghi nhận để cải thiện website.</li></ul>'+
+'<h3>3. Liên kết bên ngoài</h3><p>Một số dự án có liên kết đến dịch vụ bên thứ ba như Google Maps. Khi bạn mở các liên kết đó, chính sách bảo mật của dịch vụ tương ứng sẽ được áp dụng.</p>'+
+'<h3>4. Chia sẻ thông tin</h3><p>Chúng tôi không bán thông tin cá nhân của bạn.</p>'+
+'<h3>5. Quyền của bạn</h3><p>Bạn có quyền yêu cầu xem, sửa hoặc xóa thông tin cá nhân mà bạn đã gửi cho chúng tôi. Hãy liên hệ qua trang chủ alessandratran.com.</p>'+
+'<h3>6. Thay đổi chính sách</h3><p>Chính sách có thể được cập nhật. Ngày cập nhật gần nhất luôn được ghi ở đầu trang này.</p>'},
+terms:{t:'Điều khoản sử dụng',b:
+'<p class="upd">Cập nhật lần cuối: tháng 11 năm 2026</p>'+
+'<h3>1. Chấp nhận điều khoản</h3><p>Khi truy cập và sử dụng website alessandratran.com và các webapp đi kèm, bạn đồng ý với các điều khoản dưới đây.</p>'+
+'<h3>2. Quyền sở hữu</h3><p>Toàn bộ nội dung, thiết kế, mã nguồn, hình ảnh, văn bản và dữ liệu trên website là tài sản của Alessandra Tran và được bảo vệ bởi luật sở hữu trí tuệ. Bạn không được sao chép, phân phối, chỉnh sửa hoặc dùng cho mục đích thương mại khi chưa có sự đồng ý bằng văn bản.</p>'+
+'<h3>3. Sử dụng cá nhân</h3><p>Bạn được dùng các webapp cho mục đích cá nhân, phi thương mại. Bạn không được can thiệp vào hoạt động của website hoặc dùng công cụ tự động để thu thập dữ liệu hàng loạt.</p>'+
+'<h3>4. Tính chất của gợi ý</h3><p>Các gợi ý món ăn, địa điểm, trang phục hay hoạt động chỉ mang tính tham khảo. Giá cả, giờ mở cửa và đánh giá của địa điểm thay đổi theo thời gian, bạn nên kiểm tra lại với nguồn chính thức. Với gợi ý liên quan đến sức khỏe hoặc vận động, hãy chọn mức phù hợp với thể trạng của bạn.</p>'+
+'<h3>5. Giới hạn trách nhiệm</h3><p>Website được cung cấp "như hiện có". Chúng tôi không đảm bảo website luôn hoạt động liên tục hoặc không có lỗi và không chịu trách nhiệm với thiệt hại phát sinh từ việc dựa vào các gợi ý.</p>'+
+'<h3>6. Thay đổi điều khoản</h3><p>Điều khoản có thể được cập nhật. Việc tiếp tục sử dụng website sau khi cập nhật nghĩa là bạn chấp nhận phiên bản mới.</p>'}
+};
+var modal=$('#modal'),lastFocus=null;
+function openModal(k){
+  lastFocus=document.activeElement;
+  $('#m-title').textContent=DOCS[k].t;$('#m-body').innerHTML=DOCS[k].b;$('#m-body').scrollTop=0;
+  modal.hidden=false;document.body.style.overflow='hidden';$('#m-close').focus();
+}
+function closeModal(){modal.hidden=true;document.body.style.overflow='';if(lastFocus&&lastFocus.focus)lastFocus.focus();}
+document.addEventListener('click',function(e){
+  var b=e.target.closest('[data-modal]');if(b){openModal(b.dataset.modal);return;}
+  if(e.target===modal||e.target.closest('#m-close'))closeModal();
+});
+document.addEventListener('keydown',function(e){
+  if(modal.hidden)return;
+  if(e.key==='Escape'){closeModal();return;}
+  if(e.key==='Tab'){
+    var f=[$('#m-close'),$('#m-body')],i=f.indexOf(document.activeElement);
+    e.preventDefault();f[(i+(e.shiftKey?-1:1)+f.length)%f.length].focus();
+  }
+});
+
+renderFilters();renderGrid();
+})();
+</script>
+
+</body></html>
