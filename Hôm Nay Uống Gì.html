@@ -1,0 +1,863 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<title>Hôm Nay Uống Gì</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,800&family=Be+Vietnam+Pro:wght@400;500;700&display=swap">
+<style>
+/* Bố cục: một cột 720px, thanh tab dạng viên thuốc, thẻ món ăn có bóng cứng như ghế nhựa quán vỉa hè Sài Gòn */
+:root{
+  --bg:#F1F4EC; --surface:#FFFFFF; --ink:#12201A; --muted:#566860; --line:#D5DDD1; --soft:#E4EBDF;
+  --chili:#D52F14; --on-chili:#FFFFFF; --sun:#F4B400; --pandan:#0E7A5F; --shadow:#12201A;
+  --water1:#BFE3F0; --water2:#B0D9E8;
+  --f-display:'Bricolage Grotesque','Be Vietnam Pro',system-ui,sans-serif;
+  --f-body:'Be Vietnam Pro',system-ui,-apple-system,'Segoe UI',Roboto,sans-serif;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#0E1613; --surface:#17231E; --ink:#EEF4EC; --muted:#9DB0A5; --line:#2B3C34; --soft:#1F2F28;
+    --chili:#FF6B4A; --on-chili:#1B0C07; --sun:#FFC93C; --pandan:#3CCB9F; --shadow:#000000;
+    --water1:#14405A; --water2:#123A52; color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#0E1613; --surface:#17231E; --ink:#EEF4EC; --muted:#9DB0A5; --line:#2B3C34; --soft:#1F2F28;
+  --chili:#FF6B4A; --on-chili:#1B0C07; --sun:#FFC93C; --pandan:#3CCB9F; --shadow:#000000;
+  --water1:#14405A; --water2:#123A52; color-scheme:dark;
+}
+*{box-sizing:border-box}
+body{
+  background:var(--bg); color:var(--ink); font-family:var(--f-body); font-size:16px; line-height:1.5;
+  padding-block:20px 48px;
+  padding-left:max(16px, env(safe-area-inset-left, 0px));
+  padding-right:max(16px, env(safe-area-inset-right, 0px));
+}
+.wrap{max-width:720px;margin:0 auto;min-width:0}
+button,select{font-family:var(--f-body);color:inherit}
+:focus-visible{outline:3px solid var(--chili);outline-offset:2px}
+
+/* Đầu trang */
+.eyebrow{margin:0;font:500 13px/1.3 var(--f-body);letter-spacing:.04em;color:var(--muted)}
+h1{margin:6px 0 0;font:800 clamp(42px,12vw,72px)/.95 var(--f-display);letter-spacing:-.03em;text-wrap:balance}
+h1 em{font-style:normal;color:var(--chili)}
+.lede{margin:12px 0 0;color:var(--muted);max-width:52ch}
+
+/* Tab */
+.tabs{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:4px;padding:4px;background:var(--soft);border-radius:999px;margin-block:18px 26px}
+.tab{border:0;background:transparent;color:var(--muted);font:700 14px/1 var(--f-body);padding:12px 4px;border-radius:999px;cursor:pointer;min-height:44px}
+.tab[aria-selected="true"]{background:var(--ink);color:var(--bg)}
+
+/* Nút */
+.btn{border:2px solid var(--ink);background:var(--surface);color:var(--ink);font:700 15px/1.2 var(--f-body);padding:12px 18px;border-radius:999px;cursor:pointer;min-height:46px;box-shadow:0 3px 0 var(--shadow);text-decoration:none;display:inline-flex;align-items:center;justify-content:center;text-align:center}
+.btn:hover{background:var(--soft)}
+.btn:active{transform:translateY(2px);box-shadow:0 1px 0 var(--shadow)}
+.btn.primary{background:var(--chili);color:var(--on-chili)}
+.btn.primary:hover{filter:brightness(1.06)}
+.btn.big{font-size:18px;padding:14px 34px;min-height:54px}
+.btn:disabled{opacity:.55;cursor:default;transform:none}
+.link{background:none;border:0;color:var(--muted);font:500 14px var(--f-body);text-decoration:underline;text-underline-offset:3px;cursor:pointer;padding:12px 4px;min-height:44px}
+.link:hover{color:var(--ink)}
+
+/* Hỏi đáp */
+.progress{height:8px;border-radius:99px;background:var(--soft);overflow:hidden}
+.progress span{display:block;height:100%;background:var(--chili);border-radius:99px;transition:width .25s}
+.qcount{margin:14px 0 0;font:700 12px var(--f-body);letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+.q{margin:6px 0 20px;font:800 clamp(26px,6.6vw,38px)/1.1 var(--f-display);letter-spacing:-.02em;text-wrap:balance}
+.q:focus{outline:none}
+.opts{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,150px),1fr));gap:10px}
+.opt{text-align:left;background:var(--surface);color:var(--ink);border:2px solid var(--ink);border-radius:14px;padding:14px 16px;cursor:pointer;display:flex;flex-direction:column;gap:2px;min-height:68px;box-shadow:0 3px 0 var(--shadow);min-width:0}
+.opt:hover{background:var(--soft)}
+.opt:active{transform:translateY(2px);box-shadow:0 1px 0 var(--shadow)}
+.ol{font:700 16px/1.25 var(--f-body)}
+.os{font:400 13px/1.35 var(--f-body);color:var(--muted)}
+.qnav{margin-top:10px;min-height:44px}
+.note{margin:0 0 14px;padding:10px 14px;border-radius:12px;background:var(--soft);font-size:14px;color:var(--muted)}
+.lbl{margin:22px 0 8px;font:700 12px var(--f-body);letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+.alts{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,170px),1fr));gap:8px}
+.alt{text-align:left;border:2px solid var(--line);background:var(--surface);border-radius:14px;padding:10px 14px;cursor:pointer;display:flex;flex-direction:column;min-width:0}
+.alt:hover{border-color:var(--ink)}
+.alt b{font:700 15px/1.25 var(--f-body)}
+.alt span{font-size:13px;color:var(--muted)}
+.actions{display:flex;flex-wrap:wrap;gap:10px;margin-top:22px;align-items:center}
+
+/* Thẻ món */
+.result{margin-top:26px}
+.result.pop{animation:pop .35s ease-out}
+@keyframes pop{from{transform:translateY(10px);opacity:.2}to{transform:none;opacity:1}}
+.dish{background:var(--surface);border:2px solid var(--ink);border-radius:20px;padding:20px;box-shadow:0 6px 0 var(--shadow);display:flex;flex-direction:column;gap:12px;min-width:0}
+.dish-top{display:flex;flex-wrap:wrap;gap:8px 12px;align-items:center}
+.kicker{font:700 12px var(--f-body);letter-spacing:.08em;text-transform:uppercase;color:var(--chili)}
+.badge{font:700 12px var(--f-body);padding:4px 10px;border-radius:999px;background:var(--ink);color:var(--bg)}
+.dish-name{margin:0;font:800 clamp(34px,9.5vw,54px)/1 var(--f-display);letter-spacing:-.03em;text-wrap:balance;overflow-wrap:anywhere}
+.dish-desc{margin:0;max-width:56ch}
+.tags{display:flex;flex-wrap:wrap;gap:6px;list-style:none;padding:0;margin:0}
+.tags li{font:500 13px var(--f-body);padding:4px 10px;border-radius:999px;background:var(--soft)}
+.places{display:flex;flex-wrap:wrap;gap:6px 8px;align-items:center}
+.places .lbl{margin:0 4px 0 0}
+.place{font:500 13px var(--f-body);color:var(--pandan);border:1.5px solid currentColor;border-radius:999px;padding:4px 10px;text-decoration:none}
+.place:hover{background:var(--soft)}
+.dish-actions{margin-top:4px}
+
+/* Phần chung của các trò chơi */
+.sec{margin:0;font:800 clamp(24px,6vw,32px)/1.1 var(--f-display);letter-spacing:-.02em}
+.sub{margin:30px 0 10px;font:800 22px/1.2 var(--f-display);letter-spacing:-.01em}
+.hint{margin:6px 0 16px;color:var(--muted)}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:16px}
+.chip{border:2px solid var(--line);background:var(--surface);border-radius:999px;padding:8px 14px;font:500 14px var(--f-body);cursor:pointer;min-height:40px}
+.chip:hover{border-color:var(--ink)}
+.chip[aria-pressed="true"]{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+.chip:disabled{opacity:.45;cursor:default}
+.controls{display:flex;flex-wrap:wrap;gap:10px;align-items:center;justify-content:center;margin-block:16px}
+.sel{display:inline-flex;align-items:center;gap:8px;font:500 14px var(--f-body)}
+select{background:var(--surface);border:2px solid var(--line);border-radius:10px;padding:8px 10px;font-size:14px;min-height:40px}
+
+/* Vòng quay */
+.wheel-wrap{position:relative;width:min(100%,420px);margin:14px auto 0}
+.wheel-wrap canvas{display:block;width:100%;aspect-ratio:1;height:auto;max-width:100%}
+.pointer{position:absolute;left:50%;top:-8px;transform:translateX(-50%);width:0;height:0;border-left:15px solid transparent;border-right:15px solid transparent;border-top:28px solid var(--ink);z-index:2}
+
+/* Đua vịt */
+.track{margin-top:6px}
+.lane{display:grid;grid-template-columns:minmax(72px,104px) minmax(0,1fr);gap:10px;align-items:center;margin-bottom:8px}
+.lname{font:700 13px/1.2 var(--f-body);overflow-wrap:anywhere}
+.lane.win .lname{color:var(--chili)}
+.water{position:relative;height:50px;border-radius:12px;border:2px solid var(--ink);overflow:hidden;background:repeating-linear-gradient(90deg,var(--water1) 0 22px,var(--water2) 22px 44px)}
+.finish{position:absolute;right:0;top:0;bottom:0;width:12px;background:repeating-conic-gradient(var(--ink) 0 25%,var(--surface) 0 50%) 0 0/12px 12px}
+.duckw{position:absolute;left:0;top:50%;margin-top:-17px;width:46px;height:34px;will-change:transform}
+.duckv{display:block;width:100%;height:100%}
+.racing .duckv{animation:bob .32s ease-in-out infinite alternate}
+.racing .lane:nth-child(2n) .duckv{animation-delay:-.16s}
+@keyframes bob{from{transform:translateY(-2px) rotate(-3deg)}to{transform:translateY(2px) rotate(3deg)}}
+.rank{margin:16px 0 0;padding-left:22px;font-size:14px;color:var(--muted)}
+.rank li{padding:2px 0}
+
+/* Bốc thăm */
+.slot{border:2px solid var(--ink);border-radius:20px;background:var(--surface);padding:28px 16px;text-align:center;box-shadow:0 6px 0 var(--shadow);min-height:132px;display:grid;place-items:center}
+.slot-name{font:800 clamp(30px,8.5vw,48px)/1.05 var(--f-display);letter-spacing:-.02em;text-wrap:balance;overflow-wrap:anywhere}
+.cards{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;perspective:900px}
+.fc{position:relative;aspect-ratio:3/4;border:0;background:none;padding:0;cursor:pointer;transform-style:preserve-3d;transition:transform .6s;min-width:0}
+.fc.open{transform:rotateY(180deg)}
+.face{position:absolute;inset:0;backface-visibility:hidden;-webkit-backface-visibility:hidden;border:2px solid var(--ink);border-radius:16px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;padding:8px;text-align:center;overflow:hidden}
+.front{background:var(--chili);color:var(--on-chili);font:800 56px/1 var(--f-display)}
+.back{background:var(--surface);color:var(--ink);transform:rotateY(180deg)}
+.back b{font:700 15px/1.2 var(--f-body);overflow-wrap:anywhere}
+.back small{font-size:12px;color:var(--muted)}
+.fc.chosen .back{background:var(--sun);color:#12201A}
+.fc.chosen .back small{color:#12201A}
+
+.foot{margin-top:44px;padding-top:16px;border-top:1px solid var(--line);font-size:13px;color:var(--muted);max-width:62ch}
+
+@media (prefers-reduced-motion: reduce){
+  .fc{transition:none}
+  .result.pop{animation:none}
+  .racing .duckv{animation:none}
+  .progress span{transition:none}
+}
+
+/* ===== Phần thêm cho trang uống ===== */
+.tabs{display:flex;gap:4px;overflow-x:auto;scrollbar-width:none;border-radius:999px}
+.tabs::-webkit-scrollbar{display:none}
+.tab{flex:1 0 auto;padding:12px 16px;white-space:nowrap}
+.sub2{margin:34px 0 4px;font:800 22px/1.2 var(--f-display);letter-spacing:-.01em}
+.sub2:first-of-type{margin-top:22px}
+.in{width:100%;border:2px solid var(--line);background:var(--surface);border-radius:14px;padding:11px 14px;font:400 16px var(--f-body);min-height:46px}
+.in:focus{border-color:var(--ink);outline:none}
+textarea.in{min-height:110px;resize:vertical;line-height:1.5}
+
+/* Tung xu */
+.coin-pair{display:flex;flex-wrap:wrap;justify-content:center;align-items:center;gap:10px 18px;margin-top:10px}
+.coin-side{display:flex;align-items:center;gap:10px;min-width:0;max-width:100%}
+.coin-side b{font:800 18px/1.2 var(--f-display);overflow-wrap:anywhere;text-align:left}
+.coin-badge{flex:none;width:34px;height:34px;border-radius:50%;background:var(--ink);color:var(--bg);display:grid;place-items:center;font:800 16px var(--f-display)}
+.coin-stage{perspective:700px;display:grid;place-items:center;height:150px}
+.coin{width:112px;height:112px;position:relative;transform-style:preserve-3d;transition:transform 1.5s cubic-bezier(.2,.7,.2,1)}
+.coin .face{border-radius:50%;border:3px solid var(--ink);font:800 52px/1 var(--f-display);display:grid;place-items:center;align-items:center;justify-content:center}
+.coin .front{background:var(--sun);color:#12201A}
+.coin .back{background:var(--chili);color:var(--on-chili);transform:rotateY(180deg)}
+
+/* Xúc xắc */
+.dice-stage{display:grid;place-items:center;margin-top:10px}
+.die{width:112px;height:112px;border:3px solid var(--ink);border-radius:24px;background:var(--surface);box-shadow:0 6px 0 var(--shadow);display:grid;grid-template-columns:repeat(3,1fr);grid-template-rows:repeat(3,1fr);padding:14px;gap:4px}
+.die i{border-radius:50%;background:transparent;width:100%;height:100%;max-width:22px;max-height:22px;place-self:center}
+.die i.on{background:var(--ink)}
+.die.roll{animation:shake .18s linear infinite}
+@keyframes shake{0%{transform:rotate(-6deg)}50%{transform:rotate(6deg) translateY(-3px)}100%{transform:rotate(-6deg)}}
+.dlist{list-style:none;margin:16px 0 0;padding:0;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,200px),1fr));gap:8px}
+.dlist li{display:flex;gap:10px;align-items:center;border:2px solid var(--line);border-radius:12px;padding:8px 12px;font-size:14px;min-width:0;overflow-wrap:anywhere}
+.dlist li b{flex:none;width:26px;height:26px;border-radius:8px;background:var(--soft);display:grid;place-items:center;font:800 14px var(--f-display)}
+.dlist li.win{border-color:var(--ink);background:var(--sun);color:#12201A}
+.dlist li.win b{background:#12201A;color:#fff}
+
+/* Kim chỉ */
+.needle-wrap{position:relative;width:min(100%,360px);margin:14px auto 0}
+.needle-wrap canvas{display:block;width:100%;aspect-ratio:1;height:auto;max-width:100%}
+
+/* Tự điền */
+.cust-add{display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,1fr) auto;gap:10px;align-items:center}
+details.paste{margin-top:12px;border:2px solid var(--line);border-radius:14px;padding:4px 14px}
+details.paste summary{cursor:pointer;font:700 14px var(--f-body);padding:10px 0;min-height:44px;display:flex;align-items:center}
+details.paste .controls{justify-content:flex-start}
+.clist{list-style:none;margin:16px 0 0;padding:0;display:grid;gap:8px}
+.clist li{display:flex;gap:10px;align-items:center;justify-content:space-between;background:var(--surface);border:2px solid var(--line);border-radius:14px;padding:6px 8px 6px 14px;min-width:0}
+.clist .nm{min-width:0;overflow-wrap:anywhere}
+.clist .nm b{font:700 16px var(--f-body)}
+.clist .nm small{display:block;color:var(--muted);font-size:13px}
+.rm{flex:none;width:44px;height:44px;border-radius:50%;border:0;background:var(--soft);cursor:pointer;font-size:20px;line-height:1}
+.rm:hover{background:var(--line)}
+.go-row{display:flex;flex-wrap:wrap;gap:8px;margin-top:16px}
+.cust-empty{padding:24px 16px;border:2px dashed var(--line);border-radius:16px;color:var(--muted);text-align:center;margin-top:16px}
+@media (max-width:560px){.cust-add{grid-template-columns:1fr}}
+</style>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+  <defs>
+    <symbol id="duck" viewBox="0 0 68 48">
+      <path d="M9 25 L1 16 L14 20 Z" style="fill:var(--sun);stroke:#12201A;stroke-width:1.5;stroke-linejoin:round"/>
+      <ellipse cx="30" cy="31" rx="24" ry="14" style="fill:var(--sun);stroke:#12201A;stroke-width:1.5"/>
+      <path d="M17 31 Q29 20 42 31 Q29 39 17 31 Z" style="fill:#000;opacity:.14"/>
+      <circle cx="49" cy="16" r="11" style="fill:var(--sun);stroke:#12201A;stroke-width:1.5"/>
+      <path d="M38.2 14.5 A11 11 0 0 1 59.8 14.5 Z" style="fill:var(--cap);stroke:#12201A;stroke-width:1.5;stroke-linejoin:round"/>
+      <path d="M58 17 L67 20.5 L58 24 Z" style="fill:#F2760A;stroke:#12201A;stroke-width:1.2;stroke-linejoin:round"/>
+      <circle cx="53" cy="17.5" r="1.9" style="fill:#12201A"/>
+    </symbol>
+  </defs>
+</svg>
+
+<main class="wrap">
+  <header>
+    <p class="eyebrow" id="eyebrow">Khát nước rồi</p>
+    <h1>Hôm nay <em>uống gì?</em></h1>
+    <p class="lede">Trả lời vài câu, quay vòng quay, xem vịt đua, tung xu hoặc tự nhập danh sách của nhóm bạn. Món nào cũng kèm quán ở TP.HCM và nút mở Google Maps.</p>
+  </header>
+
+  <nav class="tabs" role="tablist" aria-label="Cách chọn thức uống">
+    <button class="tab" role="tab" id="tab-quiz" data-tab="quiz" aria-controls="p-quiz" aria-selected="true">Hỏi đáp</button>
+    <button class="tab" role="tab" id="tab-wheel" data-tab="wheel" aria-controls="p-wheel" aria-selected="false" tabindex="-1">Vòng quay</button>
+    <button class="tab" role="tab" id="tab-duck" data-tab="duck" aria-controls="p-duck" aria-selected="false" tabindex="-1">Đua vịt</button>
+    <button class="tab" role="tab" id="tab-random" data-tab="random" aria-controls="p-random" aria-selected="false" tabindex="-1">Bốc thăm</button>
+    <button class="tab" role="tab" id="tab-mini" data-tab="mini" aria-controls="p-mini" aria-selected="false" tabindex="-1">Mini game</button>
+    <button class="tab" role="tab" id="tab-custom" data-tab="custom" aria-controls="p-custom" aria-selected="false" tabindex="-1">Tự điền</button>
+  </nav>
+
+  <section id="p-quiz" role="tabpanel" aria-labelledby="tab-quiz"><div id="quiz"></div></section>
+
+  <section id="p-wheel" role="tabpanel" aria-labelledby="tab-wheel" hidden>
+    <h2 class="sec">Vòng quay thức uống</h2>
+    <p class="hint">Chọn nhóm, bấm quay, mũi tên chỉ vào đâu thì uống món đó.</p>
+    <div class="chips" data-chips></div>
+    <div class="controls">
+      <label class="sel" for="w-n">Số ô
+        <select id="w-n"><option>6</option><option selected>8</option><option>10</option><option>12</option></select>
+      </label>
+      <button class="btn" id="w-shuffle" type="button">Đổi món trên vòng</button>
+    </div>
+    <div class="wheel-wrap"><i class="pointer" aria-hidden="true"></i><canvas id="wheel" role="img" aria-label="Vòng quay các thức uống"></canvas></div>
+    <div class="controls"><button class="btn primary big" id="w-spin" type="button">Quay!</button></div>
+    <div class="result" id="res-wheel" aria-live="polite" hidden></div>
+  </section>
+
+  <section id="p-duck" role="tabpanel" aria-labelledby="tab-duck" hidden>
+    <h2 class="sec">Đua vịt</h2>
+    <p class="hint">Mỗi chú vịt là một thức uống. Vịt nào về đích đầu tiên, bạn uống món đó.</p>
+    <div class="chips" data-chips></div>
+    <div class="controls">
+      <label class="sel" for="d-n">Số vịt
+        <select id="d-n"><option>3</option><option>4</option><option selected>5</option><option>6</option><option>8</option></select>
+      </label>
+      <button class="btn" id="d-shuffle" type="button">Đổi đội hình</button>
+    </div>
+    <div class="track" id="track"></div>
+    <div class="controls"><button class="btn primary big" id="d-go" type="button">Bắt đầu đua!</button></div>
+    <ol class="rank" id="rank" hidden></ol>
+    <div class="result" id="res-duck" aria-live="polite" hidden></div>
+  </section>
+
+  <section id="p-random" role="tabpanel" aria-labelledby="tab-random" hidden>
+    <h2 class="sec">Bốc thăm ngẫu nhiên</h2>
+    <p class="hint">Chọn nhóm rồi bấm. Không cần suy nghĩ thêm.</p>
+    <div class="chips" data-chips></div>
+    <div class="slot"><div class="slot-name" id="slot-name">Hôm nay uống gì đây?</div></div>
+    <div class="controls"><button class="btn primary big" id="slot-go" type="button">Bốc thăm!</button></div>
+    <div class="result" id="res-slot" aria-live="polite" hidden></div>
+    <h3 class="sub">Hoặc chọn một lá bài</h3>
+    <div class="cards" id="cards"></div>
+    <div class="controls"><button class="btn" id="cards-shuffle" type="button">Xáo bài</button></div>
+    <div class="result" id="res-cards" aria-live="polite" hidden></div>
+  </section>
+
+  <section id="p-mini" role="tabpanel" aria-labelledby="tab-mini" hidden>
+    <h2 class="sec">Mini game</h2>
+    <p class="hint">Ba trò nhỏ khi bạn muốn quyết định bằng cách vui hơn.</p>
+    <div class="chips" data-chips></div>
+
+    <h3 class="sub2">Tung đồng xu</h3>
+    <p class="hint" style="margin-top:0">Hai thức uống, một đồng xu. Mặt A hay mặt B?</p>
+    <div class="coin-pair" id="coin-pair"></div>
+    <div class="coin-stage"><div class="coin" id="coin"><span class="face front" aria-hidden="true">A</span><span class="face back" aria-hidden="true">B</span></div></div>
+    <div class="controls">
+      <button class="btn" id="coin-new" type="button">Đổi cặp</button>
+      <button class="btn primary big" id="coin-go" type="button">Tung xu!</button>
+    </div>
+    <div class="result" id="res-coin" aria-live="polite" hidden></div>
+
+    <h3 class="sub2">Xúc xắc</h3>
+    <p class="hint" style="margin-top:0">Mỗi mặt xúc xắc là một món. Gieo ra mặt nào uống món đó.</p>
+    <div class="dice-stage"><div class="die" id="die" role="img" aria-label="Xúc xắc"></div></div>
+    <ul class="dlist" id="dlist"></ul>
+    <div class="controls">
+      <button class="btn" id="dice-new" type="button">Đổi 6 món</button>
+      <button class="btn primary big" id="dice-go" type="button">Gieo xúc xắc!</button>
+    </div>
+    <div class="result" id="res-dice" aria-live="polite" hidden></div>
+
+    <h3 class="sub2">Kim chỉ</h3>
+    <p class="hint" style="margin-top:0">Kim quay rất nhanh. Bấm "Dừng!" đúng lúc bạn muốn.</p>
+    <div class="needle-wrap"><canvas id="needle" role="img" aria-label="Bảng kim chỉ các thức uống"></canvas></div>
+    <div class="controls">
+      <button class="btn" id="needle-new" type="button">Đổi món trên bảng</button>
+      <button class="btn primary big" id="needle-go" type="button">Bắt đầu quay</button>
+    </div>
+    <div class="result" id="res-needle" aria-live="polite" hidden></div>
+  </section>
+
+  <section id="p-custom" role="tabpanel" aria-labelledby="tab-custom" hidden>
+    <h2 class="sec">Danh sách của bạn</h2>
+    <p class="hint">Tự nhập các món nhóm bạn đang phân vân, rồi dùng chúng trong vòng quay, đua vịt, bốc thăm và mini game. Danh sách được lưu trên trình duyệt này.</p>
+    <form class="cust-add" id="c-form" novalidate>
+      <input class="in" id="c-name" type="text" maxlength="40" placeholder="Tên món, ví dụ: Trà đào cam sả" aria-label="Tên món">
+      <input class="in" id="c-place" type="text" maxlength="40" placeholder="Quán (không bắt buộc)" aria-label="Tên quán">
+      <button class="btn primary" type="submit">Thêm</button>
+    </form>
+    <details class="paste">
+      <summary>Dán nhiều món cùng lúc</summary>
+      <p class="hint" style="margin:0 0 8px">Mỗi dòng một món. Muốn ghi quán thì viết "Tên món | Tên quán".</p>
+      <textarea class="in" id="c-bulk" placeholder="Cà phê muối | Cộng Cà Phê&#10;Trà sữa trân châu&#10;Matcha latte"></textarea>
+      <div class="controls"><button class="btn" id="c-bulk-go" type="button">Thêm các dòng này</button></div>
+    </details>
+    <p class="lbl">Thêm nhanh</p>
+    <div class="chips" id="c-quick"></div>
+    <p class="status" id="c-st" aria-live="polite" style="min-height:1.4em;color:var(--muted);font-size:14px;margin:0"></p>
+    <ul class="clist" id="c-list"></ul>
+    <div class="go-row" id="c-go"></div>
+  </section>
+
+  <p class="foot">Danh sách thức uống và tên quán lấy từ các món và thương hiệu phổ biến ở TP.HCM. Đánh giá, giờ mở cửa, địa chỉ và giá thay đổi liên tục nên hãy mở Google Maps để xem bản mới nhất. Mức giá chỉ là ước lượng cho một ly.</p>
+</main>
+
+<script>
+/* ===== Dữ liệu ===== */
+var CATS={cf:'Cà phê',tea:'Trà',milk:'Trà sữa',matcha:'Matcha',fruit:'Nước ép & sinh tố',trad:'Giải khát quen thuộc',spec:'Soda & đặc biệt'};
+/* Quán và thương hiệu hay gặp ở TP.HCM theo nhóm */
+var SPOTS={
+  cf:['Highlands Coffee','The Coffee House','Phúc Long','Cộng Cà Phê','The Workshop Coffee','Katinat Saigon Kafe','Trung Nguyên Legend'],
+  tea:['Phúc Long','Highlands Coffee','The Coffee House','Katinat Saigon Kafe'],
+  milk:['Gong Cha','KOI Thé','Tiger Sugar','Phê La','Tocotoco','The Alley','Ding Tea'],
+  matcha:['Phúc Long','Katinat Saigon Kafe','The Coffee House'],
+  fruit:[],trad:[],
+  spec:['Katinat Saigon Kafe','The Coffee House']
+};
+/* D(tên, nhóm, caffeine 0-2, nhiệt độ h/c/b, độ ngọt 0-2, tâm trạng[e,r,f,t], giá 1-3, topping, mô tả, quán riêng[]) */
+function D(n,c,caf,tp,sw,mood,pr,top,d,pl){return{n:n,c:c,caf:caf,tp:tp,sw:sw,mood:mood,pr:pr,top:!!top,d:d,pl:pl||[]};}
+var DRINKS=[
+D('Cà phê sữa đá','cf',2,'c',2,['e','t'],1,0,'Cà phê phin đậm đà pha sữa đặc, uống với thật nhiều đá, hương vị quen thuộc của Sài Gòn.',['Trung Nguyên Legend']),
+D('Cà phê đen đá','cf',2,'c',0,['e'],1,0,'Cà phê phin nguyên chất, đắng đậm, đánh thức mọi giác quan.'),
+D('Bạc xỉu','cf',1,'c',2,['t','r'],1,0,'Nhiều sữa ít cà phê, ngọt béo và dịu, hợp người mới uống cà phê.'),
+D('Cà phê muối','cf',2,'c',1,['t'],2,0,'Lớp kem muối béo mặn phủ trên cà phê, vị ngọt mặn cân bằng.'),
+D('Cà phê cốt dừa','cf',2,'c',2,['t','f'],2,0,'Cà phê đá xay với cốt dừa béo mát, ngọt đậm.',['Cộng Cà Phê']),
+D('Cappuccino','cf',2,'h',1,['r','e'],2,0,'Espresso với sữa nóng và lớp bọt dày, thơm mùi cà phê rang.',['The Workshop Coffee']),
+D('Latte nóng','cf',1,'h',1,['r'],2,0,'Espresso với nhiều sữa nóng mịn, vị nhẹ và êm.'),
+D('Americano','cf',2,'b',0,['e'],2,0,'Espresso pha loãng với nước, thanh và sạch, uống nóng hay lạnh đều được.'),
+D('Cold brew','cf',2,'c',0,['e','f'],3,0,'Cà phê ủ lạnh nhiều giờ, ít chua, êm và mát.',['The Workshop Coffee']),
+D('Espresso tonic','cf',2,'c',1,['f','e'],3,0,'Espresso rót trên nước tonic có đá, vị cà phê sáng và sảng khoái.'),
+D('Cà phê trứng','cf',1,'h',2,['t','r'],2,0,'Lớp kem trứng đánh bông béo ngậy trên cà phê, vị như món tráng miệng.'),
+D('Trà đào cam sả','tea',1,'c',1,['f','r'],2,1,'Trà đen với đào miếng, cam và sả, thơm và mát, thức uống quốc dân.'),
+D('Trà vải','tea',1,'c',1,['f'],2,1,'Trà đen hương hoa với vải ngọt thanh và nhiều đá.'),
+D('Trà oolong nóng','tea',1,'h',0,['r'],1,0,'Trà oolong rang thơm, hậu ngọt, uống nóng buổi chiều.'),
+D('Trà gừng mật ong','tea',0,'h',1,['r'],1,0,'Gừng tươi và mật ong, ấm bụng, hợp ngày mưa.'),
+D('Trà hoa cúc','tea',0,'h',0,['r'],1,0,'Hoa cúc khô pha nóng, nhẹ nhàng, giúp thư giãn.'),
+D('Trà chanh','tea',1,'c',1,['f'],1,0,'Trà đen với chanh tươi và đường, vị chua ngọt giải khát.'),
+D('Trà atiso','tea',0,'c',1,['f','r'],1,0,'Nước atiso đỏ hoặc xanh, thanh mát, không caffeine.'),
+D('Trà tắc','tea',1,'c',1,['f'],1,0,'Trà đen với quất, chua thanh, uống ở vỉa hè rất đã.'),
+D('Trà sữa trân châu đường đen','milk',1,'c',2,['t'],2,1,'Trà sữa béo với trân châu đường đen dẻo, vị ngọt đậm.',['Tiger Sugar']),
+D('Hồng trà sữa','milk',1,'c',1,['t','r'],2,1,'Hồng trà đậm vị pha sữa, thêm topping tùy thích.'),
+D('Trà sữa oolong','milk',1,'c',1,['r','t'],2,1,'Oolong rang thơm kết hợp sữa, ít ngọt, hậu trà rõ.'),
+D('Trà sữa kem cheese','milk',1,'c',2,['t'],2,1,'Lớp kem cheese mặn béo phủ trên trà sữa.'),
+D('Sữa tươi trân châu đường đen','milk',0,'c',2,['t'],2,1,'Sữa tươi lạnh với trân châu đường đen, không có trà nên không caffeine.'),
+D('Hồng trà macchiato','milk',1,'c',1,['t'],2,1,'Hồng trà phủ lớp kem sữa mặn nhẹ, uống từ từ để cảm nhận từng lớp.'),
+D('Matcha latte đá','matcha',1,'c',1,['r','e'],2,0,'Matcha đánh mịn với sữa lạnh, vị trà xanh rõ.'),
+D('Matcha latte nóng','matcha',1,'h',1,['r'],2,0,'Matcha với sữa nóng, thơm và ấm.'),
+D('Matcha kem cheese','matcha',1,'c',2,['t'],2,0,'Matcha đá phủ lớp kem cheese béo mặn.'),
+D('Matcha đá xay','matcha',1,'c',2,['t','f'],3,0,'Matcha xay nhuyễn với đá và sữa, mát lạnh.'),
+D('Matcha dâu','matcha',1,'c',2,['t'],3,0,'Lớp sốt dâu ngọt chua dưới matcha sữa lạnh.'),
+D('Nước cam ép','fruit',0,'c',1,['f','e'],1,0,'Cam tươi vắt, nhiều vitamin C, uống ngay cho thơm.'),
+D('Nước ép dưa hấu','fruit',0,'c',1,['f'],1,0,'Dưa hấu xay nguyên chất, ngọt mát, giải nhiệt nhanh.'),
+D('Sinh tố bơ','fruit',0,'c',2,['t','e'],2,0,'Bơ sáp xay với sữa đặc, béo mịn như kem.'),
+D('Sinh tố xoài','fruit',0,'c',2,['f','t'],2,0,'Xoài chín xay với đá và sữa chua, ngọt thơm.'),
+D('Sinh tố dâu','fruit',0,'c',2,['t'],2,0,'Dâu tây xay với sữa chua và đá, vị chua ngọt.'),
+D('Nước ép cà rốt táo','fruit',0,'c',1,['e','r'],2,0,'Cà rốt và táo ép lạnh, ngọt dịu và tốt cho mắt.'),
+D('Nước ép cần tây táo','fruit',0,'c',0,['e','f'],2,0,'Cần tây và táo xanh, thanh và ít ngọt, hợp bữa sáng nhẹ.'),
+D('Nước mía','trad',0,'c',2,['f'],1,0,'Mía ép tươi với đá, thêm chút quất cho thơm.'),
+D('Nước dừa tươi','trad',0,'c',1,['f','r'],1,0,'Dừa xiêm nguyên trái, ngọt thanh, giải nhiệt tự nhiên.'),
+D('Sâm bí đao','trad',0,'c',1,['f','r'],1,0,'Bí đao, la hán quả và các loại thảo mộc, mát và thanh.'),
+D('Rau má đậu xanh','trad',0,'c',1,['f'],1,0,'Rau má xay với đậu xanh, xanh mát và béo nhẹ.'),
+D('Đá me','trad',0,'c',2,['f','t'],1,0,'Me chua ngọt với đá bào, món giải khát cổ điển ở vỉa hè.'),
+D('Sữa đậu nành nóng','trad',0,'h',1,['r'],1,0,'Đậu nành xay nóng, thơm và ấm, hợp buổi sáng.'),
+D('Chanh muối','trad',0,'c',1,['f','r'],1,0,'Chanh ngâm muối lâu ngày pha soda hoặc nước ấm, dịu cổ.'),
+D('Soda chanh','spec',0,'c',1,['f'],1,0,'Soda với chanh tươi, sủi bọt, sảng khoái.'),
+D('Soda việt quất','spec',0,'c',2,['f','t'],2,0,'Soda với siro việt quất, chua ngọt và đẹp mắt.'),
+D('Mojito không cồn','spec',0,'c',1,['f'],2,0,'Chanh, bạc hà và soda, mát lạnh và không có rượu.'),
+D('Chanh dây đá','spec',0,'c',1,['f'],1,0,'Chanh dây chua thơm, đá xay hoặc đá viên.'),
+D('Yakult đào','spec',0,'c',2,['f','t'],2,0,'Sữa chua uống Yakult với đào và đá, ngọt chua dễ uống.'),
+D('Sô cô la nóng','spec',1,'h',2,['t','r'],2,0,'Sô cô la đậm vị pha sữa nóng, hợp tối mát trời.'),
+D('Sô cô la đá xay','spec',1,'c',2,['t'],2,0,'Sô cô la xay với đá và kem tươi, ngọt đậm.')
+];
+var LBL={caf:['Không caffeine','Ít caffeine','Nhiều caffeine'],tp:{h:'Uống nóng',c:'Uống lạnh',b:'Nóng hoặc lạnh'},sw:['Ít ngọt','Ngọt vừa','Ngọt đậm'],pr:['','Dưới 40k','40–70k','Trên 70k']};
+
+function score(d,a){
+  var s=0;
+  if(a.mood&&a.mood!=='any'&&d.mood.indexOf(a.mood)>=0)s+=3;
+  if(typeof a.sw==='number')s+=d.sw===a.sw?3:(Math.abs(d.sw-a.sw)===1?1:-1);
+  if(typeof a.pr==='number')s+=d.pr===a.pr?2:(Math.abs(d.pr-a.pr)===1?0:-2);
+  if(a.caf==='high')s+=d.caf===2?2:0;
+  if(a.top==='yes')s+=d.top?3:0;
+  if(a.top==='no')s+=d.top?-3:0;
+  return s+Math.random()*1.5;
+}
+function recommend(a){
+  var on={cat:true,tp:true,caf:true};
+  function test(d){
+    if(on.caf&&a.caf==='none'&&d.caf!==0)return false;
+    if(on.caf&&a.caf==='low'&&d.caf>1)return false;
+    if(on.caf&&a.caf==='high'&&d.caf<1)return false;
+    if(on.tp&&a.tp==='h'&&d.tp==='c')return false;
+    if(on.tp&&a.tp==='c'&&d.tp==='h')return false;
+    if(on.cat&&a.cat&&a.cat!=='any'&&d.c!==a.cat)return false;
+    return true;
+  }
+  var names={cat:'nhóm thức uống',tp:'nóng hay lạnh',caf:'caffeine'},relaxed=[];
+  var pool=DRINKS.filter(test);
+  ['cat','tp','caf'].forEach(function(k){
+    if(pool.length>=3)return;
+    on[k]=false;
+    var v=k==='cat'?a.cat:k==='tp'?a.tp:a.caf;
+    if(v&&v!=='any')relaxed.push(names[k]);
+    pool=DRINKS.filter(test);
+  });
+  var list=pool.map(function(d){return{d:d,s:score(d,a)};}).sort(function(x,y){return y.s-x.s;}).map(function(x){return x.d;});
+  return{list:list,relaxed:relaxed};
+}
+</script>
+
+<script>
+(function(){
+var $=function(s,r){return(r||document).querySelector(s);};
+var $$=function(s,r){return Array.prototype.slice.call((r||document).querySelectorAll(s));};
+var reduce=window.matchMedia('(prefers-reduced-motion: reduce)');
+var rnd=function(n){return Math.floor(Math.random()*n);};
+function sample(a,n){var c=a.slice();for(var i=c.length-1;i>0;i--){var j=rnd(i+1);var t=c[i];c[i]=c[j];c[j]=t;}return c.slice(0,n);}
+function esc(s){return String(s==null?'':s).replace(/[&<>"']/g,function(c){return{'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c];});}
+function mapsUrl(q){return 'https://www.google.com/maps/search/?api=1&query='+encodeURIComponent(q);}
+
+/* Lời chào theo giờ */
+(function(){
+  var n=new Date(),days=['Chủ nhật','Thứ hai','Thứ ba','Thứ tư','Thứ năm','Thứ sáu','Thứ bảy'],h=n.getHours();
+  var when=h<10?'buổi sáng':h<14?'buổi trưa':h<17?'buổi chiều':h<22?'buổi tối':'khuya';
+  $('#eyebrow').textContent=days[n.getDay()]+', '+String(h).padStart(2,'0')+':'+String(n.getMinutes()).padStart(2,'0')+' · khát nước '+when+' rồi';
+})();
+
+/* ===== Danh sách tự điền (lưu trên trình duyệt) ===== */
+var KEY='uongGi.mine',mine=[];
+function loadMine(){try{var r=JSON.parse(localStorage.getItem(KEY)||'[]');if(Array.isArray(r))mine=r.filter(function(x){return x&&typeof x.n==='string';}).slice(0,60);}catch(e){mine=[];}}
+function saveMine(){try{localStorage.setItem(KEY,JSON.stringify(mine));}catch(e){}}
+function mineDishes(){return mine.map(function(m){return{n:m.n,c:'mine',custom:true,p:m.p||''};});}
+
+/* ===== Thẻ kết quả ===== */
+function placesFor(d){
+  if(d.custom)return d.p?[d.p]:[];
+  var all=d.pl.concat(sample((SPOTS[d.c]||[]).filter(function(s){return d.pl.indexOf(s)<0;}),Math.max(0,4-d.pl.length)));
+  return all;
+}
+function cardHTML(d,label){
+  var pls=placesFor(d);
+  var places=pls.length?'<div class="places"><span class="lbl">Quán hay được nhắc tới</span>'+pls.map(function(p){
+    return '<a class="place" href="'+mapsUrl(p+' TP.HCM')+'" target="_blank" rel="noopener">'+esc(p)+'</a>';}).join('')+'</div>':'';
+  var tags=d.custom?'<ul class="tags"><li>Món bạn tự thêm</li></ul>':
+    '<ul class="tags"><li>'+LBL.caf[d.caf]+'</li><li>'+LBL.tp[d.tp]+'</li><li>'+LBL.sw[d.sw]+'</li><li>'+LBL.pr[d.pr]+'</li>'+(d.top?'<li>Có topping</li>':'')+'</ul>';
+  return '<article class="dish"><div class="dish-top"><span class="kicker">'+esc(label||'Hôm nay uống')+'</span><span class="badge">'+esc(d.custom?'Danh sách của bạn':CATS[d.c])+'</span></div>'+
+    '<h3 class="dish-name">'+esc(d.n)+'</h3><p class="dish-desc">'+(d.custom?(d.p?'Bạn đã ghi quán: '+esc(d.p)+'.':'Bấm nút bên dưới để tìm quán gần bạn.'):esc(d.d))+'</p>'+
+    tags+places+
+    '<div class="dish-actions"><a class="btn primary" href="'+mapsUrl(d.n+(d.custom&&d.p?' '+d.p:' gần đây'))+'" target="_blank" rel="noopener">Tìm quán trên Google Maps</a></div></article>';
+}
+function showResult(el,d,label){
+  el.innerHTML=cardHTML(d,label);el.hidden=false;
+  el.classList.remove('pop');void el.offsetWidth;el.classList.add('pop');
+  el.scrollIntoView({behavior:reduce.matches?'auto':'smooth',block:'nearest'});
+}
+
+/* ===== Nhóm dùng chung ===== */
+var GROUPS={all:{l:'Tất cả'},cf:{l:'Cà phê'},tea:{l:'Trà'},milk:{l:'Trà sữa'},matcha:{l:'Matcha'},fruit:{l:'Nước ép · sinh tố'},trad:{l:'Giải khát'},spec:{l:'Soda · đặc biệt'},mine:{l:'Của bạn'},quiz:{l:'Từ câu hỏi'}};
+var group='all',quizList=[],busy=false;
+function poolFor(g){
+  if(g==='quiz')return quizList.length?quizList:DRINKS;
+  if(g==='mine')return mineDishes();
+  if(g==='all')return DRINKS;
+  return DRINKS.filter(function(d){return d.c===g;});
+}
+function refreshChips(){
+  $$('[data-chips]').forEach(function(el){
+    el.innerHTML=Object.keys(GROUPS).map(function(k){
+      var dis=(k==='quiz'&&!quizList.length)||(k==='mine'&&mine.length<2);
+      return '<button class="chip" type="button" data-g="'+k+'" aria-pressed="'+(k===group)+'"'+(dis?' disabled':'')+'>'+GROUPS[k].l+(k==='mine'?' ('+mine.length+')':'')+'</button>';
+    }).join('');
+  });
+}
+document.addEventListener('click',function(e){
+  var b=e.target.closest('.chip[data-g]');if(!b||b.disabled||busy)return;
+  setGroup(b.dataset.g);
+});
+function setGroup(g){
+  if(g==='mine'&&mine.length<2)g='all';
+  group=g;refreshChips();regenWheel();setupDucks();resetRandom();coinNew();diceNew();needleNew();
+}
+
+/* ===== Hỏi đáp ===== */
+var Q=[
+  {k:'caf',t:'Bạn muốn uống có caffeine không?',opts:function(){return[{v:'none',l:'Không caffeine',s:'Ngủ ngon quan trọng hơn'},{v:'low',l:'Ít thôi',s:'Trà nhẹ, matcha'},{v:'high',l:'Cần tỉnh táo',s:'Cà phê đậm'},{v:'any',l:'Thế nào cũng được'}];}},
+  {k:'tp',t:'Nóng hay lạnh?',opts:function(){return[{v:'h',l:'Nóng',s:'Ấm tay ấm bụng'},{v:'c',l:'Lạnh, nhiều đá',s:'Giải nhiệt'},{v:'any',l:'Sao cũng được'}];}},
+  {k:'cat',t:'Bạn nghiêng về nhóm nào?',opts:function(){return Object.keys(CATS).map(function(k){return{v:k,l:CATS[k]};}).concat([{v:'any',l:'Để mình chọn giúp'}]);}},
+  {k:'sw',t:'Độ ngọt hôm nay?',opts:function(){return[{v:0,l:'Ít ngọt',s:'Gần như không đường'},{v:1,l:'Ngọt vừa'},{v:2,l:'Ngọt đậm',s:'Tự thưởng một chút'},{v:'any',l:'Sao cũng được'}];}},
+  {k:'mood',t:'Bạn đang cần gì?',opts:function(){return[{v:'e',l:'Tỉnh táo',s:'Làm việc tiếp'},{v:'r',l:'Thư giãn',s:'Ngồi nghỉ một lát'},{v:'f',l:'Giải nhiệt',s:'Nóng quá rồi'},{v:'t',l:'Tự thưởng',s:'Hôm nay xứng đáng'},{v:'any',l:'Không rõ'}];}},
+  {k:'pr',t:'Ngân sách cho một ly?',opts:function(){return[{v:1,l:'Bình dân',s:'Dưới 40k'},{v:2,l:'Vừa túi',s:'40k đến 70k'},{v:3,l:'Thoải mái',s:'Trên 70k'},{v:'any',l:'Không quan tâm'}];}},
+  {k:'top',t:'Có muốn thêm topping không?',opts:function(){return[{v:'yes',l:'Có chứ',s:'Trân châu, kem cheese…'},{v:'no',l:'Không',s:'Uống nguyên vị'},{v:'any',l:'Sao cũng được'}];}}
+];
+var step=0,ans={},pick=0,quizRelaxed=[];
+function renderQuiz(){
+  var root=$('#quiz');
+  if(step>=Q.length){finishQuiz();return;}
+  var q=Q[step],opts=q.opts(ans);
+  root.innerHTML='<div class="progress" role="progressbar" aria-valuemin="1" aria-valuemax="'+Q.length+'" aria-valuenow="'+(step+1)+'"><span style="width:'+((step+1)/Q.length*100)+'%"></span></div>'+
+    '<p class="qcount">Câu '+(step+1)+' / '+Q.length+'</p><h2 class="q" tabindex="-1">'+q.t+'</h2>'+
+    '<div class="opts">'+opts.map(function(o,i){return '<button class="opt" type="button" data-i="'+i+'"><span class="ol">'+esc(o.l)+'</span>'+(o.s?'<span class="os">'+esc(o.s)+'</span>':'')+'</button>';}).join('')+'</div>'+
+    '<div class="qnav">'+(step>0?'<button class="link" type="button" id="q-back">← Câu trước</button>':'')+'</div>';
+  $$('.opt',root).forEach(function(b){b.addEventListener('click',function(){ans[q.k]=opts[+b.dataset.i].v;step++;renderQuiz();});});
+  var back=$('#q-back',root);if(back)back.addEventListener('click',function(){step--;renderQuiz();});
+  if(step>0)$('.q',root).focus({preventScroll:true});
+}
+function finishQuiz(){
+  var r=recommend(ans);quizList=r.list.slice(0,8);quizRelaxed=r.relaxed;pick=0;
+  refreshChips();drawQuizResult();
+}
+function drawQuizResult(){
+  var root=$('#quiz'),list=quizList,d=list[pick];
+  var alts=list.map(function(x,i){return{x:x,i:i};}).filter(function(o){return o.i!==pick;}).slice(0,3);
+  root.innerHTML='<div class="progress"><span style="width:100%"></span></div><h2 class="q" tabindex="-1" style="margin-top:16px">Hôm nay uống món này nhé</h2>'+
+    (quizRelaxed.length?'<p class="note">Để có đủ lựa chọn, mình đã nới điều kiện về '+quizRelaxed.join(', ')+'.</p>':'')+
+    '<div class="result pop" style="margin-top:0">'+cardHTML(d,'Gợi ý số '+(pick+1))+'</div>'+
+    (alts.length?'<p class="lbl">Cũng hợp với bạn</p><div class="alts">'+alts.map(function(o){return '<button class="alt" type="button" data-i="'+o.i+'"><b>'+esc(o.x.n)+'</b><span>'+esc(CATS[o.x.c])+'</span></button>';}).join('')+'</div>':'')+
+    '<div class="actions"><button class="btn" type="button" id="q-next">Đổi món khác</button><button class="btn" type="button" id="q-wheel">Quay vòng quay</button><button class="btn" type="button" id="q-duck">Cho vịt đua</button><button class="link" type="button" id="q-redo">Làm lại từ đầu</button></div>';
+  $$('.alt',root).forEach(function(b){b.addEventListener('click',function(){pick=+b.dataset.i;drawQuizResult();});});
+  $('#q-next').addEventListener('click',function(){pick=(pick+1)%list.length;drawQuizResult();});
+  $('#q-wheel').addEventListener('click',function(){setGroup('quiz');location.hash='wheel';});
+  $('#q-duck').addEventListener('click',function(){setGroup('quiz');location.hash='duck';});
+  $('#q-redo').addEventListener('click',function(){step=0;ans={};renderQuiz();});
+}
+
+/* ===== Vẽ bảng chia ô (vòng quay và kim chỉ dùng chung) ===== */
+var WCOL=['#D52F14','#B86800','#0E7A5F','#2B6CB0','#8E3FA8','#B5446E','#5B7F1A','#A04A10'];
+function paint(cv,items,theta,needle){
+  var size=cv.clientWidth;if(!size||!items.length)return;
+  var dpr=window.devicePixelRatio||1;
+  if(cv.width!==Math.round(size*dpr)){cv.width=Math.round(size*dpr);cv.height=Math.round(size*dpr);}
+  var ctx=cv.getContext('2d');ctx.setTransform(dpr,0,0,dpr,0,0);ctx.clearRect(0,0,size,size);
+  var cs=getComputedStyle(document.documentElement),ink=cs.getPropertyValue('--ink').trim()||'#12201A',surf=cs.getPropertyValue('--surface').trim()||'#fff';
+  var c=size/2,R=size/2-6,n=items.length,seg=Math.PI*2/n,fs=size<340?12:14;
+  for(var i=0;i<n;i++){
+    var ci=i%WCOL.length;if(i===n-1&&n>1&&ci===0)ci=(ci+3)%WCOL.length;
+    ctx.beginPath();ctx.moveTo(c,c);ctx.arc(c,c,R,theta+i*seg,theta+(i+1)*seg);ctx.closePath();
+    ctx.fillStyle=WCOL[ci];ctx.fill();ctx.lineWidth=3;ctx.strokeStyle=surf;ctx.stroke();
+    ctx.save();ctx.translate(c,c);ctx.rotate(theta+(i+.5)*seg);
+    ctx.textAlign='right';ctx.textBaseline='middle';ctx.fillStyle='#fff';
+    ctx.font='700 '+fs+'px "Be Vietnam Pro", system-ui, sans-serif';
+    var t=items[i].n,maxw=R*0.66;
+    while(ctx.measureText(t).width>maxw&&t.length>3)t=t.slice(0,-2);
+    if(t!==items[i].n)t=t.trim()+'…';
+    ctx.fillText(t,R-14,0);ctx.restore();
+  }
+  ctx.beginPath();ctx.arc(c,c,R,0,Math.PI*2);ctx.lineWidth=4;ctx.strokeStyle=ink;ctx.stroke();
+  if(typeof needle==='number'){
+    ctx.save();ctx.translate(c,c);ctx.rotate(needle);
+    ctx.beginPath();ctx.moveTo(-8,0);ctx.lineTo(R-4,0);ctx.lineWidth=7;ctx.lineCap='round';ctx.strokeStyle=surf;ctx.stroke();
+    ctx.beginPath();ctx.moveTo(-8,0);ctx.lineTo(R-4,0);ctx.lineWidth=4;ctx.strokeStyle=ink;ctx.stroke();
+    ctx.restore();
+  }
+  ctx.beginPath();ctx.arc(c,c,R*.1,0,Math.PI*2);ctx.fillStyle=surf;ctx.fill();ctx.lineWidth=4;ctx.strokeStyle=ink;ctx.stroke();
+}
+
+/* ===== Vòng quay ===== */
+var wheel={items:[],theta:0,n:8,spinning:false},cv=$('#wheel');
+function regenWheel(){
+  var pool=poolFor(group);
+  wheel.items=sample(pool,Math.min(wheel.n,pool.length));wheel.theta=Math.random()*Math.PI*2;
+  $('#res-wheel').hidden=true;drawWheel();
+}
+function drawWheel(){paint(cv,wheel.items,wheel.theta);}
+function spinWheel(){
+  if(wheel.spinning||wheel.items.length<2)return;
+  wheel.spinning=true;busy=true;$('#w-spin').disabled=true;$('#res-wheel').hidden=true;
+  var n=wheel.items.length,seg=Math.PI*2/n,w=rnd(n),full=Math.PI*2;
+  var target=-Math.PI/2-(w+.5)*seg+(Math.random()-.5)*seg*.6;
+  var cur=wheel.theta,spins=4+rnd(3),fin=target+full*(Math.ceil((cur-target)/full)+spins);
+  var dur=reduce.matches?500:4800,t0=performance.now();
+  function frame(t){
+    var p=Math.min(1,(t-t0)/dur),e=1-Math.pow(1-p,4);
+    wheel.theta=cur+(fin-cur)*e;drawWheel();
+    if(p<1)requestAnimationFrame(frame);
+    else{wheel.theta=fin%full;wheel.spinning=false;busy=false;$('#w-spin').disabled=false;drawWheel();showResult($('#res-wheel'),wheel.items[w],'Vòng quay chọn');}
+  }
+  requestAnimationFrame(frame);
+}
+$('#w-spin').addEventListener('click',spinWheel);
+$('#w-shuffle').addEventListener('click',function(){if(!busy)regenWheel();});
+$('#w-n').addEventListener('change',function(e){wheel.n=+e.target.value;if(!busy)regenWheel();});
+
+/* ===== Đua vịt ===== */
+var LANE=['#D52F14','#2B6CB0','#0E7A5F','#8E3FA8','#B5446E','#5B7F1A','#A04A10','#12201A'];
+var duck={n:5,list:[],racing:false};
+function setupDucks(){
+  var pool=poolFor(group);
+  duck.list=sample(pool,Math.min(duck.n,pool.length)).map(function(d,i){return{d:d,col:LANE[i%LANE.length],pos:0,fin:null,speed:0,next:0,el:null};});
+  $('#track').innerHTML=duck.list.map(function(k){
+    return '<div class="lane"><div class="lname">'+esc(k.d.n)+'</div><div class="water"><div class="duckw" style="--cap:'+k.col+'"><svg class="duckv" viewBox="0 0 68 48" aria-hidden="true"><use href="#duck"/></svg></div><span class="finish"></span></div></div>';
+  }).join('');
+  var lanes=$$('#track .lane');
+  duck.list.forEach(function(k,i){k.el=$('.duckw',lanes[i]);k.lane=lanes[i];});
+  $('#rank').hidden=true;$('#res-duck').hidden=true;
+}
+function placeDuck(k){var w=k.el.parentNode.clientWidth,maxX=Math.max(0,w-46-14);k.el.style.transform='translateX('+(k.pos*maxX)+'px)';}
+function startRace(){
+  if(duck.racing||duck.list.length<2)return;
+  duck.racing=true;busy=true;$('#d-go').disabled=true;$('#res-duck').hidden=true;$('#rank').hidden=true;
+  duck.list.forEach(function(k){k.pos=0;k.fin=null;k.next=0;k.lane.classList.remove('win');placeDuck(k);});
+  $('#track').classList.add('racing');
+  var t0=performance.now(),last=t0,done=0,order=[];
+  function frame(t){
+    var dt=Math.min(.05,(t-last)/1000);last=t;var el=(t-t0)/1000;
+    duck.list.forEach(function(k){
+      if(k.fin!==null)return;
+      if(el>=k.next){k.speed=.085+Math.random()*.085;k.next=el+.4+Math.random()*.6;}
+      k.pos+=k.speed*dt;
+      if(k.pos>=1){k.pos=1;k.fin=el;done++;order.push(k);
+        if(order.length===1){k.lane.classList.add('win');showResult($('#res-duck'),k.d,'Vịt về nhất');}}
+      placeDuck(k);
+    });
+    if(done<duck.list.length)requestAnimationFrame(frame);
+    else{
+      duck.racing=false;busy=false;$('#d-go').disabled=false;$('#track').classList.remove('racing');
+      var r=$('#rank');r.innerHTML=order.map(function(k){return '<li>'+esc(k.d.n)+'</li>';}).join('');r.hidden=false;
+    }
+  }
+  requestAnimationFrame(frame);
+}
+$('#d-go').addEventListener('click',startRace);
+$('#d-shuffle').addEventListener('click',function(){if(!busy)setupDucks();});
+$('#d-n').addEventListener('change',function(e){duck.n=+e.target.value;if(!busy)setupDucks();});
+window.addEventListener('resize',function(){duck.list.forEach(placeDuck);});
+
+/* ===== Bốc thăm ===== */
+var cardDishes=[],cardOpen=false;
+function resetRandom(){$('#res-slot').hidden=true;$('#res-cards').hidden=true;$('#slot-name').textContent='Hôm nay uống gì đây?';dealCards();}
+function dealCards(){
+  var pool=poolFor(group);cardDishes=sample(pool,Math.min(3,pool.length));cardOpen=false;
+  $('#cards').innerHTML=cardDishes.map(function(d,i){
+    return '<button class="fc" type="button" data-i="'+i+'" aria-label="Lá bài '+(i+1)+'"><span class="face front" aria-hidden="true">?</span><span class="face back"><b>'+esc(d.n)+'</b><small>'+esc(d.custom?'Của bạn':CATS[d.c])+'</small></span></button>';
+  }).join('');
+  $('#res-cards').hidden=true;
+}
+$('#cards').addEventListener('click',function(e){
+  var b=e.target.closest('.fc');if(!b||cardOpen)return;
+  cardOpen=true;$$('.fc').forEach(function(x){x.classList.add('open');});b.classList.add('chosen');
+  showResult($('#res-cards'),cardDishes[+b.dataset.i],'Lá bài của bạn');
+});
+$('#cards-shuffle').addEventListener('click',dealCards);
+$('#slot-go').addEventListener('click',function(){
+  if(busy)return;busy=true;$('#slot-go').disabled=true;$('#res-slot').hidden=true;
+  var pool=poolFor(group),fin=pool[rnd(pool.length)],i=0,total=reduce.matches?0:22,nameEl=$('#slot-name');
+  (function tick(){
+    if(i>=total){nameEl.textContent=fin.n;busy=false;$('#slot-go').disabled=false;showResult($('#res-slot'),fin,'Bốc thăm ra');return;}
+    nameEl.textContent=pool[rnd(pool.length)].n;i++;setTimeout(tick,45+i*i*.35);
+  })();
+});
+
+/* ===== Mini game 1: tung xu ===== */
+var coin={a:null,b:null,rot:0};
+function coinNew(){
+  var p=sample(poolFor(group),2);coin.a=p[0]||null;coin.b=p[1]||null;
+  $('#res-coin').hidden=true;
+  $('#coin-pair').innerHTML=(coin.a&&coin.b)?
+    '<div class="coin-side"><span class="coin-badge">A</span><b>'+esc(coin.a.n)+'</b></div><div class="coin-side"><span class="coin-badge">B</span><b>'+esc(coin.b.n)+'</b></div>':
+    '<p class="hint">Cần ít nhất 2 món trong nhóm này.</p>';
+}
+$('#coin-new').addEventListener('click',function(){if(!busy)coinNew();});
+$('#coin-go').addEventListener('click',function(){
+  if(busy||!coin.a||!coin.b)return;
+  busy=true;$('#coin-go').disabled=true;$('#res-coin').hidden=true;
+  var winA=Math.random()<.5,el=$('#coin');
+  var base=Math.ceil(coin.rot/360)*360;
+  coin.rot=base+360*(4+rnd(3))+(winA?0:180);
+  el.style.transition=reduce.matches?'none':'';
+  el.style.transform='rotateY('+coin.rot+'deg)';
+  setTimeout(function(){
+    busy=false;$('#coin-go').disabled=false;
+    showResult($('#res-coin'),winA?coin.a:coin.b,'Đồng xu chọn mặt '+(winA?'A':'B'));
+  },reduce.matches?100:1600);
+});
+
+/* ===== Mini game 2: xúc xắc ===== */
+var PIPS={1:[4],2:[0,8],3:[0,4,8],4:[0,2,6,8],5:[0,2,4,6,8],6:[0,2,3,5,6,8]};
+var dice={items:[]};
+function drawDie(n){
+  $('#die').innerHTML=[0,1,2,3,4,5,6,7,8].map(function(i){return '<i'+(PIPS[n].indexOf(i)>=0?' class="on"':'')+'></i>';}).join('');
+  $('#die').setAttribute('aria-label','Xúc xắc hiện mặt '+n);
+}
+function drawDList(win){
+  $('#dlist').innerHTML=dice.items.map(function(d,i){return '<li'+(win===i?' class="win"':'')+'><b>'+(i+1)+'</b><span>'+esc(d.n)+'</span></li>';}).join('');
+}
+function diceNew(){
+  var pool=poolFor(group);dice.items=sample(pool,Math.min(6,pool.length));
+  $('#res-dice').hidden=true;drawDList(-1);drawDie(Math.max(1,dice.items.length)>6?6:Math.max(1,dice.items.length));
+}
+$('#dice-new').addEventListener('click',function(){if(!busy)diceNew();});
+$('#dice-go').addEventListener('click',function(){
+  if(busy||dice.items.length<2)return;
+  busy=true;$('#dice-go').disabled=true;$('#res-dice').hidden=true;drawDList(-1);
+  var n=dice.items.length,w=rnd(n),i=0,total=reduce.matches?0:14,die=$('#die');
+  die.classList.add('roll');
+  (function tick(){
+    if(i>=total){
+      die.classList.remove('roll');drawDie(w+1);drawDList(w);busy=false;$('#dice-go').disabled=false;
+      showResult($('#res-dice'),dice.items[w],'Xúc xắc ra mặt '+(w+1));return;
+    }
+    drawDie(1+rnd(n));i++;setTimeout(tick,60+i*14);
+  })();
+});
+
+/* ===== Mini game 3: kim chỉ ===== */
+var ndl={items:[],angle:0,v:0,running:false,stopping:false},ncv=$('#needle');
+function needleNew(){
+  var pool=poolFor(group);ndl.items=sample(pool,Math.min(8,pool.length));
+  ndl.angle=Math.random()*Math.PI*2;ndl.running=false;ndl.stopping=false;
+  $('#needle-go').textContent='Bắt đầu quay';$('#needle-go').disabled=false;$('#res-needle').hidden=true;
+  paint(ncv,ndl.items,0,ndl.angle);
+}
+function needleResult(){
+  var n=ndl.items.length,seg=Math.PI*2/n,a=((ndl.angle%(Math.PI*2))+Math.PI*2)%(Math.PI*2);
+  return ndl.items[Math.min(n-1,Math.floor(a/seg))];
+}
+$('#needle-new').addEventListener('click',function(){if(!ndl.running)needleNew();});
+$('#needle-go').addEventListener('click',function(){
+  if(ndl.items.length<2)return;
+  if(!ndl.running){
+    ndl.running=true;ndl.stopping=false;ndl.v=7+Math.random()*3;busy=true;
+    $('#needle-go').textContent='Dừng!';$('#res-needle').hidden=true;
+    var last=performance.now();
+    (function frame(t){
+      if(!ndl.running)return;
+      var dt=Math.min(.05,(t-last)/1000);last=t;
+      if(ndl.stopping)ndl.v*=Math.exp(-dt*2.4);
+      ndl.angle+=ndl.v*dt;paint(ncv,ndl.items,0,ndl.angle);
+      if(ndl.stopping&&ndl.v<.04){
+        ndl.running=false;busy=false;$('#needle-go').textContent='Quay lại';$('#needle-go').disabled=false;
+        showResult($('#res-needle'),needleResult(),'Kim chỉ vào');return;
+      }
+      requestAnimationFrame(frame);
+    })(last);
+    return;
+  }
+  if(ndl.stopping)return;
+  ndl.stopping=true;$('#needle-go').disabled=true;
+  if(reduce.matches)ndl.v=.03;
+});
+
+/* ===== Tự điền ===== */
+function setSt(t,err){var s=$('#c-st');s.textContent=t;s.style.color=err?'var(--chili)':'var(--muted)';}
+function addMine(name,place){
+  name=String(name||'').trim().slice(0,40);place=String(place||'').trim().slice(0,40);
+  if(!name)return 'empty';
+  if(mine.length>=60)return 'full';
+  var key=name.toLowerCase();
+  if(mine.some(function(m){return m.n.toLowerCase()===key;}))return 'dup';
+  mine.push({n:name,p:place});return 'ok';
+}
+function renderCustom(){
+  var ul=$('#c-list');
+  ul.innerHTML=mine.length?mine.map(function(m,i){
+    return '<li><div class="nm"><b>'+esc(m.n)+'</b>'+(m.p?'<small>'+esc(m.p)+'</small>':'')+'</div><button class="rm" type="button" data-rm="'+i+'" aria-label="Xóa '+esc(m.n)+'">×</button></li>';
+  }).join(''):'<li class="cust-empty" style="display:block">Chưa có món nào. Nhập tên món ở trên, hoặc bấm một gợi ý bên dưới.</li>';
+  var have={};mine.forEach(function(m){have[m.n.toLowerCase()]=1;});
+  $('#c-quick').innerHTML=sample(DRINKS.filter(function(d){return !have[d.n.toLowerCase()];}),8).map(function(d){return '<button class="chip" type="button" data-q="'+esc(d.n)+'">+ '+esc(d.n)+'</button>';}).join('');
+  var go=$('#c-go');
+  go.innerHTML=mine.length>=2?
+    '<button class="btn" type="button" data-use="wheel">Quay vòng quay</button><button class="btn" type="button" data-use="duck">Cho vịt đua</button><button class="btn" type="button" data-use="random">Bốc thăm</button><button class="btn" type="button" data-use="mini">Mini game</button><button class="link" type="button" id="c-clear">'+(clearArm?'Bấm lần nữa để xóa hết':'Xóa hết')+'</button>':
+    (mine.length?'<span class="hint">Thêm ít nhất 2 món để dùng cho các trò chơi.</span>':'');
+  refreshChips();
+}
+var clearArm=false;
+$('#c-form').addEventListener('submit',function(e){
+  e.preventDefault();
+  var r=addMine($('#c-name').value,$('#c-place').value);
+  if(r==='ok'){saveMine();$('#c-name').value='';$('#c-place').value='';setSt('Đã thêm');renderCustom();$('#c-name').focus();}
+  else setSt(r==='empty'?'Hãy nhập tên món':r==='dup'?'Món này đã có trong danh sách':'Danh sách đã đủ 60 món',true);
+});
+$('#c-bulk-go').addEventListener('click',function(){
+  var added=0,skipped=0;
+  $('#c-bulk').value.split('\n').forEach(function(l){
+    if(!l.trim())return;var p=l.split('|');
+    var r=addMine(p[0],p.slice(1).join('|'));if(r==='ok')added++;else skipped++;
+  });
+  if(added)saveMine();
+  $('#c-bulk').value='';setSt('Đã thêm '+added+' món'+(skipped?', bỏ qua '+skipped+' dòng trống hoặc trùng':''),!added&&skipped>0);renderCustom();
+});
+document.addEventListener('click',function(e){
+  var q=e.target.closest('[data-q]');
+  if(q){var r=addMine(q.dataset.q,'');if(r==='ok'){saveMine();setSt('Đã thêm '+q.dataset.q);}else setSt('Danh sách đã đủ 60 món',true);renderCustom();return;}
+  var rm=e.target.closest('[data-rm]');
+  if(rm){mine.splice(+rm.dataset.rm,1);saveMine();if(group==='mine'&&mine.length<2)group='all';setSt('Đã xóa');renderCustom();return;}
+  var u=e.target.closest('[data-use]');
+  if(u){setGroup('mine');location.hash=u.dataset.use;return;}
+  if(e.target.closest('#c-clear')){
+    if(!clearArm){clearArm=true;renderCustom();setTimeout(function(){if(clearArm){clearArm=false;renderCustom();}},4000);return;}
+    clearArm=false;mine=[];saveMine();if(group==='mine')group='all';setSt('Đã xóa hết');renderCustom();setGroup(group);
+  }
+});
+
+/* ===== Điều hướng tab ===== */
+var TABS=['quiz','wheel','duck','random','mini','custom'];
+function hashId(){var h=location.hash.slice(1);return TABS.indexOf(h)>=0?h:'quiz';}
+function showTab(id){
+  TABS.forEach(function(t){
+    $('#p-'+t).hidden=t!==id;
+    var b=$('#tab-'+t);b.setAttribute('aria-selected',String(t===id));b.tabIndex=t===id?0:-1;
+  });
+  var act=$('#tab-'+id);if(act&&act.scrollIntoView)act.scrollIntoView({block:'nearest',inline:'nearest'});
+  if(id==='wheel')requestAnimationFrame(drawWheel);
+  if(id==='duck')requestAnimationFrame(function(){duck.list.forEach(placeDuck);});
+  if(id==='mini')requestAnimationFrame(function(){paint(ncv,ndl.items,0,ndl.angle);});
+}
+$$('.tab').forEach(function(b){
+  b.addEventListener('click',function(){if(location.hash==='#'+b.dataset.tab)showTab(b.dataset.tab);else location.hash=b.dataset.tab;});
+  b.addEventListener('keydown',function(e){
+    var i=TABS.indexOf(b.dataset.tab),j=e.key==='ArrowRight'?i+1:e.key==='ArrowLeft'?i-1:-1;
+    if(j<0||j>=TABS.length)return;e.preventDefault();location.hash=TABS[j];$('#tab-'+TABS[j]).focus();
+  });
+});
+window.addEventListener('hashchange',function(){showTab(hashId());});
+if(window.ResizeObserver){new ResizeObserver(function(){drawWheel();paint(ncv,ndl.items,0,ndl.angle);}).observe(document.body);}
+new MutationObserver(function(){drawWheel();paint(ncv,ndl.items,0,ndl.angle);}).observe(document.documentElement,{attributes:true,attributeFilter:['data-theme']});
+if(window.matchMedia)window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change',function(){drawWheel();paint(ncv,ndl.items,0,ndl.angle);});
+
+/* Khởi động */
+loadMine();refreshChips();renderQuiz();regenWheel();setupDucks();dealCards();coinNew();diceNew();needleNew();renderCustom();showTab(hashId());
+})();
+</script>
+
+</body></html>
