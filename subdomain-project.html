@@ -1,0 +1,690 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Hôm Nay Làm Gì? · Subdomain Project Hub · Alessandra Tran</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,700;1,500&family=Quicksand:wght@400;500;600;700&display=swap">
+<style>
+:root {
+  color-scheme: light;
+  --bg: #fff8f9;
+  --surface: #ffffff;
+  --surface-alt: #fdefee;
+  --ink: #2a1a20;
+  --muted: #72555e;
+  --border: #f1cbd4;
+  --rose: #d94f7d;
+  --rose-dark: #b83762;
+  --rose-light: #fbe6eb;
+  --shadow: 0 10px 30px rgba(217, 79, 125, 0.08);
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  background-color: var(--bg);
+  background-image: radial-gradient(#f0cdd4 1px, transparent 1px);
+  background-size: 24px 24px;
+  color: var(--ink);
+  font-family: 'Quicksand', system-ui, sans-serif;
+  line-height: 1.6;
+  padding-bottom: 80px;
+}
+
+a { color: inherit; text-decoration: none; transition: all 0.25s ease; }
+
+.wrap { max-width: 1200px; margin: 0 auto; padding: 0 4vw; }
+
+/* HEADER & NAV */
+header {
+  background: linear-gradient(180deg, #fce4e8 0%, rgba(255, 248, 249, 0.95) 100%);
+  border-bottom: 1.5px solid var(--border);
+  padding: 24px 0 32px;
+  margin-bottom: 30px;
+}
+
+.top-nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+.nav-left, .nav-right { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
+
+.nav-pill {
+  display: inline-flex; align-items: center; gap: 8px; padding: 8px 18px; border-radius: 99px; background: var(--surface); border: 1.5px solid var(--border); font-size: 13.5px; font-weight: 700; color: var(--ink); box-shadow: 0 4px 12px rgba(217,79,125,0.05);
+}
+.nav-pill:hover { border-color: var(--rose); color: var(--rose); }
+
+.lang-switch {
+  display: inline-flex; background: var(--surface); border: 1.5px solid var(--border); border-radius: 99px; padding: 3px; box-shadow: 0 4px 12px rgba(217,79,125,0.06);
+}
+.lang-switch button {
+  border: none; background: transparent; font: 700 12.5px 'Quicksand', sans-serif; color: var(--muted); padding: 5px 14px; border-radius: 99px; cursor: pointer; transition: all 0.2s ease;
+}
+.lang-switch button.active { background: var(--rose); color: #fff; }
+
+.hero-title {
+  text-align: center;
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(28px, 4.5vw, 42px);
+  font-weight: 700;
+  color: var(--ink);
+  margin-bottom: 6px;
+}
+.hero-sub {
+  text-align: center;
+  color: var(--muted);
+  font-size: 14.5px;
+}
+
+/* SUBDOMAIN PROJECT APP TABS BAR (HO M NAY...) */
+.app-tabs-container {
+  display: flex;
+  gap: 8px;
+  overflow-x: auto;
+  padding: 6px 0 16px;
+  margin-bottom: 28px;
+  scrollbar-width: thin;
+  scrollbar-color: var(--rose) var(--border);
+}
+
+.app-tab {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  white-space: nowrap;
+  background: var(--surface);
+  border: 1.5px solid var(--border);
+  color: var(--muted);
+  font: 700 13.5px 'Quicksand', sans-serif;
+  padding: 10px 18px;
+  border-radius: 99px;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(217,79,125,0.04);
+  transition: all 0.2s ease;
+}
+
+.app-tab:hover, .app-tab.active {
+  background: var(--rose);
+  border-color: var(--rose);
+  color: #fff;
+  box-shadow: 0 6px 18px rgba(217,79,125,0.22);
+}
+
+/* MODULE PANELS */
+.project-module {
+  display: none;
+}
+.project-module.active {
+  display: block;
+  animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(6px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* CARDS & LAYOUTS */
+.card {
+  background: var(--surface);
+  border: 1.5px solid var(--border);
+  border-radius: 26px;
+  padding: 28px;
+  box-shadow: var(--shadow);
+  margin-bottom: 24px;
+}
+
+.card h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: 24px;
+  color: var(--ink);
+  margin-bottom: 12px;
+}
+
+.card p.desc {
+  color: var(--muted);
+  font-size: 14.5px;
+  margin-bottom: 20px;
+}
+
+.grid-2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+@media(max-width: 768px) {
+  .grid-2 { grid-template-columns: 1fr; }
+}
+
+/* FORM & INTERACTIVE ELEMENTS */
+label { display: block; font-size: 13.5px; font-weight: 700; color: var(--ink); margin-bottom: 6px; }
+input[type="text"], select, textarea {
+  width: 100%; background: var(--bg); border: 1.5px solid var(--border); border-radius: 14px; padding: 11px 16px; font: 500 14.5px 'Quicksand', sans-serif; color: var(--ink); margin-bottom: 16px; outline: none; transition: border-color 0.2s;
+}
+input[type="text"]:focus, select:focus { border-color: var(--rose); background: #fff; }
+
+.btn {
+  display: inline-flex; justify-content: center; align-items: center; width: 100%; background: var(--rose); color: #fff; border: none; border-radius: 14px; padding: 12px 20px; font: 700 15px 'Quicksand', sans-serif; cursor: pointer; box-shadow: 0 6px 18px rgba(217,79,125,0.25); transition: transform 0.2s, background 0.2s;
+}
+.btn:hover { background: var(--rose-dark); transform: translateY(-2px); }
+
+.result-box {
+  background: var(--surface-alt);
+  border: 1.5px solid var(--border);
+  border-radius: 18px;
+  padding: 20px;
+  text-align: center;
+  margin-top: 16px;
+}
+
+.result-main {
+  font-family: 'Playfair Display', serif;
+  font-size: 24px;
+  font-weight: 700;
+  color: var(--rose);
+  margin: 10px 0;
+}
+
+/* CHECKLIST & BUCKETLIST SPECIFIC */
+.check-item {
+  display: flex; align-items: flex-start; gap: 12px; padding: 12px 14px; background: var(--bg); border: 1px solid var(--border); border-radius: 14px; margin-bottom: 10px;
+}
+.check-item.completed { opacity: 0.6; text-decoration: line-through; background: #f2f2f2; }
+.check-item input[type="checkbox"] { width: 18px; height: 18px; accent-color: var(--rose); margin-top: 3px; cursor: pointer; }
+.check-content { flex: 1; font-size: 14px; font-weight: 600; }
+.delete-task { background: none; border: none; color: #ff5252; cursor: pointer; font-size: 14px; }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap">
+    <nav class="top-nav">
+      <div class="nav-left">
+        <a class="nav-pill" href="index.html" data-i18n="nav_home">← Trang chủ chính</a>
+      </div>
+      <div class="nav-right">
+        <div class="lang-switch" role="group" aria-label="Language switcher">
+          <button type="button" id="btn-vi" class="active" onclick="setLang('vi')">VI</button>
+          <button type="button" id="btn-en" onclick="setLang('en')">EN</button>
+        </div>
+      </div>
+    </nav>
+    <h1 class="hero-title" data-i18n="hero_title">Subdomain Project Hub · Hôm Nay Làm Gì?</h1>
+    <p class="hero-sub" data-i18n="hero_sub">Hệ sinh thái toàn diện tích hợp toàn bộ các công cụ và trợ lý quyết định hàng ngày của Alessandra Tran.</p>
+  </div>
+</header>
+
+<main class="wrap">
+  <!-- APP TABS NAVIGATION BAR (CÁC MODULE "HÔM NAY...") -->
+  <div class="app-tabs-container" id="appTabsBar">
+    <button class="app-tab active" onclick="switchModule('what-to-eat', this)">🍲 Hôm nay ăn gì</button>
+    <button class="app-tab" onclick="switchModule('what-to-wear', this)">👗 Hôm nay mặc gì</button>
+    <button class="app-tab" onclick="switchModule('bucketlist', this)">⭐ Hôm nay Bucketlist</button>
+    <button class="app-tab" onclick="switchModule('what-to-watch', this)">🍿 Hôm nay xem phim gì</button>
+    <button class="app-tab" onclick="switchModule('what-to-cook', this)">🍳 Hôm nay nấu gì</button>
+    <button class="app-tab" onclick="switchModule('what-to-read', this)">📚 Hôm nay đọc gì</button>
+    <button class="app-tab" onclick="switchModule('what-to-sing', this)">🎤 Hôm nay hát gì</button>
+    <button class="app-tab" onclick="switchModule('what-to-think', this)">🧠 Hôm nay nghĩ gì</button>
+    <button class="app-tab" onclick="switchModule('what-to-play', this)">🎮 Hôm nay chơi gì</button>
+    <button class="app-tab" onclick="switchModule('what-to-do', this)">🎯 Hôm nay làm gì</button>
+    <button class="app-tab" onclick="switchModule('cafe-picker', this)">☕ Hôm nay đi cafe nào</button>
+    <button class="app-tab" onclick="switchModule('restaurant-picker', this)">🍜 Hôm nay đi quán ăn nào</button>
+    <button class="app-tab" onclick="switchModule('daily-checklist', this)">☑️ Hôm nay checklist</button>
+    <button class="app-tab" onclick="switchModule('workout-picker', this)">💪 Hôm nay tập gì</button>
+    <button class="app-tab" onclick="switchModule('drink-picker', this)">🧋 Hôm nay uống gì</button>
+    <button class="app-tab" onclick="switchModule('where-to-go', this)">✈️ Hôm nay đi đâu</button>
+  </div>
+
+  <!-- MODULE 1: HÔM NAY ĂN GÌ -->
+  <section id="mod-what-to-eat" class="project-module active">
+    <div class="card" style="max-width:700px; margin:auto;">
+      <h2>🍲 Hôm nay ăn gì?</h2>
+      <p class="desc">Không cần đau đầu suy nghĩ, để hệ thống gợi ý món ăn phù hợp với tâm trạng của bạn ngay hôm nay.</p>
+      <label>Chọn khẩu vị / Buổi</label>
+      <select id="eatMood">
+        <option value="healthy">🥗 Eat clean / Healthy nhẹ nhàng</option>
+        <option value="comfort">🍜 Đồ nước ấm bụng (Phở, Bún, Mì...)</option>
+        <option value="fast">🍕 Đồ ăn nhanh / Pizza / Burger</option>
+        <option value="viet">🍲 Món gia đình truyền thống Việt Nam</option>
+      </select>
+      <button class="btn" onclick="pickRandomEat()">🎲 Gợi ý món ngay</button>
+      <div class="result-box" id="eatResultBox" style="display:none;">
+        <div style="font-size:13px; color:var(--muted);">Gợi ý hôm nay dành cho bạn:</div>
+        <div class="result-main" id="eatResultText">--</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MODULE 2: HÔM NAY MẶC GÌ -->
+  <section id="mod-what-to-wear" class="project-module">
+    <div class="card" style="max-width:700px; margin:auto;">
+      <h2>👗 Hôm nay mặc gì?</h2>
+      <p class="desc">Gợi ý phong cách thời trang lấy cảm hứng từ tủ đồ thanh lịch, hiện đại.</p>
+      <label>Hoạt động hôm nay</label>
+      <select id="wearVibe">
+        <option value="cafe">☕ Đi cafe gặp gỡ bạn bè (Style: Nữ tính, nhẹ nhàng)</option>
+        <option value="work">💼 Đi làm / Gặp đối tác (Style: Thanh lịch, Smart Casual)</option>
+        <option value="travel">✈️ Đi du lịch / Dạo phố (Style: Năng động, thoải mái)</option>
+        <option value="home">🏡 Ở nhà / Thư giãn (Style: Minimalist cozy)</option>
+      </select>
+      <button class="btn" onclick="pickRandomWear()">✨ Gợi ý Outfit</button>
+      <div class="result-box" id="wearResultBox" style="display:none;">
+        <div style="font-size:13px; color:var(--muted);">Outfit gợi ý:</div>
+        <div class="result-main" id="wearResultText">--</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MODULE 3: HÔM NAY BUCKETLIST -->
+  <section id="mod-bucketlist" class="project-module">
+    <div class="grid-2">
+      <div class="card">
+        <h2>⭐ Thêm Mục tiêu Bucketlist</h2>
+        <p class="desc">Lưu lại những trải nghiệm đáng nhớ bạn muốn thực hiện trong đời.</p>
+        <label>Tên mục tiêu / Trải nghiệm</label>
+        <input type="text" id="bucketInput" placeholder="Ví dụ: Làm một chuyến roadtrip qua Đà Lạt...">
+        <button class="btn" onclick="addBucketItem()">💾 Thêm vào danh sách</button>
+      </div>
+      <div class="card">
+        <h2>✨ Danh sách Bucketlist của tôi</h2>
+        <div id="bucketListContainer"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MODULE 4: HÔM NAY XEM PHIM GÌ -->
+  <section id="mod-what-to-watch" class="project-module">
+    <div class="card" style="max-width:700px; margin:auto;">
+      <h2>🍿 Hôm nay xem phim gì?</h2>
+      <p class="desc">Gợi ý các bộ phim hay, series truyền hình hoặc phim điện ảnh chữa lành.</p>
+      <label>Thể loại yêu thích</label>
+      <select id="watchGenre">
+        <option value="heal">🌿 Phim chữa lành / Romance nhẹ nhàng</option>
+        <option value="mystery">🕵️‍♂️ Trinh thám / Giật gân hồi hộp</option>
+        <option value="sitcom">☕ Sitcom hài hước (How I Met Your Mother style...)</option>
+      </select>
+      <button class="btn" onclick="pickRandomWatch()">🎬 Gợi ý phim</button>
+      <div class="result-box" id="watchResultBox" style="display:none;">
+        <div style="font-size:13px; color:var(--muted);">Bạn nên xem:</div>
+        <div class="result-main" id="watchResultText">--</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MODULE 5: HÔM NAY NẤU GÌ -->
+  <section id="mod-what-to-cook" class="project-module">
+    <div class="card" style="max-width:700px; margin:auto;">
+      <h2>🍳 Hôm nay nấu gì?</h2>
+      <p class="desc">Gợi ý món ăn ngon tự tay thực hiện tại nhà vừa ấm cúng vừa dinh dưỡng.</p>
+      <button class="btn" onclick="pickRandomCook()">👩‍🍳 Gợi ý món nấu hôm nay</button>
+      <div class="result-box" id="cookResultBox" style="display:none;">
+        <div style="font-size:13px; color:var(--muted);">Gợi ý vào bếp:</div>
+        <div class="result-main" id="cookResultText">--</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MODULE 6: HÔM NAY ĐỌC GÌ -->
+  <section id="mod-what-to-read" class="project-module">
+    <div class="card" style="max-width:700px; margin:auto;">
+      <h2>📚 Hôm nay đọc gì?</h2>
+      <p class="desc">Gợi ý sách hay về tâm lý học, dinh dưỡng, phát triển bản thân hoặc tản văn.</p>
+      <button class="btn" onclick="pickRandomRead()">📖 Gợi ý cuốn sách nên đọc</button>
+      <div class="result-box" id="readResultBox" style="display:none;">
+        <div style="font-size:13px; color:var(--muted);">Sách gợi ý cho bạn:</div>
+        <div class="result-main" id="readResultText">--</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MODULE 7: HÔM NAY HÁT GÌ -->
+  <section id="mod-what-to-sing" class="project-module">
+    <div class="card" style="max-width:700px; margin:auto;">
+      <h2>🎤 Hôm nay hát gì?</h2>
+      <p class="desc">Chọn một giai điệu acoustic hoặc pop ballad để thư giãn.</p>
+      <button class="btn" onclick="pickRandomSing()">🎵 Gợi ý bài hát</button>
+      <div class="result-box" id="singResultBox" style="display:none;">
+        <div style="font-size:13px; color:var(--muted);">Giai điệu hôm nay:</div>
+        <div class="result-main" id="singResultText">--</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MODULE 8: HÔM NAY NGHĨ GÌ -->
+  <section id="mod-what-to-think" class="project-module">
+    <div class="card" style="max-width:700px; margin:auto;">
+      <h2>🧠 Hôm nay nghĩ gì? (Câu hỏi suy ngẫm)</h2>
+      <p class="desc">Gợi ý một góc nhìn phản biện hoặc câu hỏi tư duy sâu sắc trong ngày.</p>
+      <button class="btn" onclick="pickRandomThink()">💡 Nhận câu hỏi suy ngẫm</button>
+      <div class="result-box" id="thinkResultBox" style="display:none;">
+        <div style="font-size:13px; color:var(--muted);">Chủ đề suy ngẫm:</div>
+        <div class="result-main" id="thinkResultText" style="font-size:18px;">--</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MODULE 9: HÔM NAY CHƠI GÌ -->
+  <section id="mod-what-to-play" class="project-module">
+    <div class="card" style="max-width:700px; margin:auto;">
+      <h2>🎮 Hôm nay chơi gì?</h2>
+      <p class="desc">Tìm kiếm hoạt động giải trí nhẹ nhàng, workshop thủ công hoặc trò chơi boardgame.</p>
+      <button class="btn" onclick="pickRandomPlay()">🎲 Gợi ý hoạt động giải trí</button>
+      <div class="result-box" id="playResultBox" style="display:none;">
+        <div style="font-size:13px; color:var(--muted);">Hoạt động gợi ý:</div>
+        <div class="result-main" id="playResultText">--</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MODULE 10: HÔM NAY LÀM GÌ -->
+  <section id="mod-what-to-do" class="project-module">
+    <div class="card" style="max-width:700px; margin:auto;">
+      <h2>🎯 Hôm nay làm gì? (Trợ lý nhiệm vụ)</h2>
+      <p class="desc">Gợi ý một việc ý nghĩa bạn có thể hoàn thành ngay hôm nay để nâng cấp bản thân.</p>
+      <button class="btn" onclick="pickRandomDo()">🚀 Gợi ý việc nên làm</button>
+      <div class="result-box" id="doResultBox" style="display:none;">
+        <div style="font-size:13px; color:var(--muted);">Nhiệm vụ hôm nay:</div>
+        <div class="result-main" id="doResultText">--</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MODULE 11: HÔM NAY ĐI CAFE NÀO -->
+  <section id="mod-cafe-picker" class="project-module">
+    <div class="card" style="max-width:700px; margin:auto;">
+      <h2>☕ Hôm nay đi cafe nào?</h2>
+      <p class="desc">Gợi ý phong cách quán cafe phù hợp với mood làm việc hay trò chuyện.</p>
+      <button class="btn" onclick="pickRandomCafe()">🌿 Gợi ý gu quán cafe</button>
+      <div class="result-box" id="cafeResultBox" style="display:none;">
+        <div style="font-size:13px; color:var(--muted);">Gợi ý không gian:</div>
+        <div class="result-main" id="cafeResultText">--</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MODULE 12: HÔM NAY ĐI QUÁN ĂN NÀO -->
+  <section id="mod-restaurant-picker" class="project-module">
+    <div class="card" style="max-width:700px; margin:auto;">
+      <h2>🍜 Hôm nay đi quán ăn nào?</h2>
+      <p class="desc">Gợi ý loại hình ẩm thực đường phố hoặc nhà hàng để hẹn hò/tụ tập.</p>
+      <button class="btn" onclick="pickRandomRestaurant()">🍽️ Gợi ý phong cách quán ăn</button>
+      <div class="result-box" id="restaurantResultBox" style="display:none;">
+        <div style="font-size:13px; color:var(--muted);">Gợi ý quán ăn:</div>
+        <div class="result-main" id="restaurantResultText">--</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MODULE 13: HÔM NAY CHECKLIST -->
+  <section id="mod-daily-checklist" class="project-module">
+    <div class="grid-2">
+      <div class="card">
+        <h2>☑️ Thêm việc vào Checklist</h2>
+        <p class="desc">Quản lý danh sách việc cần làm trong ngày.</p>
+        <label>Tên công việc</label>
+        <input type="text" id="taskInput" placeholder="Ví dụ: Gửi báo cáo chiến dịch, học 20 từ mới...">
+        <button class="btn" onclick="addDailyTask()">➕ Thêm công việc</button>
+      </div>
+      <div class="card">
+        <h2>📋 Danh sách việc cần làm hôm nay</h2>
+        <div id="dailyTaskList"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MODULE 14: HÔM NAY TẬP GÌ -->
+  <section id="mod-workout-picker" class="project-module">
+    <div class="card" style="max-width:700px; margin:auto;">
+      <h2>💪 Hôm nay tập gì?</h2>
+      <p class="desc">Gợi ý bài tập vận động nhẹ nhàng giúp giữ dáng và tinh thần sảng khoái.</p>
+      <button class="btn" onclick="pickRandomWorkout()">🧘‍♀️ Gợi ý bài tập hôm nay</button>
+      <div class="result-box" id="workoutResultBox" style="display:none;">
+        <div style="font-size:13px; color:var(--muted);">Bài tập gợi ý:</div>
+        <div class="result-main" id="workoutResultText">--</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MODULE 15: HÔM NAY UỐNG GÌ -->
+  <section id="mod-drink-picker" class="project-module">
+    <div class="card" style="max-width:700px; margin:auto;">
+      <h2>🧋 Hôm nay uống gì?</h2>
+      <p class="desc">Gợi ý thức uống yêu thích: Matcha Latte, trà hoa quả hay nước ép detox.</p>
+      <button class="btn" onclick="pickRandomDrink()">🍵 Gợi ý thức uống</button>
+      <div class="result-box" id="drinkResultBox" style="display:none;">
+        <div style="font-size:13px; color:var(--muted);">Thức uống hôm nay:</div>
+        <div class="result-main" id="drinkResultText">--</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MODULE 16: HÔM NAY ĐI ĐÂU -->
+  <section id="mod-where-to-go" class="project-module">
+    <div class="card" style="max-width:700px; margin:auto;">
+      <h2>✈️ Hôm nay đi đâu?</h2>
+      <p class="desc">Gợi ý địa điểm dạo chơi, đổi gió cuối tuần trong hoặc quanh thành phố.</p>
+      <button class="btn" onclick="pickRandomWhereToGo()">🚗 Gợi ý điểm đến</button>
+      <div class="result-box" id="whereResultBox" style="display:none;">
+        <div style="font-size:13px; color:var(--muted);">Địa điểm gợi ý:</div>
+        <div class="result-main" id="whereResultText">--</div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<script>
+// SWITCH MODULES
+function switchModule(modId, btn) {
+  document.querySelectorAll('.project-module').forEach(m => m.classList.remove('active'));
+  document.querySelectorAll('.app-tab').forEach(t => t.classList.remove('active'));
+  document.getElementById('mod-' + modId).classList.add('active');
+  btn.classList.add('active');
+}
+
+// RANDOM GENERATOR LOGIC FOR EACH "HÔM NAY..."
+const dataPools = {
+  eat: ["Mì ý sốt kem nấm truffle 🍝", "Salad cá hồi bơ tươi healthy 🥗", "Phở bò tái gầu ấm bụng 🍜", "Cơm tấm sườn bì chả truyền thống 🍛", "Bánh mì chảo đầy đủ topping 🥖"],
+  wear: ["Áo sơ mi trắng form rộng + Quần âu thanh lịch 💼", "Đầm hoa nhí vintage nhẹ nhàng + Giày búp bê 🌷", "Áo blazer khoác ngoài + Quần jeans năng động 👖", "Set đồ len móc thủ công thanh lịch 🧶"],
+  watch: ["How I Met Your Mother (Cười sảng khoái) ☕", "Phim điện ảnh chữa lành Nhật Bản 🌸", "Series trinh thám hồi hộp ly kỳ 🕵️‍♂️"],
+  cook: ["Canh chua cá lóc miền Nam thanh mát 🍲", "Gà chiên nước mắm tỏi ớt đưa cơm 🍗", "Mì xào hải sản rau củ nhanh gọn 🍜"],
+  read: ["Tâm lý học hành vi con người 🧠", "Nghệ thuật sống tối giản của người Nhật 📖", "Tản văn du lịch chữa lành 🌿"],
+  sing: ["Hẹn Một Mai (Bùi Anh Tuấn) 🎤", "Tháng Năm (Soobin Hoàng Sơn) 🎶", "Ánh Nắng Của Anh ( Đức Phúc) ☀️"],
+  think: ["Hôm nay điều gì làm bạn biết ơn nhất?", "Nếu không sợ thất bại, bạn sẽ làm gì tiếp theo?", "Khoảnh khắc nào khiến bạn mỉm cười hôm nay?"],
+  play: ["Tham gia workshop làm nến thơm / gốm sứ 🕯️", "Chơi boardgame cùng hội bạn thân 🎲", "Dạo triển lãm nghệ thuật 🎨"],
+  do: ["Dọn dẹp lại bàn làm việc thật gọn gàng ✨", "Học thêm 10 từ vựng ngoại ngữ mới 📚", "Gọi điện hỏi thăm người thân 💌"],
+  cafe: ["Quán cafe mộc mạc phong cách tối giản 🌿", "Quán cafe rooftop ngắm hoàng hôn 🌇", "Tiệm matcha ẩn mình trong hẻm yên tĩnh 🍵"],
+  restaurant: ["Nhà hàng món Nhật ấm cúng 🍣", "Quán lẩu Thái chua cay tụ tập bạn bè 🍲", "Bistro Âu sang trọng hẹn hò 🍷"],
+  workout: ["30 phút Yoga giãn cơ buổi sáng 🧘‍♀️", "Đi bộ nhanh 5.000 bước công viên 👟", "Bài tập Cardio nhẹ nhàng đốt mỡ 🔥"],
+  drink: ["Matcha Latte truyền thống đậm vị 🍵", "Trà ô long đào cam sả tươi mát 🍑", "Nước ép cần tây táo xanh detox 🍏"],
+  whereToGo: ["Khu Thảo Điền yên tĩnh cuối tuần 🌳", "Bảo tàng mỹ thuật / Phòng tranh nghệ thuật 🖼️", "Cắm trại nhẹ nhàng ngoại ô thành phố ⛺"]
+};
+
+function pickRandomEat() {
+  const pool = dataPools.eat;
+  document.getElementById('eatResultText').textContent = pool[Math.floor(Math.random()*pool.length)];
+  document.getElementById('eatResultBox').style.display = 'block';
+}
+function pickRandomWear() {
+  const pool = dataPools.wear;
+  document.getElementById('wearResultText').textContent = pool[Math.floor(Math.random()*pool.length)];
+  document.getElementById('wearResultBox').style.display = 'block';
+}
+function pickRandomWatch() {
+  const pool = dataPools.watch;
+  document.getElementById('watchResultText').textContent = pool[Math.floor(Math.random()*pool.length)];
+  document.getElementById('watchResultBox').style.display = 'block';
+}
+function pickRandomCook() {
+  const pool = dataPools.cook;
+  document.getElementById('cookResultText').textContent = pool[Math.floor(Math.random()*pool.length)];
+  document.getElementById('cookResultBox').style.display = 'block';
+}
+function pickRandomRead() {
+  const pool = dataPools.read;
+  document.getElementById('readResultText').textContent = pool[Math.floor(Math.random()*pool.length)];
+  document.getElementById('readResultBox').style.display = 'block';
+}
+function pickRandomSing() {
+  const pool = dataPools.sing;
+  document.getElementById('singResultText').textContent = pool[Math.floor(Math.random()*pool.length)];
+  document.getElementById('singResultBox').style.display = 'block';
+}
+function pickRandomThink() {
+  const pool = dataPools.think;
+  document.getElementById('thinkResultText').textContent = pool[Math.floor(Math.random()*pool.length)];
+  document.getElementById('thinkResultBox').style.display = 'block';
+}
+function pickRandomPlay() {
+  const pool = dataPools.play;
+  document.getElementById('playResultText').textContent = pool[Math.floor(Math.random()*pool.length)];
+  document.getElementById('playResultBox').style.display = 'block';
+}
+function pickRandomDo() {
+  const pool = dataPools.do;
+  document.getElementById('doResultText').textContent = pool[Math.floor(Math.random()*pool.length)];
+  document.getElementById('doResultBox').style.display = 'block';
+}
+function pickRandomCafe() {
+  const pool = dataPools.cafe;
+  document.getElementById('cafeResultText').textContent = pool[Math.floor(Math.random()*pool.length)];
+  document.getElementById('cafeResultBox').style.display = 'block';
+}
+function pickRandomRestaurant() {
+  const pool = dataPools.restaurant;
+  document.getElementById('restaurantResultText').textContent = pool[Math.floor(Math.random()*pool.length)];
+  document.getElementById('restaurantResultBox').style.display = 'block';
+}
+function pickRandomWorkout() {
+  const pool = dataPools.workout;
+  document.getElementById('workoutResultText').textContent = pool[Math.floor(Math.random()*pool.length)];
+  document.getElementById('workoutResultBox').style.display = 'block';
+}
+function pickRandomDrink() {
+  const pool = dataPools.drink;
+  document.getElementById('drinkResultText').textContent = pool[Math.floor(Math.random()*pool.length)];
+  document.getElementById('drinkResultBox').style.display = 'block';
+}
+function pickRandomWhereToGo() {
+  const pool = dataPools.whereToGo;
+  document.getElementById('whereResultText').textContent = pool[Math.floor(Math.random()*pool.length)];
+  document.getElementById('whereResultBox').style.display = 'block';
+}
+
+// BUCKETLIST & CHECKLIST STORAGE
+let buckets = [{id:1, title:"Trải nghiệm hái dâu tại Đà Lạt mùa đông", done:false}];
+let tasks = [{id:1, title:"Hoàn thành thiết kế giao diện Webapp", done:false}];
+
+function getStore(key, def) {
+  try { const s = localStorage.getItem(key); if(s) return JSON.parse(s); } catch(e){}
+  return def;
+}
+function setStore(key, val) {
+  try { localStorage.setItem(key, JSON.stringify(val)); } catch(e){}
+}
+
+buckets = getStore('alessa_sub_buckets', buckets);
+tasks = getStore('alessa_sub_tasks', tasks);
+
+function renderBuckets() {
+  const c = document.getElementById('bucketListContainer');
+  if(buckets.length === 0) { c.innerHTML = '<p style="color:var(--muted); font-size:14px;">Chưa có mục tiêu nào.</p>'; return; }
+  c.innerHTML = buckets.map(b => `
+    <div class="check-item ${b.done?'completed':''}">
+      <input type="checkbox" ${b.done?'checked':''} onchange="toggleBucket(${b.id})">
+      <div class="check-content">${escapeHTML(b.title)}</div>
+      <button class="delete-task" onclick="deleteBucket(${b.id})">×</button>
+    </div>
+  `).join('');
+}
+function addBucketItem() {
+  const inp = document.getElementById('bucketInput');
+  if(!inp.value.trim()) return;
+  buckets.unshift({id:Date.now(), title:inp.value.trim(), done:false});
+  setStore('alessa_sub_buckets', buckets);
+  inp.value = '';
+  renderBuckets();
+}
+function toggleBucket(id) {
+  const b = buckets.find(x => x.id === id);
+  if(b) { b.done = !b.done; setStore('alessa_sub_buckets', buckets); renderBuckets(); }
+}
+function deleteBucket(id) {
+  buckets = buckets.filter(x => x.id !== id);
+  setStore('alessa_sub_buckets', buckets);
+  renderBuckets();
+}
+renderBuckets();
+
+function renderTasks() {
+  const c = document.getElementById('dailyTaskList');
+  if(tasks.length === 0) { c.innerHTML = '<p style="color:var(--muted); font-size:14px;">Chưa có công việc nào.</p>'; return; }
+  c.innerHTML = tasks.map(t => `
+    <div class="check-item ${t.done?'completed':''}">
+      <input type="checkbox" ${t.done?'checked':''} onchange="toggleTask(${t.id})">
+      <div class="check-content">${escapeHTML(t.title)}</div>
+      <button class="delete-task" onclick="deleteTask(${t.id})">×</button>
+    </div>
+  `).join('');
+}
+function addDailyTask() {
+  const inp = document.getElementById('taskInput');
+  if(!inp.value.trim()) return;
+  tasks.unshift({id:Date.now(), title:inp.value.trim(), done:false});
+  setStore('alessa_sub_tasks', tasks);
+  inp.value = '';
+  renderTasks();
+}
+function toggleTask(id) {
+  const t = tasks.find(x => x.id === id);
+  if(t) { t.done = !t.done; setStore('alessa_sub_tasks', tasks); renderTasks(); }
+}
+function deleteTask(id) {
+  tasks = tasks.filter(x => x.id !== id);
+  setStore('alessa_sub_tasks', tasks);
+  renderTasks();
+}
+renderTasks();
+
+function escapeHTML(str) {
+  return str.replace(/[&<>"']/g, m => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m]));
+}
+
+// BILINGUAL SUPPORT
+const i18n = {
+  vi: {
+    nav_home: "← Trang chủ chính",
+    hero_title: "Subdomain Project Hub · Hôm Nay Làm Gì?",
+    hero_sub: "Hệ sinh thái toàn diện tích hợp toàn bộ các công cụ và trợ lý quyết định hàng ngày của Alessandra Tran."
+  },
+  en: {
+    nav_home: "← Main Home",
+    hero_title: "Subdomain Project Hub · What To Do Today?",
+    hero_sub: "An integrated ecosystem featuring all daily decision assistants and trackers for Alessandra Tran."
+  }
+};
+function setLang(lang) {
+  document.documentElement.lang = lang;
+  document.getElementById('btn-vi').classList.toggle('active', lang === 'vi');
+  document.getElementById('btn-en').classList.toggle('active', lang === 'en');
+  document.querySelectorAll('[data-i18n]').forEach(el => {
+    const k = el.getAttribute('data-i18n');
+    if(i18n[lang][k]) el.textContent = i18n[lang][k];
+  });
+  try { localStorage.setItem('alessa_lang_proj', lang); } catch(e){}
+}
+try {
+  const s = localStorage.getItem('alessa_lang_proj');
+  if(s === 'en' || s === 'vi') setLang(s);
+} catch(e){}
+</script>
+
+</body>
+</html>
