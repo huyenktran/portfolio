@@ -1,0 +1,1250 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Hôm Nay Làm Gì? · Subdomain Project Hub · Alessandra Tran</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,700;1,500&family=Quicksand:wght@400;500;600;700&display=swap">
+<style>
+:root {
+  color-scheme: light;
+  --bg-pink: #fff4f6;
+  --surface: #ffffff;
+  --surface-alt: #fbebee;
+  --ink: #221c1f;
+  --muted: #6e5b62;
+  --border: #f0ccd5;
+  --deep-green: #1a4d36;
+  --deep-green-hover: #123827;
+  --rose: #d94f7d;
+  --rose-dark: #b83762;
+  --shadow: 0 10px 30px rgba(26, 77, 54, 0.07);
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  background-color: var(--bg-pink);
+  background-image: radial-gradient(#edd3dc 1.2px, transparent 1.2px);
+  background-size: 26px 26px;
+  color: var(--ink);
+  font-family: 'Quicksand', system-ui, sans-serif;
+  line-height: 1.65;
+  padding-bottom: 80px;
+}
+
+a { color: inherit; text-decoration: none; transition: all 0.25s ease; }
+
+.wrap { max-width: 1300px; margin: 0 auto; padding: 0 4vw; }
+
+/* HEADER & NAV */
+header {
+  background: linear-gradient(180deg, #fce4e8 0%, rgba(255, 244, 246, 0.95) 100%);
+  border-bottom: 1.5px solid var(--border);
+  padding: 26px 0 36px;
+  margin-bottom: 28px;
+  box-shadow: 0 4px 20px rgba(26,77,54,0.04);
+}
+
+.top-nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+.nav-left, .nav-right { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
+
+.nav-pill {
+  display: inline-flex; align-items: center; gap: 8px; padding: 8px 18px; border-radius: 99px; background: var(--surface); border: 1.5px solid var(--border); font-size: 13.5px; font-weight: 700; color: var(--deep-green); box-shadow: 0 4px 12px rgba(26,77,54,0.05);
+}
+.nav-pill:hover { border-color: var(--deep-green); background: var(--deep-green); color: #fff; }
+
+.lang-switch {
+  display: inline-flex; background: var(--surface); border: 1.5px solid var(--border); border-radius: 99px; padding: 3px; box-shadow: 0 4px 12px rgba(26,77,54,0.06);
+}
+.lang-switch button {
+  border: none; background: transparent; font: 700 12.5px 'Quicksand', sans-serif; color: var(--muted); padding: 6px 16px; border-radius: 99px; cursor: pointer; transition: all 0.2s ease;
+}
+.lang-switch button.active { background: var(--deep-green); color: #fff; }
+
+.hero-title {
+  text-align: center;
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(30px, 5vw, 46px);
+  font-weight: 700;
+  color: var(--deep-green);
+  margin-bottom: 8px;
+}
+.hero-sub {
+  text-align: center;
+  color: var(--muted);
+  font-size: 15px;
+}
+
+/* APP TABS BAR */
+.app-tabs-container {
+  display: flex;
+  gap: 8px;
+  overflow-x: auto;
+  padding: 6px 0 16px;
+  margin-bottom: 30px;
+  scrollbar-width: thin;
+  scrollbar-color: var(--deep-green) var(--border);
+}
+
+.app-tab {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  white-space: nowrap;
+  background: var(--surface);
+  border: 1.5px solid var(--border);
+  color: var(--muted);
+  font: 700 13.5px 'Quicksand', sans-serif;
+  padding: 10px 18px;
+  border-radius: 99px;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(26,77,54,0.04);
+  transition: all 0.2s ease;
+}
+
+.app-tab:hover, .app-tab.active {
+  background: var(--deep-green);
+  border-color: var(--deep-green);
+  color: #fff;
+  box-shadow: 0 6px 18px rgba(26,77,54,0.22);
+}
+
+/* MODULE PANELS GRID (2 MODULES PER ROW) */
+.modules-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px;
+}
+
+@media(max-width: 900px) {
+  .modules-grid { grid-template-columns: 1fr; }
+}
+
+.project-module {
+  display: none;
+}
+.project-module.active {
+  display: block;
+  animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(6px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* RECTANGULAR CARDS */
+.card {
+  background: var(--surface);
+  border: 1.5px solid var(--border);
+  border-radius: 24px;
+  padding: 26px;
+  box-shadow: var(--shadow);
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.card h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: 22px;
+  color: var(--deep-green);
+  margin-bottom: 8px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.card p.desc {
+  color: var(--muted);
+  font-size: 14px;
+  margin-bottom: 18px;
+}
+
+/* FORM & INTERACTIVE */
+label { display: block; font-size: 13px; font-weight: 700; color: var(--deep-green); margin-bottom: 6px; }
+input[type="text"], select, textarea {
+  width: 100%; background: var(--bg-pink); border: 1.5px solid var(--border); border-radius: 12px; padding: 10px 14px; font: 500 14px 'Quicksand', sans-serif; color: var(--ink); margin-bottom: 14px; outline: none; transition: border-color 0.2s;
+}
+input[type="text"]:focus, select:focus { border-color: var(--deep-green); background: #fff; }
+
+.btn {
+  display: inline-flex; justify-content: center; align-items: center; width: 100%; background: var(--deep-green); color: #fff; border: none; border-radius: 12px; padding: 11px 18px; font: 700 14.5px 'Quicksand', sans-serif; cursor: pointer; box-shadow: 0 6px 18px rgba(26,77,54,0.2); transition: transform 0.2s, background 0.2s;
+}
+.btn:hover { background: var(--deep-green-hover); transform: translateY(-1.5px); }
+
+.btn-secondary {
+  background: var(--surface-alt);
+  color: var(--deep-green);
+  border: 1.5px solid var(--border);
+  box-shadow: none;
+}
+.btn-secondary:hover { background: var(--border); color: var(--deep-green-hover); }
+
+.result-box {
+  background: var(--surface-alt);
+  border: 1.5px solid var(--border);
+  border-radius: 16px;
+  padding: 16px;
+  text-align: center;
+  margin-top: 14px;
+}
+
+.result-main {
+  font-family: 'Playfair Display', serif;
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--deep-green);
+  margin: 8px 0;
+}
+
+/* DIFFERENTIATED BUCKETLIST STYLE */
+.bucket-card-item {
+  background: var(--bg-pink);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 14px;
+  margin-bottom: 12px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 12px;
+  transition: transform 0.2s;
+}
+.bucket-card-item:hover { transform: translateY(-2px); }
+.bucket-card-item.completed { opacity: 0.6; background: #f0f0f0; text-decoration: line-through; }
+.bucket-info h4 { font-size: 15px; font-weight: 700; color: var(--deep-green); margin-bottom: 3px; }
+.bucket-meta { display: flex; gap: 8px; font-size: 11.5px; color: var(--muted); font-weight: 600; }
+.badge-cat { background: rgba(26,77,54,0.1); color: var(--deep-green); padding: 2px 8px; border-radius: 99px; }
+
+/* DIFFERENTIATED CHECKLIST STYLE */
+.check-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 12px;
+  background: #ffffff;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  margin-bottom: 8px;
+}
+.check-row.completed { opacity: 0.55; text-decoration: line-through; background: #faf5f6; }
+.check-row input[type="checkbox"] { width: 18px; height: 18px; accent-color: var(--deep-green); cursor: pointer; }
+.check-text { flex: 1; font-size: 14px; font-weight: 600; }
+.priority-tag { font-size: 10.5px; font-weight: 700; padding: 2px 6px; border-radius: 6px; text-transform: uppercase; }
+.priority-high { background: #ffe6eb; color: var(--rose-dark); }
+.priority-med { background: #fff3db; color: #b8860b; }
+.priority-low { background: #e3f2fd; color: #1565c0; }
+
+.action-bar {
+  display: flex; gap: 10px; margin-top: 14px; flex-wrap: wrap;
+}
+.action-bar .btn { flex: 1; }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap">
+    <nav class="top-nav">
+      <div class="nav-left">
+        <a class="nav-pill" href="index.html" data-i18n="nav_home">← Trang chủ chính</a>
+      </div>
+      <div class="nav-right">
+        <div class="lang-switch" role="group" aria-label="Language switcher">
+          <button type="button" id="btn-vi" class="active" onclick="setLang('vi')">VI</button>
+          <button type="button" id="btn-en" onclick="setLang('en')">EN</button>
+        </div>
+      </div>
+    </nav>
+    <h1 class="hero-title" data-i18n="hero_title">Subdomain Project Hub · Hôm Nay Làm Gì?</h1>
+    <p class="hero-sub" data-i18n="hero_sub">Hệ sinh thái toàn diện với các trợ lý quyết định hàng ngày, thiết kế ấm áp &amp; thanh lịch.</p>
+  </div>
+</header>
+
+<main class="wrap">
+  <!-- APP TABS BAR -->
+  <div class="app-tabs-container" id="appTabsBar">
+    <button class="app-tab active" onclick="switchModule('what-to-eat', this)" data-tab="eat">🍲 Hôm nay ăn gì</button>
+    <button class="app-tab" onclick="switchModule('what-to-wear', this)" data-tab="wear">👗 Hôm nay mặc gì</button>
+    <button class="app-tab" onclick="switchModule('bucketlist', this)" data-tab="bucket">⭐ Hôm nay Bucketlist</button>
+    <button class="app-tab" onclick="switchModule('what-to-watch', this)" data-tab="watch">🍿 Hôm nay xem phim gì</button>
+    <button class="app-tab" onclick="switchModule('what-to-cook', this)" data-tab="cook">🍳 Hôm nay nấu gì</button>
+    <button class="app-tab" onclick="switchModule('what-to-read', this)" data-tab="read">📚 Hôm nay đọc gì</button>
+    <button class="app-tab" onclick="switchModule('what-to-sing', this)" data-tab="sing">🎤 Hôm nay hát gì</button>
+    <button class="app-tab" onclick="switchModule('what-to-think', this)" data-tab="think">🧠 Hôm nay nghĩ gì</button>
+    <button class="app-tab" onclick="switchModule('what-to-play', this)" data-tab="play">🎮 Hôm nay chơi gì</button>
+    <button class="app-tab" onclick="switchModule('what-to-do', this)" data-tab="todo">🎯 Hôm nay làm gì</button>
+    <button class="app-tab" onclick="switchModule('cafe-picker', this)" data-tab="cafe">☕ Hôm nay đi cafe nào</button>
+    <button class="app-tab" onclick="switchModule('restaurant-picker', this)" data-tab="restaurant">🍜 Hôm nay đi quán ăn nào</button>
+    <button class="app-tab" onclick="switchModule('daily-checklist', this)" data-tab="check">☑️ Hôm nay checklist</button>
+    <button class="app-tab" onclick="switchModule('workout-picker', this)" data-tab="workout">💪 Hôm nay tập gì</button>
+    <button class="app-tab" onclick="switchModule('drink-picker', this)" data-tab="drink">🧋 Hôm nay uống gì</button>
+    <button class="app-tab" onclick="switchModule('where-to-go', this)" data-tab="where">✈️ Hôm nay đi đâu</button>
+  </div>
+
+  <!-- MODULES GRID (2 MODULES PER ROW) -->
+  <div class="modules-grid">
+
+    <!-- MODULE 1: HÔM NAY ĂN GÌ -->
+    <section id="mod-what-to-eat" class="project-module active card">
+      <div>
+        <h2 data-i18n="eat_title">🍲 Hôm nay ăn gì?</h2>
+        <p class="desc" data-i18n="eat_desc">Gợi ý món ăn phù hợp với khẩu vị và tâm trạng của bạn ngay hôm nay.</p>
+        <label data-i18n="eat_lbl">Chọn khẩu vị / Buổi</label>
+        <select id="eatMood">
+          <option value="healthy" data-i18n="eat_opt1">🥗 Eat clean / Healthy nhẹ nhàng</option>
+          <option value="comfort" data-i18n="comfort_opt">🍜 Đồ nước ấm bụng (Phở, Bún, Mì...)</option>
+          <option value="fast" data-i18n="fast_opt">🍕 Đồ ăn nhanh / Pizza / Burger</option>
+          <option value="viet" data-i18n="viet_opt">🍲 Món gia đình truyền thống Việt Nam</option>
+        </select>
+      </div>
+      <div>
+        <button class="btn" onclick="pickRandomEat()" data-i18n="eat_btn">🎲 Gợi ý món ngay</button>
+        <div class="result-box" id="eatResultBox" style="display:none;">
+          <div style="font-size:12.5px; color:var(--muted);" data-i18n="res_lbl">Gợi ý hôm nay dành cho bạn:</div>
+          <div class="result-main" id="eatResultText">--</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- MODULE 2: HÔM NAY MẶC GÌ -->
+    <section id="mod-what-to-wear" class="project-module card">
+      <div>
+        <h2 data-i18n="wear_title">👗 Hôm nay mặc gì?</h2>
+        <p class="desc" data-i18n="wear_desc">Gợi ý phong cách thời trang lấy cảm hứng từ tủ đồ thanh lịch, hiện đại.</p>
+        <label data-i18n="wear_lbl">Hoạt động hôm nay</label>
+        <select id="wearVibe">
+          <option value="cafe" data-i18n="wear_opt1">☕ Đi cafe gặp gỡ bạn bè (Style: Nữ tính, nhẹ nhàng)</option>
+          <option value="work" data-i18n="wear_opt2">💼 Đi làm / Gặp đối tác (Style: Thanh lịch, Smart Casual)</option>
+          <option value="travel" data-i18n="wear_opt3">✈️ Đi du lịch / Dạo phố (Style: Năng động, thoải mái)</option>
+          <option value="home" data-i18n="wear_opt4">🏡 Ở nhà / Thư giãn (Style: Minimalist cozy)</option>
+        </select>
+      </div>
+      <div>
+        <button class="btn" onclick="pickRandomWear()" data-i18n="wear_btn">✨ Gợi ý Outfit</button>
+        <div class="result-box" id="wearResultBox" style="display:none;">
+          <div style="font-size:12.5px; color:var(--muted);" data-i18n="res_lbl">Gợi ý hôm nay dành cho bạn:</div>
+          <div class="result-main" id="wearResultText">--</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- MODULE 3: HÔM NAY BUCKETLIST -->
+    <section id="mod-bucketlist" class="project-module card" style="grid-column: span 2;">
+      <div>
+        <h2 data-i18n="bucket_title">⭐ Bucketlist &amp; Mục tiêu cuộc đời</h2>
+        <p class="desc" data-i18n="bucket_desc">Quản lý các trải nghiệm đáng nhớ với danh mục và trạng thái chi tiết. Có thể xuất file lưu về máy.</p>
+        <div style="display:grid; grid-template-columns: 2fr 1fr 1fr; gap:12px; margin-bottom:12px;">
+          <div>
+            <label data-i18n="b_lbl_name">Tên mục tiêu / Trải nghiệm</label>
+            <input type="text" id="bucketInput" placeholder="Ví dụ: Lái xe roadtrip qua cung đường đèo...">
+          </div>
+          <div>
+            <label data-i18n="b_lbl_cat">Danh mục</label>
+            <select id="bucketCat">
+              <option value="Du lịch" data-i18n="b_cat1">✈️ Du lịch</option>
+              <option value="Sự nghiệp" data-i18n="b_cat2">💼 Sự nghiệp</option>
+              <option value="Lối sống" data-i18n="b_cat3">☕ Lối sống</option>
+              <option value="Sáng tạo" data-i18n="b_cat4">🎨 Sáng tạo</option>
+            </select>
+          </div>
+          <div>
+            <label data-i18n="b_lbl_date">Thời hạn dự kiến</label>
+            <input type="text" id="bucketDate" placeholder="Q4/2026">
+          </div>
+        </div>
+        <button class="btn" onclick="addBucketItem()" data-i18n="b_btn_add">💾 Thêm vào Bucketlist</button>
+      </div>
+      <div style="margin-top:20px;">
+        <h3 style="font-size:16px; font-weight:700; color:var(--deep-green); margin-bottom:12px;" data-i18n="b_list_title">Danh sách Bucketlist của tôi</h3>
+        <div id="bucketListContainer" style="max-height:280px; overflow-y:auto; padding-right:4px;"></div>
+        <div class="action-bar">
+          <button class="btn btn-secondary" onclick="exportData('bucket', 'xlsx')" data-i18n="btn_exp_xlsx">📥 Tải về Excel (.xlsx)</button>
+          <button class="btn btn-secondary" onclick="exportData('bucket', 'csv')" data-i18n="btn_exp_csv">📥 Tải về CSV</button>
+          <button class="btn btn-secondary" onclick="exportData('bucket', 'json')" data-i18n="btn_exp_json">📥 Tải về JSON</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- MODULE 4: HÔM NAY XEM PHIM GÌ -->
+    <section id="mod-what-to-watch" class="project-module card">
+      <div>
+        <h2 data-i18n="watch_title">🍿 Hôm nay xem phim gì?</h2>
+        <p class="desc" data-i18n="watch_desc">Gợi ý phim điện ảnh, series truyền hình hoặc anime chữa lành.</p>
+        <label data-i18n="watch_lbl">Thể loại yêu thích</label>
+        <select id="watchGenre">
+          <option value="heal" data-i18n="watch_opt1">🌿 Phim chữa lành / Romance nhẹ nhàng</option>
+          <option value="mystery" data-i18n="watch_opt2">🕵️‍♂️ Trinh thám / Giật gân hồi hộp</option>
+          <option value="sitcom" data-i18n="watch_opt3">☕ Sitcom hài hước thư giãn</option>
+        </select>
+      </div>
+      <div>
+        <button class="btn" onclick="pickRandomWatch()" data-i18n="watch_btn">🎬 Gợi ý phim</button>
+        <div class="result-box" id="watchResultBox" style="display:none;">
+          <div style="font-size:12.5px; color:var(--muted);" data-i18n="res_lbl">Gợi ý hôm nay dành cho bạn:</div>
+          <div class="result-main" id="watchResultText">--</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- MODULE 5: HÔM NAY NẤU GÌ -->
+    <section id="mod-what-to-cook" class="project-module card">
+      <div>
+        <h2 data-i18n="cook_title">🍳 Hôm nay nấu gì?</h2>
+        <p class="desc" data-i18n="cook_desc">Gợi ý món ăn ngon tự tay thực hiện tại nhà ấm cúng.</p>
+        <label data-i18n="cook_lbl">Loại món ăn</label>
+        <select id="cookType">
+          <option value="home" data-i18n="cook_opt1">🍲 Món gia đình đậm đà</option>
+          <option value="quick" data-i18n="cook_opt2">⚡ Món nhanh gọn dưới 30 phút</option>
+        </select>
+      </div>
+      <div>
+        <button class="btn" onclick="pickRandomCook()" data-i18n="cook_btn">👩‍🍳 Gợi ý món nấu hôm nay</button>
+        <div class="result-box" id="cookResultBox" style="display:none;">
+          <div style="font-size:12.5px; color:var(--muted);" data-i18n="res_lbl">Gợi ý hôm nay dành cho bạn:</div>
+          <div class="result-main" id="cookResultText">--</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- MODULE 6: HÔM NAY ĐỌC GÌ -->
+    <section id="mod-what-to-read" class="project-module card">
+      <div>
+        <h2 data-i18n="read_title">📚 Hôm nay đọc gì?</h2>
+        <p class="desc" data-i18n="read_desc">Gợi ý sách hay về tâm lý học, lối sống và phát triển bản thân.</p>
+        <label data-i18n="read_lbl">Chủ đề</label>
+        <select id="readTopic">
+          <option value="mind" data-i18n="read_opt1">🧠 Tâm lý học hành vi &amp; tư duy</option>
+          <option value="life" data-i18n="read_opt2">🌿 Lối sống tối giản &amp; chữa lành</option>
+        </select>
+      </div>
+      <div>
+        <button class="btn" onclick="pickRandomRead()" data-i18n="read_btn">📖 Gợi ý cuốn sách</button>
+        <div class="result-box" id="readResultBox" style="display:none;">
+          <div style="font-size:12.5px; color:var(--muted);" data-i18n="res_lbl">Gợi ý hôm nay dành cho bạn:</div>
+          <div class="result-main" id="readResultText">--</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- MODULE 7: HÔM NAY HÁT GÌ -->
+    <section id="mod-what-to-sing" class="project-module card">
+      <div>
+        <h2 data-i18n="sing_title">🎤 Hôm nay hát gì?</h2>
+        <p class="desc" data-i18n="sing_desc">Chọn giai điệu acoustic hoặc ballad để thư giãn.</p>
+        <label data-i18n="sing_lbl">Phong cách</label>
+        <select id="singStyle">
+          <option value="chill" data-i18n="sing_opt1">☕ Ballad nhẹ nhàng, sâu lắng</option>
+          <option value="upbeat" data-i18n="sing_opt2">✨ Pop trẻ trung, yêu đời</option>
+        </select>
+      </div>
+      <div>
+        <button class="btn" onclick="pickRandomSing()" data-i18n="sing_btn">🎵 Gợi ý bài hát</button>
+        <div class="result-box" id="singResultBox" style="display:none;">
+          <div style="font-size:12.5px; color:var(--muted);" data-i18n="res_lbl">Gợi ý hôm nay dành cho bạn:</div>
+          <div class="result-main" id="singResultText">--</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- MODULE 8: HÔM NAY NGHĨ GÌ -->
+    <section id="mod-what-to-think" class="project-module card">
+      <div>
+        <h2 data-i18n="think_title">🧠 Hôm nay nghĩ gì?</h2>
+        <p class="desc" data-i18n="think_desc">Câu hỏi suy ngẫm sâu sắc và góc nhìn phản biện trong ngày.</p>
+        <label data-i18n="think_lbl">Góc nhìn</label>
+        <select id="thinkType">
+          <option value="gratitude" data-i18n="think_opt1">🌸 Lòng biết ơn &amp; hiện tại</option>
+          <option value="growth" data-i18n="think_opt2">🚀 Phát triển bản thân &amp; mục tiêu</option>
+        </select>
+      </div>
+      <div>
+        <button class="btn" onclick="pickRandomThink()" data-i18n="think_btn">💡 Nhận câu hỏi suy ngẫm</button>
+        <div class="result-box" id="thinkResultBox" style="display:none;">
+          <div style="font-size:12.5px; color:var(--muted);" data-i18n="res_lbl">Gợi ý hôm nay dành cho bạn:</div>
+          <div class="result-main" id="thinkResultText" style="font-size:18px;">--</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- MODULE 9: HÔM NAY CHƠI GÌ -->
+    <section id="mod-what-to-play" class="project-module card">
+      <div>
+        <h2 data-i18n="play_title">🎮 Hôm nay chơi gì?</h2>
+        <p class="desc" data-i18n="play_desc">Hoạt động giải trí nhẹ nhàng, workshop thủ công hoặc boardgame.</p>
+        <label data-i18n="play_lbl">Hình thức</label>
+        <select id="playType">
+          <option value="craft" data-i18n="play_opt1">🎨 Workshop thủ công / Nghệ thuật</option>
+          <option value="relax" data-i18n="play_opt2">🎲 Boardgame / Thư giãn cùng bạn bè</option>
+        </select>
+      </div>
+      <div>
+        <button class="btn" onclick="pickRandomPlay()" data-i18n="play_btn">🎲 Gợi ý hoạt động</button>
+        <div class="result-box" id="playResultBox" style="display:none;">
+          <div style="font-size:12.5px; color:var(--muted);" data-i18n="res_lbl">Gợi ý hôm nay dành cho bạn:</div>
+          <div class="result-main" id="playResultText">--</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- MODULE 10: HÔM NAY LÀM GÌ -->
+    <section id="mod-what-to-do" class="project-module card">
+      <div>
+        <h2 data-i18n="todo_title">🎯 Hôm nay làm gì?</h2>
+        <p class="desc" data-i18n="todo_desc">Nhiệm vụ ý nghĩa giúp bạn nâng cấp bản thân ngay hôm nay.</p>
+        <label data-i18n="todo_lbl">Lĩnh vực</label>
+        <select id="todoType">
+          <option value="habits" data-i18n="todo_opt1">🌱 Xây dựng thói quen tốt</option>
+          <option value="admin" data-i18n="todo_opt2">✨ Sắp xếp &amp; tối ưu cuộc sống</option>
+        </select>
+      </div>
+      <div>
+        <button class="btn" onclick="pickRandomDo()" data-i18n="todo_btn">🚀 Gợi ý việc nên làm</button>
+        <div class="result-box" id="doResultBox" style="display:none;">
+          <div style="font-size:12.5px; color:var(--muted);" data-i18n="res_lbl">Gợi ý hôm nay dành cho bạn:</div>
+          <div class="result-main" id="doResultText">--</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- MODULE 11: HÔM NAY ĐI CAFE NÀO -->
+    <section id="mod-cafe-picker" class="project-module card">
+      <div>
+        <h2 data-i18n="cafe_title">☕ Hôm nay đi cafe nào?</h2>
+        <p class="desc" data-i18n="cafe_desc">Gợi ý không gian quán cafe phù hợp với mood làm việc hay trò chuyện.</p>
+        <label data-i18n="cafe_lbl">Không gian</label>
+        <select id="cafeType">
+          <option value="work" data-i18n="cafe_opt1">💻 Yên tĩnh, tập trung làm việc</option>
+          <option value="aesthetic" data-i18n="cafe_opt2">🌸 View đẹp, chụp ảnh sống ảo</option>
+        </select>
+      </div>
+      <div>
+        <button class="btn" onclick="pickRandomCafe()" data-i18n="cafe_btn">🌿 Gợi ý quán cafe</button>
+        <div class="result-box" id="cafeResultBox" style="display:none;">
+          <div style="font-size:12.5px; color:var(--muted);" data-i18n="res_lbl">Gợi ý hôm nay dành cho bạn:</div>
+          <div class="result-main" id="cafeResultText">--</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- MODULE 12: HÔM NAY ĐI QUÁN ĂN NÀO -->
+    <section id="mod-restaurant-picker" class="project-module card">
+      <div>
+        <h2 data-i18n="res_title_m">🍜 Hôm nay đi quán ăn nào?</h2>
+        <p class="desc" data-i18n="res_desc">Loại hình ẩm thực đường phố hoặc nhà hàng cho buổi hẹn hò/tụ tập.</p>
+        <label data-i18n="res_lbl">Phong cách</label>
+        <select id="resType">
+          <option value="asian" data-i18n="res_opt1">🍣 Món Nhật / Hàn / Á ấm cúng</option>
+          <option value="bistro" data-i18n="res_opt2">🍷 Bistro Âu sang trọng / Hẹn hò</option>
+        </select>
+      </div>
+      <div>
+        <button class="btn" onclick="pickRandomRestaurant()" data-i18n="res_btn">🍽️ Gợi ý quán ăn</button>
+        <div class="result-box" id="restaurantResultBox" style="display:none;">
+          <div style="font-size:12.5px; color:var(--muted);" data-i18n="res_lbl">Gợi ý hôm nay dành cho bạn:</div>
+          <div class="result-main" id="restaurantResultText">--</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- MODULE 13: HÔM NAY CHECKLIST -->
+    <section id="mod-daily-checklist" class="project-module card" style="grid-column: span 2;">
+      <div>
+        <h2 data-i18n="check_title">☑️ Danh sách công việc hôm nay (Checklist)</h2>
+        <p class="desc" data-i18n="check_desc">Quản lý các task hàng ngày theo mức độ ưu tiên. Có thể xuất file lưu về máy.</p>
+        <div style="display:grid; grid-template-columns: 2fr 1fr; gap:12px; margin-bottom:12px;">
+          <div>
+            <label data-i18n="c_lbl_name">Tên công việc</label>
+            <input type="text" id="taskInput" placeholder="Ví dụ: Gửi báo cáo chiến dịch Meta Ads...">
+          </div>
+          <div>
+            <label data-i18n="c_lbl_pri">Mức độ ưu tiên</label>
+            <select id="taskPriority">
+              <option value="high" data-i18n="pri_high">🔴 Cao (High)</option>
+              <option value="med" data-i18n="pri_med">🟡 Trung bình (Medium)</option>
+              <option value="low" data-i18n="pri_low">🔵 Thấp (Low)</option>
+            </select>
+          </div>
+        </div>
+        <button class="btn" onclick="addDailyTask()" data-i18n="c_btn_add">➕ Thêm công việc</button>
+      </div>
+      <div style="margin-top:20px;">
+        <h3 style="font-size:16px; font-weight:700; color:var(--deep-green); margin-bottom:12px;" data-i18n="c_list_title">Danh sách việc cần làm</h3>
+        <div id="dailyTaskList" style="max-height:260px; overflow-y:auto; padding-right:4px;"></div>
+        <div class="action-bar">
+          <button class="btn btn-secondary" onclick="exportData('check', 'xlsx')" data-i18n="btn_exp_xlsx">📥 Tải về Excel (.xlsx)</button>
+          <button class="btn btn-secondary" onclick="exportData('check', 'csv')" data-i18n="btn_exp_csv">📥 Tải về CSV</button>
+          <button class="btn btn-secondary" onclick="exportData('check', 'json')" data-i18n="btn_exp_json">📥 Tải về JSON</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- MODULE 14: HÔM NAY TẬP GÌ -->
+    <section id="mod-workout-picker" class="project-module card">
+      <div>
+        <h2 data-i18n="work_title">💪 Hôm nay tập gì?</h2>
+        <p class="desc" data-i18n="work_desc">Bài tập vận động nhẹ nhàng giúp giữ dáng và sảng khoái.</p>
+        <label data-i18n="work_lbl">Hình thức tập</label>
+        <select id="workType">
+          <option value="yoga" data-i18n="work_opt1">🧘‍♀️ Yoga &amp; Giãn cơ tĩnh tâm</option>
+          <option value="cardio" data-i18n="work_opt2">🔥 Cardio / Đốt mỡ năng động</option>
+        </select>
+      </div>
+      <div>
+        <button class="btn" onclick="pickRandomWorkout()" data-i18n="work_btn">💪 Gợi ý bài tập</button>
+        <div class="result-box" id="workoutResultBox" style="display:none;">
+          <div style="font-size:12.5px; color:var(--muted);" data-i18n="res_lbl">Gợi ý hôm nay dành cho bạn:</div>
+          <div class="result-main" id="workoutResultText">--</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- MODULE 15: HÔM NAY UỐNG GÌ -->
+    <section id="mod-drink-picker" class="project-module card">
+      <div>
+        <h2 data-i18n="drink_title">🧋 Hôm nay uống gì?</h2>
+        <p class="desc" data-i18n="drink_desc">Thức uống yêu thích: Matcha Latte, trà hoa quả hay detox.</p>
+        <label data-i18n="drink_lbl">Loại đồ uống</label>
+        <select id="drinkType">
+          <option value="matcha" data-i18n="drink_opt1">🍵 Matcha Latte đậm vị</option>
+          <option value="tea" data-i18n="drink_opt2">🍑 Trà hoa quả tươi mát</option>
+        </select>
+      </div>
+      <div>
+        <button class="btn" onclick="pickRandomDrink()" data-i18n="drink_btn">🧋 Gợi ý thức uống</button>
+        <div class="result-box" id="drinkResultBox" style="display:none;">
+          <div style="font-size:12.5px; color:var(--muted);" data-i18n="res_lbl">Gợi ý hôm nay dành cho bạn:</div>
+          <div class="result-main" id="drinkResultText">--</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- MODULE 16: HÔM NAY ĐI ĐÂU -->
+    <section id="mod-where-to-go" class="project-module card">
+      <div>
+        <h2 data-i18n="where_title">✈️ Hôm nay đi đâu?</h2>
+        <p class="desc" data-i18n="where_desc">Địa điểm dạo chơi, đổi gió cuối tuần trong thành phố.</p>
+        <label data-i18n="where_lbl">Không gian</label>
+        <select id="whereType">
+          <option value="nature" data-i18n="where_opt1">🌳 Không gian xanh / Công viên</option>
+          <option value="art" data-i18n="where_opt2">🖼️ Bảo tàng / Phòng tranh nghệ thuật</option>
+        </select>
+      </div>
+      <div>
+        <button class="btn" onclick="pickRandomWhereToGo()" data-i18n="where_btn">🚗 Gợi ý điểm đến</button>
+        <div class="result-box" id="whereResultBox" style="display:none;">
+          <div style="font-size:12.5px; color:var(--muted);" data-i18n="res_lbl">Gợi ý hôm nay dành cho bạn:</div>
+          <div class="result-main" id="whereResultText">--</div>
+        </div>
+      </div>
+    </section>
+
+  </div>
+</main>
+
+<script>
+// I18N DATA (VI / EN)
+const i18n = {
+  vi: {
+    nav_home: "← Trang chủ chính",
+    hero_title: "Subdomain Project Hub · Hôm Nay Làm Gì?",
+    hero_sub: "Hệ sinh thái toàn diện với các trợ lý quyết định hàng ngày, thiết kế ấm áp & thanh lịch.",
+    res_lbl: "Gợi ý hôm nay dành cho bạn:",
+    btn_exp_xlsx: "📥 Tải về Excel (.xlsx)",
+    btn_exp_csv: "📥 Tải về CSV",
+    btn_exp_json: "📥 Tải về JSON",
+    
+    // Tabs & Modules
+    eat_title: "🍲 Hôm nay ăn gì?",
+    eat_desc: "Gợi ý món ăn phù hợp với khẩu vị và tâm trạng của bạn ngay hôm nay.",
+    eat_lbl: "Chọn khẩu vị / Buổi",
+    eat_opt1: "🥗 Eat clean / Healthy nhẹ nhàng",
+    comfort_opt: "🍜 Đồ nước ấm bụng (Phở, Bún, Mì...)",
+    fast_opt: "🍕 Đồ ăn nhanh / Pizza / Burger",
+    viet_opt: "🍲 Món gia đình truyền thống Việt Nam",
+    eat_btn: "🎲 Gợi ý món ngay",
+
+    wear_title: "👗 Hôm nay mặc gì?",
+    wear_desc: "Gợi ý phong cách thời trang lấy cảm hứng từ tủ đồ thanh lịch, hiện đại.",
+    wear_lbl: "Hoạt động hôm nay",
+    wear_opt1: "☕ Đi cafe gặp gỡ bạn bè (Style: Nữ tính, nhẹ nhàng)",
+    wear_opt2: "💼 Đi làm / Gặp đối tác (Style: Thanh lịch, Smart Casual)",
+    wear_opt3: "✈️ Đi du lịch / Dạo phố (Style: Năng động, thoải mái)",
+    wear_opt4: "🏡 Ở nhà / Thư giãn (Style: Minimalist cozy)",
+    wear_btn: "✨ Gợi ý Outfit",
+
+    bucket_title: "⭐ Bucketlist & Mục tiêu cuộc đời",
+    bucket_desc: "Quản lý các trải nghiệm đáng nhớ với danh mục và trạng thái chi tiết. Có thể xuất file lưu về máy.",
+    b_lbl_name: "Tên mục tiêu / Trải nghiệm",
+    b_lbl_cat: "Danh mục",
+    b_cat1: "✈️ Du lịch",
+    b_cat2: "💼 Sự nghiệp",
+    b_cat3: "☕ Lối sống",
+    b_cat4: "🎨 Sáng tạo",
+    b_lbl_date: "Thời hạn dự kiến",
+    b_btn_add: "💾 Thêm vào Bucketlist",
+    b_list_title: "Danh sách Bucketlist của tôi",
+
+    watch_title: "🍿 Hôm nay xem phim gì?",
+    watch_desc: "Gợi ý phim điện ảnh, series truyền hình hoặc anime chữa lành.",
+    watch_lbl: "Thể loại yêu thích",
+    watch_opt1: "🌿 Phim chữa lành / Romance nhẹ nhàng",
+    watch_opt2: "🕵️‍♂️ Trinh thám / Giật gân hồi hộp",
+    watch_opt3: "☕ Sitcom hài hước thư giãn",
+    watch_btn: "🎬 Gợi ý phim",
+
+    cook_title: "🍳 Hôm nay nấu gì?",
+    cook_desc: "Gợi ý món ăn ngon tự tay thực hiện tại nhà ấm cúng.",
+    cook_lbl: "Loại món ăn",
+    cook_opt1: "🍲 Món gia đình đậm đà",
+    cook_opt2: "⚡ Món nhanh gọn dưới 30 phút",
+    cook_btn: "👩‍🍳 Gợi ý món nấu hôm nay",
+
+    read_title: "📚 Hôm nay đọc gì?",
+    read_desc: "Gợi ý sách hay về tâm lý học, lối sống và phát triển bản thân.",
+    read_lbl: "Chủ đề",
+    read_opt1: "🧠 Tâm lý học hành vi & tư duy",
+    read_opt2: "🌿 Lối sống tối giản & chữa lành",
+    read_btn: "📖 Gợi ý cuốn sách",
+
+    sing_title: "🎤 Hôm nay hát gì?",
+    sing_desc: "Chọn giai điệu acoustic hoặc ballad để thư giãn.",
+    sing_lbl: "Phong cách",
+    sing_opt1: "☕ Ballad nhẹ nhàng, sâu lắng",
+    sing_opt2: "✨ Pop trẻ trung, yêu đời",
+    sing_btn: "🎵 Gợi ý bài hát",
+
+    think_title: "🧠 Hôm nay nghĩ gì?",
+    think_desc: "Câu hỏi suy ngẫm sâu sắc và góc nhìn phản biện trong ngày.",
+    think_lbl: "Góc nhìn",
+    think_opt1: "🌸 Lòng biết ơn & hiện tại",
+    think_opt2: "🚀 Phát triển bản thân & mục tiêu",
+    think_btn: "💡 Nhận câu hỏi suy ngẫm",
+
+    play_title: "🎮 Hôm nay chơi gì?",
+    play_desc: "Hoạt động giải trí nhẹ nhàng, workshop thủ công hoặc boardgame.",
+    play_lbl: "Hình thức",
+    play_opt1: "🎨 Workshop thủ công / Nghệ thuật",
+    play_opt2: "🎲 Boardgame / Thư giãn cùng bạn bè",
+    play_btn: "🎲 Gợi ý hoạt động",
+
+    todo_title: "🎯 Hôm nay làm gì?",
+    todo_desc: "Nhiệm vụ ý nghĩa giúp bạn nâng cấp bản thân ngay hôm nay.",
+    todo_lbl: "Lĩnh vực",
+    todo_opt1: "🌱 Xây dựng thói quen tốt",
+    todo_opt2: "✨ Sắp xếp & tối ưu cuộc sống",
+    todo_btn: "🚀 Gợi ý việc nên làm",
+
+    cafe_title: "☕ Hôm nay đi cafe nào?",
+    cafe_desc: "Gợi ý không gian quán cafe phù hợp với mood làm việc hay trò chuyện.",
+    cafe_lbl: "Không gian",
+    cafe_opt1: "💻 Yên tĩnh, tập trung làm việc",
+    cafe_opt2: "🌸 View đẹp, chụp ảnh sống ảo",
+    cafe_btn: "🌿 Gợi ý quán cafe",
+
+    res_title_m: "🍜 Hôm nay đi quán ăn nào?",
+    res_desc: "Loại hình ẩm thực đường phố hoặc nhà hàng cho buổi hẹn hò/tụ tập.",
+    res_lbl: "Phong cách",
+    res_opt1: "🍣 Món Nhật / Hàn / Á ấm cúng",
+    res_opt2: "🍷 Bistro Âu sang trọng / Hẹn hò",
+    res_btn: "🍽️ Gợi ý quán ăn",
+
+    check_title: "☑️ Danh sách công việc hôm nay (Checklist)",
+    check_desc: "Quản lý các task hàng ngày theo mức độ ưu tiên. Có thể xuất file lưu về máy.",
+    c_lbl_name: "Tên công việc",
+    c_lbl_pri: "Mức độ ưu tiên",
+    pri_high: "🔴 Cao (High)",
+    pri_med: "🟡 Trung bình (Medium)",
+    pri_low: "🔵 Thấp (Low)",
+    c_btn_add: "➕ Thêm công việc",
+    c_list_title: "Danh sách việc cần làm",
+
+    work_title: "💪 Hôm nay tập gì?",
+    work_desc: "Bài tập vận động nhẹ nhàng giúp giữ dáng và sảng khoái.",
+    work_lbl: "Hình thức tập",
+    work_opt1: "🧘‍♀️ Yoga & Giãn cơ tĩnh tâm",
+    work_opt2: "🔥 Cardio / Đốt mỡ năng động",
+    work_btn: "💪 Gợi ý bài tập",
+
+    drink_title: "🧋 Hôm nay uống gì?",
+    drink_desc: "Thức uống yêu thích: Matcha Latte, trà hoa quả hay detox.",
+    drink_lbl: "Loại đồ uống",
+    drink_opt1: "🍵 Matcha Latte đậm vị",
+    drink_opt2: "🍑 Trà hoa quả tươi mát",
+    drink_btn: "🧋 Gợi ý thức uống",
+
+    where_title: "✈️ Hôm nay đi đâu?",
+    where_desc: "Địa điểm dạo chơi, đổi gió cuối tuần trong thành phố.",
+    where_lbl: "Không gian",
+    where_opt1: "🌳 Không gian xanh / Công viên",
+    where_opt2: "🖼️ Bảo tàng / Phòng tranh nghệ thuật",
+    where_btn: "🚗 Gợi ý điểm đến"
+  },
+  en: {
+    nav_home: "← Main Home",
+    hero_title: "Subdomain Project Hub · What To Do Today?",
+    hero_sub: "An integrated ecosystem featuring daily decision assistants with warm & stylish aesthetics.",
+    res_lbl: "Today's recommendation for you:",
+    btn_exp_xlsx: "📥 Download Excel (.xlsx)",
+    btn_exp_csv: "📥 Download CSV",
+    btn_exp_json: "📥 Download JSON",
+
+    // Tabs & Modules
+    eat_title: "🍲 What to eat today?",
+    eat_desc: "Get personalized food recommendations based on your mood and cravings.",
+    eat_lbl: "Flavor / Meal Type",
+    eat_opt1: "🥗 Light Eat Clean / Healthy",
+    comfort_opt: "🍜 Warm comforting noodle soup (Pho, Ramen...)",
+    fast_opt: "🍕 Fast food / Pizza / Burger",
+    viet_opt: "🍲 Traditional Vietnamese family meals",
+    eat_btn: "🎲 Get Recommendation",
+
+    wear_title: "What to wear today?",
+    wear_desc: "Curated outfit ideas inspired by chic and modern wardrobes.",
+    wear_lbl: "Today's Activity",
+    wear_opt1: "☕ Cafe with friends (Style: Feminine & soft)",
+    wear_opt2: "💼 Work / Partner meeting (Style: Smart casual)",
+    wear_opt3: "✈️ Travel / City walk (Style: Active & comfortable)",
+    wear_opt4: "🏡 Staying home (Style: Minimalist cozy)",
+    wear_btn: "✨ Suggest Outfit",
+
+    bucket_title: "⭐ Bucketlist & Life Goals",
+    bucket_desc: "Manage memorable experiences with categories and target dates. Export lists anytime.",
+    b_lbl_name: "Goal / Experience Name",
+    b_lbl_cat: "Category",
+    b_cat1: "✈️ Travel",
+    b_cat2: "💼 Career",
+    b_cat3: "☕ Lifestyle",
+    b_cat4: "🎨 Creative",
+    b_lbl_date: "Target Date",
+    b_btn_add: "💾 Add to Bucketlist",
+    b_list_title: "My Bucketlist Items",
+
+    watch_title: "🍿 What to watch today?",
+    watch_desc: "Recommended movies, TV series, or comforting anime.",
+    watch_lbl: "Preferred Genre",
+    watch_opt1: "🌿 Healing movies / Gentle romance",
+    watch_opt2: "🕵️‍♂️ Thriller / Suspense mystery",
+    watch_opt3: "☕ Relaxing funny sitcoms",
+    watch_btn: "🎬 Suggest Movie",
+
+    cook_title: "🍳 What to cook today?",
+    cook_desc: "Cozy homemade recipe ideas to prepare yourself.",
+    cook_lbl: "Recipe Type",
+    cook_opt1: "🍲 Rich family-style dish",
+    cook_opt2: "⚡ Quick meal under 30 mins",
+    cook_btn: "👩‍🍳 Suggest Recipe",
+
+    read_title: "📚 What to read today?",
+    read_desc: "Inspiring book suggestions on psychology and personal growth.",
+    read_lbl: "Topic",
+    read_opt1: "🧠 Behavioral psychology & mindset",
+    read_opt2: "🌿 Minimalist living & healing",
+    read_btn: "📖 Suggest Book",
+
+    sing_title: "🎤 What to sing today?",
+    sing_desc: "Choose an acoustic tune or ballad to unwind.",
+    sing_lbl: "Vibe",
+    sing_opt1: "☕ Soft emotional ballad",
+    sing_opt2: "✨ Upbeat cheerful pop",
+    sing_btn: "🎵 Suggest Song",
+
+    think_title: "🧠 What to think about today?",
+    think_desc: "Deep reflection questions and daily critical perspectives.",
+    think_lbl: "Perspective",
+    think_opt1: "🌸 Gratitude & mindfulness",
+    think_opt2: "🚀 Self-development & goals",
+    think_btn: "💡 Get Reflection Prompt",
+
+    play_title: "🎮 What to play today?",
+    play_desc: "Gentle entertainment, craft workshops, or board games.",
+    play_lbl: "Activity Type",
+    play_opt1: "🎨 Craft workshop / Art studio",
+    play_opt2: "🎲 Board games with friends",
+    play_btn: "🎲 Suggest Activity",
+
+    todo_title: "What to do today?",
+    todo_desc: "Meaningful tasks to level up your personal growth today.",
+    todo_lbl: "Category",
+    todo_opt1: "🌱 Build positive habits",
+    todo_opt2: "✨ Organize & optimize life",
+    todo_btn: "🚀 Suggest Task",
+
+    cafe_title: "☕ Which cafe to visit today?",
+    cafe_desc: "Cafe spaces suited for deep focus or pleasant conversations.",
+    cafe_lbl: "Atmosphere",
+    cafe_opt1: "💻 Quiet & focused workspace",
+    cafe_opt2: "🌸 Aesthetic view for photos",
+    cafe_btn: "🌿 Suggest Cafe",
+
+    res_title_m: "🍜 Which restaurant to visit today?",
+    res_desc: "Street food spots or nice restaurants for dates and gatherings.",
+    res_lbl: "Style",
+    res_opt1: "🍣 Cozy Japanese / Asian cuisine",
+    res_opt2: "🍷 Elegant European bistro / Date night",
+    res_btn: "🍽️ Suggest Restaurant",
+
+    check_title: "☑️ Today's Checklist",
+    check_desc: "Manage daily tasks by priority level. Export data anytime.",
+    c_lbl_name: "Task Name",
+    c_lbl_pri: "Priority Level",
+    pri_high: "🔴 High",
+    pri_med: "🟡 Medium",
+    pri_low: "🔵 Low",
+    c_btn_add: "➕ Add Task",
+    c_list_title: "My Daily Tasks",
+
+    work_title: "💪 What workout today?",
+    work_desc: "Gentle physical exercises to stay fit and refreshed.",
+    work_lbl: "Workout Type",
+    work_opt1: "🧘‍♀️ Yoga & Mindful stretching",
+    work_opt2: "🔥 Dynamic cardio / Fat burn",
+    work_btn: "💪 Suggest Workout",
+
+    drink_title: "🧋 What to drink today?",
+    drink_desc: "Favorite beverages: Matcha Latte, fruit tea, or detox juice.",
+    drink_lbl: "Drink Type",
+    drink_opt1: "🍵 Rich Matcha Latte",
+    drink_opt2: "🍑 Refreshing fruit tea",
+    drink_btn: "🧋 Suggest Drink",
+
+    where_title: "✈️ Where to go today?",
+    where_desc: "Weekend getaway spots and strolls within the city.",
+    where_lbl: "Environment",
+    where_opt1: "🌳 Green spaces / Parks",
+    where_opt2: "🖼️ Art museums / Galleries",
+    where_btn: "🚗 Suggest Destination"
+  }
+};
+
+function setLang(lang) {
+  document.documentElement.lang = lang;
+  document.getElementById('btn-vi').classList.toggle('active', lang === 'vi');
+  document.getElementById('btn-en').classList.toggle('active', lang === 'en');
+  
+  document.querySelectorAll('[data-i18n]').forEach(el => {
+    const k = el.getAttribute('data-i18n');
+    if (i18n[lang][k]) el.textContent = i18n[lang][k];
+  });
+  try { localStorage.setItem('alessa_lang_proj', lang); } catch(e){}
+  renderBuckets();
+  renderTasks();
+}
+
+try {
+  const s = localStorage.getItem('alessa_lang_proj');
+  if (s === 'en' || s === 'vi') setLang(s);
+} catch(e){}
+
+// SWITCH MODULES
+function switchModule(modId, btn) {
+  document.querySelectorAll('.project-module').forEach(m => m.classList.remove('active'));
+  document.querySelectorAll('.app-tab').forEach(t => t.classList.remove('active'));
+  document.getElementById('mod-' + modId).classList.add('active');
+  btn.classList.add('active');
+}
+
+// RANDOM DATA POOLS (BILINGUAL)
+const dataPools = {
+  eat: {
+    vi: ["Mì ý sốt kem nấm truffle 🍝", "Salad cá hồi bơ tươi healthy 🥗", "Phở bò tái gầu ấm bụng 🍜", "Cơm tấm sườn bì chả truyền thống 🍛", "Bánh mì chảo đầy đủ topping 🥖"],
+    en: ["Truffle cream mushroom pasta 🍝", "Fresh avocado salmon healthy salad 🥗", "Warm comforting beef noodle soup 🍜", "Traditional broken rice with grilled pork 🍛", "Sizzling pan banh mi with toppings 🥖"]
+  },
+  wear: {
+    vi: ["Áo sơ mi trắng form rộng + Quần âu thanh lịch 💼", "Đầm hoa nhí vintage nhẹ nhàng + Giày búp bê 🌷", "Áo blazer khoác ngoài + Quần jeans năng động 👖", "Set đồ len móc thủ công thanh lịch 🧶"],
+    en: ["Oversized white shirt + Elegant trousers 💼", "Gentle vintage floral dress + Ballet flats 🌷", "Layered blazer + Active jeans 👖", "Chic handmade crochet set 🧶"]
+  },
+  watch: {
+    vi: ["How I Met Your Mother (Cười sảng khoái) ☕", "Phim điện ảnh chữa lành Nhật Bản 🌸", "Series trinh thám hồi hộp ly kỳ 🕵️‍♂️"],
+    en: ["How I Met Your Mother (Laugh out loud) ☕", "Japanese healing heartwarming film 🌸", "Thrilling suspense mystery series 🕵️‍♂️"]
+  },
+  cook: {
+    vi: ["Canh chua cá lóc miền Nam thanh mát 🍲", "Gà chiên nước mắm tỏi ớt đưa cơm 🍗", "Mì xào hải sản rau củ nhanh gọn 🍜"],
+    en: ["Southern Vietnamese sour fish soup 🍲", "Garlic fish sauce crispy fried chicken 🍗", "Quick stir-fried seafood noodles 🍜"]
+  },
+  read: {
+    vi: ["Tâm lý học hành vi con người 🧠", "Nghệ thuật sống tối giản của người Nhật 📖", "Tản văn du lịch chữa lành 🌿"],
+    en: ["Thinking, Fast and Slow (Psychology) 🧠", "The Art of Simple Living (Shunmyo Masuno) 📖", "Healing travel essays 🌿"]
+  },
+  sing: {
+    vi: ["Hẹn Một Mai (Bùi Anh Tuấn) 🎤", "Tháng Năm (Soobin Hoàng Sơn) 🎶", "Ánh Nắng Của Anh (Đức Phúc) ☀️"],
+    en: ["Acoustic ballad emotional track 🎤", "Smooth R&B upbeat rhythm 🎶", "Gentle acoustic love song ☀️"]
+  },
+  think: {
+    vi: ["Hôm nay điều gì làm bạn biết ơn nhất?", "Nếu không sợ thất bại, bạn sẽ làm gì tiếp theo?", "Khoảnh khắc nào khiến bạn mỉm cười hôm nay?"],
+    en: ["What is one thing you are truly grateful for today?", "If failure was impossible, what would you do next?", "What moment made you smile today?"]
+  },
+  play: {
+    vi: ["Tham gia workshop làm nến thơm / gốm sứ 🕯️", "Chơi boardgame cùng hội bạn thân 🎲", "Dạo triển lãm nghệ thuật 🎨"],
+    en: ["Attend a scented candle / pottery workshop 🕯️", "Play board games with close friends 🎲", "Visit an art gallery exhibition 🎨"]
+  },
+  todo: {
+    vi: ["Dọn dẹp lại bàn làm việc thật gọn gàng ✨", "Học thêm 10 từ vựng ngoại ngữ mới 📚", "Gọi điện hỏi thăm người thân 💌"],
+    en: ["Organize and declutter your workspace ✨", "Learn 10 new foreign language vocabulary words 📚", "Call a family member to catch up 💌"]
+  },
+  cafe: {
+    vi: ["Quán cafe mộc mạc phong cách tối giản 🌿", "Quán cafe rooftop ngắm hoàng hôn 🌇", "Tiệm matcha ẩn mình trong hẻm yên tĩnh 🍵"],
+    en: ["Cozy minimalist aesthetic cafe 🌿", "Rooftop sunset view cafe 🌇", "Hidden tranquil matcha tea house 🍵"]
+  },
+  restaurant: {
+    vi: ["Nhà hàng món Nhật ấm cúng 🍣", "Quán lẩu Thái chua cay tụ tập bạn bè 🍲", "Bistro Âu sang trọng hẹn hò 🍷"],
+    en: ["Cozy Japanese sushi restaurant 🍣", "Spicy Thai hotpot gathering spot 🍲", "Elegant European bistro for date night 🍷"]
+  },
+  workout: {
+    vi: ["30 phút Yoga giãn cơ buổi sáng 🧘‍♀️", "Đi bộ nhanh 5.000 bước công viên 👟", "Bài tập Cardio nhẹ nhàng đốt mỡ 🔥"],
+    en: ["30-minute morning yoga & stretching 🧘‍♀️", "Brisk park walk 5,000 steps 👟", "Gentle fat-burning cardio session 🔥"]
+  },
+  drink: {
+    vi: ["Matcha Latte truyền thống đậm vị 🍵", "Trà ô long đào cam sả tươi mát 🍑", "Nước ép cần tây táo xanh detox 🍏"],
+    en: ["Rich ceremonial Matcha Latte 🍵", "Refreshing peach lemongrass oolong tea 🍑", "Green apple celery detox juice 🍏"]
+  },
+  whereToGo: {
+    vi: ["Khu Thảo Điền yên tĩnh cuối tuần 🌳", "Bảo tàng mỹ thuật / Phòng tranh nghệ thuật 🖼️", "Cắm trại nhẹ nhàng ngoại ô thành phố ⛺"],
+    en: ["Peaceful Thao Dien neighborhood stroll 🌳", "Fine Arts Museum / Art gallery visit 🖼️", "Gentle suburban glamping getaway ⛺"]
+  }
+};
+
+function pickRandom(category) {
+  const lang = document.documentElement.lang || 'vi';
+  const pool = dataPools[category][lang];
+  return pool[Math.floor(Math.random() * pool.length)];
+}
+
+function pickRandomEat() {
+  document.getElementById('eatResultText').textContent = pickRandom('eat');
+  document.getElementById('eatResultBox').style.display = 'block';
+}
+function pickRandomWear() {
+  document.getElementById('wearResultText').textContent = pickRandom('wear');
+  document.getElementById('wearResultBox').style.display = 'block';
+}
+function pickRandomWatch() {
+  document.getElementById('watchResultText').textContent = pickRandom('watch');
+  document.getElementById('watchResultBox').style.display = 'block';
+}
+function pickRandomCook() {
+  document.getElementById('cookResultText').textContent = pickRandom('cook');
+  document.getElementById('cookResultBox').style.display = 'block';
+}
+function pickRandomRead() {
+  document.getElementById('readResultText').textContent = pickRandom('read');
+  document.getElementById('readResultBox').style.display = 'block';
+}
+function pickRandomSing() {
+  document.getElementById('singResultText').textContent = pickRandom('sing');
+  document.getElementById('singResultBox').style.display = 'block';
+}
+function pickRandomThink() {
+  document.getElementById('thinkResultText').textContent = pickRandom('think');
+  document.getElementById('thinkResultBox').style.display = 'block';
+}
+function pickRandomPlay() {
+  document.getElementById('playResultText').textContent = pickRandom('play');
+  document.getElementById('playResultBox').style.display = 'block';
+}
+function pickRandomDo() {
+  document.getElementById('doResultText').textContent = pickRandom('todo');
+  document.getElementById('doResultBox').style.display = 'block';
+}
+function pickRandomCafe() {
+  document.getElementById('cafeResultText').textContent = pickRandom('cafe');
+  document.getElementById('cafeResultBox').style.display = 'block';
+}
+function pickRandomRestaurant() {
+  document.getElementById('restaurantResultText').textContent = pickRandom('restaurant');
+  document.getElementById('restaurantResultBox').style.display = 'block';
+}
+function pickRandomWorkout() {
+  document.getElementById('workoutResultText').textContent = pickRandom('workout');
+  document.getElementById('workoutResultBox').style.display = 'block';
+}
+function pickRandomDrink() {
+  document.getElementById('drinkResultText').textContent = pickRandom('drink');
+  document.getElementById('drinkResultBox').style.display = 'block';
+}
+function pickRandomWhereToGo() {
+  document.getElementById('whereResultText').textContent = pickRandom('whereToGo');
+  document.getElementById('whereResultBox').style.display = 'block';
+}
+
+// BUCKETLIST & CHECKLIST STORAGE WITH DIFFERENTIATED DESIGNS
+let buckets = [
+  { id: 1, title: "Lái xe roadtrip qua đèo Hải Vân", cat: "Du lịch", date: "Q3/2026", done: false },
+  { id: 2, title: "Tự tay pha chế món Matcha Latte chuẩn vị Nhật", cat: "Lối sống", date: "Q4/2026", done: true }
+];
+let tasks = [
+  { id: 1, title: "Họp chiến lược Meta Ads Q4", priority: "high", done: false },
+  { id: 2, title: "Đọc 2 chương sách tâm lý học", priority: "med", done: true }
+];
+
+function getStore(k, def) {
+  try { const s = localStorage.getItem(k); if(s) return JSON.parse(s); } catch(e){}
+  return def;
+}
+function setStore(k, val) {
+  try { localStorage.setItem(k, JSON.stringify(val)); } catch(e){}
+}
+
+buckets = getStore('alessa_buckets_v2', buckets);
+tasks = getStore('alessa_tasks_v2', tasks);
+
+function renderBuckets() {
+  const c = document.getElementById('bucketListContainer');
+  if (buckets.length === 0) {
+    c.innerHTML = '<p style="color:var(--muted); font-size:13.5px; text-align:center; padding:15px;">Chưa có mục tiêu nào trong bucketlist.</p>';
+    return;
+  }
+  c.innerHTML = buckets.map(b => `
+    <div class="bucket-card-item ${b.done ? 'completed' : ''}">
+      <input type="checkbox" ${b.done ? 'checked' : ''} onchange="toggleBucket(${b.id})" style="width:20px; height:20px; accent-color:var(--deep-green); margin-top:3px; cursor:pointer;">
+      <div style="flex:1;">
+        <div class="bucket-info">
+          <h4>${escapeHTML(b.title)}</h4>
+        </div>
+        <div class="bucket-meta" style="margin-top:6px;">
+          <span class="badge-cat">${escapeHTML(b.cat)}</span>
+          <span>📅 ${escapeHTML(b.date || 'N/A')}</span>
+        </div>
+      </div>
+      <button onclick="deleteBucket(${b.id})" style="background:none; border:none; color:#ff5252; cursor:pointer; font-size:16px;" title="Xóa">×</button>
+    </div>
+  `).join('');
+}
+
+function addBucketItem() {
+  const inp = document.getElementById('bucketInput');
+  const cat = document.getElementById('bucketCat').value;
+  const date = document.getElementById('bucketDate').value;
+  if (!inp.value.trim()) { alert('Vui lòng nhập tên mục tiêu!'); return; }
+  buckets.unshift({ id: Date.now(), title: inp.value.trim(), cat, date: date.trim() || '2026', done: false });
+  setStore('alessa_buckets_v2', buckets);
+  inp.value = '';
+  document.getElementById('bucketDate').value = '';
+  renderBuckets();
+}
+
+function toggleBucket(id) {
+  const b = buckets.find(x => x.id === id);
+  if (b) { b.done = !b.done; setStore('alessa_buckets_v2', buckets); renderBuckets(); }
+}
+
+function deleteBucket(id) {
+  buckets = buckets.filter(x => x.id !== id);
+  setStore('alessa_buckets_v2', buckets);
+  renderBuckets();
+}
+
+renderBuckets();
+
+function renderTasks() {
+  const c = document.getElementById('dailyTaskList');
+  if (tasks.length === 0) {
+    c.innerHTML = '<p style="color:var(--muted); font-size:13.5px; text-align:center; padding:15px;">Chưa có công việc nào trong checklist.</p>';
+    return;
+  }
+  const lang = document.documentElement.lang || 'vi';
+  c.innerHTML = tasks.map(t => {
+    let priLabel = t.priority === 'high' ? (lang === 'vi' ? 'Cao' : 'High') : t.priority === 'med' ? (lang === 'vi' ? 'Trung bình' : 'Med') : (lang === 'vi' ? 'Thấp' : 'Low');
+    let priClass = t.priority === 'high' ? 'priority-high' : t.priority === 'med' ? 'priority-med' : 'priority-low';
+    return `
+      <div class="check-row ${t.done ? 'completed' : ''}">
+        <input type="checkbox" ${t.done ? 'checked' : ''} onchange="toggleTask(${t.id})">
+        <div class="check-text">${escapeHTML(t.title)}</div>
+        <span class="priority-tag ${priClass}">${priLabel}</span>
+        <button onclick="deleteTask(${t.id})" style="background:none; border:none; color:#ff5252; cursor:pointer; font-size:16px;" title="Xóa">×</button>
+      </div>
+    `;
+  }).join('');
+}
+
+function addDailyTask() {
+  const inp = document.getElementById('taskInput');
+  const pri = document.getElementById('taskPriority').value;
+  if (!inp.value.trim()) { alert('Vui lòng nhập tên công việc!'); return; }
+  tasks.unshift({ id: Date.now(), title: inp.value.trim(), priority: pri, done: false });
+  setStore('alessa_tasks_v2', tasks);
+  inp.value = '';
+  renderTasks();
+}
+
+function toggleTask(id) {
+  const t = tasks.find(x => x.id === id);
+  if (t) { t.done = !t.done; setStore('alessa_tasks_v2', tasks); renderTasks(); }
+}
+
+function deleteTask(id) {
+  tasks = tasks.filter(x => x.id !== id);
+  setStore('alessa_tasks_v2', tasks);
+  renderTasks();
+}
+
+renderTasks();
+
+// EXPORT DATA (XLSX simulation via CSV/HTML Blob, CSV, JSON)
+function exportData(type, format) {
+  const data = type === 'bucket' ? buckets : tasks;
+  if (data.length === 0) { alert('Không có dữ liệu để xuất!'); return; }
+  
+  if (format === 'json') {
+    const jsonStr = JSON.stringify(data, null, 2);
+    downloadFile(jsonStr, `${type}-export.json`, 'application/json');
+  } else if (format === 'csv') {
+    let csv = type === 'bucket' ? "ID,Title,Category,Date,Completed\n" : "ID,Title,Priority,Completed\n";
+    data.forEach(item => {
+      if(type === 'bucket') {
+        csv += `"${item.id}","${item.title.replace(/"/g, '""')}","${item.cat}","${item.date}","${item.done}"\n`;
+      } else {
+        csv += `"${item.id}","${item.title.replace(/"/g, '""')}","${item.priority}","${item.done}"\n`;
+      }
+    });
+    downloadFile(csv, `${type}-export.csv`, 'text/csv;charset=utf-8;');
+  } else if (format === 'xlsx') {
+    // Generate clean HTML table format recognized as Excel spreadsheet (.xls / .xlsx extension)
+    let html = `<html xmlns:o="urn:schemas-microsoft-com:office:office" xmlns:x="urn:schemas-microsoft-com:office:excel" xmlns="http://www.w3.org/TR/REC-html40">`;
+    html += `<head><meta charset="utf-8"></head><body><table>`;
+    if (type === 'bucket') {
+      html += `<tr><th>ID</th><th>Goal / Title</th><th>Category</th><th>Target Date</th><th>Status</th></tr>`;
+      data.forEach(i => {
+        html += `<tr><td>${i.id}</td><td>${escapeHTML(i.title)}</td><td>${escapeHTML(i.cat)}</td><td>${escapeHTML(i.date)}</td><td>${i.done ? 'Completed' : 'Pending'}</td></tr>`;
+      });
+    } else {
+      html += `<tr><th>ID</th><th>Task Title</th><th>Priority</th><th>Status</th></tr>`;
+      data.forEach(i => {
+        html += `<tr><td>${i.id}</td><td>${escapeHTML(i.title)}</td><td>${escapeHTML(i.priority)}</td><td>${i.done ? 'Completed' : 'Pending'}</td></tr>`;
+      });
+    }
+    html += `</table></body></html>`;
+    downloadFile(html, `${type}-spreadsheet.xlsx`, 'application/vnd.ms-excel');
+  }
+}
+
+function downloadFile(content, filename, mimeType) {
+  const blob = new Blob([content], { type: mimeType });
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  a.href = url;
+  a.download = filename;
+  document.body.appendChild(a);
+  a.click();
+  document.body.removeChild(a);
+  URL.revokeObjectURL(url);
+}
+
+function escapeHTML(str) {
+  return str.replace(/[&<>"']/g, m => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m]));
+}
+</script>
+
+</body>
+</html>
