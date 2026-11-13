@@ -1,0 +1,838 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<title>Hôm Nay Mặc Gì</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,800&family=Be+Vietnam+Pro:wght@400;500;700&display=swap">
+<style>
+/* Bố cục: một cột 720px, thanh tab dạng viên thuốc, thẻ món ăn có bóng cứng như ghế nhựa quán vỉa hè Sài Gòn */
+:root{
+  --bg:#F1F4EC; --surface:#FFFFFF; --ink:#12201A; --muted:#566860; --line:#D5DDD1; --soft:#E4EBDF;
+  --chili:#D52F14; --on-chili:#FFFFFF; --sun:#F4B400; --pandan:#0E7A5F; --shadow:#12201A;
+  --water1:#BFE3F0; --water2:#B0D9E8;
+  --f-display:'Bricolage Grotesque','Be Vietnam Pro',system-ui,sans-serif;
+  --f-body:'Be Vietnam Pro',system-ui,-apple-system,'Segoe UI',Roboto,sans-serif;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#0E1613; --surface:#17231E; --ink:#EEF4EC; --muted:#9DB0A5; --line:#2B3C34; --soft:#1F2F28;
+    --chili:#FF6B4A; --on-chili:#1B0C07; --sun:#FFC93C; --pandan:#3CCB9F; --shadow:#000000;
+    --water1:#14405A; --water2:#123A52; color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#0E1613; --surface:#17231E; --ink:#EEF4EC; --muted:#9DB0A5; --line:#2B3C34; --soft:#1F2F28;
+  --chili:#FF6B4A; --on-chili:#1B0C07; --sun:#FFC93C; --pandan:#3CCB9F; --shadow:#000000;
+  --water1:#14405A; --water2:#123A52; color-scheme:dark;
+}
+*{box-sizing:border-box}
+body{
+  background:var(--bg); color:var(--ink); font-family:var(--f-body); font-size:16px; line-height:1.5;
+  padding-block:20px 48px;
+  padding-left:max(16px, env(safe-area-inset-left, 0px));
+  padding-right:max(16px, env(safe-area-inset-right, 0px));
+}
+.wrap{max-width:720px;margin:0 auto;min-width:0}
+button,select{font-family:var(--f-body);color:inherit}
+:focus-visible{outline:3px solid var(--chili);outline-offset:2px}
+
+/* Đầu trang */
+.eyebrow{margin:0;font:500 13px/1.3 var(--f-body);letter-spacing:.04em;color:var(--muted)}
+h1{margin:6px 0 0;font:800 clamp(42px,12vw,72px)/.95 var(--f-display);letter-spacing:-.03em;text-wrap:balance}
+h1 em{font-style:normal;color:var(--chili)}
+.lede{margin:12px 0 0;color:var(--muted);max-width:52ch}
+
+/* Tab */
+.tabs{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:4px;padding:4px;background:var(--soft);border-radius:999px;margin-block:18px 26px}
+.tab{border:0;background:transparent;color:var(--muted);font:700 14px/1 var(--f-body);padding:12px 4px;border-radius:999px;cursor:pointer;min-height:44px}
+.tab[aria-selected="true"]{background:var(--ink);color:var(--bg)}
+
+/* Nút */
+.btn{border:2px solid var(--ink);background:var(--surface);color:var(--ink);font:700 15px/1.2 var(--f-body);padding:12px 18px;border-radius:999px;cursor:pointer;min-height:46px;box-shadow:0 3px 0 var(--shadow);text-decoration:none;display:inline-flex;align-items:center;justify-content:center;text-align:center}
+.btn:hover{background:var(--soft)}
+.btn:active{transform:translateY(2px);box-shadow:0 1px 0 var(--shadow)}
+.btn.primary{background:var(--chili);color:var(--on-chili)}
+.btn.primary:hover{filter:brightness(1.06)}
+.btn.big{font-size:18px;padding:14px 34px;min-height:54px}
+.btn:disabled{opacity:.55;cursor:default;transform:none}
+.link{background:none;border:0;color:var(--muted);font:500 14px var(--f-body);text-decoration:underline;text-underline-offset:3px;cursor:pointer;padding:12px 4px;min-height:44px}
+.link:hover{color:var(--ink)}
+
+/* Hỏi đáp */
+.progress{height:8px;border-radius:99px;background:var(--soft);overflow:hidden}
+.progress span{display:block;height:100%;background:var(--chili);border-radius:99px;transition:width .25s}
+.qcount{margin:14px 0 0;font:700 12px var(--f-body);letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+.q{margin:6px 0 20px;font:800 clamp(26px,6.6vw,38px)/1.1 var(--f-display);letter-spacing:-.02em;text-wrap:balance}
+.q:focus{outline:none}
+.opts{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,150px),1fr));gap:10px}
+.opt{text-align:left;background:var(--surface);color:var(--ink);border:2px solid var(--ink);border-radius:14px;padding:14px 16px;cursor:pointer;display:flex;flex-direction:column;gap:2px;min-height:68px;box-shadow:0 3px 0 var(--shadow);min-width:0}
+.opt:hover{background:var(--soft)}
+.opt:active{transform:translateY(2px);box-shadow:0 1px 0 var(--shadow)}
+.ol{font:700 16px/1.25 var(--f-body)}
+.os{font:400 13px/1.35 var(--f-body);color:var(--muted)}
+.qnav{margin-top:10px;min-height:44px}
+.note{margin:0 0 14px;padding:10px 14px;border-radius:12px;background:var(--soft);font-size:14px;color:var(--muted)}
+.lbl{margin:22px 0 8px;font:700 12px var(--f-body);letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+.alts{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,170px),1fr));gap:8px}
+.alt{text-align:left;border:2px solid var(--line);background:var(--surface);border-radius:14px;padding:10px 14px;cursor:pointer;display:flex;flex-direction:column;min-width:0}
+.alt:hover{border-color:var(--ink)}
+.alt b{font:700 15px/1.25 var(--f-body)}
+.alt span{font-size:13px;color:var(--muted)}
+.actions{display:flex;flex-wrap:wrap;gap:10px;margin-top:22px;align-items:center}
+
+/* Thẻ món */
+.result{margin-top:26px}
+.result.pop{animation:pop .35s ease-out}
+@keyframes pop{from{transform:translateY(10px);opacity:.2}to{transform:none;opacity:1}}
+.dish{background:var(--surface);border:2px solid var(--ink);border-radius:20px;padding:20px;box-shadow:0 6px 0 var(--shadow);display:flex;flex-direction:column;gap:12px;min-width:0}
+.dish-top{display:flex;flex-wrap:wrap;gap:8px 12px;align-items:center}
+.kicker{font:700 12px var(--f-body);letter-spacing:.08em;text-transform:uppercase;color:var(--chili)}
+.badge{font:700 12px var(--f-body);padding:4px 10px;border-radius:999px;background:var(--ink);color:var(--bg)}
+.dish-name{margin:0;font:800 clamp(34px,9.5vw,54px)/1 var(--f-display);letter-spacing:-.03em;text-wrap:balance;overflow-wrap:anywhere}
+.dish-desc{margin:0;max-width:56ch}
+.tags{display:flex;flex-wrap:wrap;gap:6px;list-style:none;padding:0;margin:0}
+.tags li{font:500 13px var(--f-body);padding:4px 10px;border-radius:999px;background:var(--soft)}
+.places{display:flex;flex-wrap:wrap;gap:6px 8px;align-items:center}
+.places .lbl{margin:0 4px 0 0}
+.place{font:500 13px var(--f-body);color:var(--pandan);border:1.5px solid currentColor;border-radius:999px;padding:4px 10px;text-decoration:none}
+.place:hover{background:var(--soft)}
+.dish-actions{margin-top:4px}
+
+/* Phần chung của các trò chơi */
+.sec{margin:0;font:800 clamp(24px,6vw,32px)/1.1 var(--f-display);letter-spacing:-.02em}
+.sub{margin:30px 0 10px;font:800 22px/1.2 var(--f-display);letter-spacing:-.01em}
+.hint{margin:6px 0 16px;color:var(--muted)}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:16px}
+.chip{border:2px solid var(--line);background:var(--surface);border-radius:999px;padding:8px 14px;font:500 14px var(--f-body);cursor:pointer;min-height:40px}
+.chip:hover{border-color:var(--ink)}
+.chip[aria-pressed="true"]{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+.chip:disabled{opacity:.45;cursor:default}
+.controls{display:flex;flex-wrap:wrap;gap:10px;align-items:center;justify-content:center;margin-block:16px}
+.sel{display:inline-flex;align-items:center;gap:8px;font:500 14px var(--f-body)}
+select{background:var(--surface);border:2px solid var(--line);border-radius:10px;padding:8px 10px;font-size:14px;min-height:40px}
+
+/* Vòng quay */
+.wheel-wrap{position:relative;width:min(100%,420px);margin:14px auto 0}
+.wheel-wrap canvas{display:block;width:100%;aspect-ratio:1;height:auto;max-width:100%}
+.pointer{position:absolute;left:50%;top:-8px;transform:translateX(-50%);width:0;height:0;border-left:15px solid transparent;border-right:15px solid transparent;border-top:28px solid var(--ink);z-index:2}
+
+/* Đua vịt */
+.track{margin-top:6px}
+.lane{display:grid;grid-template-columns:minmax(72px,104px) minmax(0,1fr);gap:10px;align-items:center;margin-bottom:8px}
+.lname{font:700 13px/1.2 var(--f-body);overflow-wrap:anywhere}
+.lane.win .lname{color:var(--chili)}
+.water{position:relative;height:50px;border-radius:12px;border:2px solid var(--ink);overflow:hidden;background:repeating-linear-gradient(90deg,var(--water1) 0 22px,var(--water2) 22px 44px)}
+.finish{position:absolute;right:0;top:0;bottom:0;width:12px;background:repeating-conic-gradient(var(--ink) 0 25%,var(--surface) 0 50%) 0 0/12px 12px}
+.duckw{position:absolute;left:0;top:50%;margin-top:-17px;width:46px;height:34px;will-change:transform}
+.duckv{display:block;width:100%;height:100%}
+.racing .duckv{animation:bob .32s ease-in-out infinite alternate}
+.racing .lane:nth-child(2n) .duckv{animation-delay:-.16s}
+@keyframes bob{from{transform:translateY(-2px) rotate(-3deg)}to{transform:translateY(2px) rotate(3deg)}}
+.rank{margin:16px 0 0;padding-left:22px;font-size:14px;color:var(--muted)}
+.rank li{padding:2px 0}
+
+/* Bốc thăm */
+.slot{border:2px solid var(--ink);border-radius:20px;background:var(--surface);padding:28px 16px;text-align:center;box-shadow:0 6px 0 var(--shadow);min-height:132px;display:grid;place-items:center}
+.slot-name{font:800 clamp(30px,8.5vw,48px)/1.05 var(--f-display);letter-spacing:-.02em;text-wrap:balance;overflow-wrap:anywhere}
+.cards{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;perspective:900px}
+.fc{position:relative;aspect-ratio:3/4;border:0;background:none;padding:0;cursor:pointer;transform-style:preserve-3d;transition:transform .6s;min-width:0}
+.fc.open{transform:rotateY(180deg)}
+.face{position:absolute;inset:0;backface-visibility:hidden;-webkit-backface-visibility:hidden;border:2px solid var(--ink);border-radius:16px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;padding:8px;text-align:center;overflow:hidden}
+.front{background:var(--chili);color:var(--on-chili);font:800 56px/1 var(--f-display)}
+.back{background:var(--surface);color:var(--ink);transform:rotateY(180deg)}
+.back b{font:700 15px/1.2 var(--f-body);overflow-wrap:anywhere}
+.back small{font-size:12px;color:var(--muted)}
+.fc.chosen .back{background:var(--sun);color:#12201A}
+.fc.chosen .back small{color:#12201A}
+
+.foot{margin-top:44px;padding-top:16px;border-top:1px solid var(--line);font-size:13px;color:var(--muted);max-width:62ch}
+
+@media (prefers-reduced-motion: reduce){
+  .fc{transition:none}
+  .result.pop{animation:none}
+  .racing .duckv{animation:none}
+  .progress span{transition:none}
+}
+
+/* ===== Phần thêm cho trang mặc gì ===== */
+.tabs{grid-template-columns:repeat(3,minmax(0,1fr))}
+.ownerbar{display:flex;flex-wrap:wrap;gap:8px 12px;align-items:center;margin:0 0 16px;padding:10px 14px;border:2px dashed var(--pandan);border-radius:16px;font-size:14px}
+.ownerbar b{font:700 12px var(--f-body);letter-spacing:.08em;text-transform:uppercase;color:var(--pandan);margin-right:auto}
+.phs{position:relative;display:block;overflow:hidden;border-radius:12px;background:var(--soft)}
+.phs img,.phs svg{display:block;width:100%;height:100%;object-fit:cover}
+.phs .ph-edit{position:absolute;right:4px;bottom:4px;background:var(--ink);color:var(--bg);font:700 11px var(--f-body);border-radius:999px;padding:3px 9px;cursor:pointer;z-index:2}
+.phs.s56{width:56px;height:56px;flex:none}
+.phs.s96{width:100%;height:92px}
+.phs.look{width:100%;aspect-ratio:3/4;max-height:340px}
+.phs.empty{display:grid;place-items:center;text-align:center;padding:14px;font-size:13px;color:var(--muted);border:2px dashed var(--line);background:transparent}
+
+/* Dress up */
+.dress{display:grid;grid-template-columns:minmax(0,300px) minmax(0,1fr);gap:24px;align-items:start}
+.stage{background:var(--surface);border:2px solid var(--ink);border-radius:20px;padding:12px;box-shadow:0 5px 0 var(--shadow);position:sticky;top:12px;min-width:0}
+.stage svg.doll{display:block;width:100%;height:auto;max-height:70vh;margin:0 auto}
+.stage-btn{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin-top:10px}
+.stage-btn .btn{padding:8px 14px;min-height:40px;font-size:14px}
+.stage-note{margin:8px 0 0;font-size:13px;color:var(--muted);text-align:center}
+.picker{min-width:0}
+.catrow{display:flex;gap:6px;overflow-x:auto;scrollbar-width:none;padding-bottom:6px;margin-bottom:12px}
+.catrow::-webkit-scrollbar{display:none}
+.cat{flex:none;border:2px solid var(--line);background:var(--surface);border-radius:999px;padding:8px 14px;font:700 13px var(--f-body);cursor:pointer;min-height:40px;white-space:nowrap}
+.cat:hover{border-color:var(--ink)}
+.cat[aria-selected="true"]{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+.itg{display:grid;grid-template-columns:repeat(auto-fill,minmax(84px,1fr));gap:8px}
+.it{border:2px solid var(--line);background:var(--surface);border-radius:14px;padding:6px 4px 8px;cursor:pointer;display:flex;flex-direction:column;align-items:center;gap:4px;min-width:0;font:500 12px/1.25 var(--f-body);text-align:center}
+.it:hover{border-color:var(--ink)}
+.it[aria-pressed="true"]{border-color:var(--ink);box-shadow:0 3px 0 var(--shadow)}
+.it svg{width:100%;height:68px;display:block}
+.it .none{height:68px;display:grid;place-items:center;font-size:22px;color:var(--muted)}
+.lbl2{margin:18px 0 8px;font:700 12px var(--f-body);letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+.colors{display:flex;flex-wrap:wrap;gap:8px}
+.cl{width:36px;height:36px;border-radius:50%;border:2px solid var(--line);cursor:pointer;padding:0}
+.cl[aria-pressed="true"]{outline:3px solid var(--ink);outline-offset:2px}
+.sws{display:flex;flex-wrap:wrap;gap:10px}
+.swc{border:2px solid var(--line);background:var(--surface);border-radius:14px;padding:5px;display:flex;flex-direction:column;align-items:center;gap:4px;cursor:pointer;font:500 12px var(--f-body);width:74px}
+.swc:hover{border-color:var(--ink)}
+.swc[aria-pressed="true"]{border-color:var(--ink);box-shadow:0 3px 0 var(--shadow)}
+.hint2{font-size:13px;color:var(--muted);margin:8px 0 0}
+
+/* Hỏi đáp có hình */
+.opt .vis{display:block;margin-bottom:8px}
+.opt .vis.dollthumb{display:flex;justify-content:center}
+.opt .vis.dollthumb svg{height:130px;width:auto}
+.strip{display:flex;height:34px;border-radius:10px;overflow:hidden;border:2px solid var(--ink)}
+.strip i{flex:1}
+.opts.pic{grid-template-columns:repeat(auto-fill,minmax(min(100%,130px),1fr))}
+
+/* Kết quả bộ đồ */
+.qres{display:grid;grid-template-columns:minmax(0,230px) minmax(0,1fr);gap:20px;align-items:start}
+.qres .dollbox{background:var(--surface);border:2px solid var(--ink);border-radius:20px;padding:10px;box-shadow:0 5px 0 var(--shadow)}
+.qres svg.doll{display:block;width:100%;height:auto}
+.lk h3{margin:0;font:800 clamp(26px,6vw,38px)/1.05 var(--f-display);letter-spacing:-.02em}
+.lk p{margin:8px 0 0;color:var(--muted)}
+.pieces{list-style:none;margin:14px 0 0;padding:0;display:grid;gap:6px}
+.pieces li{display:flex;gap:10px;align-items:center;font-size:14px;min-width:0}
+.pieces .sw{flex:none;width:28px;height:28px;border-radius:8px;overflow:hidden;border:1.5px solid var(--ink)}
+.pieces .sw svg{display:block;width:100%;height:100%}
+.pieces b{font-weight:700}
+.pieces span.t{min-width:0;overflow-wrap:anywhere}
+.accl{font:700 12px var(--f-body);letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin:14px 0 4px}
+.links{display:flex;flex-wrap:wrap;gap:8px;margin-top:16px}
+.photo-row{margin-top:16px;max-width:260px}
+.rres{margin-top:26px}
+.rres .qres{margin-top:0}
+.cards .back{gap:2px}
+.cards .back svg{height:74%;width:auto;max-width:100%}
+.cards .back b{font-size:12px}
+@media (max-width:760px){
+  .dress{grid-template-columns:minmax(0,1fr)}
+  .stage{position:sticky;top:6px;z-index:4;max-width:none;padding:8px}
+  .stage svg.doll{max-height:38vh}
+  .stage-note{display:none}
+}
+@media (max-width:560px){.qres{grid-template-columns:minmax(0,1fr)}.qres .dollbox{max-width:220px;margin:0 auto}}
+[hidden]{display:none!important}
+.wheel-wrap{margin-top:34px}
+@media (max-width:760px){
+  .stage svg.doll{max-height:30vh}
+  #doll-links{display:none!important}
+  .stage-btn{margin-top:6px}
+  .stage-btn .btn{min-height:36px;padding:6px 12px;font-size:13px}
+}
+</style>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false"><defs id="defs"></defs></svg>
+
+<main class="wrap">
+  <header>
+    <p class="eyebrow" id="eyebrow">Mở tủ đồ</p>
+    <h1>Hôm nay <em>mặc gì?</em></h1>
+    <p class="lede">Mặc thử lên búp bê, trả lời vài câu để được phối đồ, hoặc quay vòng quay và lật thẻ bài. Bộ nào cũng có giày, mũ, túi, khuyên tai, vòng cổ và vòng tay đi kèm.</p>
+  </header>
+
+  <div class="ownerbar" id="ownerbar" hidden>
+    <b>Chủ trang</b>
+    <span>Thêm ảnh thật vào các ô chất liệu, họa tiết và bộ đồ.</span>
+    <button class="btn" type="button" id="edit-toggle" aria-pressed="false" style="min-height:40px;padding:8px 14px">Bật chế độ thêm ảnh</button>
+  </div>
+
+  <nav class="tabs" role="tablist" aria-label="Cách chọn đồ">
+    <button class="tab" role="tab" id="tab-doll" data-tab="doll" aria-controls="p-doll" aria-selected="true">Búp bê</button>
+    <button class="tab" role="tab" id="tab-quiz" data-tab="quiz" aria-controls="p-quiz" aria-selected="false" tabindex="-1">Hỏi đáp</button>
+    <button class="tab" role="tab" id="tab-random" data-tab="random" aria-controls="p-random" aria-selected="false" tabindex="-1">Ngẫu nhiên</button>
+  </nav>
+
+  <section id="p-doll" role="tabpanel" aria-labelledby="tab-doll">
+    <div class="dress">
+      <div class="stage">
+        <div id="doll"></div>
+        <div class="stage-btn">
+          <button class="btn" type="button" id="d-rand">Phối ngẫu nhiên</button>
+          <button class="btn" type="button" id="d-clear">Bỏ hết đồ</button>
+        </div>
+        <p class="stage-note" id="stage-note"></p>
+        <div class="links" id="doll-links" style="justify-content:center"></div>
+      </div>
+      <div class="picker" id="picker"></div>
+    </div>
+  </section>
+
+  <section id="p-quiz" role="tabpanel" aria-labelledby="tab-quiz" hidden><div id="quiz"></div></section>
+
+  <section id="p-random" role="tabpanel" aria-labelledby="tab-random" hidden>
+    <h2 class="sec">Bốc một bộ đồ</h2>
+    <p class="hint">Quay vòng quay hoặc lật một lá bài. Bộ nào ra cũng kèm đủ phụ kiện.</p>
+    <div class="controls"><button class="btn" id="w-shuffle" type="button">Đổi các bộ trên vòng</button></div>
+    <div class="wheel-wrap"><i class="pointer" aria-hidden="true"></i><canvas id="wheel" role="img" aria-label="Vòng quay các bộ đồ"></canvas></div>
+    <div class="controls"><button class="btn primary big" id="w-spin" type="button">Quay!</button></div>
+    <h3 class="sub">Hoặc chọn một lá bài</h3>
+    <div class="cards" id="cards"></div>
+    <div class="controls">
+      <button class="btn" id="cards-shuffle" type="button">Xáo bài</button>
+      <button class="btn" id="rand-all" type="button">Phối hoàn toàn ngẫu nhiên</button>
+    </div>
+    <div class="rres" id="rnd-res" aria-live="polite" hidden></div>
+  </section>
+
+  <input type="file" id="ph-file" accept="image/*" hidden>
+  <p class="status" id="toast" aria-live="polite" style="min-height:1.4em;color:var(--muted);font-size:14px;margin:12px 0 0"></p>
+  <p class="foot">Các hình trên trang là minh họa vẽ bằng code. Chủ trang có thể thêm ảnh thật vào các ô chất liệu, họa tiết và bộ đồ, ảnh đó sẽ thay hình minh họa. Nút "Xem ảnh thật" mở Google Hình ảnh hoặc Pinterest với từ khóa của bộ đồ đang chọn.</p>
+</main>
+
+<script>
+/* ===== Màu, tiện ích ===== */
+function rnd(n){return Math.floor(Math.random()*n);}
+function hex2rgb(h){h=h.replace('#','');return [parseInt(h.substr(0,2),16),parseInt(h.substr(2,2),16),parseInt(h.substr(4,2),16)];}
+function rgb2hex(a){return '#'+a.map(function(v){v=Math.max(0,Math.min(255,Math.round(v)));return (v<16?'0':'')+v.toString(16);}).join('');}
+function mix(a,b,t){var x=hex2rgb(a),y=hex2rgb(b);return rgb2hex([x[0]+(y[0]-x[0])*t,x[1]+(y[1]-x[1])*t,x[2]+(y[2]-x[2])*t]);}
+function shade(h,t){return t<0?mix(h,'#000000',-t):mix(h,'#ffffff',t);}
+function lum(h){var c=hex2rgb(h);return (0.299*c[0]+0.587*c[1]+0.114*c[2])/255;}
+function accent(h){return lum(h)<.45?mix(h,'#ffffff',.78):mix(h,'#000000',.62);}
+
+var COLORS=[
+ {h:'#FAFAF7',n:'Trắng'},{h:'#F1E8D8',n:'Kem'},{h:'#CDB89A',n:'Be'},{h:'#7A5238',n:'Nâu'},{h:'#1F1F24',n:'Đen'},
+ {h:'#D2322D',n:'Đỏ'},{h:'#7E1F2E',n:'Đỏ rượu'},{h:'#F2B5C4',n:'Hồng phấn'},{h:'#C8683B',n:'Cam đất'},{h:'#D9A521',n:'Vàng mù tạt'},
+ {h:'#8DAA6B',n:'Xanh matcha'},{h:'#6B7036',n:'Xanh olive'},{h:'#AFCBE6',n:'Xanh trời'},{h:'#46689A',n:'Xanh denim'},{h:'#1F2F55',n:'Xanh navy'},{h:'#A892CF',n:'Tím oải hương'}];
+var METALS=[{h:'#D4AF37',n:'Vàng'},{h:'#C4C8D0',n:'Bạc'},{h:'#D9A08E',n:'Vàng hồng'},{h:'#F4EFE6',n:'Ngọc trai'},{h:'#222222',n:'Đen'}];
+var SKINS=[{h:'#FBE3D3',n:'Sáng'},{h:'#F3C9A8',n:'Sáng ấm'},{h:'#E0A97F',n:'Trung bình'},{h:'#C58A5E',n:'Nâu mật'},{h:'#9A6240',n:'Nâu'},{h:'#6B4128',n:'Nâu đậm'}];
+var HAIRC=[{h:'#1D1A1F',n:'Đen'},{h:'#4A2E22',n:'Nâu đậm'},{h:'#7A4A2B',n:'Nâu hạt dẻ'},{h:'#D9B26F',n:'Vàng'},{h:'#B5532D',n:'Đồng'},{h:'#E58AA6',n:'Hồng'},{h:'#C9CBD3',n:'Bạc'}];
+var HSTYLES=[{id:'long',n:'Dài'},{id:'bob',n:'Bob'},{id:'bun',n:'Búi cao'}];
+function colorName(h){var a=COLORS.concat(METALS),i;for(i=0;i<a.length;i++)if(a[i].h.toLowerCase()===String(h).toLowerCase())return a[i].n;return 'Màu tùy chọn';}
+
+var PATTERNS=[{id:'solid',n:'Trơn',b:'#8DAA6B'},{id:'stripe',n:'Kẻ sọc',b:'#F1E8D8'},{id:'plaid',n:'Caro',b:'#7E1F2E'},{id:'check',n:'Ô nhỏ',b:'#AFCBE6'},{id:'dots',n:'Chấm bi',b:'#1F2F55'},{id:'floral',n:'Hoa nhí',b:'#F2B5C4'}];
+var FABRICS=[{id:'cotton',n:'Cotton',b:'#F1E8D8'},{id:'denim',n:'Denim',b:'#46689A'},{id:'linen',n:'Linen (đũi)',b:'#CDB89A'},{id:'satin',n:'Satin (lụa bóng)',b:'#7E1F2E'},{id:'knit',n:'Len đan',b:'#8DAA6B'},{id:'leather',n:'Da',b:'#7A5238'}];
+function pname(id){return PATTERNS.filter(function(x){return x.id===id;})[0].n;}
+function fname(id){var a=FABRICS.filter(function(x){return x.id===id;})[0];return a?a.n:id==='metal'?'Kim loại':id==='straw'?'Cói':id;}
+
+/* ===== Họa tiết và chất liệu (SVG) ===== */
+function flower(cx,cy,col){
+  var s='',i;for(i=0;i<5;i++){var a=i/5*Math.PI*2;s+='<circle cx="'+(cx+Math.cos(a)*2.9).toFixed(2)+'" cy="'+(cy+Math.sin(a)*2.9).toFixed(2)+'" r="2.2" fill="'+col+'"/>';}
+  return s+'<circle cx="'+cx+'" cy="'+cy+'" r="1.4" fill="#F4D35E"/>';
+}
+function patternDef(p,hex){
+  var id='pt-'+p+'-'+hex.slice(1),a=accent(hex),W=14,H=14,b='';
+  if(p==='solid'){W=H=4;}
+  else if(p==='stripe'){b='<rect x="0" width="5" height="14" fill="'+a+'" opacity=".85"/>';}
+  else if(p==='plaid'){W=H=30;b='<rect width="30" height="11" fill="'+a+'" opacity=".42"/><rect width="11" height="30" fill="'+a+'" opacity=".42"/><rect y="20" width="30" height="2" fill="'+a+'" opacity=".7"/><rect x="20" width="2" height="30" fill="'+a+'" opacity=".7"/>';}
+  else if(p==='check'){W=H=16;b='<rect width="8" height="16" fill="'+a+'" opacity=".4"/><rect width="16" height="8" fill="'+a+'" opacity=".4"/>';}
+  else if(p==='dots'){W=H=18;b='<circle cx="4.5" cy="4.5" r="2.6" fill="'+a+'"/><circle cx="13.5" cy="13.5" r="2.6" fill="'+a+'"/>';}
+  else if(p==='floral'){W=H=32;b=flower(8,8,a)+flower(24,24,a)+'<circle cx="24" cy="6" r="1.2" fill="'+a+'" opacity=".6"/><circle cx="6" cy="26" r="1.2" fill="'+a+'" opacity=".6"/>';}
+  return {id:id,svg:'<pattern id="'+id+'" width="'+W+'" height="'+H+'" patternUnits="userSpaceOnUse"><rect width="'+W+'" height="'+H+'" fill="'+hex+'"/>'+b+'</pattern>'};
+}
+var OVERLAYS=
+ '<pattern id="fb-cotton" width="3" height="3" patternUnits="userSpaceOnUse"><path d="M0 .5H3M.5 0V3" stroke="#000" stroke-width=".35" opacity=".12" fill="none"/></pattern>'+
+ '<pattern id="fb-denim" width="5" height="5" patternUnits="userSpaceOnUse" patternTransform="rotate(35)"><rect width="5" height="5" fill="#0c2a55" opacity=".1"/><path d="M0 .6H5" stroke="#fff" stroke-width=".9" opacity=".22"/><path d="M0 3.2H5" stroke="#06183a" stroke-width=".8" opacity=".28"/></pattern>'+
+ '<pattern id="fb-linen" width="12" height="12" patternUnits="userSpaceOnUse"><path d="M0 2H8M3 6H12M1 10H7M10 .5V5M5 7V11" stroke="#fff" stroke-width=".7" opacity=".38" fill="none"/><path d="M0 4.5H5M6 8.5H12M8 1V3" stroke="#000" stroke-width=".6" opacity=".16" fill="none"/></pattern>'+
+ '<linearGradient id="fb-satin" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#000" stop-opacity=".16"/><stop offset=".22" stop-color="#fff" stop-opacity=".55"/><stop offset=".42" stop-color="#000" stop-opacity=".14"/><stop offset=".68" stop-color="#fff" stop-opacity=".4"/><stop offset="1" stop-color="#000" stop-opacity=".22"/></linearGradient>'+
+ '<pattern id="fb-knit" width="7" height="8" patternUnits="userSpaceOnUse"><path d="M0 0L3.5 5L7 0" fill="none" stroke="#000" stroke-width="1.1" opacity=".26"/><path d="M0 1.2L3.5 6.2L7 1.2" fill="none" stroke="#fff" stroke-width=".8" opacity=".28"/></pattern>'+
+ '<linearGradient id="fb-leather" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#000" stop-opacity=".22"/><stop offset=".3" stop-color="#fff" stop-opacity=".38"/><stop offset=".55" stop-color="#000" stop-opacity=".12"/><stop offset="1" stop-color="#000" stop-opacity=".3"/></linearGradient>'+
+ '<linearGradient id="fb-metal" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#fff" stop-opacity=".7"/><stop offset=".4" stop-color="#000" stop-opacity=".2"/><stop offset=".7" stop-color="#fff" stop-opacity=".5"/><stop offset="1" stop-color="#000" stop-opacity=".25"/></linearGradient>'+
+ '<pattern id="fb-straw" width="6" height="6" patternUnits="userSpaceOnUse"><path d="M0 1.5H6M0 4.5H6" stroke="#000" stroke-width=".7" opacity=".22" fill="none"/><path d="M1.5 0V3M4.5 3V6" stroke="#fff" stroke-width=".7" opacity=".4" fill="none"/></pattern>';
+
+/* ===== Hàm vẽ ===== */
+function ref(s){return 'url(#pt-'+s.p+'-'+s.c.slice(1)+')';}
+function F(d,s,x){var ol=shade(s.c,-.38);return '<path d="'+d+'" fill="'+ref(s)+'" stroke="'+ol+'" stroke-width="1.2" stroke-linejoin="round"'+(x||'')+'/><path d="'+d+'" fill="url(#fb-'+s.f+')" pointer-events="none"/>';}
+function K(d,w,s){var ol=shade(s.c,-.38);return '<path d="'+d+'" fill="none" stroke="'+ol+'" stroke-width="'+(w+2.4)+'" stroke-linecap="round" stroke-linejoin="round"/><path d="'+d+'" fill="none" stroke="'+ref(s)+'" stroke-width="'+w+'" stroke-linecap="round"/><path d="'+d+'" fill="none" stroke="url(#fb-'+s.f+')" stroke-width="'+w+'" stroke-linecap="round" pointer-events="none"/>';}
+function LN(d,s,w,o){return '<path d="'+d+'" fill="none" stroke="'+shade(s.c,-.45)+'" stroke-width="'+(w||1)+'" opacity="'+(o||.5)+'" stroke-linecap="round"/>';}
+function MR(x){return x+'<g transform="translate(300 0) scale(-1 1)">'+x+'</g>';}
+var ARM_FULL='M112 130 C106 165 99 205 95 240 C93 252 91 260 90 266';
+var ARM_SHORT='M112 130 C109 141 106 152 103 163';
+function bodyP(H){return 'M114 124 C124 117 138 115 150 122 C162 115 176 117 186 124 C184 150 178 176 173 200 L174 '+H+' L126 '+H+' L127 200 C122 176 116 150 114 124 Z';}
+function scoop(k){return '<path d="M138 120 C142 135 158 135 162 120 Z" fill="'+k.skin+'"/>';}
+function vneck(k){return '<path d="M140 120 L150 152 L160 120 Z" fill="'+k.skin+'"/>';}
+var PANTS_TOP='M126 206 L174 206 C182 230 186 255 184 272';
+var JEANS_D='M126 206 L174 206 C182 230 186 255 184 272 C184 360 176 460 172 548 L153 548 C152 470 150 380 150 296 C150 380 148 470 147 548 L128 548 C124 460 116 360 116 272 C114 255 118 230 126 206 Z';
+
+var ITEMS={
+top:[
+ {id:'tee',l:'Áo thun',vb:'84 108 132 130',draw:function(s,k){return MR(K(ARM_SHORT,19,s))+F(bodyP(228),s)+scoop(k);}},
+ {id:'tank',l:'Áo hai dây',vb:'100 108 100 130',draw:function(s,k){return F('M128 124 L137 120 C141 134 159 134 163 120 L172 124 C175 160 174 186 173 226 L127 226 C126 186 125 160 128 124 Z',s);}},
+ {id:'crop',l:'Áo crop',vb:'84 108 132 100',draw:function(s,k){return MR(K(ARM_SHORT,19,s))+F(bodyP(192),s)+scoop(k);}},
+ {id:'blouse',l:'Áo sơ mi',vb:'80 108 140 160',draw:function(s,k){return MR(K(ARM_FULL,16,s))+F(bodyP(238),s)+vneck(k)+LN('M140 120 L131 134 M160 120 L169 134',s,1.4,.7)+LN('M150 152 L150 238',s,1,.4);}},
+ {id:'sweater',l:'Áo len',vb:'80 108 140 160',draw:function(s,k){return MR(K(ARM_FULL,18,s))+F(bodyP(242),s)+scoop(k)+'<path d="M126 236 L174 236 L174 244 L126 244 Z" fill="#000" opacity=".16"/>';}}
+],
+bottom:[
+ {id:'jeans',l:'Quần jeans',vb:'100 196 100 360',draw:function(s){return F(JEANS_D,s)+LN('M126 214 L174 214',s,1.2,.6)+LN('M150 214 L150 296',s,1,.4);}},
+ {id:'wide',l:'Quần ống rộng',vb:'90 196 120 360',draw:function(s){return F('M126 206 L174 206 C182 230 186 255 184 272 C186 360 192 460 198 548 L152 548 C152 470 150 380 150 296 C150 380 148 470 148 548 L102 548 C108 460 114 360 116 272 C114 255 118 230 126 206 Z',s)+LN('M126 214 L174 214',s,1.2,.6)+LN('M132 300 L120 548 M168 300 L180 548',s,1,.3);}},
+ {id:'shorts',l:'Quần short',vb:'104 196 92 150',draw:function(s){return F('M126 206 L174 206 C182 230 186 255 184 272 L188 342 L153 346 L150 298 L147 346 L112 342 L116 272 C114 255 118 230 126 206 Z',s)+LN('M126 214 L174 214',s,1.2,.6);}},
+ {id:'mini',l:'Chân váy mini',vb:'94 196 112 140',draw:function(s){return F('M127 206 L173 206 L198 322 C170 332 130 332 102 322 Z',s)+LN('M127 214 L173 214',s,1.2,.6);}},
+ {id:'midi',l:'Váy xếp ly dài',vb:'86 196 128 270',draw:function(s){var p='',i;for(i=0;i<9;i++){p+='M'+(127+i*5.75).toFixed(1)+' 208 L'+(98+i*13.5).toFixed(1)+' 458 ';}return F('M127 206 L173 206 L206 456 C170 468 130 468 94 456 Z',s)+LN(p,s,1,.35)+LN('M127 214 L173 214',s,1.2,.6);}}
+],
+dress:[
+ {id:'slip',l:'Đầm hai dây',vb:'86 108 128 340',draw:function(s,k){return F('M129 126 L135 126 C140 144 160 144 165 126 L171 126 C175 160 172 190 172 206 C190 260 200 340 206 432 C170 444 130 444 94 432 C100 340 110 260 128 206 C128 190 125 160 129 126 Z',s)+LN('M128 206 L172 206',s,1,.4);}},
+ {id:'aline',l:'Đầm chữ A',vb:'80 108 140 310',draw:function(s,k){return MR(K(ARM_SHORT,19,s))+F('M114 124 C124 117 138 115 150 122 C162 115 176 117 186 124 C184 150 178 176 173 204 C196 270 204 340 210 404 C172 416 128 416 90 404 C96 340 104 270 127 204 C122 176 116 150 114 124 Z',s)+scoop(k)+LN('M127 204 L173 204',s,1,.4);}},
+ {id:'maxi',l:'Đầm maxi',vb:'70 108 160 460',draw:function(s,k){return F('M129 126 L135 126 C140 144 160 144 165 126 L171 126 C175 160 172 190 172 206 C192 280 210 420 226 548 C180 562 120 562 74 548 C90 420 108 280 128 206 C128 190 125 160 129 126 Z',s)+LN('M128 206 L172 206',s,1,.4);}}
+],
+outer:[
+ {id:'blazer',l:'Áo blazer',vb:'80 108 140 150',draw:function(s,k){var pn=F('M112 126 C122 118 136 116 146 122 L144 240 C130 246 116 244 111 240 C118 200 118 160 112 126 Z',s)+F('M146 122 L134 150 L146 178 Z',{c:shade(s.c,-.12),p:'solid',f:s.f})+'<circle cx="141" cy="214" r="1.8" fill="'+shade(s.c,-.5)+'"/>';return MR(K(ARM_FULL,18,s))+MR(pn);}},
+ {id:'cardigan',l:'Áo cardigan',vb:'80 108 140 190',draw:function(s,k){var pn=F('M112 126 C122 118 136 116 147 122 L145 278 L118 282 C122 226 119 170 112 126 Z',s)+'<circle cx="143" cy="170" r="1.6" fill="'+shade(s.c,-.5)+'"/><circle cx="143" cy="198" r="1.6" fill="'+shade(s.c,-.5)+'"/><circle cx="143" cy="226" r="1.6" fill="'+shade(s.c,-.5)+'"/>';return MR(K(ARM_FULL,18,s))+MR(pn);}},
+ {id:'trench',l:'Áo trench',vb:'80 108 140 340',draw:function(s,k){var pn=F('M112 126 C122 118 136 116 146 122 L144 432 C128 440 110 440 94 432 C104 340 118 240 118 190 C118 160 114 140 112 126 Z',s)+F('M146 122 L132 148 L146 172 Z',{c:shade(s.c,-.12),p:'solid',f:s.f})+'<circle cx="140" cy="236" r="2" fill="'+shade(s.c,-.5)+'"/><circle cx="139" cy="280" r="2" fill="'+shade(s.c,-.5)+'"/>';return MR(K(ARM_FULL,18,s))+MR(pn)+'<path d="M117 214 L183 214" stroke="'+shade(s.c,-.4)+'" stroke-width="6" stroke-linecap="round"/>';}}
+],
+shoes:[
+ {id:'sneakers',l:'Giày sneaker',vb:'104 520 92 80',draw:function(s){var sh=F('M127 538 L149 538 L151 564 C152 575 145 580 134 580 C123 580 122 570 127 562 Z',s)+LN('M130 546 L146 548 M130 553 L147 555',s,1,.5)+'<path d="M122 574 C122 583 152 585 153 573 L153 577 C152 589 123 589 122 580 Z" fill="#FAFAF7" stroke="#b8b8c0" stroke-width=".8"/>';return MR(sh);}},
+ {id:'heels',l:'Giày cao gót',vb:'104 520 92 84',draw:function(s){var sh='<path d="M131 566 L127 596 L132 596 L136 570 Z" fill="'+shade(s.c,-.45)+'"/>'+F('M129 540 L148 540 C150 556 148 566 141 573 L135 586 L131 586 C130 578 133 570 134 562 C131 556 129 550 129 540 Z',s);return MR(sh);}},
+ {id:'boots',l:'Bốt cổ ngắn',vb:'104 480 92 112',draw:function(s){var sh=F('M126 498 L150 498 L151 564 C152 575 145 580 134 580 C123 580 122 570 127 562 Z',s)+'<path d="M123 574 C123 582 152 584 153 573 L153 577 C152 588 124 588 123 580 Z" fill="#222" stroke="#000" stroke-width=".6"/>';return MR(sh);}},
+ {id:'sandals',l:'Sandal',vb:'104 520 92 80',draw:function(s){var sh=K('M129 552 L149 558',3,s)+K('M131 566 L147 566',3,s)+F('M127 574 C127 583 150 584 151 574 C150 570 128 570 127 574 Z',s);return MR(sh);}}
+],
+hat:[
+ {id:'bucket',l:'Mũ bucket',vb:'92 8 116 80',draw:function(s){return F('M120 54 C120 22 180 22 180 54 Z',s)+F('M112 50 L188 50 L200 66 C170 74 130 74 100 66 Z',s)+LN('M118 52 L182 52',s,1,.5);}},
+ {id:'beret',l:'Mũ beret',vb:'92 8 116 70',draw:function(s){return F('M110 46 C108 22 170 16 192 34 C198 48 172 54 140 52 C122 52 112 50 110 46 Z',s)+'<circle cx="150" cy="22" r="2.5" fill="'+shade(s.c,-.4)+'"/>';}},
+ {id:'cap',l:'Mũ lưỡi trai',vb:'92 8 130 70',draw:function(s){return F('M118 52 C116 22 184 22 182 52 Z',s)+F('M116 52 C140 60 176 58 208 66 C208 58 190 50 182 50 Z',s)+LN('M118 51 L182 51',s,1,.5);}},
+ {id:'straw',l:'Nón cói',vb:'76 8 148 70',draw:function(s){var q={c:s.c,p:'solid',f:'straw'};return F('M122 48 C122 16 178 16 178 48 Z',q)+F('M84 50 C84 40 216 40 216 50 C216 64 84 64 84 50 Z',q)+'<path d="M122 46 C140 52 160 52 178 46" fill="none" stroke="'+shade(s.c,-.5)+'" stroke-width="4"/>';}}
+],
+bag:[
+ {id:'tote',l:'Túi tote',vb:'180 240 70 120',draw:function(s){return '<path d="M203 294 C203 264 233 264 233 294" fill="none" stroke="'+shade(s.c,-.4)+'" stroke-width="4"/>'+F('M196 292 L240 292 L236 354 L200 354 Z',s);}},
+ {id:'crossbody',l:'Túi đeo chéo',vb:'100 110 120 200',draw:function(s){return '<path d="M118 124 L186 266" stroke="'+shade(s.c,-.4)+'" stroke-width="6" stroke-linecap="round" fill="none"/>'+F('M168 262 L206 262 L206 302 L168 302 Z',s)+LN('M168 274 L206 274',s,1.2,.7);}},
+ {id:'mini',l:'Túi xách mini',vb:'180 250 70 80',draw:function(s){return '<path d="M206 292 C206 274 224 274 224 292" fill="none" stroke="'+shade(s.c,-.4)+'" stroke-width="3"/>'+F('M198 292 L232 292 L230 320 L200 320 Z',s)+'<circle cx="215" cy="300" r="2" fill="'+shade(s.c,-.5)+'"/>';}}
+],
+ear:[
+ {id:'studs',l:'Khuyên tròn nhỏ',vb:'100 40 100 60',draw:function(s){function e(x){return '<circle cx="'+x+'" cy="72" r="3.4" fill="'+s.c+'" stroke="'+shade(s.c,-.4)+'" stroke-width=".8"/><circle cx="'+x+'" cy="72" r="3.4" fill="url(#fb-metal)"/>';}return e(120)+e(180);}},
+ {id:'hoops',l:'Khuyên tròn lớn',vb:'100 40 100 70',draw:function(s){function e(x){return '<circle cx="'+x+'" cy="82" r="9" fill="none" stroke="'+shade(s.c,-.4)+'" stroke-width="4"/><circle cx="'+x+'" cy="82" r="9" fill="none" stroke="'+s.c+'" stroke-width="2.6"/>';}return e(120)+e(180);}},
+ {id:'drops',l:'Khuyên thả',vb:'100 40 100 80',draw:function(s){function e(x){return '<path d="M'+x+' 73 L'+x+' 88" stroke="'+shade(s.c,-.4)+'" stroke-width="1.6"/><circle cx="'+x+'" cy="72" r="2.6" fill="'+s.c+'"/><circle cx="'+x+'" cy="93" r="5" fill="'+s.c+'" stroke="'+shade(s.c,-.4)+'" stroke-width="1"/><circle cx="'+x+'" cy="93" r="5" fill="url(#fb-metal)"/>';}return e(120)+e(180);}}
+],
+neck:[
+ {id:'choker',l:'Vòng cổ choker',vb:'120 96 60 36',draw:function(s){return '<path d="M137 108 C146 116 154 116 163 108" fill="none" stroke="'+shade(s.c,-.4)+'" stroke-width="4.4" stroke-linecap="round"/><path d="M137 108 C146 116 154 116 163 108" fill="none" stroke="'+s.c+'" stroke-width="3" stroke-linecap="round"/>';}},
+ {id:'pendant',l:'Dây chuyền mặt tròn',vb:'120 96 60 70',draw:function(s){return '<path d="M137 110 L150 150 L163 110" fill="none" stroke="'+shade(s.c,-.4)+'" stroke-width="1.6"/><circle cx="150" cy="153" r="5.5" fill="'+s.c+'" stroke="'+shade(s.c,-.4)+'" stroke-width="1"/><circle cx="150" cy="153" r="5.5" fill="url(#fb-metal)"/>';}},
+ {id:'pearls',l:'Vòng cổ ngọc trai',vb:'120 96 60 44',draw:function(s){var o='',i;for(i=0;i<=10;i++){var t=i/10,x=(1-t)*(1-t)*134+2*t*(1-t)*150+t*t*166,y=(1-t)*(1-t)*108+2*t*(1-t)*134+t*t*108;o+='<circle cx="'+x.toFixed(1)+'" cy="'+y.toFixed(1)+'" r="3.2" fill="'+s.c+'" stroke="'+shade(s.c,-.35)+'" stroke-width=".8"/>';}return o;}}
+],
+brace:[
+ {id:'bangles',l:'Vòng lắc tay',vb:'70 240 160 50',draw:function(s){function e(x){return '<ellipse cx="'+x+'" cy="258" rx="9" ry="3.2" fill="none" stroke="'+shade(s.c,-.4)+'" stroke-width="3.6"/><ellipse cx="'+x+'" cy="258" rx="9" ry="3.2" fill="none" stroke="'+s.c+'" stroke-width="2.4"/><ellipse cx="'+x+'" cy="265" rx="9" ry="3.2" fill="none" stroke="'+shade(s.c,-.4)+'" stroke-width="3.6"/><ellipse cx="'+x+'" cy="265" rx="9" ry="3.2" fill="none" stroke="'+s.c+'" stroke-width="2.4"/>';}return e(91)+e(209);}},
+ {id:'chain',l:'Vòng tay dây mảnh',vb:'70 240 160 50',draw:function(s){function e(x){var o='',i;for(i=0;i<6;i++)o+='<circle cx="'+(x-8+i*3.2)+'" cy="'+(262+Math.sin(i)*1)+'" r="1.7" fill="'+s.c+'" stroke="'+shade(s.c,-.4)+'" stroke-width=".5"/>';return o;}return e(91)+e(209);}},
+ {id:'cuff',l:'Vòng cuff bản to',vb:'70 240 160 50',draw:function(s){function e(x){var d='M'+(x-9)+' 255 L'+(x+9)+' 255 L'+(x+8)+' 268 L'+(x-8)+' 268 Z';return '<path d="'+d+'" fill="'+s.c+'" stroke="'+shade(s.c,-.4)+'" stroke-width="1"/><path d="'+d+'" fill="url(#fb-metal)"/>';}return e(91)+e(209);}}
+]
+};
+var CATS=[
+ {k:'top',l:'Áo',kind:'cloth'},{k:'bottom',l:'Quần · Váy',kind:'cloth'},{k:'dress',l:'Đầm',kind:'cloth'},{k:'outer',l:'Áo khoác',kind:'cloth'},
+ {k:'shoes',l:'Giày',kind:'acc',f:'leather'},{k:'hat',l:'Mũ',kind:'acc',f:'cotton'},{k:'bag',l:'Túi',kind:'acc',f:'leather'},
+ {k:'ear',l:'Khuyên tai',kind:'jew',f:'metal'},{k:'neck',l:'Vòng cổ',kind:'jew',f:'metal'},{k:'brace',l:'Vòng tay',kind:'jew',f:'metal'},{k:'me',l:'Búp bê',kind:'me'}];
+var STYLECATS=CATS.filter(function(c){return c.kind!=='me';});
+function findItem(cat,id){var a=ITEMS[cat],i;for(i=0;i<a.length;i++)if(a[i].id===id)return a[i];return null;}
+function defStyle(cat){var c=CATS.filter(function(x){return x.k===cat;})[0];
+  if(c.kind==='cloth')return {id:null,c:'#F1E8D8',p:'solid',f:'cotton'};
+  if(c.kind==='acc')return {id:null,c:cat==='shoes'?'#FAFAF7':cat==='bag'?'#7A5238':'#CDB89A',p:'solid',f:c.f};
+  return {id:null,c:'#D4AF37',p:'solid',f:'metal'};}
+function emptyOutfit(){var o={};STYLECATS.forEach(function(c){o[c.k]=defStyle(c.k);});return o;}
+function setPiece(o,cat,id,c,p,f){var s=o[cat],d=defStyle(cat);s.id=id;s.c=c||s.c;s.p=p||(d.p);s.f=f||s.f;return o;}
+function defaultOutfit(){var o=emptyOutfit();setPiece(o,'top','tee','#FAFAF7','solid','cotton');setPiece(o,'bottom','jeans','#46689A','solid','denim');setPiece(o,'shoes','sneakers','#FAFAF7','solid','leather');return o;}
+function cloneO(o){return JSON.parse(JSON.stringify(o));}
+
+/* Pattern cần có cho một bộ đồ */
+function defsFor(O){
+  var out=[],seen={};STYLECATS.forEach(function(c){var s=O[c.k];if(!s||!s.id)return;var d=patternDef(s.p,s.c);if(!seen[d.id]){seen[d.id]=1;out.push(d);}});return out;
+}
+
+/* ===== Búp bê ===== */
+function hairBack(lk){
+  var h=lk.hair,ol=shade(h,-.35);
+  if(lk.hs==='long')return '<path d="M112 60 C104 26 196 26 188 60 C198 112 198 162 188 196 C170 184 130 184 112 196 C102 162 102 112 112 60 Z" fill="'+h+'" stroke="'+ol+'" stroke-width="1.2"/>';
+  if(lk.hs==='bob')return '<path d="M114 58 C106 28 194 28 186 58 C192 82 192 104 184 112 C170 116 130 116 116 112 C108 104 108 82 114 58 Z" fill="'+h+'" stroke="'+ol+'" stroke-width="1.2"/>';
+  return '<circle cx="150" cy="18" r="14" fill="'+h+'" stroke="'+ol+'" stroke-width="1.2"/>';
+}
+function hairFront(lk){
+  var h=lk.hair,ol=shade(h,-.35);
+  var cap=lk.hs==='bun'?'M118 64 C115 26 185 26 182 64 C172 44 128 44 118 64 Z':'M118 64 C115 30 185 30 182 64 C176 50 164 42 146 42 C132 46 124 54 118 64 Z';
+  return '<path d="'+cap+'" fill="'+h+'" stroke="'+ol+'" stroke-width="1.2"/><path d="M130 40 C140 34 160 34 170 40" fill="none" stroke="#fff" stroke-width="2" opacity=".18" stroke-linecap="round"/>';
+}
+function dollSVG(O,lk,o){
+  o=o||{};var skin=lk.skin,sol=shade(skin,-.2),k={skin:skin},s='';
+  s+='<svg class="doll" viewBox="40 6 220 596" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="'+(o.label||'Búp bê thời trang')+'">';
+  s+='<ellipse cx="150" cy="596" rx="62" ry="6" fill="#000" opacity=".1"/>';
+  s+=hairBack(lk);
+  var skinP=function(d){return '<path d="'+d+'" fill="'+skin+'" stroke="'+sol+'" stroke-width="1.2" stroke-linejoin="round"/>';};
+  s+=skinP('M120 266 C118 360 128 460 134 548 L148 548 C150 460 150 360 150 288 Z')+skinP('M180 266 C182 360 172 460 166 548 L152 548 C150 460 150 360 150 288 Z');
+  s+=skinP('M129 548 L148 548 L149 570 Q149 580 139 580 Q129 580 129 570 Z')+skinP('M171 548 L152 548 L151 570 Q151 580 161 580 Q171 580 171 570 Z');
+  s+=MR('<path d="'+ARM_FULL+'" fill="none" stroke="'+sol+'" stroke-width="17.4" stroke-linecap="round"/><path d="'+ARM_FULL+'" fill="none" stroke="'+skin+'" stroke-width="15" stroke-linecap="round"/><circle cx="89" cy="275" r="7.6" fill="'+skin+'" stroke="'+sol+'" stroke-width="1.2"/>');
+  s+=skinP('M114 124 C124 117 138 115 150 122 C162 115 176 117 186 124 C184 150 178 176 173 200 C171 214 174 240 183 270 L117 270 C126 240 129 214 127 200 C122 176 116 150 114 124 Z');
+  s+=skinP('M142 92 L142 120 C146 126 154 126 158 120 L158 92 Z');
+  s+='<path d="M129 148 C140 156 160 156 171 148 L172 176 C160 182 140 182 128 176 Z" fill="#F4F1F6" stroke="#C9C3CF" stroke-width="1"/><path d="M121 262 L179 262 L183 286 L150 298 L117 286 Z" fill="#F4F1F6" stroke="#C9C3CF" stroke-width="1"/>';
+  var dressOn=!!(O.dress&&O.dress.id);
+  function put(cat){var st=O[cat];if(!st||!st.id)return '';var it=findItem(cat,st.id);return it?it.draw(st,k):'';}
+  if(!dressOn){s+=put('bottom')+put('top');}else s+=put('dress');
+  s+=put('outer');
+  s+=put('shoes');
+  s+=skinP('M150 24 C124 24 118 52 120 70 C122 90 136 100 150 100 C164 100 178 90 180 70 C182 52 176 24 150 24 Z');
+  s+='<ellipse cx="119" cy="68" rx="4" ry="7" fill="'+skin+'" stroke="'+sol+'" stroke-width="1"/><ellipse cx="181" cy="68" rx="4" ry="7" fill="'+skin+'" stroke="'+sol+'" stroke-width="1"/>';
+  s+='<ellipse cx="139" cy="64" rx="3.4" ry="2.4" fill="#2b1d1a"/><ellipse cx="161" cy="64" rx="3.4" ry="2.4" fill="#2b1d1a"/><circle cx="140" cy="63" r=".9" fill="#fff"/><circle cx="162" cy="63" r=".9" fill="#fff"/>';
+  s+='<path d="M133 62 Q139 58 145 61 M155 61 Q161 58 167 62" fill="none" stroke="#2b1d1a" stroke-width="1.2" stroke-linecap="round"/>';
+  s+='<path d="M132 56 Q139 52 146 55 M154 55 Q161 52 168 56" fill="none" stroke="'+shade(lk.hair,-.1)+'" stroke-width="1.6" stroke-linecap="round"/>';
+  s+='<path d="M150 68 Q147 75 151 76" fill="none" stroke="'+shade(skin,-.3)+'" stroke-width="1.1" stroke-linecap="round"/>';
+  s+='<path d="M143 82 Q150 87 157 82 Q150 80 143 82 Z" fill="#C9606B" stroke="#A84754" stroke-width=".8"/>';
+  s+='<circle cx="132" cy="76" r="5" fill="#F08A8A" opacity=".18"/><circle cx="168" cy="76" r="5" fill="#F08A8A" opacity=".18"/>';
+  s+=hairFront(lk);
+  s+=put('ear')+put('neck')+put('hat')+put('bag')+put('brace');
+  return s+'</svg>';
+}
+function thumbSVG(cat,it,st){
+  var k={skin:'#F3C9A8'};
+  return '<svg viewBox="'+it.vb+'" preserveAspectRatio="xMidYMid meet" aria-hidden="true">'+it.draw(st,k)+'</svg>';
+}
+
+/* ===== Bộ đồ có sẵn (vòng quay, thẻ bài) ===== */
+function mk(spec){var o=emptyOutfit();Object.keys(spec).forEach(function(c){var a=spec[c];if(a)setPiece(o,c,a[0],a[1],a[2],a[3]);});return o;}
+var LOOKS=[
+{id:'parisian',n:'Parisian tối giản',d:'Sơ mi kem, quần ống rộng đen và blazer be. Gọn, sang và dễ phối.',o:{top:['blouse','#F1E8D8','solid','cotton'],bottom:['wide','#1F1F24','solid','linen'],outer:['blazer','#CDB89A','solid','linen'],shoes:['heels','#1F1F24'],bag:['mini','#1F1F24'],ear:['studs','#F4EFE6'],neck:['pearls','#F4EFE6']}},
+{id:'cafe',n:'Cà phê cuối tuần',d:'Áo thun kẻ sọc, váy xếp ly xanh olive và sneaker trắng. Thoải mái mà vẫn có gu.',o:{top:['tee','#F1E8D8','stripe','cotton'],bottom:['midi','#6B7036','solid','cotton'],shoes:['sneakers','#FAFAF7'],bag:['tote','#CDB89A'],ear:['hoops','#D4AF37'],brace:['bangles','#D4AF37']}},
+{id:'denim-nang',n:'Denim ngày nắng',d:'Áo hai dây vàng, quần short denim, mũ bucket và sandal. Hợp trời nóng của Sài Gòn.',o:{top:['tank','#D9A521','solid','cotton'],bottom:['shorts','#46689A','solid','denim'],hat:['bucket','#F1E8D8'],shoes:['sandals','#7A5238'],bag:['crossbody','#7A5238'],ear:['hoops','#D4AF37']}},
+{id:'hoa-nhi',n:'Nữ tính hoa nhí',d:'Đầm chữ A họa tiết hoa nhí hồng phấn, nón cói và túi mini. Hợp buổi hẹn ngoài trời.',o:{dress:['aline','#F2B5C4','floral','cotton'],hat:['straw','#CDB89A'],shoes:['sandals','#FAFAF7'],bag:['mini','#FAFAF7'],ear:['drops','#F4EFE6'],neck:['pearls','#F4EFE6']}},
+{id:'len-thu',n:'Len ấm ngày se lạnh',d:'Áo len nâu, quần jeans, bốt đen và mũ beret đỏ rượu.',o:{top:['sweater','#7A5238','solid','knit'],bottom:['jeans','#46689A','solid','denim'],shoes:['boots','#1F1F24'],hat:['beret','#7E1F2E'],bag:['tote','#7A5238'],ear:['studs','#D4AF37'],neck:['pendant','#D4AF37']}},
+{id:'tiec-satin',n:'Tiệc tối satin',d:'Đầm hai dây satin đỏ rượu, giày cao gót đen và trang sức vàng.',o:{dress:['slip','#7E1F2E','solid','satin'],shoes:['heels','#1F1F24'],bag:['mini','#1F1F24'],ear:['drops','#D4AF37'],neck:['pendant','#D4AF37'],brace:['bangles','#D4AF37']}},
+{id:'street-caro',n:'Streetwear caro',d:'Crop top đen, quần ống rộng denim, cardigan caro đỏ rượu, mũ lưỡi trai.',o:{top:['crop','#1F1F24','solid','cotton'],bottom:['wide','#46689A','solid','denim'],outer:['cardigan','#7E1F2E','plaid','knit'],shoes:['sneakers','#FAFAF7'],hat:['cap','#1F1F24'],bag:['crossbody','#1F1F24'],ear:['hoops','#C4C8D0'],brace:['cuff','#C4C8D0']}},
+{id:'vintage-cham-bi',n:'Vintage chấm bi',d:'Sơ mi chấm bi, váy xếp ly navy, giày cao gót nâu và mũ beret.',o:{top:['blouse','#F1E8D8','dots','cotton'],bottom:['midi','#1F2F55','solid','cotton'],shoes:['heels','#7A5238'],hat:['beret','#1F2F55'],bag:['mini','#7A5238'],ear:['studs','#F4EFE6'],neck:['choker','#222222']}},
+{id:'cong-so',n:'Công sở gọn gàng',d:'Sơ mi satin xanh trời, quần ống rộng be, túi tote đen và trang sức bạc.',o:{top:['blouse','#AFCBE6','solid','satin'],bottom:['wide','#CDB89A','solid','linen'],shoes:['heels','#CDB89A'],bag:['tote','#1F1F24'],ear:['studs','#C4C8D0'],neck:['pendant','#C4C8D0'],brace:['chain','#C4C8D0']}},
+{id:'ngay-mua',n:'Ngày mưa với trench',d:'Áo trench be khoác ngoài áo thun trắng, quần jeans và bốt nâu.',o:{top:['tee','#FAFAF7','solid','cotton'],bottom:['jeans','#46689A','solid','denim'],outer:['trench','#CDB89A','solid','cotton'],shoes:['boots','#7A5238'],bag:['tote','#7A5238'],ear:['studs','#D4AF37']}}
+];
+LOOKS.forEach(function(l){l.O=mk(l.o);});
+
+/* ===== Mô tả bộ đồ ===== */
+function describe(O){
+  var out=[];
+  if(O.dress&&O.dress.id)out.push('dress');else{if(O.top&&O.top.id)out.push('top');if(O.bottom&&O.bottom.id)out.push('bottom');}
+  ['outer','shoes','hat','bag','ear','neck','brace'].forEach(function(c){if(O[c]&&O[c].id)out.push(c);});
+  return out.map(function(c){var s=O[c],it=findItem(c,s.id);return {cat:c,s:s,label:it.l,color:colorName(s.c),fabric:CATS.filter(function(x){return x.k===c;})[0].kind==='cloth'?fname(s.f):'',pattern:s.p!=='solid'?pname(s.p):''};});
+}
+function queryFor(O){
+  return 'outfit '+describe(O).filter(function(x){return ['dress','top','bottom','outer','shoes'].indexOf(x.cat)>=0;}).map(function(x){return (x.label+' '+x.color+(x.pattern?' '+x.pattern:'')).toLowerCase();}).join(', ');
+}
+
+/* ===== Phối đồ theo câu trả lời ===== */
+var PALS={neutral:['#FAFAF7','#F1E8D8','#CDB89A','#7A5238','#1F1F24'],pastel:['#F2B5C4','#AFCBE6','#A892CF','#F1E8D8','#8DAA6B'],bright:['#D2322D','#D9A521','#8DAA6B','#C8683B','#46689A'],dark:['#1F1F24','#1F2F55','#7E1F2E','#7A5238','#6B7036'],earth:['#CDB89A','#7A5238','#C8683B','#6B7036','#D9A521']};
+function pickOne(a){return a[rnd(a.length)];}
+function compose(a){
+  var w=a.w||'mild',occ=a.occ||'cafe',st=a.st||'min',pal=PALS[a.pal]||PALS[pickOne(Object.keys(PALS))];
+  var o=emptyOutfit(),c1=pickOne(pal),c2=pickOne(pal.filter(function(x){return x!==c1;})),c3=pickOne(pal.filter(function(x){return x!==c1&&x!==c2;}));
+  var neutral=lum(c1)<.35?['#1F1F24','#7A5238','#CDB89A']:['#1F1F24','#FAFAF7','#7A5238','#CDB89A'];
+  var STP={min:['solid','solid','stripe'],fem:['floral','dots','solid'],sport:['stripe','solid','solid'],vintage:['plaid','check','dots'],street:['plaid','solid','solid']};
+  var STF={min:['cotton','linen'],fem:['satin','cotton'],sport:['cotton','knit'],vintage:['knit','denim','cotton'],street:['denim','leather','cotton']};
+  var pat=(a.pat&&a.pat!=='any')?a.pat:pickOne(STP[st]||STP.min);
+  var fab=(a.fab&&a.fab!=='any')?a.fab:pickOne(STF[st]||STF.min);
+  if(fab==='leather')fab='cotton';
+  var dress=null;
+  if(occ==='party')dress='slip';
+  else if(occ==='date'&&w!=='cold')dress=(st==='fem'||st==='vintage')?'aline':pickOne(['aline','slip']);
+  else if(st==='fem'&&w!=='cold'&&occ!=='work'&&rnd(2))dress=pickOne(['aline','maxi']);
+  if(dress){
+    var dc=occ==='party'?pickOne(['#7E1F2E','#1F1F24','#1F2F55','#D2322D']):c1;
+    setPiece(o,'dress',dress,dc,occ==='party'?'solid':pat,occ==='party'?'satin':fab);
+  }else{
+    var tops=w==='hot'?['tank','tee','crop']:w==='cold'?['sweater','blouse']:['tee','blouse','crop'];
+    if(occ==='work')tops=w==='cold'?['blouse','sweater']:['blouse'];
+    if(st==='sport'||st==='street')tops=w==='cold'?['sweater','tee']:['tee','crop'];
+    if(occ==='home')tops=w==='cold'?['sweater']:['tee','tank'];
+    var bots=w==='hot'?['shorts','mini']:w==='cold'?['jeans','wide']:['jeans','wide','midi'];
+    if(occ==='work')bots=w==='hot'?['wide','midi']:['wide','midi','jeans'];
+    if(st==='fem'&&w!=='cold')bots=['midi','mini','wide'];
+    if(st==='sport')bots=w==='cold'?['wide','jeans']:['shorts','wide'];
+    if(st==='street')bots=['wide','jeans'];
+    if(st==='vintage')bots=w==='hot'?['mini','midi']:['midi','jeans'];
+    var t=pickOne(tops),b=pickOne(bots);
+    setPiece(o,'top',t,c1,pat,fab);
+    if(b==='jeans'||(b==='wide'&&fab==='denim'))setPiece(o,'bottom',b,lum(c1)<.3?'#46689A':'#1F2F55','solid','denim');
+    else setPiece(o,'bottom',b,c2,'solid',b==='midi'||b==='mini'?pickOne(['cotton','linen']):'linen');
+    if(b==='jeans')o.bottom.c='#46689A';
+  }
+  var out=null;
+  if(w==='cold')out=occ==='work'||st==='min'?pickOne(['blazer','trench']):pickOne(['cardigan','trench','blazer']);
+  else if(w==='mild'){if(occ==='work')out='blazer';else if(rnd(3)===0||st==='vintage'&&rnd(2))out='cardigan';}
+  if(out)setPiece(o,'outer',out,out==='blazer'||out==='trench'?pickOne(['#CDB89A','#1F1F24','#F1E8D8']):c3,out==='cardigan'&&st==='vintage'?'check':'solid',out==='cardigan'?'knit':out==='blazer'?'linen':'cotton');
+  var shoes=w==='hot'?(occ==='party'?'heels':pickOne(['sandals','sneakers'])):w==='cold'?'boots':occ==='work'||occ==='date'||occ==='party'?'heels':st==='vintage'?pickOne(['boots','heels']):'sneakers';
+  setPiece(o,'shoes',shoes,pickOne(neutral),'solid','leather');
+  var hat=null;
+  if(w==='hot'&&occ!=='work'&&occ!=='party'&&rnd(3))hat=st==='sport'||st==='street'?pickOne(['cap','bucket']):pickOne(['straw','bucket']);
+  else if((st==='sport'||st==='street')&&rnd(3))hat='cap';
+  else if((st==='vintage'||(w==='cold'&&st==='fem'))&&rnd(3))hat='beret';
+  if(hat)setPiece(o,'hat',hat,hat==='straw'?'#CDB89A':pickOne(neutral.concat([c3])),'solid',hat==='straw'?'straw':'cotton');
+  var bag=occ==='work'?'tote':(occ==='party'||occ==='date')?'mini':(st==='sport'||st==='street')?'crossbody':pickOne(['tote','crossbody','mini']);
+  setPiece(o,'bag',bag,pickOne(neutral),'solid','leather');
+  var acc=a.acc||'minimal';
+  if(acc==='minimal'){setPiece(o,'ear','studs',pickOne(['#D4AF37','#C4C8D0']));if(rnd(2))setPiece(o,'brace','chain',o.ear.c);}
+  else if(acc==='pearl'){setPiece(o,'ear','drops','#F4EFE6');setPiece(o,'neck','pearls','#F4EFE6');}
+  else if(acc==='bold'){setPiece(o,'ear','hoops','#D4AF37');setPiece(o,'neck',pickOne(['pendant','choker']),'#D4AF37');setPiece(o,'brace',pickOne(['cuff','bangles']),'#D4AF37');}
+  ['ear','neck','brace'].forEach(function(c){if(o[c].id)o[c].f='metal';});
+  return o;
+}
+function whyText(a){
+  var W={hot:'Trời nóng nên mình chọn đồ nhẹ và thoáng',mild:'Thời tiết dịu nên mình phối lớp vừa phải',cold:'Trời se lạnh nên mình thêm lớp ngoài'};
+  var S={min:'tối giản, ít chi tiết',fem:'nữ tính, mềm mại',sport:'năng động, dễ cử động',vintage:'vintage, có chút hoài cổ',street:'đường phố, cá tính'};
+  return (W[a.w]||W.mild)+', theo phong cách '+(S[a.st]||S.min)+'.';
+}
+
+</script>
+
+<script>
+(function(){
+var $=function(s,r){return(r||document).querySelector(s);};
+var $$=function(s,r){return Array.prototype.slice.call((r||document).querySelectorAll(s));};
+var reduce=window.matchMedia('(prefers-reduced-motion: reduce)');
+function esc(s){return String(s==null?'':s).replace(/[&<>"']/g,function(c){return{'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c];});}
+function sample(a,n){var c=a.slice();for(var i=c.length-1;i>0;i--){var j=rnd(i+1);var t=c[i];c[i]=c[j];c[j]=t;}return c.slice(0,n);}
+
+/* Lời chào theo giờ */
+(function(){var n=new Date(),d=['Chủ nhật','Thứ hai','Thứ ba','Thứ tư','Thứ năm','Thứ sáu','Thứ bảy'];$('#eyebrow').textContent=d[n.getDay()]+', '+String(n.getHours()).padStart(2,'0')+':'+String(n.getMinutes()).padStart(2,'0')+' · mở tủ đồ thôi';})();
+
+/* ===== Trạng thái ===== */
+var look={skin:SKINS[1].h,hair:HAIRC[1].h,hs:'long'};
+var O=defaultOutfit(),catSel='top';
+var PH={},canEdit=false,editMode=false,db=null,assets=null,lastRes=null;
+var DEFS=$('#defs');DEFS.innerHTML=OVERLAYS;
+var have={};
+function addDef(d){if(have[d.id])return;have[d.id]=1;DEFS.insertAdjacentHTML('beforeend',d.svg);}
+function ensureO(Oo){defsFor(Oo).forEach(addDef);}
+function ensureP(p,c){addDef(patternDef(p,c));}
+LOOKS.forEach(function(l){ensureO(l.O);});
+
+/* ===== Ô ảnh (ảnh thật nếu có, nếu không thì hình minh họa) ===== */
+function slot(key,fb,cls){
+  var id=PH[key];
+  var inner=id?'<img src="/_blob/'+encodeURIComponent(id)+'" alt="" loading="lazy">':fb;
+  var ed='';
+  if(editMode)ed='<span class="ph-edit" role="button" tabindex="0" data-ph="'+esc(key)+'">'+(id?'Đổi ảnh':'Thêm ảnh')+'</span>';
+  return '<span class="phs '+(cls||'')+'">'+inner+ed+'</span>';
+}
+function swPat(pid,color){ensureP(pid,color);return '<svg viewBox="0 0 40 40" preserveAspectRatio="xMidYMid slice" aria-hidden="true"><rect width="40" height="40" fill="url(#pt-'+pid+'-'+color.slice(1)+')"/></svg>';}
+function swFab(fid,color){ensureP('solid',color);return '<svg viewBox="0 0 40 40" preserveAspectRatio="xMidYMid slice" aria-hidden="true"><rect width="40" height="40" fill="url(#pt-solid-'+color.slice(1)+')"/><rect width="40" height="40" fill="url(#fb-'+fid+')"/></svg>';}
+
+/* ===== Tab 1: búp bê ===== */
+function renderDoll(){
+  ensureO(O);
+  $('#doll').innerHTML=dollSVG(O,look);
+  $('#stage-note').textContent=(O.dress&&O.dress.id)?'Đang mặc đầm nên áo và quần, váy được ẩn.':'';
+  var q=encodeURIComponent(queryFor(O));
+  $('#doll-links').innerHTML='<a class="btn sm" style="min-height:38px;padding:6px 12px;font-size:13px" href="https://www.google.com/search?tbm=isch&q='+q+'" target="_blank" rel="noopener">Xem ảnh thật</a><a class="btn sm" style="min-height:38px;padding:6px 12px;font-size:13px" href="https://www.pinterest.com/search/pins/?q='+q+'" target="_blank" rel="noopener">Pinterest</a>';
+}
+function renderPicker(){
+  var c=CATS.filter(function(x){return x.k===catSel;})[0],h='';
+  h+='<div class="catrow" role="tablist" aria-label="Loại đồ">'+CATS.map(function(x){return '<button class="cat" type="button" role="tab" data-cat="'+x.k+'" aria-selected="'+(x.k===catSel)+'">'+x.l+'</button>';}).join('')+'</div>';
+  if(c.kind==='me'){
+    h+='<p class="lbl2">Màu da</p><div class="colors">'+SKINS.map(function(s){return '<button class="cl" type="button" data-sk="'+s.h+'" style="background:'+s.h+'" aria-label="'+s.n+'" aria-pressed="'+(look.skin===s.h)+'"></button>';}).join('')+'</div>';
+    h+='<p class="lbl2">Màu tóc</p><div class="colors">'+HAIRC.map(function(s){return '<button class="cl" type="button" data-hr="'+s.h+'" style="background:'+s.h+'" aria-label="'+s.n+'" aria-pressed="'+(look.hair===s.h)+'"></button>';}).join('')+'</div>';
+    h+='<p class="lbl2">Kiểu tóc</p><div class="sws">'+HSTYLES.map(function(s){return '<button class="cat" type="button" data-hs="'+s.id+'" aria-selected="'+(look.hs===s.id)+'">'+s.n+'</button>';}).join('')+'</div>';
+  }else{
+    var st=O[catSel];ensureP(st.p,st.c);
+    h+='<div class="itg"><button class="it" type="button" data-item="" aria-pressed="'+(!st.id)+'"><span class="none" aria-hidden="true">×</span><span>Không mặc</span></button>'+
+      ITEMS[catSel].map(function(it){return '<button class="it" type="button" data-item="'+it.id+'" aria-pressed="'+(st.id===it.id)+'">'+thumbSVG(catSel,it,{id:it.id,c:st.c,p:st.p,f:it.id==='straw'?'straw':st.f})+'<span>'+it.l+'</span></button>';}).join('')+'</div>';
+    var cols=c.kind==='jew'?METALS:COLORS;
+    h+='<p class="lbl2">'+(c.kind==='jew'?'Chất liệu kim loại':'Màu sắc')+' · '+esc(colorName(st.c))+'</p><div class="colors">'+cols.map(function(x){return '<button class="cl" type="button" data-color="'+x.h+'" style="background:'+x.h+'" aria-label="'+x.n+'" aria-pressed="'+(st.c.toLowerCase()===x.h.toLowerCase())+'"></button>';}).join('')+'</div>';
+    if(c.kind==='cloth'){
+      h+='<p class="lbl2">Họa tiết · '+esc(pname(st.p))+'</p><div class="sws">'+PATTERNS.map(function(p){return '<button class="swc" type="button" data-pat="'+p.id+'" aria-pressed="'+(st.p===p.id)+'">'+slot('pattern-'+p.id,swPat(p.id,st.c),'s56')+'<span>'+p.n+'</span></button>';}).join('')+'</div>';
+      h+='<p class="lbl2">Chất liệu vải · '+esc(fname(st.f))+'</p><div class="sws">'+FABRICS.map(function(f){return '<button class="swc" type="button" data-fab="'+f.id+'" aria-pressed="'+(st.f===f.id)+'">'+slot('fabric-'+f.id,swFab(f.id,st.c),'s56')+'<span>'+f.n+'</span></button>';}).join('')+'</div>';
+      h+='<p class="hint2">Màu, họa tiết và chất liệu áp dụng cho món đang chọn.</p>';
+    }
+  }
+  $('#picker').innerHTML=h;
+}
+function dollChanged(){renderDoll();renderPicker();}
+$('#p-doll').addEventListener('click',function(e){
+  var b;
+  if((b=e.target.closest('[data-cat]'))){catSel=b.dataset.cat;renderPicker();return;}
+  if((b=e.target.closest('[data-sk]'))){look.skin=b.dataset.sk;dollChanged();return;}
+  if((b=e.target.closest('[data-hr]'))){look.hair=b.dataset.hr;dollChanged();return;}
+  if((b=e.target.closest('[data-hs]'))){look.hs=b.dataset.hs;dollChanged();return;}
+  var st=O[catSel];if(!st)return;
+  function ensureItem(){if(!st.id&&ITEMS[catSel])st.id=ITEMS[catSel][0].id;}
+  if((b=e.target.closest('[data-item]'))){st.id=b.dataset.item||null;dollChanged();return;}
+  if((b=e.target.closest('[data-color]'))){st.c=b.dataset.color;ensureItem();dollChanged();return;}
+  if((b=e.target.closest('[data-pat]'))){st.p=b.dataset.pat;ensureItem();dollChanged();return;}
+  if((b=e.target.closest('[data-fab]'))){st.f=b.dataset.fab;ensureItem();dollChanged();return;}
+});
+$('#d-rand').addEventListener('click',function(){
+  O=compose({w:['hot','mild','cold'][rnd(3)],occ:['work','date','cafe','party','home'][rnd(5)],st:['min','fem','sport','vintage','street'][rnd(5)],pal:['neutral','pastel','bright','dark','earth'][rnd(5)],acc:['minimal','pearl','bold'][rnd(3)]});
+  dollChanged();
+});
+$('#d-clear').addEventListener('click',function(){O=emptyOutfit();dollChanged();});
+
+/* ===== Tab 2: hỏi đáp ===== */
+function lookById(id){return LOOKS.filter(function(l){return l.id===id;})[0];}
+function dollThumb(id){var l=lookById(id);ensureO(l.O);return '<span class="vis dollthumb">'+dollSVG(l.O,look,{label:l.n}).replace('class="doll"','class="doll"')+'</span>';}
+function strip(cols){return '<span class="vis strip">'+cols.map(function(c){return '<i style="background:'+c+'"></i>';}).join('')+'</span>';}
+function accVis(ear,neck,col){var st={id:'x',c:col,p:'solid',f:'metal'},a=ear?findItem('ear',ear):null,n=neck?findItem('neck',neck):null;return '<span class="vis" style="display:flex;gap:6px;justify-content:center;height:56px">'+(a?'<span style="width:56px">'+thumbSVG('ear',a,st)+'</span>':'')+(n?'<span style="width:56px">'+thumbSVG('neck',n,st)+'</span>':'')+(!a&&!n?'<span style="font-size:13px;color:var(--muted);align-self:center">Không đeo</span>':'')+'</span>';}
+var Q=[
+ {k:'w',t:'Thời tiết hôm nay thế nào?',opts:function(){return[{v:'hot',l:'Nóng nực',s:'Trên 32°C, nắng gắt'},{v:'mild',l:'Dịu mát',s:'24–31°C'},{v:'cold',l:'Se lạnh hoặc mưa',s:'Dưới 24°C'}];}},
+ {k:'occ',t:'Hôm nay bạn đi đâu?',pic:true,opts:function(){return[{v:'work',l:'Đi làm, đi học',vis:dollThumb('cong-so')},{v:'date',l:'Hẹn hò',vis:dollThumb('hoa-nhi')},{v:'cafe',l:'Cà phê, dạo phố',vis:dollThumb('cafe')},{v:'party',l:'Tiệc, sự kiện',vis:dollThumb('tiec-satin')},{v:'home',l:'Ở nhà thoải mái',vis:dollThumb('len-thu')}];}},
+ {k:'st',t:'Bạn thích phong cách nào?',pic:true,opts:function(){return[{v:'min',l:'Tối giản',vis:dollThumb('parisian')},{v:'fem',l:'Nữ tính',vis:dollThumb('hoa-nhi')},{v:'sport',l:'Năng động',vis:dollThumb('denim-nang')},{v:'vintage',l:'Vintage',vis:dollThumb('vintage-cham-bi')},{v:'street',l:'Streetwear',vis:dollThumb('street-caro')}];}},
+ {k:'pal',t:'Gam màu hôm nay?',pic:true,opts:function(){return[{v:'neutral',l:'Trung tính',s:'Trắng, kem, be, nâu, đen',vis:strip(PALS.neutral)},{v:'pastel',l:'Pastel dịu',s:'Hồng, xanh nhạt, tím',vis:strip(PALS.pastel)},{v:'bright',l:'Tươi sáng',s:'Đỏ, vàng, xanh lá',vis:strip(PALS.bright)},{v:'dark',l:'Tối và sâu',s:'Đen, navy, đỏ rượu',vis:strip(PALS.dark)},{v:'earth',l:'Màu đất',s:'Be, nâu, cam đất',vis:strip(PALS.earth)}];}},
+ {k:'fab',t:'Bạn thích chất liệu vải nào?',pic:true,opts:function(){return FABRICS.map(function(f){return {v:f.id,l:f.n,vis:'<span class="vis">'+slot('fabric-'+f.id,swFab(f.id,f.b),'s96')+'</span>'};}).concat([{v:'any',l:'Sao cũng được'}]);}},
+ {k:'pat',t:'Còn họa tiết?',pic:true,opts:function(){return PATTERNS.map(function(p){return {v:p.id,l:p.n,vis:'<span class="vis">'+slot('pattern-'+p.id,swPat(p.id,p.b),'s96')+'</span>'};}).concat([{v:'any',l:'Sao cũng được'}]);}},
+ {k:'acc',t:'Phụ kiện bạn thích?',pic:true,opts:function(){return[{v:'minimal',l:'Tối giản',s:'Khuyên nhỏ, vòng mảnh',vis:accVis('studs',null,'#D4AF37')},{v:'pearl',l:'Ngọc trai',s:'Thanh lịch, nhẹ nhàng',vis:accVis('drops','pearls','#F4EFE6')},{v:'bold',l:'Nổi bật',s:'Khuyên lớn, vòng bản to',vis:accVis('hoops','pendant','#D4AF37')}];}}
+];
+var step=0,ans={},qres=null;
+function renderQuiz(){
+  var root=$('#quiz');
+  if(qres){drawQuizResult();return;}
+  var q=Q[step],opts=q.opts();
+  root.innerHTML='<div class="progress" role="progressbar" aria-valuemin="1" aria-valuemax="'+Q.length+'" aria-valuenow="'+(step+1)+'"><span style="width:'+((step+1)/Q.length*100)+'%"></span></div>'+
+    '<p class="qcount">Câu '+(step+1)+' / '+Q.length+'</p><h2 class="q" tabindex="-1">'+q.t+'</h2>'+
+    '<div class="opts'+(q.pic?' pic':'')+'">'+opts.map(function(o,i){return '<button class="opt" type="button" data-i="'+i+'">'+(o.vis||'')+'<span class="ol">'+esc(o.l)+'</span>'+(o.s?'<span class="os">'+esc(o.s)+'</span>':'')+'</button>';}).join('')+'</div>'+
+    '<div class="qnav">'+(step>0?'<button class="link" type="button" id="q-back">← Câu trước</button>':'')+'</div>';
+  $$('.opt',root).forEach(function(b){b.addEventListener('click',function(){ans[q.k]=opts[+b.dataset.i].v;step++;if(step>=Q.length){qres=compose(ans);}renderQuiz();});});
+  var back=$('#q-back',root);if(back)back.addEventListener('click',function(){step--;renderQuiz();});
+  if(step>0)$('.q',root).focus({preventScroll:true});
+}
+function piecesHTML(Oo){
+  var d=describe(Oo),main=d.filter(function(x){return ['dress','top','bottom','outer'].indexOf(x.cat)>=0;}),acc=d.filter(function(x){return main.indexOf(x)<0;});
+  function li(x){
+    var s=x.s;ensureP(s.p,s.c);
+    var sw='<span class="sw"><svg viewBox="0 0 28 28" preserveAspectRatio="xMidYMid slice" aria-hidden="true"><rect width="28" height="28" fill="url(#pt-'+s.p+'-'+s.c.slice(1)+')"/><rect width="28" height="28" fill="url(#fb-'+s.f+')"/></svg></span>';
+    return '<li>'+sw+'<span class="t"><b>'+esc(x.label)+'</b> · '+esc(x.color)+(x.fabric?' · '+esc(x.fabric):'')+(x.pattern?' · '+esc(x.pattern):'')+'</span></li>';
+  }
+  return '<ul class="pieces">'+main.map(li).join('')+'</ul>'+(acc.length?'<p class="accl">Giày và phụ kiện</p><ul class="pieces">'+acc.map(li).join('')+'</ul>':'');
+}
+function linksHTML(Oo,extra){
+  var q=encodeURIComponent(queryFor(Oo));
+  return '<div class="links"><a class="btn" href="https://www.google.com/search?tbm=isch&q='+q+'" target="_blank" rel="noopener">Xem ảnh thật</a><a class="btn" href="https://www.pinterest.com/search/pins/?q='+q+'" target="_blank" rel="noopener">Pinterest</a>'+(extra||'')+'</div>';
+}
+function drawQuizResult(){
+  var root=$('#quiz');ensureO(qres);
+  root.innerHTML='<div class="progress"><span style="width:100%"></span></div><h2 class="q" tabindex="-1" style="margin-top:16px">Bộ đồ cho hôm nay</h2>'+
+    '<div class="qres"><div class="dollbox">'+dollSVG(qres,look)+'</div><div class="lk"><p style="margin:0">'+esc(whyText(ans))+'</p>'+piecesHTML(qres)+
+    linksHTML(qres,'<button class="btn" type="button" id="q-try">Thử trên búp bê</button><button class="btn" type="button" id="q-again">Phối bộ khác</button><button class="link" type="button" id="q-redo">Làm lại từ đầu</button>')+'</div></div>';
+  $('#q-try').addEventListener('click',function(){O=cloneO(qres);catSel='top';dollChanged();location.hash='doll';});
+  $('#q-again').addEventListener('click',function(){qres=compose(ans);drawQuizResult();});
+  $('#q-redo').addEventListener('click',function(){step=0;ans={};qres=null;renderQuiz();});
+  $('.q',root).focus({preventScroll:true});
+}
+
+/* ===== Tab 3: ngẫu nhiên ===== */
+var WCOL=['#D52F14','#B86800','#0E7A5F','#2B6CB0','#8E3FA8','#B5446E','#5B7F1A','#A04A10'];
+function paintWheel(cv,items,theta){
+  var size=cv.clientWidth;if(!size||!items.length)return;
+  var dpr=window.devicePixelRatio||1;
+  if(cv.width!==Math.round(size*dpr)){cv.width=Math.round(size*dpr);cv.height=Math.round(size*dpr);}
+  var ctx=cv.getContext('2d');ctx.setTransform(dpr,0,0,dpr,0,0);ctx.clearRect(0,0,size,size);
+  var cs=getComputedStyle(document.documentElement),ink=cs.getPropertyValue('--ink').trim()||'#12201A',surf=cs.getPropertyValue('--surface').trim()||'#fff';
+  var c=size/2,R=size/2-6,n=items.length,seg=Math.PI*2/n,fs=size<340?12:14;
+  for(var i=0;i<n;i++){
+    var ci=i%WCOL.length;if(i===n-1&&n>1&&ci===0)ci=(ci+3)%WCOL.length;
+    ctx.beginPath();ctx.moveTo(c,c);ctx.arc(c,c,R,theta+i*seg,theta+(i+1)*seg);ctx.closePath();
+    ctx.fillStyle=WCOL[ci];ctx.fill();ctx.lineWidth=3;ctx.strokeStyle=surf;ctx.stroke();
+    ctx.save();ctx.translate(c,c);ctx.rotate(theta+(i+.5)*seg);
+    ctx.textAlign='right';ctx.textBaseline='middle';ctx.fillStyle='#fff';
+    ctx.font='700 '+fs+'px "Be Vietnam Pro", system-ui, sans-serif';
+    var t=items[i].n,maxw=R*0.66;
+    while(ctx.measureText(t).width>maxw&&t.length>3)t=t.slice(0,-2);
+    if(t!==items[i].n)t=t.trim()+'…';
+    ctx.fillText(t,R-14,0);ctx.restore();
+  }
+  ctx.beginPath();ctx.arc(c,c,R,0,Math.PI*2);ctx.lineWidth=4;ctx.strokeStyle=ink;ctx.stroke();
+  ctx.beginPath();ctx.arc(c,c,R*.13,0,Math.PI*2);ctx.fillStyle=surf;ctx.fill();ctx.lineWidth=4;ctx.strokeStyle=ink;ctx.stroke();
+}
+var wheel={items:[],theta:0,spinning:false},cv=$('#wheel'),busy=false;
+function regenWheel(){wheel.items=sample(LOOKS,8);wheel.theta=Math.random()*Math.PI*2;paintWheel(cv,wheel.items,wheel.theta);}
+function showLook(lk,label){
+  lastRes={lk:lk,label:label};
+  var el=$('#rnd-res');ensureO(lk.O);
+  var photo=lk.id?'<div class="photo-row"><p class="accl" style="margin-top:0">Ảnh thật của bộ này</p>'+(PH['look-'+lk.id]?slot('look-'+lk.id,'','look'):(editMode?slot('look-'+lk.id,'<span class="phs empty" style="width:100%;height:100%">Chưa có ảnh thật</span>','look'):'<span class="phs empty look" style="aspect-ratio:3/2;max-height:none">Chưa có ảnh thật cho bộ này. Bấm "Xem ảnh thật" để xem ảnh tham khảo.</span>'))+'</div>':'';
+  el.innerHTML='<p class="kicker" style="margin:0 0 8px;font:700 12px var(--f-body);letter-spacing:.08em;text-transform:uppercase;color:var(--chili)">'+esc(label)+'</p><div class="qres"><div class="dollbox">'+dollSVG(lk.O,look,{label:lk.n})+'</div><div class="lk"><h3>'+esc(lk.n)+'</h3><p>'+esc(lk.d)+'</p>'+piecesHTML(lk.O)+photo+
+    linksHTML(lk.O,'<button class="btn" type="button" id="r-try">Thử trên búp bê</button>')+'</div></div>';
+  el.hidden=false;el.classList.remove('pop');void el.offsetWidth;el.classList.add('pop');
+  $('#r-try').addEventListener('click',function(){O=cloneO(lk.O);catSel='top';dollChanged();location.hash='doll';});
+  el.scrollIntoView({behavior:reduce.matches?'auto':'smooth',block:'nearest'});
+}
+$('#w-spin').addEventListener('click',function(){
+  if(wheel.spinning)return;
+  wheel.spinning=true;busy=true;$('#w-spin').disabled=true;$('#rnd-res').hidden=true;
+  var n=wheel.items.length,seg=Math.PI*2/n,w=rnd(n),full=Math.PI*2;
+  var target=-Math.PI/2-(w+.5)*seg+(Math.random()-.5)*seg*.6;
+  var cur=wheel.theta,spins=4+rnd(3),fin=target+full*(Math.ceil((cur-target)/full)+spins);
+  var dur=reduce.matches?500:4800,t0=performance.now();
+  function frame(t){
+    var p=Math.min(1,(t-t0)/dur),e=1-Math.pow(1-p,4);
+    wheel.theta=cur+(fin-cur)*e;paintWheel(cv,wheel.items,wheel.theta);
+    if(p<1)requestAnimationFrame(frame);
+    else{wheel.theta=fin%full;wheel.spinning=false;busy=false;$('#w-spin').disabled=false;paintWheel(cv,wheel.items,wheel.theta);showLook(wheel.items[w],'Vòng quay chọn');}
+  }
+  requestAnimationFrame(frame);
+});
+$('#w-shuffle').addEventListener('click',function(){if(!busy)regenWheel();});
+var deal=[],cardOpen=false;
+function dealCards(){
+  deal=sample(LOOKS,3);cardOpen=false;
+  $('#cards').innerHTML=deal.map(function(l,i){ensureO(l.O);return '<button class="fc" type="button" data-i="'+i+'" aria-label="Lá bài '+(i+1)+'"><span class="face front" aria-hidden="true">?</span><span class="face back">'+dollSVG(l.O,look,{label:l.n})+'<b>'+esc(l.n)+'</b></span></button>';}).join('');
+}
+$('#cards').addEventListener('click',function(e){
+  var b=e.target.closest('.fc');if(!b||cardOpen)return;
+  cardOpen=true;$$('.fc').forEach(function(x){x.classList.add('open');});b.classList.add('chosen');
+  setTimeout(function(){showLook(deal[+b.dataset.i],'Lá bài của bạn');},reduce.matches?0:450);
+});
+$('#cards-shuffle').addEventListener('click',function(){dealCards();$('#rnd-res').hidden=true;});
+$('#rand-all').addEventListener('click',function(){
+  var a={w:['hot','mild','cold'][rnd(3)],occ:['work','date','cafe','party','home'][rnd(5)],st:['min','fem','sport','vintage','street'][rnd(5)],pal:['neutral','pastel','bright','dark','earth'][rnd(5)],acc:['minimal','pearl','bold'][rnd(3)]};
+  showLook({id:null,n:'Bộ đồ phối ngẫu nhiên',d:whyText(a),O:compose(a)},'Phối ngẫu nhiên');
+});
+
+/* ===== Chủ trang thêm ảnh thật ===== */
+function say(t,err){var s=$('#toast');s.textContent=t;s.style.color=err?'var(--chili)':'var(--muted)';}
+function rerender(){renderPicker();renderQuiz();if(lastRes&&!$('#rnd-res').hidden)showLookQuiet();}
+function showLookQuiet(){var r=lastRes,el=$('#rnd-res'),y=window.scrollY;showLook(r.lk,r.label);window.scrollTo(0,y);}
+var phKey=null;
+document.addEventListener('click',function(e){
+  var x=e.target.closest('[data-ph]');
+  if(x){e.stopPropagation();e.preventDefault();phKey=x.dataset.ph;$('#ph-file').value='';$('#ph-file').click();}
+},true);
+function shrink(file){
+  return new Promise(function(res,rej){
+    var img=new Image(),u=URL.createObjectURL(file);
+    img.onload=function(){var m=1400,s=Math.min(1,m/Math.max(img.width,img.height)),c=document.createElement('canvas');c.width=Math.round(img.width*s);c.height=Math.round(img.height*s);c.getContext('2d').drawImage(img,0,0,c.width,c.height);URL.revokeObjectURL(u);c.toBlob(function(b){b?res(b):rej(new Error('blob'));},'image/jpeg',.86);};
+    img.onerror=function(){URL.revokeObjectURL(u);rej(new Error('img'));};img.src=u;
+  });
+}
+$('#ph-file').addEventListener('change',function(){
+  var f=this.files[0],key=phKey;if(!f||!key||!assets||!db)return;
+  say('Đang tải ảnh lên…');
+  shrink(f).then(function(b){return assets.upload(b);}).then(function(r){return db.doc('photos/'+key).set({aid:r.id,t:Date.now()});}).then(function(){say('Đã lưu ảnh');}).catch(function(){say('Không tải được ảnh, hãy thử ảnh khác',true);});
+});
+$('#edit-toggle').addEventListener('click',function(){
+  editMode=!editMode;this.setAttribute('aria-pressed',String(editMode));this.textContent=editMode?'Tắt chế độ thêm ảnh':'Bật chế độ thêm ảnh';
+  say(editMode?'Bấm vào nhãn "Thêm ảnh" trên các ô chất liệu, họa tiết và bộ đồ.':'');rerender();
+});
+
+/* ===== Tab ===== */
+var TABS=['doll','quiz','random'];
+function hashId(){var h=location.hash.slice(1);return TABS.indexOf(h)>=0?h:'doll';}
+function showTab(id){
+  TABS.forEach(function(t){$('#p-'+t).hidden=t!==id;var b=$('#tab-'+t);b.setAttribute('aria-selected',String(t===id));b.tabIndex=t===id?0:-1;});
+  if(id==='random')requestAnimationFrame(function(){paintWheel(cv,wheel.items,wheel.theta);});
+}
+$$('.tab').forEach(function(b){
+  b.addEventListener('click',function(){if(location.hash==='#'+b.dataset.tab)showTab(b.dataset.tab);else location.hash=b.dataset.tab;});
+  b.addEventListener('keydown',function(e){var i=TABS.indexOf(b.dataset.tab),j=e.key==='ArrowRight'?i+1:e.key==='ArrowLeft'?i-1:-1;if(j<0||j>=TABS.length)return;e.preventDefault();location.hash=TABS[j];$('#tab-'+TABS[j]).focus();});
+});
+window.addEventListener('hashchange',function(){showTab(hashId());});
+if(window.ResizeObserver)new ResizeObserver(function(){paintWheel(cv,wheel.items,wheel.theta);}).observe(document.body);
+new MutationObserver(function(){paintWheel(cv,wheel.items,wheel.theta);}).observe(document.documentElement,{attributes:true,attributeFilter:['data-theme']});
+if(window.matchMedia)window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change',function(){paintWheel(cv,wheel.items,wheel.theta);});
+
+/* Khởi động */
+renderDoll();renderPicker();renderQuiz();regenWheel();dealCards();showTab(hashId());
+
+/* Kho ảnh thật (chỉ khi mở trong khung xem của Claude) */
+var cl=window.claude;
+if(cl&&cl.use){
+  Promise.all([cl.use('db'),cl.use('user'),cl.use('assets')]).then(function(r){
+    db=r[0];assets=r[2];var user=r[1];
+    if(db)db.collection('photos').onSnapshot(function(s){PH={};s.docs.forEach(function(d){var v=d.data();if(v&&v.aid)PH[d.id]=v.aid;});rerender();},function(){});
+    if(user&&assets&&db)return user.canEdit().then(function(ce){canEdit=!!ce;$('#ownerbar').hidden=!canEdit;});
+  }).catch(function(){});
+}
+})();
+</script>
+
+</body></html>
