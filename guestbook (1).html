@@ -1,0 +1,750 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Sổ Lưu Bút Điện Tử · Guestbook &amp; Memories</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,600;0,700;1,600&family=Pinyon+Script&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap">
+<style>
+:root {
+  color-scheme: light;
+  --bg: #f6f4f7;
+  --surface: #ffffff;
+  --surface-alt: #efecf2;
+  --ink: #221c2b;
+  --muted: #655c73;
+  --border: #dcd5e5;
+  --plum: #6b3e62;
+  --coral: #e55b70;
+  --sage: #3d7a74;
+  --lavender: #e8def0;
+  --shadow-soft: 0 10px 30px rgba(34, 28, 43, 0.06);
+  --shadow-card: 0 12px 28px rgba(34, 28, 43, 0.08);
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  background-color: var(--bg);
+  background-image: radial-gradient(#d5cde0 1px, transparent 1px);
+  background-size: 22px 22px;
+  color: var(--ink);
+  font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+  line-height: 1.65;
+  padding-bottom: 70px;
+}
+
+a { color: inherit; text-decoration: none; transition: all 0.25s ease; }
+
+.wrap { max-width: 1120px; margin: 0 auto; padding: 0 5vw; }
+
+/* HEADER & NAV */
+header {
+  background: linear-gradient(180deg, #ede7f2 0%, rgba(246, 244, 247, 0.92) 100%);
+  border-bottom: 1.5px solid var(--border);
+  padding: 28px 0 38px;
+  margin-bottom: 36px;
+}
+
+.top-nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-bottom: 24px;
+}
+
+.nav-left, .nav-right {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.nav-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 18px;
+  border-radius: 99px;
+  background: var(--surface);
+  border: 1.5px solid var(--border);
+  font-size: 13.5px;
+  font-weight: 700;
+  color: var(--ink);
+  box-shadow: 0 4px 12px rgba(34, 28, 43, 0.04);
+}
+
+.nav-pill:hover { border-color: var(--plum); color: var(--plum); }
+
+.nav-pill.gallery-link {
+  background: var(--plum);
+  border-color: var(--plum);
+  color: #fff;
+}
+.nav-pill.gallery-link:hover { background: var(--coral); border-color: var(--coral); }
+
+/* LANGUAGE SWITCHER */
+.lang-switch {
+  display: inline-flex;
+  background: var(--surface);
+  border: 1.5px solid var(--border);
+  border-radius: 99px;
+  padding: 3px;
+  box-shadow: 0 4px 12px rgba(34, 28, 43, 0.06);
+}
+
+.lang-switch button {
+  border: none;
+  background: transparent;
+  font: 700 12.5px 'Plus Jakarta Sans', sans-serif;
+  color: var(--muted);
+  padding: 5px 14px;
+  border-radius: 99px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.lang-switch button.active { background: var(--plum); color: #fff; }
+
+.hero-center { text-align: center; max-width: 720px; margin: 0 auto; }
+.script-sub { font-family: 'Pinyon Script', cursive; font-size: clamp(38px, 6vw, 54px); color: var(--coral); line-height: 1.1; margin-bottom: 2px; }
+h1 { font-family: 'Cormorant Garamond', Georgia, serif; font-size: clamp(34px, 5.5vw, 52px); font-weight: 700; color: var(--ink); margin-bottom: 12px; }
+.hero-desc { color: var(--muted); font-size: 15.5px; }
+
+/* STUDIO GRID */
+.studio-grid {
+  display: grid;
+  grid-template-columns: 1.08fr 0.92fr;
+  gap: 28px;
+  margin-bottom: 52px;
+  align-items: start;
+}
+
+@media (max-width: 880px) { .studio-grid { grid-template-columns: 1fr; } }
+
+.panel {
+  background: var(--surface);
+  border: 1.5px solid var(--border);
+  border-radius: 26px;
+  padding: 26px;
+  box-shadow: var(--shadow-soft);
+}
+
+.panel-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 18px;
+  padding-bottom: 12px;
+  border-bottom: 1.5px dashed var(--border);
+}
+
+.panel-title {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 24px;
+  font-weight: 700;
+  color: var(--ink);
+}
+
+.step-badge {
+  font-size: 11.5px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+  padding: 3px 10px;
+  border-radius: 99px;
+  background: var(--lavender);
+  color: var(--plum);
+}
+
+.field-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+  margin-bottom: 14px;
+}
+
+@media (max-width: 520px) { .field-row { grid-template-columns: 1fr; } }
+
+label { display: block; font-size: 13px; font-weight: 700; color: var(--ink); margin-bottom: 6px; }
+
+input[type="text"], select, textarea {
+  width: 100%;
+  background: var(--bg);
+  border: 1.5px solid var(--border);
+  border-radius: 14px;
+  padding: 11px 14px;
+  font: 500 14.5px 'Plus Jakarta Sans', sans-serif;
+  color: var(--ink);
+  transition: border-color 0.2s, background 0.2s;
+}
+
+input[type="text"]:focus, select:focus, textarea:focus { border-color: var(--plum); background: #fff; }
+textarea { resize: vertical; min-height: 92px; margin-bottom: 16px; }
+
+.theme-dots { display: flex; gap: 10px; align-items: center; margin-bottom: 18px; flex-wrap: wrap; }
+.theme-dot {
+  width: 30px; height: 30px; border-radius: 50%; border: 2px solid var(--border); cursor: pointer; transition: transform 0.2s;
+}
+.theme-dot.active { transform: scale(1.15); border-color: var(--ink); box-shadow: 0 0 0 3px rgba(107, 62, 98, 0.2); }
+
+.sig-toolbar { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px; margin-bottom: 10px; }
+.ink-colors { display: flex; gap: 8px; align-items: center; }
+.ink-btn { width: 24px; height: 24px; border-radius: 50%; border: 2px solid #fff; box-shadow: 0 0 0 1.5px var(--border); cursor: pointer; }
+.ink-btn.active { transform: scale(1.2); box-shadow: 0 0 0 2px var(--ink); }
+
+.mini-btn {
+  background: var(--surface-alt); border: 1px solid var(--border); color: var(--ink); font: 600 12.5px 'Plus Jakarta Sans', sans-serif; padding: 5px 12px; border-radius: 99px; cursor: pointer;
+}
+.mini-btn:hover { background: var(--border); }
+
+.canvas-wrap {
+  position: relative; border: 1.5px dashed #b9aec7; border-radius: 18px; background-color: #fcfbfd; background-image: linear-gradient(to right, rgba(107,62,98,0.05) 1px, transparent 1px), linear-gradient(to bottom, rgba(107,62,98,0.05) 1px, transparent 1px); background-size: 20px 20px; overflow: hidden; touch-action: none;
+}
+#sigCanvas { display: block; width: 100%; height: 170px; cursor: crosshair; }
+.canvas-hint { position: absolute; bottom: 10px; right: 14px; font-size: 11.5px; color: #9389a1; pointer-events: none; font-style: italic; }
+
+.sticker-tray { display: grid; grid-template-columns: repeat(5, 1fr); gap: 10px; margin-bottom: 16px; }
+.sticker-opt {
+  aspect-ratio: 1; background: var(--bg); border: 1.5px solid var(--border); border-radius: 16px; display: grid; place-items: center; font-size: 28px; cursor: pointer; transition: all 0.2s ease;
+}
+.sticker-opt:hover { transform: translateY(-2px) rotate(-4deg); border-color: var(--coral); background: #fff; }
+.sticker-opt.selected { border: 2px solid var(--coral); background: #fff5f7; box-shadow: 0 6px 14px rgba(229, 91, 112, 0.16); }
+
+.upload-box {
+  border: 1.5px dashed var(--plum); background: #f8f5fa; border-radius: 18px; padding: 16px; text-align: center; cursor: pointer; transition: all 0.2s ease; margin-bottom: 16px;
+}
+.upload-box:hover { background: #f1ebf6; border-color: var(--coral); }
+.upload-box input[type="file"] { display: none; }
+.upload-title { font-size: 13.5px; font-weight: 700; color: var(--plum); margin-bottom: 3px; }
+.upload-sub { font-size: 12px; color: var(--muted); }
+
+.custom-sticker-preview {
+  display: none; align-items: center; justify-content: space-between; background: #fff; border: 1.5px solid var(--border); border-radius: 16px; padding: 10px 14px; margin-bottom: 16px;
+}
+.custom-sticker-preview.show { display: flex; }
+.diecut-badge { width: 56px; height: 56px; border-radius: 14px; object-fit: cover; border: 3px solid #fff; box-shadow: 0 4px 12px rgba(34, 28, 43, 0.18); transform: rotate(-4deg); }
+.shape-toggle { display: flex; gap: 6px; }
+.shape-btn { font-size: 11.5px; font-weight: 700; padding: 4px 10px; border-radius: 99px; border: 1px solid var(--border); background: var(--bg); cursor: pointer; }
+.shape-btn.active { background: var(--sage); color: #fff; border-color: var(--sage); }
+
+.submit-btn {
+  width: 100%; padding: 14px 22px; border-radius: 16px; border: none; background: linear-gradient(135deg, var(--plum) 0%, var(--coral) 100%); color: #fff; font: 700 15.5px 'Plus Jakarta Sans', sans-serif; cursor: pointer; box-shadow: 0 8px 20px rgba(229, 91, 112, 0.25); transition: transform 0.2s;
+}
+.submit-btn:hover { transform: translateY(-2px); }
+
+/* WALL */
+.wall-header { display: flex; justify-content: space-between; align-items: flex-end; flex-wrap: wrap; gap: 14px; margin-bottom: 24px; }
+.wall-header h2 { font-family: 'Cormorant Garamond', Georgia, serif; font-size: clamp(28px, 4vw, 38px); font-weight: 700; }
+.filter-pills { display: flex; gap: 8px; flex-wrap: wrap; }
+.f-pill { padding: 6px 15px; border-radius: 99px; border: 1.5px solid var(--border); background: var(--surface); font: 700 13px 'Plus Jakarta Sans', sans-serif; color: var(--muted); cursor: pointer; }
+.f-pill.active, .f-pill:hover { background: var(--ink); border-color: var(--ink); color: #fff; }
+
+.cards-masonry { display: grid; grid-template-columns: repeat(auto-fill, minmax(310px, 1fr)); gap: 24px; }
+
+.note-card {
+  border-radius: 22px; padding: 24px; border: 1.5px solid var(--border); box-shadow: var(--shadow-card); position: relative; display: flex; flex-direction: column; justify-content: space-between; transition: transform 0.25s ease;
+}
+.note-card:hover { transform: translateY(-4px); }
+.theme-porcelain { background: #ffffff; border-color: #e2dce8; }
+.theme-blush { background: #fdf5f7; border-color: #f0cfd6; }
+.theme-lavender { background: #f7f4fb; border-color: #dfd4ed; }
+.theme-mint { background: #f2f8f7; border-color: #cce2df; }
+.theme-sky { background: #f3f7fc; border-color: #d0dff0; }
+
+.card-sticker {
+  position: absolute; top: -14px; right: 18px; width: 58px; height: 58px; border-radius: 16px; background: #fff; border: 3px solid #fff; box-shadow: 0 6px 16px rgba(34, 28, 43, 0.14); display: grid; place-items: center; font-size: 32px; transform: rotate(7deg); overflow: hidden; z-index: 2;
+}
+.card-sticker.round { border-radius: 50%; }
+.card-sticker img { width: 100%; height: 100%; object-fit: cover; }
+.washi-tape { position: absolute; top: -9px; left: 24px; width: 68px; height: 18px; background: rgba(229, 91, 112, 0.24); border-left: 1px dashed rgba(255,255,255,0.7); border-right: 1px dashed rgba(255,255,255,0.7); transform: rotate(-3deg); }
+
+.note-meta { display: flex; align-items: center; gap: 8px; margin-bottom: 12px; padding-right: 54px; }
+.role-tag { font-size: 11.5px; font-weight: 700; padding: 2px 10px; border-radius: 99px; background: rgba(107, 62, 98, 0.1); color: var(--plum); }
+.note-date { font-size: 12px; color: var(--muted); }
+.note-body { font-size: 14.8px; color: var(--ink); margin-bottom: 18px; white-space: pre-line; }
+.note-footer { border-top: 1px dashed var(--border); padding-top: 12px; display: flex; justify-content: space-between; align-items: flex-end; gap: 12px; }
+.author-info strong { display: block; font-family: 'Cormorant Garamond', Georgia, serif; font-size: 20px; font-weight: 700; color: var(--ink); }
+.author-info span { font-size: 12px; color: var(--muted); }
+.sig-preview { max-width: 145px; max-height: 58px; object-fit: contain; }
+
+/* NEXT PAGE */
+.next-page-card {
+  margin-top: 56px; background: linear-gradient(135deg, #2b2136 0%, #4b2d49 55%, #753b56 100%); border-radius: 28px; padding: 36px 32px; color: #fff; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 20px; box-shadow: 0 16px 36px rgba(43, 33, 54, 0.22);
+}
+.next-page-card .eyebrow { font-size: 12px; font-weight: 700; letter-spacing: 1.2px; text-transform: uppercase; color: #f3b3c0; margin-bottom: 6px; }
+.next-page-card h3 { font-family: 'Cormorant Garamond', Georgia, serif; font-size: clamp(26px, 4vw, 34px); font-weight: 700; margin-bottom: 6px; }
+.next-page-card p { color: #e4dbe8; font-size: 14.5px; max-width: 520px; }
+.next-btn { display: inline-flex; align-items: center; gap: 10px; padding: 14px 26px; border-radius: 99px; background: #fff; color: var(--ink); font-weight: 700; font-size: 14.5px; }
+.next-btn:hover { background: var(--coral); color: #fff; transform: translateX(4px); }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap">
+    <nav class="top-nav">
+      <div class="nav-left">
+        <a class="nav-pill" href="index.html" data-i18n="nav_home">← Trang chủ</a>
+        <a class="nav-pill gallery-link" href="bucketlist.html" data-i18n="nav_next">Trang tiếp: Bucketlist →</a>
+      </div>
+      <div class="nav-right">
+        <div class="lang-switch" role="group" aria-label="Language switcher">
+          <button type="button" id="btn-vi" class="active" onclick="setLang('vi')">VI</button>
+          <button type="button" id="btn-en" onclick="setLang('en')">EN</button>
+        </div>
+      </div>
+    </nav>
+    <div class="hero-center">
+      <div class="script-sub" data-i18n="hero_sub">Leave a little memory</div>
+      <h1 data-i18n="hero_title">Sổ Lưu Bút Điện Tử</h1>
+      <p class="hero-desc" data-i18n="hero_desc">Nơi bạn bè, đối tác và những người đồng hành để lại lời nhắn, ký tên trực tiếp trên màn hình hoặc tự tạo một chiếc sticker kỷ niệm thật xinh.</p>
+    </div>
+  </div>
+</header>
+
+<main class="wrap">
+  <div class="studio-grid">
+    <div class="panel">
+      <div class="panel-header">
+        <div class="panel-title" data-i18n="panel1_title">✍️ Viết lời nhắn &amp; Ký tên</div>
+        <span class="step-badge" data-i18n="step1">Bước 1</span>
+      </div>
+
+      <div class="field-row">
+        <div>
+          <label for="guestName" data-i18n="lbl_name">Tên hoặc biệt danh của bạn *</label>
+          <input type="text" id="guestName" placeholder="Ví dụ: Minh Anh, Team Dyson...">
+        </div>
+        <div>
+          <label for="guestRole" data-i18n="lbl_role">Bạn là...</label>
+          <select id="guestRole">
+            <option value="Bạn bè" data-i18n="role_1">🌸 Bạn bè</option>
+            <option value="Đối tác / Nhãn hàng" data-i18n="role_2">🤝 Đối tác / Nhãn hàng</option>
+            <option value="Người theo dõi" data-i18n="role_3">💌 Người theo dõi</option>
+            <option value="Học viên" data-i18n="role_4">📚 Học viên</option>
+          </select>
+        </div>
+      </div>
+
+      <label for="guestMsg" data-i18n="lbl_msg">Lời nhắn gửi đến Alessandra *</label>
+      <textarea id="guestMsg" placeholder="Viết vài dòng kỷ niệm, lời chúc hoặc ấn tượng của bạn nhé..."></textarea>
+
+      <label data-i18n="lbl_theme">Chọn màu giấy bưu thiếp</label>
+      <div class="theme-dots" id="themePicker">
+        <button type="button" class="theme-dot active" data-theme="theme-porcelain" style="background:#ffffff;" title="Trắng sứ"></button>
+        <button type="button" class="theme-dot" data-theme="theme-blush" style="background:#f9dfe5;" title="Hồng phấn"></button>
+        <button type="button" class="theme-dot" data-theme="theme-lavender" style="background:#e8def0;" title="Tím oải hương"></button>
+        <button type="button" class="theme-dot" data-theme="theme-mint" style="background:#d9ece9;" title="Xanh bạc hà"></button>
+        <button type="button" class="theme-dot" data-theme="theme-sky" style="background:#dce8f7;" title="Xanh sương mai"></button>
+      </div>
+
+      <div class="sig-toolbar">
+        <label style="margin:0;" data-i18n="lbl_sig">Chữ ký tay trực tiếp (vẽ bằng chuột hoặc ngón tay)</label>
+        <div style="display:flex; gap:12px; align-items:center;">
+          <div class="ink-colors" id="inkPicker">
+            <button type="button" class="ink-btn active" data-color="#221c2b" style="background:#221c2b;" title="Đen"></button>
+            <button type="button" class="ink-btn" data-color="#6b3e62" style="background:#6b3e62;" title="Tím"></button>
+            <button type="button" class="ink-btn" data-color="#e55b70" style="background:#e55b70;" title="Hồng"></button>
+            <button type="button" class="ink-btn" data-color="#3c5a99" style="background:#3c5a99;" title="Xanh"></button>
+          </div>
+          <div class="sig-actions">
+            <button type="button" class="mini-btn" onclick="clearSignature()" data-i18n="btn_clear">Xóa nét</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="canvas-wrap">
+        <canvas id="sigCanvas"></canvas>
+        <span class="canvas-hint" data-i18n="canvas_hint">Ký tên hoặc vẽ biểu tượng nhỏ tại đây ✒️</span>
+      </div>
+    </div>
+
+    <div class="panel">
+      <div class="panel-header">
+        <div class="panel-title" data-i18n="panel2_title">🏷️ Dán Sticker kỷ niệm</div>
+        <span class="step-badge" data-i18n="step2">Bước 2</span>
+      </div>
+
+      <label data-i18n="lbl_preset">Chọn sticker có sẵn trong bộ sưu tập</label>
+      <div class="sticker-tray" id="presetStickers">
+        <div class="sticker-opt selected" data-type="emoji" data-val="🍵">🍵</div>
+        <div class="sticker-opt" data-type="emoji" data-val="🎀">🎀</div>
+        <div class="sticker-opt" data-type="emoji" data-val="🌷">🌷</div>
+        <div class="sticker-opt" data-type="emoji" data-val="📸">📸</div>
+        <div class="sticker-opt" data-type="emoji" data-val="💌">💌</div>
+        <div class="sticker-opt" data-type="emoji" data-val="🥐">🥐</div>
+        <div class="sticker-opt" data-type="emoji" data-val="✨">✨</div>
+        <div class="sticker-opt" data-type="emoji" data-val="🦢">🦢</div>
+        <div class="sticker-opt" data-type="emoji" data-val="🎨">🎨</div>
+        <div class="sticker-opt" data-type="emoji" data-val="✈️">✈️</div>
+      </div>
+
+      <label data-i18n="lbl_upload">Hoặc tải hình của bạn lên làm sticker riêng</label>
+      <label class="upload-box" for="stickerUpload">
+        <input type="file" id="stickerUpload" accept="image/*">
+        <div class="upload-title" data-i18n="up_title">📤 Tải ảnh lên để biến thành Sticker</div>
+        <div class="upload-sub" data-i18n="up_sub">Hỗ trợ PNG, JPG, WEBP · Tự động tạo viền trắng bế die-cut</div>
+      </label>
+
+      <div class="custom-sticker-preview" id="customPreviewBox">
+        <div style="display:flex; align-items:center; gap:12px;">
+          <img id="customPreviewImg" class="diecut-badge" src="" alt="Sticker">
+          <div>
+            <div style="font-size:13px; font-weight:700;" data-i18n="custom_lbl">Sticker ảnh của bạn</div>
+            <div class="shape-toggle" style="margin-top:4px;">
+              <button type="button" class="shape-btn active" onclick="setStickerShape('square', this)" data-i18n="shape_square">Bo góc</button>
+              <button type="button" class="shape-btn" onclick="setStickerShape('round', this)" data-i18n="shape_round">Hình tròn</button>
+            </div>
+          </div>
+        </div>
+        <button type="button" class="mini-btn" onclick="removeCustomSticker()" data-i18n="btn_remove">Gỡ ảnh</button>
+      </div>
+
+      <button type="button" class="submit-btn" onclick="publishNote()" data-i18n="btn_submit">✨ Dán lên Sổ Lưu Bút</button>
+    </div>
+  </div>
+
+  <section>
+    <div class="wall-header">
+      <div>
+        <h2 data-i18n="wall_title">Những dấu ấn đã ghé thăm</h2>
+        <p style="color:var(--muted); font-size:14px;" data-i18n="wall_desc">Các tấm bưu thiếp kỷ niệm được lưu giữ trên trang.</p>
+      </div>
+      <div class="filter-pills" id="wallFilters">
+        <button type="button" class="f-pill active" data-filter="all" data-i18n="filt_all">Tất cả</button>
+        <button type="button" class="f-pill" data-filter="Bạn bè" data-i18n="filt_friend">Bạn bè</button>
+        <button type="button" class="f-pill" data-filter="Đối tác / Nhãn hàng" data-i18n="filt_partner">Đối tác</button>
+        <button type="button" class="f-pill" data-filter="Người theo dõi" data-i18n="filt_follower">Người theo dõi</button>
+      </div>
+    </div>
+
+    <div class="cards-masonry" id="notesContainer"></div>
+  </section>
+
+  <div class="next-page-card">
+    <div>
+      <div class="eyebrow" data-i18n="next_eyebrow">Tiếp tục hành trình khám phá</div>
+      <h3 data-i18n="next_title">Trang Bucketlist &amp; Mục tiêu cá nhân</h3>
+      <p data-i18n="next_desc">Khám phá công cụ tạo danh sách mục tiêu sống, trả lời trắc nghiệm vui hoặc trò chơi quyết định việc cần làm ngay hôm nay.</p>
+    </div>
+    <a class="next-btn" href="bucketlist.html" data-i18n="next_btn">Trải nghiệm Bucketlist →</a>
+  </div>
+</main>
+
+<script>
+const i18n = {
+  vi: {
+    nav_home: "← Trang chủ",
+    nav_next: "Trang tiếp: Bucketlist →",
+    hero_sub: "Leave a little memory",
+    hero_title: "Sổ Lưu Bút Điện Tử",
+    hero_desc: "Nơi bạn bè, đối tác và những người đồng hành để lại lời nhắn, ký tên trực tiếp trên màn hình hoặc tự tạo một chiếc sticker kỷ niệm thật xinh.",
+    panel1_title: "✍️ Viết lời nhắn & Ký tên",
+    step1: "Bước 1",
+    lbl_name: "Tên hoặc biệt danh của bạn *",
+    lbl_role: "Bạn là...",
+    role_1: "🌸 Bạn bè",
+    role_2: "🤝 Đối tác / Nhãn hàng",
+    role_3: "💌 Người theo dõi",
+    role_4: "📚 Học viên",
+    lbl_msg: "Lời nhắn gửi đến Alessandra *",
+    lbl_theme: "Chọn màu giấy bưu thiếp",
+    lbl_sig: "Chữ ký tay trực tiếp (vẽ bằng chuột hoặc ngón tay)",
+    btn_clear: "Xóa nét",
+    canvas_hint: "Ký tên hoặc vẽ biểu tượng nhỏ tại đây ✒️",
+    panel2_title: "🏷️ Dán Sticker kỷ niệm",
+    step2: "Bước 2",
+    lbl_preset: "Chọn sticker có sẵn trong bộ sưu tập",
+    lbl_upload: "Hoặc tải hình của bạn lên làm sticker riêng",
+    up_title: "📤 Tải ảnh lên để biến thành Sticker",
+    up_sub: "Hỗ trợ PNG, JPG, WEBP · Tự động tạo viền trắng bế die-cut",
+    custom_lbl: "Sticker ảnh của bạn",
+    shape_square: "Bo góc",
+    shape_round: "Hình tròn",
+    btn_remove: "Gỡ ảnh",
+    btn_submit: "✨ Dán lên Sổ Lưu Bút",
+    wall_title: "Những dấu ấn đã ghé thăm",
+    wall_desc: "Các tấm bưu thiếp kỷ niệm được lưu giữ trên trang.",
+    filt_all: "Tất cả",
+    filt_friend: "Bạn bè",
+    filt_partner: "Đối tác",
+    filt_follower: "Người theo dõi",
+    next_eyebrow: "Tiếp tục hành trình khám phá",
+    next_title: "Trang Bucketlist & Mục tiêu cá nhân",
+    next_desc: "Khám phá công cụ tạo danh sách mục tiêu sống, trả lời trắc nghiệm vui hoặc trò chơi quyết định việc cần làm ngay hôm nay.",
+    next_btn: "Trải nghiệm Bucketlist →"
+  },
+  en: {
+    nav_home: "← Home",
+    nav_next: "Next: Bucketlist →",
+    hero_sub: "Leave a little memory",
+    hero_title: "Digital Guestbook",
+    hero_desc: "A cozy space for friends, partners, and followers to leave messages, sign directly on the screen, or attach cute memory stickers.",
+    panel1_title: "✍️ Write Message & Sign",
+    step1: "Step 1",
+    lbl_name: "Your Name or Nickname *",
+    lbl_role: "You are...",
+    role_1: "🌸 Friend",
+    role_2: "🤝 Brand / Partner",
+    role_3: "💌 Follower",
+    role_4: "📚 Student",
+    lbl_msg: "Message for Alessandra *",
+    lbl_theme: "Choose Postcard Paper Color",
+    lbl_sig: "Direct Signature (draw with mouse or touch)",
+    btn_clear: "Clear",
+    canvas_hint: "Sign or draw a small doodle here ✒️",
+    panel2_title: "🏷️ Attach Memory Sticker",
+    step2: "Step 2",
+    lbl_preset: "Pick a sticker from collection",
+    lbl_upload: "Or upload your own image as a custom sticker",
+    up_title: "📤 Upload Image to make Sticker",
+    up_sub: "Supports PNG, JPG, WEBP · Auto die-cut white border",
+    custom_lbl: "Your Custom Sticker",
+    shape_square: "Rounded",
+    shape_round: "Circle",
+    btn_remove: "Remove",
+    btn_submit: "✨ Post to Guestbook",
+    wall_title: "Visitor Footprints",
+    wall_desc: "Precious memory postcards saved on the wall.",
+    filt_all: "All",
+    filt_friend: "Friends",
+    filt_partner: "Partners",
+    filt_follower: "Followers",
+    next_eyebrow: "Continue Exploring",
+    next_title: "Bucketlist & Personal Goals",
+    next_desc: "Discover our interactive bucketlist creator, fun quizzes, or decision games to pick your next milestone.",
+    next_btn: "Explore Bucketlist →"
+  }
+};
+
+function setLang(lang) {
+  document.documentElement.lang = lang;
+  document.getElementById('btn-vi').classList.toggle('active', lang === 'vi');
+  document.getElementById('btn-en').classList.toggle('active', lang === 'en');
+
+  document.querySelectorAll('[data-i18n]').forEach(el => {
+    const key = el.getAttribute('data-i18n');
+    if (i18n[lang][key]) {
+      el.textContent = i18n[lang][key];
+    }
+  });
+
+  try { localStorage.setItem('alessa_lang', lang); } catch(e) {}
+}
+
+try {
+  const savedLang = localStorage.getItem('alessa_lang');
+  if (savedLang === 'en' || savedLang === 'vi') setLang(savedLang);
+} catch(e) {}
+
+// Canvas & logic
+const canvas = document.getElementById('sigCanvas');
+const ctx = canvas.getContext('2d');
+let isDrawing = false;
+let hasDrawn = false;
+let currentInk = '#221c2b';
+
+function resizeCanvas() {
+  const rect = canvas.parentElement.getBoundingClientRect();
+  const ratio = window.devicePixelRatio || 1;
+  const temp = canvas.toDataURL();
+  canvas.width = rect.width * ratio;
+  canvas.height = 170 * ratio;
+  ctx.scale(ratio, ratio);
+  ctx.lineCap = 'round';
+  ctx.lineJoin = 'round';
+  ctx.lineWidth = 2.6;
+  ctx.strokeStyle = currentInk;
+  if (hasDrawn) {
+    const img = new Image();
+    img.onload = () => ctx.drawImage(img, 0, 0, rect.width, 170);
+    img.src = temp;
+  }
+}
+window.addEventListener('resize', resizeCanvas);
+resizeCanvas();
+
+function getPos(e) {
+  const rect = canvas.getBoundingClientRect();
+  const clientX = e.touches ? e.touches[0].clientX : e.clientX;
+  const clientY = e.touches ? e.touches[0].clientY : e.clientY;
+  return { x: clientX - rect.left, y: clientY - rect.top };
+}
+
+function startDraw(e) { isDrawing = true; hasDrawn = true; const p = getPos(e); ctx.beginPath(); ctx.moveTo(p.x, p.y); }
+function draw(e) { if (!isDrawing) return; e.preventDefault(); const p = getPos(e); ctx.strokeStyle = currentInk; ctx.lineTo(p.x, p.y); ctx.stroke(); }
+function endDraw() { isDrawing = false; }
+
+canvas.addEventListener('mousedown', startDraw);
+canvas.addEventListener('mousemove', draw);
+window.addEventListener('mouseup', endDraw);
+canvas.addEventListener('touchstart', startDraw, { passive: false });
+canvas.addEventListener('touchmove', draw, { passive: false });
+canvas.addEventListener('touchend', endDraw);
+
+function clearSignature() {
+  const rect = canvas.getBoundingClientRect();
+  ctx.clearRect(0, 0, rect.width, 170);
+  hasDrawn = false;
+}
+
+document.querySelectorAll('#inkPicker .ink-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    document.querySelectorAll('#inkPicker .ink-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    currentInk = btn.dataset.color;
+  });
+});
+
+let selectedTheme = 'theme-porcelain';
+document.querySelectorAll('#themePicker .theme-dot').forEach(dot => {
+  dot.addEventListener('click', () => {
+    document.querySelectorAll('#themePicker .theme-dot').forEach(d => d.classList.remove('active'));
+    dot.classList.add('active');
+    selectedTheme = dot.dataset.theme;
+  });
+});
+
+let selectedSticker = { type: 'emoji', val: '🍵', shape: 'square' };
+document.querySelectorAll('#presetStickers .sticker-opt').forEach(opt => {
+  opt.addEventListener('click', () => {
+    document.querySelectorAll('#presetStickers .sticker-opt').forEach(o => o.classList.remove('selected'));
+    opt.classList.add('selected');
+    selectedSticker = { type: 'emoji', val: opt.dataset.val, shape: 'square' };
+    document.getElementById('customPreviewBox').classList.remove('show');
+  });
+});
+
+document.getElementById('stickerUpload').addEventListener('change', function(e) {
+  const file = e.target.files[0];
+  if (!file) return;
+  const reader = new FileReader();
+  reader.onload = function(event) {
+    const img = new Image();
+    img.onload = function() {
+      const offCanvas = document.createElement('canvas');
+      const maxSize = 180;
+      let w = img.width, h = img.height;
+      if (w > h) { if (w > maxSize) { h *= maxSize / w; w = maxSize; } }
+      else { if (h > maxSize) { w *= maxSize / h; h = maxSize; } }
+      offCanvas.width = w; offCanvas.height = h;
+      offCanvas.getContext('2d').drawImage(img, 0, 0, w, h);
+      const dataUrl = offCanvas.toDataURL('image/webp', 0.85);
+
+      document.querySelectorAll('#presetStickers .sticker-opt').forEach(o => o.classList.remove('selected'));
+      document.getElementById('customPreviewImg').src = dataUrl;
+      document.getElementById('customPreviewBox').classList.add('show');
+      selectedSticker = { type: 'image', val: dataUrl, shape: selectedSticker.shape || 'square' };
+    };
+    img.src = event.target.result;
+  };
+  reader.readAsDataURL(file);
+});
+
+function setStickerShape(shape, btn) {
+  document.querySelectorAll('.shape-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  selectedSticker.shape = shape;
+  document.getElementById('customPreviewImg').style.borderRadius = shape === 'round' ? '50%' : '14px';
+}
+
+function removeCustomSticker() {
+  document.getElementById('stickerUpload').value = '';
+  document.getElementById('customPreviewBox').classList.remove('show');
+  const first = document.querySelector('#presetStickers .sticker-opt');
+  first.classList.add('selected');
+  selectedSticker = { type: 'emoji', val: first.dataset.val, shape: 'square' };
+}
+
+const defaultNotes = [
+  { name: "Happiness Saigon Team", role: "Đối tác / Nhãn hàng", date: "14/10/2026", msg: "Làm việc cùng Huyền trong chiến dịch Dyson luôn tràn đầy năng lượng tích cực!", theme: "theme-blush", sticker: { type: "emoji", val: "✨", shape: "square" }, sig: "" },
+  { name: "Thảo Vy", role: "Bạn bè", date: "02/11/2026", msg: "Từ hồi ở Arkansas tới lúc về Sài Gòn mở tiệm matcha, lúc nào cũng ngưỡng mộ sự chỉn chu của bà.", theme: "theme-mint", sticker: { type: "emoji", val: "🍵", shape: "square" }, sig: "" }
+];
+
+function getNotes() {
+  try { const s = localStorage.getItem('alessa_guestbook_notes'); if (s) return JSON.parse(s); } catch(e){}
+  return defaultNotes;
+}
+function saveNotes(notes) {
+  try { localStorage.setItem('alessa_guestbook_notes', JSON.stringify(notes)); } catch(e){}
+}
+function escapeHTML(str) {
+  return str.replace(/[&<>"']/g, m => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m]));
+}
+
+let currentFilter = 'all';
+function renderNotes() {
+  const container = document.getElementById('notesContainer');
+  const notes = getNotes();
+  const filtered = currentFilter === 'all' ? notes : notes.filter(n => n.role === currentFilter);
+
+  if (filtered.length === 0) {
+    container.innerHTML = '<p style="color:var(--muted); grid-column: 1/-1; text-align:center; padding:30px 0;">Chưa có lưu bút nào trong mục này.</p>';
+    return;
+  }
+
+  container.innerHTML = filtered.map(note => {
+    const stickerHTML = note.sticker.type === 'image'
+      ? `<div class="card-sticker ${note.sticker.shape === 'round' ? 'round' : ''}"><img src="${note.sticker.val}" alt="Sticker"></div>`
+      : `<div class="card-sticker">${note.sticker.val}</div>`;
+    const sigHTML = note.sig
+      ? `<img class="sig-preview" src="${note.sig}" alt="Sig">`
+      : `<span style="font-family:'Pinyon Script', cursive; font-size:26px; color:var(--plum);">${escapeHTML(note.name)}</span>`;
+
+    return `
+      <article class="note-card ${note.theme}">
+        <div class="washi-tape"></div>
+        ${stickerHTML}
+        <div>
+          <div class="note-meta">
+            <span class="role-tag">${escapeHTML(note.role)}</span>
+            <span class="note-date">${escapeHTML(note.date)}</span>
+          </div>
+          <p class="note-body">${escapeHTML(note.msg)}</p>
+        </div>
+        <div class="note-footer">
+          <div class="author-info">
+            <strong>${escapeHTML(note.name)}</strong>
+            <span>Đã ký lưu bút</span>
+          </div>
+          ${sigHTML}
+        </div>
+      </article>
+    `;
+  }).join('');
+}
+
+function publishNote() {
+  const name = document.getElementById('guestName').value.trim();
+  const role = document.getElementById('guestRole').value;
+  const msg = document.getElementById('guestMsg').value.trim();
+  if (!name || !msg) { alert('Vui lòng nhập tên và lời nhắn!'); return; }
+  const now = new Date();
+  const dateStr = String(now.getDate()).padStart(2, '0') + '/' + String(now.getMonth() + 1).padStart(2, '0') + '/' + now.getFullYear();
+  const notes = getNotes();
+  notes.unshift({ name, role, date: dateStr, msg, theme: selectedTheme, sticker: { ...selectedSticker }, sig: hasDrawn ? canvas.toDataURL('image/png') : '' });
+  saveNotes(notes);
+  document.getElementById('guestName').value = '';
+  document.getElementById('guestMsg').value = '';
+  clearSignature();
+  renderNotes();
+  document.getElementById('notesContainer').scrollIntoView({ behavior: 'smooth' });
+}
+
+document.querySelectorAll('#wallFilters .f-pill').forEach(pill => {
+  pill.addEventListener('click', () => {
+    document.querySelectorAll('#wallFilters .f-pill').forEach(p => p.classList.remove('active'));
+    pill.classList.add('active');
+    currentFilter = pill.dataset.filter;
+    renderNotes();
+  });
+});
+
+renderNotes();
+</script>
+
+</body>
+</html>
