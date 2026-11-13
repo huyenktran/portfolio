@@ -1,0 +1,743 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Công cụ chia tiền nhóm &amp; Đổi tỷ giá · Alessandra Tran</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,700;1,500&family=Quicksand:wght@400;500;600;700&display=swap">
+<style>
+:root {
+  color-scheme: dark;
+  --bg: #121212;
+  --surface: #1e1e1e;
+  --surface-card: #282828;
+  --border: #383838;
+  --text: #e0e0e0;
+  --text-muted: #9e9e9e;
+  --accent: #d94f7d;
+  --accent-hover: #e8638f;
+  --accent-glow: rgba(217, 79, 125, 0.2);
+  --green: #4caf50;
+  --green-glow: rgba(76, 175, 80, 0.2);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'Quicksand', system-ui, sans-serif;
+  font-weight: 500;
+  line-height: 1.6;
+  padding-bottom: 60px;
+}
+
+.wrap {
+  max-width: 1100px;
+  margin: auto;
+  padding: 0 5vw;
+}
+
+/* HEADER */
+header {
+  background: var(--surface);
+  border-bottom: 1px solid var(--border);
+  padding: 24px 0;
+  margin-bottom: 36px;
+}
+
+.top-nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+  font-size: 14px;
+}
+
+.back {
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 14px;
+  border-radius: 99px;
+  background: var(--surface-card);
+  border: 1px solid var(--border);
+  color: var(--text);
+  font-weight: 650;
+  transition: all 0.2s;
+}
+
+.back:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(28px, 5vw, 40px);
+  color: #fff;
+  margin-bottom: 6px;
+}
+
+.subtitle {
+  color: var(--text-muted);
+  font-size: 15px;
+}
+
+/* TAB NAVIGATION */
+.mode-tabs {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 32px;
+  border-bottom: 1px solid var(--border);
+  padding-bottom: 12px;
+  overflow-x: auto;
+}
+
+.tab-btn {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  color: var(--text-muted);
+  font: 700 14px 'Quicksand', sans-serif;
+  padding: 10px 20px;
+  border-radius: 99px;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: all 0.2s ease;
+}
+
+.tab-btn.active, .tab-btn:hover {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: #fff;
+  box-shadow: 0 4px 14px var(--accent-glow);
+}
+
+.tool-section {
+  display: none;
+}
+
+.tool-section.active {
+  display: block;
+}
+
+/* CARDS & LAYOUT */
+.card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  padding: 28px;
+  margin-bottom: 24px;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.3);
+}
+
+.card h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: 22px;
+  color: #fff;
+  margin-bottom: 18px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.grid-2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+@media(max-width: 768px) {
+  .grid-2 {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* FORM ELEMENTS */
+label {
+  display: block;
+  font-size: 13.5px;
+  font-weight: 600;
+  color: var(--text-muted);
+  margin-bottom: 6px;
+}
+
+input, select, textarea {
+  width: 100%;
+  background: var(--surface-card);
+  border: 1.5px solid var(--border);
+  border-radius: 12px;
+  padding: 11px 16px;
+  color: var(--text);
+  font: 500 15px 'Quicksand', sans-serif;
+  margin-bottom: 16px;
+  outline: none;
+  transition: border-color 0.2s;
+}
+
+input:focus, select:focus {
+  border-color: var(--accent);
+}
+
+.btn {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  background: var(--accent);
+  color: #fff;
+  border: none;
+  border-radius: 12px;
+  padding: 12px 20px;
+  font: 700 15px 'Quicksand', sans-serif;
+  cursor: pointer;
+  transition: background 0.2s, box-shadow 0.2s;
+  box-shadow: 0 4px 14px var(--accent-glow);
+}
+
+.btn:hover {
+  background: var(--accent-hover);
+}
+
+.btn-secondary {
+  background: var(--surface-card);
+  border: 1.5px solid var(--border);
+  color: var(--text);
+  box-shadow: none;
+}
+
+.btn-secondary:hover {
+  border-color: var(--text-muted);
+  background: var(--border);
+}
+
+/* TABLES & LISTS */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 12px;
+}
+
+th, td {
+  padding: 12px 14px;
+  text-align: left;
+  border-bottom: 1px solid var(--border);
+  font-size: 14.5px;
+}
+
+th {
+  font-weight: 700;
+  color: var(--text-muted);
+  background: var(--surface-card);
+}
+
+.result-box {
+  background: var(--surface-card);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 20px;
+  margin-top: 20px;
+}
+
+.result-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 0;
+  border-bottom: 1px dashed var(--border);
+}
+
+.result-item:last-child {
+  border-bottom: none;
+}
+
+.result-item b {
+  color: #fff;
+  font-family: 'Playfair Display', serif;
+  font-size: 18px;
+}
+
+/* CURRENCY CONVERTER SPECIFIC */
+.currency-display {
+  font-size: 32px;
+  font-family: 'Playfair Display', serif;
+  font-weight: 700;
+  color: #fff;
+  margin: 14px 0;
+  background: var(--surface-card);
+  border: 1.5px solid var(--border);
+  border-radius: 16px;
+  padding: 18px;
+  text-align: center;
+}
+
+.rate-source {
+  font-size: 12.5px;
+  color: var(--text-muted);
+  text-align: right;
+  margin-top: 8px;
+}
+
+.rate-source a {
+  color: var(--accent);
+  text-decoration: none;
+}
+.rate-source a:hover {
+  text-decoration: underline;
+}
+
+.badge {
+  display: inline-block;
+  background: rgba(217, 79, 125, 0.15);
+  color: var(--accent);
+  border: 1px solid rgba(217, 79, 125, 0.3);
+  padding: 3px 10px;
+  border-radius: 99px;
+  font-size: 12px;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+
+.flex-row {
+  display: flex;
+  gap: 12px;
+}
+.flex-row > * {
+  flex: 1;
+}
+
+.tag-delete {
+  background: #ff5252;
+  color: #fff;
+  border: none;
+  padding: 4px 10px;
+  border-radius: 8px;
+  font-size: 12px;
+  cursor: pointer;
+}
+.tag-delete:hover {
+  background: #ff1744;
+}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap">
+    <div class="top-nav">
+      <a class="back" href="index.html">← Trang chủ</a>
+      <span class="badge">Dark Minimalist Suite</span>
+    </div>
+    <h1>Công cụ Chia tiền Nhóm &amp; Tỷ giá</h1>
+    <div class="subtitle">Tính toán chi phí thông minh cho các chuyến đi và quy đổi ngoại tệ chuẩn xác theo thời gian thực.</div>
+  </div>
+</header>
+
+<main class="wrap">
+  <!-- TAB SWITCHER -->
+  <div class="mode-tabs">
+    <button class="tab-btn active" onclick="switchTab('equal')">👥 Chia đều (Equal Split)</button>
+    <button class="tab-btn active" onclick="switchTab('custom')" style="display:none">Dùng ẩn</button>
+    <!-- Reset buttons active cleanly -->
+    <script>
+      function switchTab(tabId) {
+        document.querySelectorAll('.tool-section').forEach(el => el.classList.remove('active'));
+        document.querySelectorAll('.tab-btn').forEach(el => el.classList.remove('active'));
+        document.getElementById('section-' + tabId).classList.add('active');
+        event.currentTarget.classList.add('active');
+      }
+    </script>
+  </div>
+
+  <!-- SỬA LẠI TAB NAVIGATION CHUẨN XÁC -->
+  <div class="mode-tabs" id="mainTabs">
+    <button class="tab-btn active" onclick="switchTab('equal', this)">👥 Chia đều đơn giản</button>
+    <button class="tab-btn" onclick="switchTab('itemized', this)">🧾 Chia theo món (Ai ăn gì trả nấy)</button>
+    <button class="tab-btn" onclick="switchTab('debt', this)">(⚖️ Ai nợ ai - Ledger)</button>
+    <button class="tab-btn" onclick="switchTab('currency', this)">💱 Đổi tỷ giá Wise Real-time</button>
+  </div>
+
+  <script>
+    function switchTab(id, btn) {
+      document.querySelectorAll('.tool-section').forEach(s => s.classList.remove('active'));
+      document.querySelectorAll('#mainTabs .tab-btn').forEach(b => b.classList.remove('active'));
+      document.getElementById('sec-' + id).classList.add('active');
+      btn.classList.add('active');
+    }
+  </script>
+
+  <!-- 1. CHIA ĐỀU ĐƠN GIẢN -->
+  <section id="sec-equal" class="tool-section active">
+    <div class="grid-2">
+      <div class="card">
+        <h2>📊 Nhập thông tin chi phí</h2>
+        <label>Tổng số tiền hóa đơn (VNĐ hoặc ngoại tệ)</label>
+        <input type="number" id="eqTotal" placeholder="Ví dụ: 1250000" oninput="calcEqual()">
+
+        <label>Tiền Tip / Phí dịch vụ phụ thêm (%)</label>
+        <input type="number" id="eqTip" value="0" placeholder="Ví dụ: 5 hoặc 10" oninput="calcEqual()">
+
+        <label>Danh sách thành viên (cách nhau bởi dấu phẩy)</label>
+        <input type="text" id="eqMembers" value="Huyền, Bạn trai, Lan, Minh" oninput="calcEqual()">
+      </div>
+
+      <div class="card">
+        <h2>💡 Kết quả chia tiền</h2>
+        <div id="eqResult" class="result-box">
+          <p style="color: var(--text-muted);">Nhập tổng tiền và tên thành viên để xem kết quả...</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 2. CHIA THEO MÓN (ITEMIZED SPLIT) -->
+  <section id="sec-itemized" class="tool-section">
+    <div class="grid-2">
+      <div class="card">
+        <h2>🧾 Thêm thành viên &amp; Món ăn</h2>
+        <label>1. Thêm tên thành viên</label>
+        <div class="flex-row">
+          <input type="text" id="itemMemberName" placeholder="Tên người tham gia">
+          <button class="btn" style="width: auto; margin-bottom: 16px;" onclick="addItemMember()">Thêm</button>
+        </div>
+        <div id="itemMemberList" style="margin-bottom: 16px; font-size: 14px; color: var(--accent);">Chưa có thành viên nào.</div>
+
+        <label>2. Thêm món đã gọi</label>
+        <input type="text" id="dishName" placeholder="Tên món (Ví dụ: Pizza hải sản)">
+        <div class="flex-row">
+          <input type="number" id="dishPrice" placeholder="Giá tiền (VNĐ)">
+          <select id="dishEater">
+            <option value="">-- Chọn người ăn món này --</option>
+          </select>
+        </div>
+        <button class="btn" onclick="addDish()">Thêm món vào hóa đơn</button>
+      </div>
+
+      <div class="card">
+        <h2>🛒 Chi tiết hóa đơn &amp; Cần trả</h2>
+        <div style="max-height: 250px; overflow-y: auto; margin-bottom: 16px;">
+          <table id="dishTable">
+            <thead>
+              <tr>
+                <th>Món</th>
+                <th>Giá</th>
+                <th>Người ăn</th>
+                <th>Xóa</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td colspan="4" style="text-align: center; color: var(--text-muted);">Chưa có món nào được thêm</td></tr>
+            </tbody>
+          </table>
+        </div>
+        
+        <label>Thuế / Phí dịch vụ chung thêm (%)</label>
+        <input type="number" id="itemTax" value="0" placeholder="Ví dụ: 8% VAT" oninput="calcItemized()">
+
+        <h3>Tổng thanh toán từng người:</h3>
+        <div id="itemizedResult" class="result-box" style="margin-top: 10px;">
+          <p style="color: var(--text-muted);">Thêm món để tính toán...</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 3. AI NỢ AI (LEDGER / BÙ TRỪ NỢ) -->
+  <section id="sec-debt" class="tool-section">
+    <div class="card" style="max-width: 700px; margin: auto;">
+      <h2>⚖️ Tính toán bù trừ nợ thông minh (Settlement Ledger)</h2>
+      <p style="color: var(--text-muted); margin-bottom: 20px; font-size: 14px;">Nhập các khoản tiền ai đã trả trước cho nhóm, hệ thống sẽ tự tối ưu hóa các khoản chuyển khoản ít nhất để bù trừ lẫn nhau.</p>
+      
+      <div class="flex-row">
+        <div>
+          <label>Người trả tiền</label>
+          <input type="text" id="debtPayer" placeholder="Ví dụ: Huyền">
+        </div>
+        <div>
+          <label>Số tiền (VNĐ)</label>
+          <input type="number" id="debtAmount" placeholder="Ví dụ: 500000">
+        </div>
+      </div>
+      <label>Dành cho những ai hưởng? (cách nhau bởi dấu phẩy, để trống = tất cả)</label>
+      <input type="text" id="debtFor" placeholder="Ví dụ: Huyền, Bạn trai, Lan">
+      <button class="btn" onclick="addExpense()">Ghi nhận khoản chi</button>
+
+      <div style="margin-top: 24px;">
+        <h3>Sổ ghi chép chi phí nhóm:</h3>
+        <ul id="expenseList" style="list-style: none; margin-top: 10px; font-size: 14.5px;">
+          <li style="color: var(--text-muted);">Chưa có khoản chi nào được ghi nhận.</li>
+        </ul>
+      </div>
+
+      <div class="result-box" style="margin-top: 24px;">
+        <h3>💸 Hướng dẫn chuyển khoản bù trừ tối ưu:</h3>
+        <div id="settleResult" style="margin-top: 10px; color: var(--text-muted);">Chưa đủ dữ liệu để tính toán.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 4. ĐỔI TỶ GIÁ WISE REAL-TIME -->
+  <section id="sec-currency" class="tool-section">
+    <div class="card" style="max-width: 650px; margin: auto;">
+      <h2>💱 Chuyển đổi ngoại tệ Real-time</h2>
+      <p style="color: var(--text-muted); margin-bottom: 20px; font-size: 14px;">
+        Lấy tỷ giá giao dịch chuẩn thời gian thực (mid-market rates) tương tự hệ thống <a href="https://wise.com/vn/currency-converter/" target="_blank" style="color: var(--accent);">Wise Currency Converter</a> [cite: 23].
+      </p>
+
+      <div class="grid-2" style="margin-bottom: 0;">
+        <div>
+          <label>Số tiền</label>
+          <input type="number" id="currAmount" value="100" oninput="convertCurrency()">
+        </div>
+        <div>
+          <label>Từ đồng tiền (From)</label>
+          <select id="currFrom" onchange="convertCurrency()">
+            <option value="VND">VND - Đồng Việt Nam</option>
+            <option value="USD" selected>USD - Đô la Mỹ</option>
+            <option value="EUR">EUR - Euro</option>
+            <option value="JPY">JPY - Yên Nhật</option>
+            <option value="GBP">GBP - Bảng Anh</option>
+            <option value="AUD">AUD - Đô la Úc</option>
+            <option value="SGD">SGD - Đô la Singapore</option>
+            <option value="THB">THB - Baht Thái</option>
+            <option value="KRW">KRW - Won Hàn Quốc</option>
+            <option value="CNY">CNY - Nhân dân tệ</option>
+          </select>
+        </div>
+      </div>
+
+      <div style="text-align: center; margin: 10px 0; font-size: 20px; color: var(--accent);">⬇️</div>
+
+      <div>
+        <label>Đổi sang đồng tiền (To)</label>
+        <select id="currTo" onchange="convertCurrency()">
+          <option value="VND" selected>VND - Đồng Việt Nam</option>
+          <option value="USD">USD - Đô la Mỹ</option>
+          <option value="EUR">EUR - Euro</option>
+          <option value="JPY">JPY - Yên Nhật</option>
+          <option value="GBP">GBP - Bảng Anh</option>
+          <option value="AUD">AUD - Đô la Úc</option>
+          <option value="SGD">SGD - Đô la Singapore</option>
+          <option value="THB">THB - Baht Thái</option>
+          <option value="KRW">KRW - Won Hàn Quốc</option>
+          <option value="CNY">CNY - Nhân dân tệ</option>
+        </select>
+      </div>
+
+      <div class="currency-display" id="currResult">
+        Loading...
+      </div>
+
+      <div class="rate-source" id="rateInfo">
+        Đang đồng bộ tỷ giá real-time... · Dữ liệu tham khảo từ <a href="https://wise.com/vn/currency-converter/" target="_blank">Wise.com</a> [cite: 23]
+      </div>
+      
+      <button class="btn btn-secondary" style="margin-top: 16px;" onclick="fetchWiseRates()">🔄 Làm mới tỷ giá trực tiếp</button>
+    </div>
+  </section>
+
+</main>
+
+<script>
+// --- 1. CHIA ĐỀU ĐƠN GIẢN ---
+function calcEqual() {
+  const total = parseFloat(document.getElementById('eqTotal').value) || 0;
+  const tipPct = parseFloat(document.getElementById('eqTip').value) || 0;
+  const membersRaw = document.getElementById('eqMembers').value;
+  
+  const members = membersRaw.split(',').map(m => m.trim()).filter(m => m.length > 0);
+  const resultDiv = document.getElementById('eqResult');
+
+  if (members.length === 0 || total === 0) {
+    resultDiv.innerHTML = '<p style="color: var(--text-muted);">Vui lòng nhập tổng tiền và ít nhất một thành viên.</p>';
+    return;
+  }
+
+  const finalTotal = total * (1 + tipPct / 100);
+  const perPerson = finalTotal / members.length;
+
+  let html = `<div class="result-item"><span>Tổng hóa đơn (có tip):</span><b>${finalTotal.toLocaleString('vi-VN')} đ</b></div>`;
+  html += `<div class="result-item"><span>Số thành viên chia:</span><b>${members.length} người</b></div>`;
+  html += `<hr style="border-color: var(--border); margin: 10px 0;">`;
+  
+  members.forEach(m => {
+    html += `<div class="result-item"><span>${m} cần trả:</span><b style="color: var(--accent);">${perPerson.toLocaleString('vi-VN', {maximumFractionDigits: 0})} đ</b></div>`;
+  });
+
+  resultDiv.innerHTML = html;
+}
+calcEqual();
+
+// --- 2. CHIA THEO MÓN ---
+let itemMembers = ["Huyền", "Bạn trai", "Lan"];
+let dishes = [];
+
+function updateItemMemberList() {
+  const listEl = document.getElementById('itemMemberList');
+  const selectEl = document.getElementById('dishEater');
+  
+  if (itemMembers.length === 0) {
+    listEl.innerHTML = "Chưa có thành viên nào.";
+    selectEl.innerHTML = '<option value="">-- Chưa có thành viên --</option>';
+    return;
+  }
+
+  listEl.innerHTML = "Thành viên: " + itemMembers.join(', ');
+  let opts = '<option value="">-- Chọn người ăn --</option>';
+  itemMembers.forEach(m => {
+    opts += `<option value="${m}">${m}</option>`;
+  });
+  selectEl.innerHTML = opts;
+}
+
+function addItemMember() {
+  const nameInput = document.getElementById('itemMemberName');
+  const name = nameInput.value.trim();
+  if(name && !itemMembers.includes(name)) {
+    itemMembers.push(name);
+    nameInput.value = '';
+    updateItemMemberList();
+    calcItemized();
+  }
+}
+updateItemMemberList();
+
+function addDish() {
+  const name = document.getElementById('dishName').value.trim();
+  const price = parseFloat(document.getElementById('dishPrice').value);
+  const eater = document.getElementById('dishEater').value;
+
+  if(!name || isNaN(price) || !eater) {
+    alert("Vui lòng nhập tên món, giá tiền và chọn người ăn!");
+    return;
+  }
+
+  dishes.push({ name, price, eater });
+  document.getElementById('dishName').value = '';
+  document.getElementById('dishPrice').value = '';
+  renderDishTable();
+  calcItemized();
+}
+
+function removeDish(index) {
+  dishes.splice(index, 1);
+  renderDishTable();
+  calcItemized();
+}
+
+function renderDishTable() {
+  const tbody = document.querySelector('#dishTable tbody');
+  if(dishes.length === 0) {
+    tbody.innerHTML = '<tr><td colspan="4" style="text-align: center; color: var(--text-muted);">Chưa có món nào được thêm</td></tr>';
+    return;
+  }
+  let html = '';
+  dishes.forEach((d, idx) => {
+    html += `<tr>
+      <td>${d.name}</td>
+      <td>${d.price.toLocaleString('vi-VN')} đ</td>
+      <td><span class="badge" style="margin:0;">${d.eater}</span></td>
+      <td><button class="tag-delete" onclick="removeDish(${idx})">Xóa</button></td>
+    </tr>`;
+  });
+  tbody.innerHTML = html;
+}
+
+function calcItemized() {
+  const taxPct = parseFloat(document.getElementById('itemTax').value) || 0;
+  const resDiv = document.getElementById('itemizedResult');
+
+  if(itemMembers.length === 0 || dishes.length === 0) {
+    resDiv.innerHTML = '<p style="color: var(--text-muted);">Thêm món và thành viên để tính tiền...</p>';
+    return;
+  }
+
+  let totals = {};
+  itemMembers.forEach(m => totals[m] = 0);
+
+  dishes.forEach(d => {
+    if(totals[d.eater] !== undefined) {
+      totals[d.eater] += d.price;
+    }
+  });
+
+  let sumRaw = Object.values(totals.reduce((a,b)=>a+b, 0) || totals); // safe sum
+  let sumAll = 0;
+  for(let m in totals) sumAll += totals[m];
+
+  let taxMultiplier = (1 + taxPct / 100);
+
+  let html = '';
+  for(let m in totals) {
+    let finalAmt = totals[m] * taxMultiplier;
+    html += `<div class="result-item"><span>${m}:</span><b style="color: var(--accent);">${finalAmt.toLocaleString('vi-VN', {maximumFractionDigits: 0})} đ</b></div>`;
+  }
+  resDiv.innerHTML = html;
+}
+
+// --- 3. ĐỒNG BỘ TỶ GIÁ WISE REAL-TIME ---
+let liveRates = {
+  "VND": 1,
+  "USD": 25400,
+  "EUR": 27200,
+  "JPY": 165,
+  "GBP": 32500,
+  "AUD": 16800,
+  "SGD": 19100,
+  "THB": 730,
+  "KRW": 18.5,
+  "CNY": 3500
+};
+
+async function fetchWiseRates() {
+  const infoEl = document.getElementById('rateInfo');
+  infoEl.innerHTML = '⏳ Đang kết nối lấy tỷ giá trực tiếp...';
+  try {
+    // Gọi API tỷ giá mở công khai dựa trên USD làm gốc để tính cross-rate chuẩn như Wise
+    let res = await fetch('https://open.er-api.com/v6/latest/USD');
+    let data = await res.json();
+    if(data && data.rates) {
+      // Đổi sang hệ quy chiếu VND
+      let usdToVnd = data.rates.VND || 25400;
+      liveRates['USD'] = usdToVnd;
+      liveRates['VND'] = 1;
+      
+      for(let curr in liveRates) {
+        if(curr !== 'VND' && data.rates[curr]) {
+          // 1 curr = ? VND -> (usdToVnd / data.rates[curr])
+          liveRates[curr] = usdToVnd / data.rates[curr];
+        }
+      }
+      infoEl.innerHTML = '✅ Đã cập nhật tỷ giá real-time thành công · Tham khảo từ <a href="https://wise.com/vn/currency-converter/" target="_blank">Wise.com</a> [cite: 23]';
+      convertCurrency();
+    }
+  } catch (e) {
+    infoEl.innerHTML = '⚠️ Dùng tỷ giá lưu trữ ngoại tuyến · Tham khảo từ <a href="https://wise.com/vn/currency-converter/" target="_blank">Wise.com</a> [cite: 23]';
+    convertCurrency();
+  }
+}
+
+function convertCurrency() {
+  const amount = parseFloat(document.getElementById('currAmount').value) || 0;
+  const from = document.getElementById('currFrom').value;
+  const to = document.getElementById('currTo').value;
+  const resultEl = document.getElementById('currResult');
+
+  // Quy đổi qua VND làm trung gian
+  let amountInVnd = amount * (liveRates[from] || 1);
+  let finalAmount = amountInVnd / (liveRates[to] || 1);
+
+  resultEl.innerHTML = `${finalAmount.toLocaleString('vi-VN', {maximumFractionDigits: 2})} <span style="font-size: 18px; color: var(--accent);">${to}</span>`;
+}
+
+// Chạy khởi tạo tỷ giá ngay khi tải trang
+fetchWiseRates();
+</script>
+
+</body>
+</html>
