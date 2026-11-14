@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Alessandra Tran ✿ alessandratran.com</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Pinyon+Script&family=Playfair+Display:ital,wght@0,500;0,700;1,500&family=Quicksand:wght@400;500;700&display=swap">
+<style>
+:root{--pink:#f9d3de;--pink2:#fde9ef;--rose:#e8749a;--white:#fffafb;--ink:#1d1418;--card:#ffffff;--line:#f3b9cb;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--pink:#3a1f2b;--pink2:#2b171f;--rose:#f291b1;--white:#1c1015;--ink:#fde9ef;--card:#2a1820;--line:#5a3343;color-scheme:dark}}
+:root[data-theme="dark"]{--pink:#3a1f2b;--pink2:#2b171f;--rose:#f291b1;--white:#1c1015;--ink:#fde9ef;--card:#2a1820;--line:#5a3343;color-scheme:dark}
+*{box-sizing:border-box;margin:0}
+html{scroll-behavior:smooth;scroll-padding-top:calc(64px + env(safe-area-inset-top,0px))}
+body{background:var(--white);color:var(--ink);font-family:Quicksand,system-ui,sans-serif;line-height:1.6;overflow-x:hidden}
+a{color:inherit;text-decoration:none}
+.script{font-family:'Pinyon Script',cursive;font-weight:400}
+.serif{font-family:'Playfair Display',Georgia,serif}
+nav{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;display:flex;gap:6px;align-items:center;padding:10px 18px;background:color-mix(in srgb,var(--white) 88%,transparent);backdrop-filter:blur(10px);border-bottom:1px solid var(--line);overflow-x:auto;white-space:nowrap}
+nav b{font-family:'Pinyon Script',cursive;font-size:26px;color:var(--rose);margin-right:10px;font-weight:400}
+nav a{font-size:13px;padding:4px 11px;border-radius:99px}
+nav a:hover{background:var(--pink)}
+section{position:relative;padding:90px 7vw;max-width:100%}
+.wrap{max-width:1080px;margin:auto}
+.pink{background:var(--pink)}.pink2{background:var(--pink2)}
+.pink::before,.pink2::before{content:"";position:absolute;left:0;right:0;top:-39px;height:40px;background:inherit;clip-path:ellipse(60% 100% at 50% 100%)}
+.tag{font-size:12px;letter-spacing:.25em;text-transform:uppercase;color:var(--rose);font-weight:700}
+h2{font-family:'Playfair Display',serif;font-size:clamp(30px,5vw,48px);line-height:1.15;margin:6px 0 10px}
+h2 em{font-family:'Pinyon Script',cursive;font-style:normal;color:var(--rose);font-weight:400;font-size:1.25em}
+p.lead{max-width:560px;opacity:.85;margin-bottom:28px}
+.cta{display:inline-flex;gap:8px;align-items:center;margin-top:14px;padding:10px 20px;border-radius:99px;background:var(--rose);color:#fff;font-weight:700;font-size:14px;transition:.25s}
+.cta:hover{transform:translateY(-2px) scale(1.03);box-shadow:0 8px 20px #e8749a55}
+.cta.ghost{background:transparent;color:var(--ink);border:1.5px solid var(--ink)}
+.ph{display:grid;place-items:center;border-radius:22px;background:linear-gradient(135deg,var(--pink),var(--line));font-size:64px;min-height:180px;overflow:hidden}
+.ph img{width:100%;height:100%;object-fit:cover}
+.card{background:var(--card);border:1px solid var(--line);border-radius:22px;padding:18px;transition:.25s}
+a.card:hover{transform:translateY(-5px);box-shadow:0 12px 28px #e8749a33}
+.rv{opacity:0;transform:translateY(36px);transition:opacity .9s,transform .9s}
+.rv.on{opacity:1;transform:none}
+.float{position:absolute;font-size:34px;animation:fl 5s ease-in-out infinite;pointer-events:none}
+@keyframes fl{50%{transform:translateY(-14px) rotate(8deg)}}
+/* hero */
+#home{min-height:92vh;display:grid;align-items:center;background:radial-gradient(circle at 80% 20%,var(--pink),transparent 55%),var(--white)}
+#home .wrap{display:grid;grid-template-columns:1.2fr 1fr;gap:40px;align-items:center}
+#home h1{font-family:'Pinyon Script',cursive;font-weight:400;font-size:clamp(60px,11vw,120px);line-height:1;color:var(--rose)}
+#home .ph{aspect-ratio:3/4;border-radius:200px 200px 24px 24px;font-size:110px;border:6px solid var(--card)}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px}
+.chip{padding:5px 13px;border-radius:99px;background:var(--pink);font-size:13px}
+/* portfolio: grid */
+.g4{display:grid;grid-template-columns:repeat(auto-fill,minmax(190px,1fr));gap:14px}
+.g4 .card{text-align:center}.g4 .card span{font-size:38px;display:block}
+.g4 .card small{display:block;opacity:.7;font-size:12px;margin-top:2px}
+/* blog: editorial */
+.blog{display:grid;grid-template-columns:1.3fr 1fr;gap:22px}
+.blog .big{grid-row:span 2}.blog .ph{min-height:260px;margin-bottom:12px}
+.blog .card h3,.big h3{font-family:'Playfair Display',serif}
+/* projects: dark pink band */
+#project{background:var(--ink);color:var(--white)}
+#project h2,#project .tag{color:inherit}#project h2 em{color:var(--rose)}
+#project::before{background:var(--ink)}
+.pj{display:flex;flex-wrap:wrap;gap:10px}
+.pj a{padding:9px 16px;border-radius:99px;border:1.5px solid var(--rose);font-size:14px;transition:.2s}
+.pj a:hover{background:var(--rose);color:#fff;transform:rotate(-2deg) scale(1.06)}
+/* review: horizontal scroll */
+.hs{display:flex;gap:16px;overflow-x:auto;padding:6px 2px 18px;scroll-snap-type:x mandatory}
+.hs .card{flex:0 0 240px;scroll-snap-align:start}
+.hs .ph{min-height:140px;font-size:50px;margin-bottom:10px}
+.stars{color:var(--rose);letter-spacing:2px}
+/* recipe: split */
+.split{display:grid;grid-template-columns:1fr 1fr;gap:34px;align-items:center}
+.split .ph{aspect-ratio:1;border-radius:50%;font-size:120px}
+.steps{list-style:none;padding:0;display:grid;gap:8px;margin-top:10px}
+.steps li{padding:8px 14px;background:var(--card);border-radius:14px;border:1px dashed var(--line)}
+/* fashion: big banner */
+.fash{display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px}
+.fash .ph{min-height:260px}.fash .ph:nth-child(2){transform:translateY(24px)}
+.shop{margin-top:50px;text-align:center}
+.shop .script{font-size:clamp(46px,8vw,84px);color:var(--rose);line-height:1}
+/* matcha menu */
+#matcha{background:#e6efd9;color:#1f2a17}
+#matcha::before{background:#e6efd9}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) #matcha{background:#223020;color:#eaf3df}:root:not([data-theme="light"]) #matcha::before{background:#223020}}
+.menu{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:14px}
+.menu .card{background:#ffffff99;border-color:#b9d19c;text-align:center}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .menu .card{background:#ffffff14}}
+.menu .card span{font-size:44px}.menu b{display:block}.menu em{color:#5c8a3a;font-style:normal;font-weight:700}
+/* interests: bubbles */
+.bub{display:flex;flex-wrap:wrap;gap:12px;justify-content:center}
+.bub a{padding:14px 22px;border-radius:99px;background:var(--card);border:1.5px solid var(--line);font-weight:700;transition:.25s}
+.bub a:nth-child(3n){background:var(--rose);color:#fff;border-color:var(--rose)}
+.bub a:hover{transform:translateY(-4px) rotate(-3deg)}
+/* achievements: timeline */
+.tl{position:relative;padding-left:30px;border-left:2px dashed var(--rose);display:grid;gap:22px}
+.tl div{position:relative}
+.tl div::before{content:"✿";position:absolute;left:-42px;top:0;background:var(--pink);color:var(--rose);border-radius:50%;width:22px;text-align:center;font-size:15px}
+.tl b{font-family:'Playfair Display',serif;font-size:18px}
+footer{text-align:center;padding:60px 20px calc(40px + env(safe-area-inset-bottom,0px));background:var(--pink)}
+footer .script{font-size:54px;color:var(--rose)}
+@media(max-width:760px){#home .wrap,.blog,.split{grid-template-columns:1fr}.fash{grid-template-columns:1fr 1fr}.fash .ph:nth-child(3){display:none}section{padding:70px 6vw}}
+#lg{margin-left:auto;position:sticky;right:0;flex:none;border:1.5px solid var(--rose);background:var(--white);color:var(--ink);border-radius:99px;padding:4px 14px;font:700 13px Quicksand,sans-serif;cursor:pointer}#lg:hover{background:var(--rose);color:#fff}
+</style>
+</head>
+<body>
+<nav><b>Alessandra</b>
+<a href="#home">Giới thiệu</a><a href="#portfolio">Portfolio</a><a href="#blog">Blog</a><a href="#project">Hôm nay…</a><a href="#review">Review</a><a href="#recipe">Recipe</a><a href="#fashion">Thời trang</a><a href="#matcha">Matcha</a><a href="#learning">Đang học</a><a href="#achievement">Thành tựu</a><button id="lg" type="button">🌐 Tiếng Việt</button></nav>
+
+<!-- 1. GIỚI THIỆU -->
+<section id="home"><span class="float" style="top:14%;left:6%">🎀</span><span class="float" style="top:70%;left:44%;animation-delay:1s">🌸</span><span class="float" style="top:12%;right:8%;animation-delay:2s">✨</span>
+<div class="wrap"><div class="rv">
+<div class="tag">welcome to my little world</div>
+<h1>Alessandra Tran</h1>
+<p class="serif" style="font-size:20px;font-style:italic;margin:10px 0">marketer · teacher · creator · dreamer</p>
+<p style="max-width:480px;opacity:.85">Xin chào, mình là Alessandra 🌷 Đây là ngôi nhà nhỏ của mình trên internet: nơi có công việc, dự án, món ăn, trang phục, ly matcha và những điều mình đang học mỗi ngày.</p>
+<div class="chips"><span class="chip">🇻🇳 Việt Nam</span><span class="chip">📚 EN · FR · 中文</span><span class="chip">🍵 matcha lover</span><span class="chip">✈️ tour guide</span></div>
+<a class="cta" href="#portfolio">Khám phá ngay ↓</a></div>
+<div class="ph rv"><img alt="" src="" hidden>👩‍🎤</div></div></section>
+
+<!-- 2. PORTFOLIO -->
+<section id="portfolio" class="pink"><div class="wrap">
+<div class="rv"><div class="tag">portfolio</div><h2>Mình làm <em>nhiều</em> việc lắm</h2><p class="lead">Mỗi vai trò là một trang portfolio riêng. Chọn một cái để xem nhé.</p></div>
+<div class="g4 rv" id="pf"></div>
+<a class="cta rv" href="https://alessandratran.com/portfolio/">Go to portfolio →</a></div></section>
+
+<!-- 3. BLOG -->
+<section id="blog"><div class="wrap">
+<div class="rv"><div class="tag">personal blog</div><h2>Nhật ký <em>của mình</em></h2></div>
+<div class="blog rv">
+<a class="card big" href="https://alessandratran.com/blog/"><div class="ph">📝</div><div class="tag">mới nhất</div><h3>Những điều mình học được năm nay</h3><p style="opacity:.8">Một bài viết dài về những lần vấp ngã, những lần làm lại và vì sao mình vẫn mê việc thử cái mới.</p></a>
+<a class="card" href="https://alessandratran.com/blog/"><div class="tag">tản mạn</div><h3>Sài Gòn mưa, mình viết</h3><p style="opacity:.8">☔ Mùa mưa và một ly cà phê.</p></a>
+<a class="card" href="https://alessandratran.com/blog/"><div class="tag">cuộc sống</div><h3>Một ngày của freelancer</h3><p style="opacity:.8">💻 Lịch trình thật, không filter.</p></a></div>
+<a class="cta rv" href="https://alessandratran.com/blog/">Go to blog →</a></div></section>
+
+<!-- 4. PROJECT -->
+<section id="project"><div class="wrap">
+<div class="rv"><div class="tag">projects · webapp</div><h2>Hôm nay <em>làm gì</em> nhỉ?</h2><p class="lead" style="opacity:.8">Bộ mini webapp giúp mình (và bạn) quyết định mọi thứ cho một ngày. Bấm vào để thử.</p></div>
+<div class="pj rv" id="pj"></div>
+<a class="cta rv" style="margin-top:28px" href="https://alessandratran.com/project/">Go to all projects →</a></div></section>
+
+<!-- 5. REVIEW -->
+<section id="review" class="pink2"><div class="wrap">
+<div class="rv"><div class="tag">reviews</div><h2>Review <em>thật lòng</em></h2><p class="lead">Sách, đồ ăn, đất nước và đủ thứ khác, mình chấm điểm theo cảm nhận riêng.</p></div>
+<div class="hs rv" id="rvw"></div>
+<a class="cta" href="https://alessandratran.com/review/">Go to reviews →</a></div></section>
+
+<!-- 6. RECIPE -->
+<section id="recipe"><div class="wrap split">
+<div class="ph rv">🍳</div>
+<div class="rv"><div class="tag">recipes</div><h2>Vào <em>bếp</em> thôi</h2>
+<p class="lead" style="margin-bottom:8px">Công thức đơn giản, dễ làm tại nhà, có hình từng bước.</p>
+<ul class="steps"><li>🥚 Trứng cuộn phô mai · 10 phút</li><li>🍝 Mì Ý kem nấm · 20 phút</li><li>🍓 Bánh mochi dâu · 40 phút</li></ul>
+<a class="cta" href="https://alessandratran.com/recipe/">Go to recipes →</a></div></div></section>
+
+<!-- 7. FASHION -->
+<section id="fashion" class="pink"><div class="wrap">
+<div class="rv"><div class="tag">fashion</div><h2>Thời trang <em>si mê</em></h2></div>
+<div class="fash rv"><div class="ph">👗</div><div class="ph">👜</div><div class="ph">👠</div></div>
+<div class="shop rv"><div class="script">Tiệm Si Mê</div><p class="lead" style="margin:6px auto 0">Đồ si tuyển chọn, vintage và mix &amp; match theo gu của mình 🛍️</p>
+<a class="cta" href="https://alessandratran.com/simemshop/">Go to Tiệm Si Mê →</a></div></div></section>
+
+<!-- 8. MATCHA -->
+<section id="matcha"><div class="wrap">
+<div class="rv"><div class="tag" style="color:#5c8a3a">matcha latte shop</div><h2>Matcha <em style="color:#5c8a3a">latte</em> 🍵</h2><p class="lead">Chọn ly yêu thích rồi đặt ngay trên trang menu riêng.</p></div>
+<div class="menu rv"><div class="card"><span>🍵</span><b>Matcha Latte</b><em>45k</em></div><div class="card"><span>🍓</span><b>Strawberry Matcha</b><em>55k</em></div><div class="card"><span>🥥</span><b>Coconut Matcha</b><em>55k</em></div><div class="card"><span>🧊</span><b>Dirty Matcha</b><em>60k</em></div></div>
+<a class="cta rv" style="background:#5c8a3a" href="https://alessandratran.com/matcha/">Go to menu &amp; order →</a></div></section>
+
+<!-- 9. ĐANG QUAN TÂM -->
+<section id="learning"><div class="wrap" style="text-align:center">
+<div class="rv"><div class="tag">currently into</div><h2>Mình đang <em>học</em></h2><p class="lead" style="margin:0 auto 30px">Việc học không bao giờ dừng lại.</p></div>
+<div class="bub rv" id="bub"></div>
+<a class="cta rv" style="margin-top:30px" href="https://alessandratran.com/learning/">Go to my learning log →</a></div></section>
+
+<!-- 10. THÀNH TỰU -->
+<section id="achievement" class="pink"><div class="wrap">
+<div class="rv"><div class="tag">achievements</div><h2>Những điều <em>mình đã đạt được</em> 🏆</h2></div>
+<div class="tl rv"><div><b>2026 · Mở tiệm matcha &amp; Tiệm Si Mê</b><br><span>Bắt đầu hành trình kinh doanh của riêng mình.</span></div><div><b>2025 · Hoàn thành bộ webapp “Hôm nay…”</b><br><span>16 mini app đầu tiên ra mắt.</span></div><div><b>2024 · Hợp tác thương hiệu với vai trò influencer</b><br><span>Những chiến dịch đầu tay.</span></div><div><b>2023 · Chứng chỉ giảng dạy tiếng Anh</b><br><span>Bắt đầu dạy học viên đầu tiên.</span></div></div>
+<a class="cta rv" href="https://alessandratran.com/achievement/">Go to achievements →</a></div></section>
+
+<footer><div class="script">Alessandra Tran</div><p>Cảm ơn bạn đã ghé thăm 🎀 · alessandratran.com</p></footer>
+
+<script>
+var B="https://alessandratran.com/";
+function mk(id,arr,f){document.getElementById(id).innerHTML=arr.map(f).join("")}
+mk("pf",[["📈","Marketer"],["🔤","English Teacher"],["📸","Model &amp; Influencer"],["🎨","Graphic Designer"],["🚀","Entrepreneur"],["🧳","Tour Guide"],["🎬","Video Creator"],["✍️","Content Writer"]],function(a){return '<a class="card" href="'+B+'portfolio/'+a[1].toLowerCase().replace(/&amp;/g,"and").replace(/ /g,"-")+'"><span>'+a[0]+'</span><b>'+a[1]+'</b><small>Go to →</small></a>'});
+mk("pj",[["🍜","ăn gì","an-gi"],["👗","mặc gì","mac-gi"],["🎬","xem phim gì","xem-phim-gi"],["🍳","nấu gì","nau-gi"],["📖","đọc gì","doc-gi"],["🎤","hát gì","hat-gi"],["💭","nghĩ gì","nghi-gi"],["🎮","chơi gì","choi-gi"],["📌","làm gì","lam-gi"],["☕","đi cafe nào","di-cafe-nao"],["🍽️","đi quán ăn nào","di-quan-an-nao"],["✅","checklist","checklist"],["🪄","bucketlist","bucketlist"],["💪","tập gì","tap-gi"],["🧋","uống gì","uong-gi"],["🗺️","đi đâu","di-dau"]],function(a){return '<a href="'+B+'project/hom-nay-'+a[2]+'">'+a[0]+' hôm nay '+a[1]+'</a>'});
+mk("rvw",[["📚","Sách","Atomic Habits","★★★★★"],["🍜","Đồ ăn","Phở Hòa Pasteur","★★★★☆"],["🇯🇵","Đất nước","Nhật Bản","★★★★★"],["🧴","Skincare","Serum vitamin C","★★★★☆"],["🎞️","Phim","Lady Bird","★★★★★"]],function(a){return '<a class="card" href="'+B+'review/"><div class="ph">'+a[0]+'</div><div class="tag">'+a[1]+'</div><b class="serif">'+a[2]+'</b><div class="stars">'+a[3]+'</div></a>'});
+mk("bub",[["🇬🇧","Tiếng Anh"],["🇫🇷","Tiếng Pháp"],["🇨🇳","Tiếng Trung"],["💻","Học code"],["🎹","Sản xuất nhạc"],["🎨","Học vẽ"],["🎥","Làm video"],["🐶","Nuôi chó mèo"]],function(a){return '<a href="'+B+'learning/">'+a[0]+' '+a[1]+'</a>'});
+var DV={"Go to portfolio →":"Xem hồ sơ công việc →","Go to blog →":"Vào blog →","Go to all projects →":"Xem tất cả dự án →","Go to reviews →":"Xem các bài review →","Go to recipes →":"Xem công thức →","Go to Tiệm Si Mê →":"Đến Tiệm Si Mê →","Go to menu & order →":"Xem menu và đặt món →","Go to my learning log →":"Xem nhật ký học tập →","Go to achievements →":"Xem thành tựu →","Go to →":"Xem →","welcome to my little world":"chào mừng đến thế giới nhỏ của mình","portfolio":"hồ sơ công việc","personal blog":"blog cá nhân","projects · webapp":"dự án · ứng dụng web","reviews":"đánh giá","recipes":"công thức nấu ăn","fashion":"thời trang","matcha latte shop":"tiệm matcha latte","currently into":"đang quan tâm","achievements":"thành tựu","marketer · teacher · creator · dreamer":"nhà tiếp thị · giáo viên · người sáng tạo · người mơ mộng","🍵 matcha lover":"🍵 mê matcha","✈️ tour guide":"✈️ hướng dẫn viên","📚 EN · FR · 中文":"📚 Anh · Pháp · Trung","Portfolio":"Hồ sơ","Review":"Đánh giá","Recipe":"Công thức","Marketer":"Nhà tiếp thị","English Teacher":"Giáo viên tiếng Anh","Model & Influencer":"Người mẫu & Influencer","Graphic Designer":"Nhà thiết kế đồ họa","Entrepreneur":"Doanh nhân","Tour Guide":"Hướng dẫn viên","Video Creator":"Người làm video","Content Writer":"Người viết nội dung","Skincare":"Chăm sóc da"};
+var D={"Tiệm Si Mê":"Love Secondhand Shop","Giới thiệu":"About","Hôm nay…":"Today…","Thời trang":"Fashion","Đang học":"Learning","Thành tựu":"Achievements",
+"Xin chào, mình là Alessandra 🌷 Đây là ngôi nhà nhỏ của mình trên internet: nơi có công việc, dự án, món ăn, trang phục, ly matcha và những điều mình đang học mỗi ngày.":"Hi, I’m Alessandra 🌷 This is my little home on the internet: my work, projects, recipes, outfits, matcha and everything I’m learning day by day.",
+"🇻🇳 Việt Nam":"🇻🇳 Vietnam","Khám phá ngay ↓":"Explore now ↓",
+"Mỗi vai trò là một trang portfolio riêng. Chọn một cái để xem nhé.":"Each role has its own portfolio page. Pick one to take a look.",
+"mới nhất":"latest","tản mạn":"musings","cuộc sống":"life",
+"Những điều mình học được năm nay":"What I learned this year",
+"Một bài viết dài về những lần vấp ngã, những lần làm lại và vì sao mình vẫn mê việc thử cái mới.":"A long read about stumbles, restarts and why I still love trying new things.",
+"Sài Gòn mưa, mình viết":"Rainy Saigon, so I write","☔ Mùa mưa và một ly cà phê.":"☔ Rainy season and a cup of coffee.",
+"Một ngày của freelancer":"A day in the life of a freelancer","💻 Lịch trình thật, không filter.":"💻 The real schedule, no filter.",
+"Bộ mini webapp giúp mình (và bạn) quyết định mọi thứ cho một ngày. Bấm vào để thử.":"A set of mini web apps that help me (and you) decide everything for the day. Tap to try.",
+"Sách, đồ ăn, đất nước và đủ thứ khác, mình chấm điểm theo cảm nhận riêng.":"Books, food, countries and so much more, rated by my own feelings.",
+"Sách":"Book","Đồ ăn":"Food","Đất nước":"Country","Phim":"Movie","Nhật Bản":"Japan",
+"Công thức đơn giản, dễ làm tại nhà, có hình từng bước.":"Simple recipes you can make at home, with step-by-step photos.",
+"🥚 Trứng cuộn phô mai · 10 phút":"🥚 Cheesy egg roll · 10 min","🍝 Mì Ý kem nấm · 20 phút":"🍝 Creamy mushroom pasta · 20 min","🍓 Bánh mochi dâu · 40 phút":"🍓 Strawberry mochi · 40 min",
+"Đồ si tuyển chọn, vintage và mix & match theo gu của mình 🛍️":"Curated thrift finds, vintage and mix & match in my own style 🛍️",
+"Chọn ly yêu thích rồi đặt ngay trên trang menu riêng.":"Pick your favorite cup and order right on the menu page.",
+"Việc học không bao giờ dừng lại.":"Learning never stops.",
+"2026 · Mở tiệm matcha & Tiệm Si Mê":"2026 · Opened my matcha shop & Love Secondhand Shop","Bắt đầu hành trình kinh doanh của riêng mình.":"Started my own business journey.",
+"2025 · Hoàn thành bộ webapp “Hôm nay…”":"2025 · Finished the “Today…” web app set","16 mini app đầu tiên ra mắt.":"The first 16 mini apps launched.",
+"2024 · Hợp tác thương hiệu với vai trò influencer":"2024 · Brand collaborations as an influencer","Những chiến dịch đầu tay.":"My first campaigns.",
+"2023 · Chứng chỉ giảng dạy tiếng Anh":"2023 · English teaching certificate","Bắt đầu dạy học viên đầu tiên.":"Started teaching my first students.",
+"Cảm ơn bạn đã ghé thăm 🎀 · alessandratran.com":"Thanks for visiting 🎀 · alessandratran.com"};
+var PJ=["🍜 what to eat today","👗 what to wear today","🎬 what to watch today","🍳 what to cook today","📖 what to read today","🎤 what to sing today","💭 what to think about today","🎮 what to play today","📌 what to do today","☕ which café today","🍽️ which restaurant today","✅ today’s checklist","🪄 today’s bucket list","💪 what workout today","🧋 what to drink today","🗺️ where to go today"];
+var BUB=["🇬🇧 English","🇫🇷 French","🇨🇳 Chinese","💻 Coding","🎹 Music production","🎨 Drawing","🎥 Video making","🐶 Pet care"];
+var H2=['I wear <em>many</em> hats','My <em>journal</em>','What to <em>do</em> today?','Honest <em>reviews</em>','Let’s <em>cook</em>','Fashion <em>crush</em>',null,'I’m currently <em>learning</em>','Things <em>I’ve achieved</em> 🏆'];
+document.querySelectorAll("#pj a").forEach(function(e,i){e._en=PJ[i]});
+document.querySelectorAll("#bub a").forEach(function(e,i){e._en=BUB[i]});
+var lang="en",lg=document.getElementById("lg");
+function apply(l){lang=l;document.documentElement.lang=l;
+lg.textContent=l==="en"?"🌐 Tiếng Việt":"🌐 English";
+document.querySelectorAll("h2").forEach(function(h,i){if(h._vi==null)h._vi=h.innerHTML;h.innerHTML=(l==="en"&&H2[i])?H2[i]:h._vi});
+document.querySelectorAll("body *").forEach(function(e){
+if(e.children.length||e.tagName==="SCRIPT"||e.id==="lg")return;
+if(e._vi==null){if(!e.textContent.trim())return;e._vi=e.textContent}
+var vv=DV[e._vi.trim()];if(vv){e.textContent=l==="vi"?vv:e._vi.split("Tiệm Si Mê").join("Love Secondhand Shop");return}
+var en=e._en||D[e._vi.trim()];if(!en)return;
+e.textContent=l==="en"?en:e._vi})}
+lg.onclick=function(){var n=lang==="en"?"vi":"en";apply(n);try{localStorage.setItem("lang",n)}catch(x){}};
+var s0="en";try{s0=localStorage.getItem("lang")||"en"}catch(x){}
+apply(s0==="vi"?"vi":"en");
+var io=new IntersectionObserver(function(e){e.forEach(function(x){if(x.isIntersecting){x.target.classList.add("on");io.unobserve(x.target)}})},{threshold:.12});
+document.querySelectorAll(".rv").forEach(function(el){io.observe(el)});
+</script>
+</body>
+</html>
