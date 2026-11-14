@@ -1,0 +1,1067 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<title>Hôm Nay Tập Gì</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;700&family=Playfair+Display:wght@600;800&display=swap">
+<style>
+
+:root{--bg:#050507;--bg2:#0d0d12;--ink:#F4F4F6;--mute:#A6A9B5;--silver:#C9CDD6;--line:rgba(201,205,214,.2);--gold:#D4AF37;--goldhi:#F6E7A8;--goldlo:#8F6B12;--f-d:'Playfair Display',Georgia,'Times New Roman',serif;--f-b:'Be Vietnam Pro',system-ui,-apple-system,'Segoe UI',Roboto,sans-serif;--gg:linear-gradient(135deg,#F6E7A8 0%,#D4AF37 48%,#9A7410 100%);color-scheme:dark}
+*{box-sizing:border-box}
+html{background:#050507}
+body{margin:0;font:400 16px/1.55 var(--f-b);color:var(--ink);background:radial-gradient(1100px 520px at 50% -8%,rgba(201,205,214,.16),transparent 62%),radial-gradient(700px 400px at 100% 30%,rgba(212,175,55,.07),transparent 60%),linear-gradient(180deg,#0a0a0e,#050507 60%);background-color:#050507;min-height:100vh;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:0 40px}
+.wrap{max-width:960px;margin:0 auto}
+a{color:inherit}
+button{font:inherit;color:inherit;cursor:pointer}
+:focus-visible{outline:2px solid var(--gold);outline-offset:3px}
+.top{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:16px 0;border-bottom:1px solid var(--line)}
+.back{display:inline-flex;align-items:center;min-height:44px;text-decoration:none;font-weight:500;font-size:14px;color:var(--silver);letter-spacing:.02em}
+.back:hover{color:var(--goldhi)}
+.lang{display:flex;border:1px solid var(--line);border-radius:999px;padding:3px;background:#0a0a0d;margin-left:auto}
+.lang button{border:0;background:transparent;min-width:52px;min-height:38px;border-radius:999px;font-weight:700;font-size:13px;letter-spacing:.1em;color:var(--mute)}
+.lang button[aria-pressed="true"]{background:var(--gg);color:#16120A}
+.hero{padding:44px 0 22px;text-align:center}
+.kick{font:700 12px var(--f-b);letter-spacing:.32em;text-transform:uppercase;color:var(--gold);margin:0 0 14px}
+h1{margin:0;font:800 clamp(40px,9vw,76px)/1.02 var(--f-d);letter-spacing:-.01em;text-wrap:balance;background:linear-gradient(180deg,#fff 0%,#C9CDD6 45%,#7C808C 100%);-webkit-background-clip:text;background-clip:text;color:transparent}
+h1 em{font-style:italic;background:var(--gg);-webkit-background-clip:text;background-clip:text;color:transparent}
+.sub{max-width:60ch;margin:16px auto 0;color:var(--mute)}
+.tabs{display:flex;gap:6px;overflow-x:auto;scrollbar-width:none;padding:6px;border:1px solid var(--line);border-radius:999px;background:linear-gradient(180deg,#141418,#09090c);margin:22px 0 18px}
+.tabs::-webkit-scrollbar{display:none}
+.tab{flex:1 0 auto;white-space:nowrap;border:0;background:transparent;border-radius:999px;padding:11px 18px;min-height:44px;font-weight:700;font-size:14px;color:var(--silver)}
+.tab:hover{color:#fff}
+.tab[aria-selected="true"]{background:var(--gg);color:#16120A;box-shadow:0 6px 20px rgba(212,175,55,.25)}
+.panel{border:1px solid var(--line);border-radius:22px;padding:clamp(18px,4vw,32px);background:linear-gradient(155deg,rgba(255,255,255,.075),rgba(255,255,255,.012) 38%,rgba(0,0,0,.25)),#0c0c10;box-shadow:inset 0 1px 0 rgba(255,255,255,.14),0 24px 60px rgba(0,0,0,.65)}
+.fbar{margin:0 0 18px}
+.lbl{font:700 11px var(--f-b);letter-spacing:.2em;text-transform:uppercase;color:var(--mute);margin:0 0 8px}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chip{border:1px solid var(--line);background:#0a0a0d;color:var(--silver);border-radius:999px;padding:7px 14px;min-height:38px;font-size:13px;font-weight:500}
+.chip:hover{border-color:var(--gold);color:#fff}
+.chip[aria-pressed="true"]{background:var(--ink);color:#0a0a0d;border-color:var(--ink);font-weight:700}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:48px;padding:12px 26px;border-radius:999px;border:1px solid transparent;font-weight:700;font-size:15px;letter-spacing:.02em;text-decoration:none;background:var(--gg);color:#16120A;box-shadow:0 8px 24px rgba(212,175,55,.22),inset 0 1px 0 rgba(255,255,255,.5);transition:transform .15s,filter .15s}
+.btn:hover{filter:brightness(1.08);transform:translateY(-1px)}
+.btn:active{transform:translateY(1px)}
+.btn[disabled]{opacity:.45;cursor:default;transform:none;filter:none}
+.btn.ghost{background:#0a0a0d;color:#fff;border-color:var(--line);box-shadow:none}
+.btn.ghost:hover{border-color:var(--gold);color:var(--goldhi)}
+.btn.white{background:#F4F4F6;color:#0a0a0d;box-shadow:none}
+.btn.sm{min-height:40px;padding:8px 18px;font-size:13px}
+.row{display:flex;flex-wrap:wrap;gap:10px;align-items:center}
+.row.c{justify-content:center}
+h2{font:800 clamp(24px,5vw,34px)/1.12 var(--f-d);margin:0 0 6px;letter-spacing:-.005em;text-wrap:balance}
+.help{color:var(--mute);margin:0 0 18px;font-size:14px}
+/* quiz */
+.prog{display:flex;gap:6px;margin:0 0 18px}.prog i{flex:1;height:4px;border-radius:4px;background:#25252c}.prog i.on{background:var(--gg)}
+.qn{font:700 11px var(--f-b);letter-spacing:.2em;text-transform:uppercase;color:var(--gold);margin:0 0 6px}
+.opts{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,200px),1fr));gap:10px;margin-top:16px}
+.opt{text-align:left;border:1px solid var(--line);background:linear-gradient(160deg,#17171c,#0b0b0e);border-radius:16px;padding:16px;font-weight:500;min-height:64px;color:var(--ink)}
+.opt:hover{border-color:var(--gold);transform:translateY(-1px)}
+.opt b{display:block;font-size:22px;margin-bottom:4px}
+/* poster + result */
+.res{margin-top:26px}
+.mv{display:grid;grid-template-columns:minmax(0,190px) minmax(0,1fr);gap:22px;align-items:start}
+.poster{position:relative;aspect-ratio:2/3;border-radius:14px;overflow:hidden;background:linear-gradient(165deg,hsl(var(--h) 42% 30%),hsl(var(--h) 45% 9%) 70%);border:1px solid rgba(246,231,168,.45);box-shadow:0 14px 34px rgba(0,0,0,.7),inset 0 1px 0 rgba(255,255,255,.25);display:flex;flex-direction:column;justify-content:space-between;padding:12px;min-width:0}
+.poster:before{content:"";position:absolute;inset:0;background:linear-gradient(115deg,transparent 35%,rgba(255,255,255,.14) 48%,transparent 60%)}
+.poster .ltr{font:800 clamp(64px,13vw,104px)/1 var(--f-d);background:var(--gg);-webkit-background-clip:text;background-clip:text;color:transparent;text-align:center;margin:auto 0}
+.poster small{font:700 11px var(--f-b);letter-spacing:.2em;text-transform:uppercase;color:var(--goldhi);opacity:.9;text-align:center}
+.poster .hole{display:flex;justify-content:space-between}.poster .hole i{width:8px;height:8px;border-radius:2px;background:rgba(255,255,255,.2)}
+.mv h3{margin:0;font:800 clamp(24px,5vw,34px)/1.12 var(--f-d);overflow-wrap:anywhere}
+.vt{color:var(--silver);font-weight:600;font-size:.62em;font-family:var(--f-b)}
+.meta{display:flex;flex-wrap:wrap;gap:8px;margin:12px 0}
+.badge{display:inline-flex;align-items:center;gap:6px;border-radius:999px;padding:5px 12px;font-size:13px;font-weight:700;border:1px solid var(--line);color:var(--silver)}
+.badge.g{background:var(--gg);color:#16120A;border-color:transparent}
+.badge.w{background:#F4F4F6;color:#0a0a0d;border-color:transparent}
+.why{color:var(--mute);margin:0 0 6px}
+.links{display:flex;flex-wrap:wrap;gap:8px;margin-top:16px}
+.alts{margin-top:22px;padding-top:18px;border-top:1px solid var(--line)}
+.alt{display:flex;flex-wrap:wrap;gap:10px;align-items:center;justify-content:space-between;padding:10px 0;border-bottom:1px solid var(--line)}
+.alt span{min-width:0;overflow-wrap:anywhere}
+.tick{display:inline-block;width:8px}
+/* wheel */
+.wheel-wrap{position:relative;width:min(100%,430px);margin:6px auto 0}
+.wheel-wrap canvas{display:block;width:100%;height:auto;aspect-ratio:1;border-radius:50%;box-shadow:0 0 0 6px #0a0a0d,0 0 0 8px var(--gold),0 24px 50px rgba(0,0,0,.7)}
+.ptr{position:absolute;top:-14px;left:50%;width:0;height:0;margin-left:-14px;border-left:14px solid transparent;border-right:14px solid transparent;border-top:30px solid var(--gold);filter:drop-shadow(0 3px 3px rgba(0,0,0,.6));z-index:2}
+/* duck */
+.lanes{display:grid;gap:8px;margin:14px 0}
+.lane{position:relative;height:50px;border-radius:12px;background:repeating-linear-gradient(90deg,#111116 0 28px,#0b0b0e 28px 56px);border:1px solid var(--line);overflow:hidden}
+.lane .dn{position:absolute;left:10px;top:50%;transform:translateY(-50%);font-size:12px;font-weight:500;color:var(--mute);max-width:calc(100% - 90px);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;z-index:1}
+.lane .duck{position:absolute;left:0;top:4px;font-size:34px;line-height:40px;width:46px;text-align:center;z-index:2;transform:scaleX(-1)}
+.lane .fin{position:absolute;right:0;top:0;bottom:0;width:12px;background:repeating-conic-gradient(#fff 0 25%,#000 0 50%) 0 0/12px 12px}
+.lane.win{border-color:var(--gold);box-shadow:0 0 0 2px rgba(212,175,55,.4)}
+/* cards */
+.deck{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,130px),1fr));gap:12px;margin:10px 0}
+.pc{perspective:800px;border:0;background:none;padding:0;aspect-ratio:2/3;position:relative}
+.pc .in{position:absolute;inset:0;transform-style:preserve-3d;transition:transform .7s cubic-bezier(.2,.7,.2,1)}
+.pc.open .in{transform:rotateY(180deg)}
+.pc .f,.pc .b{position:absolute;inset:0;border-radius:14px;backface-visibility:hidden;-webkit-backface-visibility:hidden;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:10px;overflow:hidden}
+.pc .b{background:repeating-linear-gradient(45deg,#16130a 0 8px,#0b0a05 8px 16px);border:1px solid var(--gold);box-shadow:inset 0 0 0 5px #0a0a0d,inset 0 0 0 6px rgba(212,175,55,.6)}
+.pc .b span{font:800 40px var(--f-d);background:var(--gg);-webkit-background-clip:text;background-clip:text;color:transparent}
+.pc .f{transform:rotateY(180deg);background:linear-gradient(165deg,hsl(var(--h) 42% 28%),hsl(var(--h) 45% 9%));border:1px solid rgba(246,231,168,.5);gap:6px}
+.pc .f b{font:800 15px/1.2 var(--f-d);overflow-wrap:anywhere}
+.pc .f i{font-style:normal;font-size:12px;color:var(--goldhi)}
+.pc:not(.open):hover .in{transform:translateY(-4px)}
+.pc.dim{opacity:.45}
+/* quick */
+.quick{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,270px),1fr));gap:14px}
+.qc{border:1px solid var(--line);border-radius:18px;padding:18px;background:linear-gradient(160deg,#15151a,#0a0a0d);display:flex;flex-direction:column;gap:10px;min-width:0}
+.qc h3{margin:0;font:800 20px var(--f-d)}
+.coinbox{perspective:700px;display:grid;place-items:center;height:120px}
+.coin{width:96px;height:96px;position:relative;transform-style:preserve-3d;transition:transform 1.4s cubic-bezier(.2,.7,.2,1)}
+.coin div{position:absolute;inset:0;border-radius:50%;backface-visibility:hidden;-webkit-backface-visibility:hidden;display:grid;place-items:center;font:800 40px var(--f-d);border:3px solid #6b4f0c}
+.coin .h{background:var(--gg);color:#16120A}.coin .tl{background:linear-gradient(135deg,#fff,#9ea2ad);color:#0a0a0d;transform:rotateY(180deg);border-color:#555a66}
+.cside{font-size:14px;color:var(--silver);overflow-wrap:anywhere}.cside b{color:var(--goldhi);font-family:var(--f-d);margin-right:6px}
+.die{width:92px;height:92px;margin:6px auto;border-radius:20px;background:linear-gradient(145deg,#fff,#c9cdd6);display:grid;grid-template-columns:repeat(3,1fr);grid-template-rows:repeat(3,1fr);padding:14px;gap:2px;box-shadow:0 8px 0 #6b6f7b,0 16px 24px rgba(0,0,0,.6)}
+.die i{width:100%;height:100%;max-width:18px;max-height:18px;place-self:center;border-radius:50%}.die i.on{background:#0a0a0d}
+.die.roll{animation:shk .16s linear infinite}
+@keyframes shk{0%{transform:rotate(-7deg)}50%{transform:rotate(7deg) translateY(-3px)}100%{transform:rotate(-7deg)}}
+.dl{list-style:none;margin:0;padding:0;display:grid;gap:4px;font-size:13px;color:var(--silver)}
+.dl li{display:flex;gap:8px;padding:4px 8px;border-radius:8px;min-width:0}.dl li b{flex:none;color:var(--gold);width:16px}.dl li span{min-width:0;overflow-wrap:anywhere}
+.dl li.win{background:var(--gg);color:#16120A}.dl li.win b{color:#16120A}
+.slotwin{border:2px solid var(--gold);border-radius:14px;background:#06060a;min-height:84px;display:grid;place-items:center;text-align:center;padding:10px;font:800 20px/1.2 var(--f-d);overflow-wrap:anywhere;box-shadow:inset 0 0 30px rgba(212,175,55,.15)}
+/* mine */
+.in{width:100%;min-height:48px;border:1px solid var(--line);background:#07070a;color:var(--ink);border-radius:14px;padding:11px 16px;font:400 16px var(--f-b)}
+.in:focus{outline:none;border-color:var(--gold)}
+textarea.in{min-height:110px;resize:vertical;line-height:1.5}
+.add{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:10px}
+.ml{list-style:none;margin:16px 0 0;padding:0;display:grid;gap:8px}
+.ml li{display:flex;gap:10px;align-items:center;justify-content:space-between;border:1px solid var(--line);border-radius:14px;padding:6px 8px 6px 16px;background:#09090c;min-width:0}
+.ml li span{min-width:0;overflow-wrap:anywhere}
+.rm{flex:none;width:44px;height:44px;border-radius:50%;border:1px solid var(--line);background:#0a0a0d;color:var(--silver);font-size:18px}.rm:hover{border-color:var(--gold);color:var(--goldhi)}
+.empty{border:1px dashed var(--line);border-radius:16px;padding:22px 16px;text-align:center;color:var(--mute)}
+details.ps{margin-top:12px;border:1px solid var(--line);border-radius:14px;padding:4px 14px}
+details.ps summary{cursor:pointer;min-height:44px;display:flex;align-items:center;font-weight:700;font-size:14px}
+/* library */
+.lib-ctl{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,200px);gap:10px;margin-bottom:14px}
+select.in{appearance:auto}
+.lrow{display:grid;grid-template-columns:48px minmax(0,1fr) auto;gap:12px;align-items:center;padding:10px 0;border-bottom:1px solid var(--line)}
+.lrow .poster{padding:3px;border-radius:7px;aspect-ratio:2/3}.lrow .poster .ltr{font-size:24px}.lrow .poster small,.lrow .poster .hole{display:none}
+.lrow h4{margin:0;font:700 15px/1.3 var(--f-b);overflow-wrap:anywhere}
+.lrow p{margin:2px 0 0;font-size:13px;color:var(--mute)}
+.lrow .sc{display:flex;gap:6px;flex-wrap:wrap;justify-content:flex-end}
+.more{display:flex;justify-content:center;margin-top:18px}
+footer{margin-top:44px;padding-top:22px;border-top:1px solid var(--line);color:var(--mute);font-size:13px;display:grid;gap:8px}
+footer a{color:var(--silver)}footer a:hover{color:var(--goldhi)}
+footer b{color:var(--goldhi);font-weight:500}
+[hidden]{display:none!important}
+@media (max-width:620px){
+ .mv{grid-template-columns:minmax(0,1fr)}.mv .poster{max-width:150px}
+ .lrow{grid-template-columns:40px minmax(0,1fr)}.lrow .sc{grid-column:2;justify-content:flex-start}
+ .lib-ctl,.add{grid-template-columns:1fr}
+ .tab{padding:11px 14px}
+}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
+
+.banner{display:flex;gap:10px;align-items:flex-start;border:1px solid rgba(212,175,55,.5);background:linear-gradient(90deg,rgba(212,175,55,.14),rgba(212,175,55,.04));border-radius:14px;padding:10px 14px;margin:14px 0 0;font-size:13px;color:var(--ink)}
+.banner span.ic{flex:none;font-size:16px;line-height:1.4}
+.linkb{border:0;background:none;padding:0;text-decoration:underline;color:var(--goldhi);font-weight:700;font-size:inherit;cursor:pointer}
+.modal{position:fixed;inset:0;z-index:100;background:rgba(0,0,0,.84);display:grid;place-items:center;padding:16px max(16px,env(safe-area-inset-right)) 16px max(16px,env(safe-area-inset-left))}
+.modal.top{z-index:110}
+.mbox{background:linear-gradient(155deg,rgba(255,255,255,.07),rgba(255,255,255,.01) 40%),#0c0c10;border:1px solid var(--gold);border-radius:20px;max-width:580px;width:100%;max-height:calc(100dvh - 32px);overflow:auto;padding:24px;box-shadow:0 30px 80px rgba(0,0,0,.8)}
+.mbox.big{max-width:780px;display:flex;flex-direction:column;padding:0;overflow:hidden}
+.mhead{display:flex;gap:12px;align-items:flex-start;justify-content:space-between;padding:20px 24px 14px;border-bottom:1px solid var(--line)}
+.mhead h2{font-size:clamp(20px,4vw,26px);margin:0}
+.mbody{overflow:auto;padding:16px 24px 28px;font-size:14px;color:var(--silver)}
+.mbody h3{font:700 15px var(--f-b);color:var(--goldhi);margin:20px 0 6px}
+.mbody p{margin:0 0 6px}
+.mbox ul.gl{padding-left:20px;margin:10px 0}.mbox ul.gl li{margin:8px 0}
+.chk{display:flex;gap:12px;align-items:flex-start;margin:16px 0;cursor:pointer;font-size:14px}
+.chk input{width:22px;height:22px;accent-color:#D4AF37;flex:none;margin-top:1px}
+.gx{display:inline-block;margin-top:14px;font-size:13px;color:var(--mute)}
+.xbtn{flex:none;width:44px;height:44px;border-radius:50%;border:1px solid var(--line);background:#0a0a0d;color:#fff;font-size:18px}
+#dock{position:fixed;left:0;right:0;bottom:0;z-index:60;padding:28px max(16px,env(safe-area-inset-right)) calc(12px + env(safe-area-inset-bottom,0px)) max(16px,env(safe-area-inset-left));background:linear-gradient(180deg,rgba(5,5,7,0),#050507 36%);pointer-events:none}
+.dk{pointer-events:auto;max-width:640px;margin:0 auto;border:1px solid var(--gold);border-radius:22px;background:linear-gradient(160deg,#1a1a20,#09090c);padding:14px 18px;box-shadow:0 -10px 40px rgba(0,0,0,.7);display:grid;gap:8px}
+.dk .top2{display:flex;justify-content:space-between;gap:10px;align-items:baseline;min-width:0}
+.dk .pl{font:700 12px var(--f-b);letter-spacing:.18em;text-transform:uppercase;color:var(--gold)}
+.dk .nx{font-size:12px;color:var(--mute);text-align:right;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.dk .nm{font:800 clamp(18px,4vw,22px)/1.2 var(--f-d);overflow-wrap:anywhere}
+.dk .cue{font-size:13px;color:var(--silver);margin-top:-4px}
+.dk .tm{font:800 clamp(52px,16vw,76px)/1 var(--f-d);font-variant-numeric:tabular-nums;text-align:center;background:linear-gradient(180deg,#fff,#C9CDD6);-webkit-background-clip:text;background-clip:text;color:transparent}
+.dk.work .tm{background:var(--gg);-webkit-background-clip:text;background-clip:text}
+.dk.rest .tm{background:linear-gradient(180deg,#9fb4c9,#5c6f84);-webkit-background-clip:text;background-clip:text}
+.bar{height:6px;border-radius:6px;background:#25252c;overflow:hidden}.bar i{display:block;height:100%;background:var(--gg);width:0;transition:width .25s linear}
+.dk .ctl{display:flex;gap:8px;justify-content:center;flex-wrap:wrap}
+body.hasdock{padding-bottom:300px}
+.steps{counter-reset:s;list-style:none;padding:0;margin:14px 0}
+.steps li{counter-increment:s;display:grid;grid-template-columns:30px minmax(0,1fr);gap:10px;margin:10px 0;color:var(--silver)}
+.steps li:before{content:counter(s);width:28px;height:28px;border-radius:50%;background:var(--gg);color:#16120A;font-weight:700;display:grid;place-items:center;font-size:13px}
+.kv{display:grid;gap:10px;margin:14px 0}
+.kv p{margin:0;font-size:14px;color:var(--silver)}
+.kv b{display:block;font:700 11px var(--f-b);letter-spacing:.18em;text-transform:uppercase;color:var(--gold);margin-bottom:3px}
+.kv .chips{gap:6px}.kv .badge{font-weight:500}
+.cau{font-size:14px;color:var(--silver);margin:10px 0}.cau b{color:var(--goldhi)}
+.safe{border:1px solid rgba(212,175,55,.55);background:rgba(212,175,55,.07);border-radius:14px;padding:12px 14px;margin:14px 0;font-size:13px;color:#EDE6CE}
+.safe b{display:block;color:var(--goldhi);margin-bottom:4px}.safe p{margin:0 0 6px}
+.mv.ex .poster .ltr{font-size:clamp(54px,12vw,84px);background:none;-webkit-background-clip:initial;background-clip:initial;color:inherit}
+.lwrap{border-bottom:1px solid var(--line)}
+.lwrap .lrow{border-bottom:0;cursor:pointer}
+.lwrap .lx{padding:4px 0 22px}
+.lrow .poster .ltr{font-size:22px}
+.sess li{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:8px;align-items:center}
+.sess li .ctl{display:flex;gap:6px}
+.frm{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,140px),1fr));gap:12px;margin:14px 0}
+.frm label{display:grid;gap:6px;font-size:13px;color:var(--mute)}
+.lvl{letter-spacing:.1em;color:var(--gold)}
+@media (max-width:620px){.sess li{grid-template-columns:1fr}.mhead,.mbody{padding-left:16px;padding-right:16px}}
+
+</style>
+<div class="wrap" id="app">
+<header class="top">
+ <a class="back" href="https://www.alessandratran.com" data-i="back"></a>
+ <div class="lang" role="group" aria-label="Language / Ngôn ngữ">
+  <button type="button" data-l="vi" aria-pressed="true">VI</button>
+  <button type="button" data-l="en" aria-pressed="false">EN</button>
+ </div>
+</header>
+<div class="banner" role="note"><span class="ic" aria-hidden="true">⚠️</span><span><span id="bannertxt"></span> <button class="linkb" type="button" id="bannerlink"></button></span></div>
+<section class="hero">
+ <p class="kick" data-i="kick"></p>
+ <h1 id="h1"></h1>
+ <p class="sub" data-i="sub"></p>
+</section>
+<main>
+<div class="tabs" role="tablist" id="tabs"></div>
+<div class="panel">
+ <div class="fbar" id="fbar"><p class="lbl" data-i="genre"></p><div class="chips" id="chips"></div></div>
+
+ <section id="p-quiz" role="tabpanel"><div id="quiz"></div></section>
+
+ <section id="p-wheel" role="tabpanel" hidden>
+  <h2 data-i="wheelH"></h2><p class="help" data-i="wheelP"></p>
+  <div class="wheel-wrap"><i class="ptr"></i><canvas id="wheel" width="860" height="860" aria-label="Wheel"></canvas></div>
+  <div class="row c" style="margin-top:20px"><button class="btn" id="spin" type="button"></button><button class="btn ghost" id="reshuffle" type="button"></button></div>
+  <div class="res" id="res-wheel" aria-live="polite"></div>
+ </section>
+
+ <section id="p-duck" role="tabpanel" hidden>
+  <h2 data-i="duckH"></h2><p class="help" data-i="duckP"></p>
+  <div class="lanes" id="lanes"></div>
+  <div class="row c"><button class="btn" id="go" type="button"></button><button class="btn ghost" id="newduck" type="button"></button></div>
+  <div class="res" id="res-duck" aria-live="polite"></div>
+ </section>
+
+ <section id="p-cards" role="tabpanel" hidden>
+  <h2 data-i="cardH"></h2><p class="help" data-i="cardP"></p>
+  <div class="deck" id="deck"></div>
+  <div class="row c"><button class="btn ghost" id="deal" type="button"></button></div>
+  <div class="res" id="res-cards" aria-live="polite"></div>
+ </section>
+
+ <section id="p-quick" role="tabpanel" hidden>
+  <h2 data-i="quickH"></h2><p class="help" data-i="quickP"></p>
+  <div class="quick">
+   <div class="qc"><h3 data-i="coin"></h3><div class="coinbox"><div class="coin" id="coin"><div class="h">A</div><div class="tl">B</div></div></div><div class="cside" id="cA"></div><div class="cside" id="cB"></div><div class="row"><button class="btn sm" id="flip" type="button"></button><button class="btn sm ghost" id="coinNew" type="button"></button></div></div>
+   <div class="qc"><h3 data-i="dice"></h3><div class="die" id="die"></div><ul class="dl" id="dlist"></ul><div class="row"><button class="btn sm" id="roll" type="button"></button><button class="btn sm ghost" id="diceNew" type="button"></button></div></div>
+   <div class="qc"><h3 data-i="slot"></h3><div class="slotwin" id="slotwin">💪</div><div class="row"><button class="btn sm" id="pull" type="button"></button></div></div>
+  </div>
+  <div class="res" id="res-quick" aria-live="polite"></div>
+ </section>
+
+ <section id="p-session" role="tabpanel" hidden>
+  <h2 data-i="sessH"></h2><p class="help" data-i="sessP"></p>
+  <div class="row" style="margin-bottom:14px"><button class="btn" id="sessgo" type="button"></button><button class="btn ghost" id="sessauto" type="button"></button><button class="btn ghost sm" id="sessclear" type="button"></button></div>
+  <p class="help" id="sesstot"></p>
+  <ul class="ml sess" id="sesslist"></ul>
+ </section>
+
+ <section id="p-timer" role="tabpanel" hidden>
+  <h2 data-i="timerH"></h2><p class="help" data-i="timerP"></p>
+  <div class="frm">
+   <label><span data-i="fWork"></span><input class="in" id="fw" type="number" inputmode="numeric" min="1" max="3600" value="30"></label>
+   <label><span data-i="fRest"></span><input class="in" id="fr" type="number" inputmode="numeric" min="0" max="3600" value="10"></label>
+   <label><span data-i="fRounds"></span><input class="in" id="fn" type="number" inputmode="numeric" min="1" max="99" value="8"></label>
+  </div>
+  <div class="row"><button class="btn" id="fgo" type="button"></button><button class="btn ghost sm" data-preset="20,10,8" type="button">Tabata 20/10 ×8</button><button class="btn ghost sm" data-preset="30,30,6" type="button">30/30 ×6</button><button class="btn ghost sm" data-preset="45,15,5" type="button">45/15 ×5</button></div>
+ </section>
+
+ <section id="p-lib" role="tabpanel" hidden>
+  <h2 data-i="libH"></h2><p class="help" id="libhelp"></p>
+  <div class="lib-ctl"><input class="in" id="q" type="search" autocomplete="off"><select class="in" id="sort"></select></div>
+  <div id="liblist"></div>
+ </section>
+</div>
+</main>
+<footer>
+ <div><button class="linkb" type="button" id="footterms"></button></div>
+ <div>© <span id="yr"></span> Alessandra Tran · <a href="https://www.alessandratran.com">alessandratran.com</a></div>
+ <div id="srcnote"></div>
+</footer>
+</div>
+
+<div id="dock" hidden><div class="dk" id="dk" role="group"></div></div>
+
+<div class="modal" id="gate" role="dialog" aria-modal="true" aria-labelledby="gateh" hidden>
+ <div class="mbox">
+  <h2 id="gateh"></h2><p class="help" id="gatep"></p>
+  <ul class="gl" id="gatel"></ul>
+  <label class="chk"><input type="checkbox" id="gchk"><span id="gatec"></span></label>
+  <div class="row"><button class="btn" id="gok" type="button" disabled></button><button class="btn ghost" id="gread" type="button"></button></div>
+  <a class="gx" id="gatex" href="https://www.alessandratran.com"></a>
+ </div>
+</div>
+<div class="modal top" id="terms" role="dialog" aria-modal="true" aria-labelledby="termsh" hidden>
+ <div class="mbox big">
+  <div class="mhead"><h2 id="termsh"></h2><button class="xbtn" type="button" id="tclose" aria-label="Close">✕</button></div>
+  <div class="mbody" id="tbody"></div>
+ </div>
+</div>
+
+<script>
+var DK=['yoga','pilates','strength','hiit','boxing','core','cardio','mobility','kettlebell','calisthenics'];
+var DISC={
+ yoga:{vi:'Yoga',en:'Yoga',e:'🧘',h:150,out:'yoga',ref:'https://irp.cdn-website.com/6b820530/files/uploaded/The%20Complete%20Yoga%20Poses.pdf',rn:{vi:'The Complete Yoga Poses (PDF)',en:'The Complete Yoga Poses (PDF)'},
+  w:{vi:`Theo tài liệu tham khảo: thở thoải mái, không gồng. Nếu hơi thở bị đứt quãng hoặc khó thở, hãy giảm độ sâu của tư thế. Giữ mỗi tư thế khoảng 30–90 giây, dừng ở mức căng nhẹ, không đau. Thận trọng nếu bạn bị huyết áp cao, đau đầu/đau nửa đầu, hen suyễn, đang mang thai hoặc sau sinh/sau mổ (tránh tư thế đảo ngược, xoắn sâu và gập ưỡn mạnh). Tránh hot yoga khi mang thai hoặc tiền mãn kinh.`,
+     en:`Per the reference: breathe comfortably and never strain. If your breath becomes choppy or restricted, ease off the pose. Hold each pose for roughly 30–90 seconds and stay at mild stretch, never pain. Take extra care with high blood pressure, headaches or migraines, asthma, pregnancy, or after childbirth or surgery (avoid inversions, deep twists and strong backbends). Avoid hot yoga during pregnancy or menopause.`}},
+ pilates:{vi:'Pilates',en:'Pilates',e:'🌀',h:320,out:'pilates',ref:'https://www.pilatesmethodalliance.org',rn:{vi:'Pilates Method Alliance',en:'Pilates Method Alliance'},
+  w:{vi:`Giữ lưng dưới ổn định, thở đều, không giật hay nín thở. Cẩn thận với các động tác gập cột sống nếu bạn bị loãng xương, thoát vị đĩa đệm, đau lưng, đang mang thai hoặc sau sinh. Nên học với giáo viên Pilates có chứng chỉ trước khi tự tập.`,
+     en:`Keep your lower back stable, breathe steadily and never jerk or hold your breath. Be careful with spinal-flexion moves if you have osteoporosis, a disc injury, back pain, or are pregnant or postpartum. Learn with a certified Pilates instructor before practising alone.`}},
+ strength:{vi:'Tạ & sức mạnh',en:'Strength training',e:'🏋️',h:15,out:'lift',ref:'https://www.nsca.com',rn:{vi:'NSCA (Hiệp hội Sức mạnh & Thể lực Mỹ)',en:'NSCA (National Strength and Conditioning Association)'},
+  w:{vi:`Học kỹ thuật với tạ nhẹ hoặc tạ không trước, tăng tạ từ từ. Với các bài tạ nặng (squat, bench press, deadlift) cần người đỡ (spotter) hoặc giá an toàn có chặn tạ, và nên nhờ PT kiểm tra kỹ thuật. Không tập khi quá mệt, đau khớp hoặc khi mất kiểm soát động tác. Không nín thở quá lâu và không giật tạ.`,
+     en:`Learn the movement with light weight or an empty bar first and add load gradually. For heavy lifts (squat, bench press, deadlift) use a spotter or safety bars, and have a personal trainer check your technique. Do not train when exhausted, when a joint hurts, or when you are losing control of the movement. Do not hold your breath for long and never jerk the weight.`}},
+ hiit:{vi:'HIIT',en:'HIIT',e:'⚡',h:48,out:'hiit',ref:'https://www.cie-dc.com/uploads/1/3/2/9/132987652/hiit-manual_-_mladen_jovanovic_1.pdf',rn:{vi:'HIIT Manual – Mladen Jovanović (PDF)',en:'HIIT Manual by Mladen Jovanović (PDF)'},
+  w:{vi:`HIIT có cường độ rất cao, tạo áp lực lớn lên tim và khớp. Cần khởi động kỹ, nghỉ đủ giữa các buổi và tăng dần: theo tài liệu tham khảo, nên thêm khối lượng (số lần, số hiệp) trước khi tăng cường độ. Cần bác sĩ đồng ý nếu bạn có bệnh tim mạch, huyết áp cao hoặc lâu ngày ít vận động. Dừng ngay khi chóng mặt, đau ngực hoặc khó thở bất thường.`,
+     en:`HIIT is very high intensity and places heavy demands on your heart and joints. Warm up well, rest enough between sessions and progress gradually: the reference suggests adding volume (reps or sets) before raising intensity. Get medical clearance if you have heart disease, high blood pressure or have been inactive for a long time. Stop immediately if you feel dizzy, have chest pain or unusual shortness of breath.`}},
+ boxing:{vi:'Boxing',en:'Boxing',e:'🥊',h:0,out:'box',ref:'https://en.wikipedia.org/wiki/Boxing_styles_and_technique',rn:{vi:'Boxing styles and technique (Wikipedia)',en:'Boxing styles and technique (Wikipedia)'},
+  w:{vi:`Quấn băng tay và dùng găng đúng cỡ để bảo vệ cổ tay, bàn tay; giữ cổ tay thẳng khi đấm. Không tập đối kháng hay sparring khi chưa có huấn luyện viên, mũ bảo hiểm, bịt răng và đồ bảo hộ. Các cú đánh vào đầu có thể gây chấn động não. Dừng ngay nếu đau cổ tay, vai hoặc cổ.`,
+     en:`Wrap your hands and use correctly sized gloves to protect your wrists and hands, and keep your wrists straight when punching. Do not spar or train with a partner without a coach, headgear, mouthguard and protective gear. Blows to the head can cause concussion. Stop immediately if you feel pain in your wrist, shoulder or neck.`}},
+ core:{vi:'Cơ bụng · Core',en:'Core',e:'🎯',h:30,out:'yoga',ref:'https://acsm.org/read-research/trending-topics-resource-pages/physical-activity-guidelines',rn:{vi:'ACSM – Khuyến nghị hoạt động thể chất',en:'ACSM physical activity guidelines'},
+  w:{vi:`Giữ lưng dưới không võng quá mức và thở đều. Dừng nếu đau lưng hoặc đau cổ. Người đau lưng mạn tính, thoát vị đĩa đệm, sau sinh hoặc sau phẫu thuật bụng cần hỏi ý kiến chuyên gia trước khi tập các bài cơ bụng.`,
+     en:`Do not over-arch your lower back and keep breathing steadily. Stop if your back or neck hurts. If you have chronic back pain, a disc injury, are postpartum or have had abdominal surgery, ask a professional before training your abs.`}},
+ cardio:{vi:'Cardio',en:'Cardio',e:'🏃',h:195,out:'run',ref:'https://acsm.org/read-research/trending-topics-resource-pages/physical-activity-guidelines',rn:{vi:'ACSM – Khuyến nghị hoạt động thể chất',en:'ACSM physical activity guidelines'},
+  w:{vi:`Tăng dần thời gian và cường độ; khởi động và hạ nhiệt; uống đủ nước và tránh tập khi trời nắng nóng gắt. Khi chạy hoặc đạp xe ngoài đường, tuân thủ luật giao thông và mặc đồ dễ nhìn thấy. Ngừng ngay nếu đau ngực, chóng mặt hoặc khó thở bất thường.`,
+     en:`Increase time and intensity gradually; warm up and cool down; drink enough water and avoid exercising in harsh heat. When running or cycling outdoors, follow traffic rules and wear visible clothing. Stop immediately if you have chest pain, dizziness or unusual shortness of breath.`}},
+ mobility:{vi:'Giãn cơ · Linh hoạt',en:'Mobility & stretching',e:'🔄',h:100,out:'flex',ref:'https://acsm.org/read-research/trending-topics-resource-pages/physical-activity-guidelines',rn:{vi:'ACSM – Khuyến nghị hoạt động thể chất',en:'ACSM physical activity guidelines'},
+  w:{vi:`Chỉ giãn đến mức căng nhẹ, không đau nhói và không nảy người. Khởi động nhẹ trước khi giãn sâu. Con lăn foam không được đè trực tiếp lên khớp hoặc lưng dưới. Dừng nếu thấy tê, râm ran hoặc đau nhói.`,
+     en:`Stretch only to mild tension, never sharp pain, and do not bounce. Warm up lightly before deep stretching. Never roll directly over joints or your lower back with a foam roller. Stop if you feel numbness, tingling or sharp pain.`}},
+ kettlebell:{vi:'Tạ ấm',en:'Kettlebell',e:'🔔',h:25,out:'lift',ref:'https://www.nsca.com',rn:{vi:'NSCA (Hiệp hội Sức mạnh & Thể lực Mỹ)',en:'NSCA (National Strength and Conditioning Association)'},
+  w:{vi:`Bài tạ ấm có chuyển động nhanh và tải động học cao. Hãy học kiểu gập hông (hip hinge) với huấn luyện viên, chọn không gian rộng, chắc tay cầm và sàn không trơn. Không tập khi mệt. Turkish get-up cần học từng bước, bắt đầu không tải hoặc rất nhẹ.`,
+     en:`Kettlebell work involves fast movement and dynamic load. Learn the hip hinge with a coach, choose an open space, keep a firm grip and a non-slip floor. Do not train when tired. Learn the Turkish get-up step by step, starting with no load or a very light weight.`}},
+ calisthenics:{vi:'Calisthenics',en:'Calisthenics',e:'💪',h:215,out:'hiit',ref:'https://acsm.org/read-research/trending-topics-resource-pages/physical-activity-guidelines',rn:{vi:'ACSM – Khuyến nghị hoạt động thể chất',en:'ACSM physical activity guidelines'},
+  w:{vi:`Tăng độ khó từ từ. Khởi động kỹ khớp vai, khuỷu và cổ tay; dừng nếu đau các khớp này. Tập trên mặt phẳng ổn định; ghế hoặc ghế tập dùng cho bài chống đẩy phải thật chắc.`,
+     en:`Progress difficulty gradually. Warm up your shoulders, elbows and wrists well and stop if those joints hurt. Train on a stable surface; any chair or bench used for dips must be completely sturdy.`}}
+};
+var EQ={none:{vi:'Không cần dụng cụ',en:'No equipment'},mat:{vi:'Thảm tập',en:'Exercise mat'},dumbbell:{vi:'Tạ tay',en:'Dumbbells'},barbell:{vi:'Tạ đòn và bánh tạ',en:'Barbell and plates'},rack:{vi:'Giá squat có chặn an toàn',en:'Squat rack with safety bars'},bench:{vi:'Ghế tập tạ',en:'Weight bench'},pullbar:{vi:'Xà đơn',en:'Pull-up bar'},kettlebell:{vi:'Tạ ấm',en:'Kettlebell'},rope:{vi:'Dây nhảy',en:'Jump rope'},gloves:{vi:'Găng tay boxing',en:'Boxing gloves'},wraps:{vi:'Băng quấn tay',en:'Hand wraps'},bag:{vi:'Bao cát',en:'Heavy bag'},band:{vi:'Dây kháng lực',en:'Resistance band'},block:{vi:'Gạch yoga',en:'Yoga block'},foam:{vi:'Con lăn foam roller',en:'Foam roller'},bike:{vi:'Xe đạp hoặc xe đạp tập',en:'Bicycle or stationary bike'},chair:{vi:'Ghế thật chắc',en:'Sturdy chair or bench'}};
+var OUT={
+ yoga:{vi:'Quần legging co giãn và áo ôm gọn; tập chân trần hoặc đi tất chống trượt trên thảm.',en:'Stretchy leggings and a fitted top; practise barefoot or in grip socks on a mat.'},
+ pilates:{vi:'Đồ ôm sát để nhìn rõ tư thế, tất chống trượt, buộc gọn tóc, không đeo trang sức.',en:'Close-fitting clothes so your alignment is visible, grip socks, hair tied back, no jewellery.'},
+ lift:{vi:'Giày đế bằng chắc chân (hoặc giày tập tạ), quần short hoặc legging, áo thấm hút mồ hôi; đai lưng tùy chọn theo hướng dẫn của PT.',en:'Flat, stable shoes (or lifting shoes), shorts or leggings, a sweat-wicking top; a belt only if your trainer advises it.'},
+ hiit:{vi:'Giày thể thao đế đệm tốt, quần áo thoáng khí thấm hút mồ hôi, áo ngực thể thao nếu cần; mang khăn và chai nước.',en:'Well-cushioned training shoes, breathable sweat-wicking clothes, a sports bra if needed; bring a towel and water.'},
+ box:{vi:'Băng quấn tay, găng đúng cỡ, giày nhẹ đế phẳng, quần short, áo thoáng; bịt răng và mũ bảo hộ nếu tập đối kháng.',en:'Hand wraps, correctly sized gloves, light flat-soled shoes, shorts and a breathable top; mouthguard and headgear for any partner work.'},
+ run:{vi:'Giày chạy hoặc giày thể thao phù hợp, tất thấm hút, quần áo thoáng; mặc đồ phản quang hoặc sáng màu khi tập buổi tối.',en:'Proper running or training shoes, moisture-wicking socks, breathable clothing; reflective or bright gear when training in the dark.'},
+ flex:{vi:'Quần áo rộng rãi co giãn thoải mái; tập chân trần hoặc đi tất, trên thảm.',en:'Loose, stretchy, comfortable clothes; barefoot or in socks, on a mat.'}
+};
+var MU={legs:{vi:'Chân',en:'Legs'},glutes:{vi:'Mông',en:'Glutes'},core:{vi:'Cơ trung tâm',en:'Core'},back:{vi:'Lưng',en:'Back'},chest:{vi:'Ngực',en:'Chest'},shoulders:{vi:'Vai',en:'Shoulders'},arms:{vi:'Tay',en:'Arms'},full:{vi:'Toàn thân',en:'Full body'},flex:{vi:'Độ linh hoạt',en:'Flexibility'},cardio:{vi:'Tim phổi',en:'Cardio'},balance:{vi:'Thăng bằng',en:'Balance'},calm:{vi:'Thư giãn',en:'Relaxation'}};
+var LV={1:{vi:'Người mới',en:'Beginner'},2:{vi:'Trung bình',en:'Intermediate'},3:{vi:'Nâng cao',en:'Advanced'}};
+/* tm: w=work s, r=rest s, n=rounds, k=cue kind (hold|reps|flow|go), reps=text */
+function X(id,d,n,vi,lv,eq,mu,tm,sv,se,xv,xe){return{id:id,d:d,n:n,vi:vi,lv:lv,eq:eq,mu:mu,tm:tm,s:{vi:sv.split('|'),en:se.split('|')},x:{vi:xv,en:xe}};}
+var EXS=[
+/* YOGA */
+X('downdog','yoga','Downward-Facing Dog (Adho Mukha Svanasana)','Chó cúi mặt',1,['mat'],['back','shoulders','legs','flex'],{w:30,r:10,n:3,k:'hold'},
+ `Bắt đầu ở tư thế quỳ bốn điểm, tay dưới vai, gối dưới hông.|Cuộn ngón chân, ấn hai bàn tay xuống thảm và nâng hông lên cao thành hình chữ V ngược.|Kéo dài cột sống, gót chân hướng về sàn, gối chùng nhẹ nếu gân kheo căng.|Thả lỏng cổ và đầu, hít thở sâu, giữ khoảng 30 giây rồi quỳ xuống nghỉ.`,
+ `Start on all fours with hands under shoulders and knees under hips.|Tuck your toes, press your palms into the mat and lift your hips high into an inverted V.|Lengthen your spine, reach your heels toward the floor and keep a soft bend in the knees if your hamstrings are tight.|Relax your neck and head, breathe deeply, hold about 30 seconds, then lower to your knees to rest.`,
+ `Nếu cổ tay đau hoặc tê, hãy hạ gối, xoay bàn tay hơi hướng ra ngoài hoặc kê nêm dưới gốc bàn tay.`,`If your wrists are irritated, drop your knees, turn your hands slightly outward or support the heels of your hands with a wedge.`),
+X('warrior2','yoga','Warrior II (Virabhadrasana II)','Chiến binh II',1,['mat'],['legs','shoulders','balance'],{w:30,r:5,n:2,k:'hold'},
+ `Đứng dang hai chân rộng khoảng một sải chân, xoay chân trước ra ngoài 90 độ, chân sau hơi xoay vào.|Gập gối trước cho đến khi đầu gối nằm trên cổ chân, không để gối đổ vào trong.|Giang hai tay song song với sàn, vai thả lỏng, nhìn qua đầu ngón tay phía trước.|Giữ 30 giây, hít thở đều rồi đổi bên.`,
+ `Stand with your feet about one leg-length apart, turn the front foot out 90 degrees and the back foot slightly in.|Bend the front knee until it is over your ankle without letting it collapse inward.|Extend both arms parallel to the floor with relaxed shoulders and gaze over your front fingertips.|Hold 30 seconds, breathing evenly, then switch sides.`,
+ `Không để đầu gối trước vượt quá cổ chân và không ưỡn lưng dưới.`,`Do not let the front knee travel past the ankle and do not over-arch your lower back.`),
+X('child','yoga','Child\'s Pose (Balasana)','Tư thế em bé',1,['mat'],['back','calm'],{w:45,r:5,n:2,k:'hold'},
+ `Quỳ trên thảm, hai ngón chân cái chạm nhau, mở gối rộng bằng hông hoặc rộng hơn.|Ngồi hông về phía gót chân và gập người về trước.|Duỗi hai tay về phía trước hoặc để xuôi theo thân, trán chạm thảm.|Thở sâu vào lưng, mỗi nhịp thở thả lỏng thêm; giữ khoảng 45 giây.`,
+ `Kneel on the mat with big toes touching and knees as wide as your hips or wider.|Sit your hips back toward your heels and fold forward.|Stretch your arms in front of you or rest them alongside your body, with your forehead on the mat.|Breathe deeply into your back, relaxing more on every exhale; hold about 45 seconds.`,
+ `Nếu đầu gối đau hoặc hông không chạm gót, hãy kê gối hoặc chăn gấp giữa bắp chân và đùi.`,`If your knees hurt or your hips do not reach your heels, place a cushion or folded blanket between your calves and thighs.`),
+X('catcow','yoga','Cat-Cow (Marjaryasana-Bitilasana)','Mèo – Bò',1,['mat'],['back','flex'],{w:40,r:10,n:2,k:'flow'},
+ `Quỳ bốn điểm, tay dưới vai, gối dưới hông, lưng phẳng.|Hít vào: võng nhẹ lưng, bụng thả xuống, ngực và ánh nhìn hướng về trước (Bò).|Thở ra: cong lưng lên trần nhà, cằm hướng về ngực (Mèo).|Chuyển động chậm theo nhịp thở trong khoảng 40 giây.`,
+ `Come to all fours with hands under shoulders, knees under hips and a flat back.|Inhale: gently arch your back, drop your belly and lift your chest and gaze (Cow).|Exhale: round your back toward the ceiling and tuck your chin toward your chest (Cat).|Move slowly with your breath for about 40 seconds.`,
+ `Di chuyển nhẹ nhàng trong biên độ thoải mái, không ép cổ.`,`Move gently within a comfortable range and do not force your neck.`),
+X('tree','yoga','Tree Pose (Vrikshasana)','Tư thế cây',1,['mat'],['balance','legs'],{w:30,r:5,n:2,k:'hold'},
+ `Đứng thẳng, dồn trọng lượng sang một chân, mở gối chân kia ra ngoài.|Đặt bàn chân lên bắp chân hoặc đùi trong, tuyệt đối không đặt lên đầu gối.|Giữ hông thẳng ngang, siết nhẹ cơ bụng, chắp tay trước ngực hoặc giơ cao qua đầu.|Nhìn vào một điểm cố định, giữ 30 giây rồi đổi chân.`,
+ `Stand tall, shift your weight onto one foot and open the other knee out to the side.|Place the sole of that foot on your calf or inner thigh, never on the knee.|Keep your hips level, engage your abs lightly and bring your hands to your chest or overhead.|Fix your eyes on one point, hold 30 seconds, then switch legs.`,
+ `Không để bàn chân tì vào đầu gối của chân trụ. Đứng gần tường nếu chưa vững.`,`Never press the foot into the standing knee. Stand near a wall if you are unsteady.`),
+X('cobra','yoga','Cobra (Bhujangasana)','Rắn hổ mang',1,['mat'],['back','core'],{w:20,r:10,n:3,k:'hold'},
+ `Nằm sấp, hai bàn tay đặt dưới vai, khuỷu tay ép sát thân.|Ấn mu bàn chân và đùi xuống thảm, dùng lực lưng để nâng ngực lên.|Kéo vai ra xa tai, giữ cổ dài, nhìn thẳng về phía trước.|Giữ khoảng 20 giây, thở đều rồi hạ xuống chậm.`,
+ `Lie face down with your hands under your shoulders and elbows hugging your body.|Press the tops of your feet and thighs into the mat and lift your chest using your back muscles.|Draw your shoulders away from your ears, keep your neck long and look straight ahead.|Hold about 20 seconds, breathing evenly, then lower slowly.`,
+ `Không dồn hết sức vào tay và không bóp nghẹt lưng dưới. Không nằm sấp khi đang mang thai.`,`Do not push mainly with your arms or crunch your lower back. Do not lie on your stomach while pregnant.`),
+X('triangle','yoga','Triangle (Trikonasana)','Tam giác',2,['mat','block'],['legs','flex','core'],{w:30,r:5,n:2,k:'hold'},
+ `Đứng dang chân rộng, xoay chân trước ra ngoài 90 độ, chân sau hơi vào trong.|Giang hai tay ngang vai, nghiêng thân về phía chân trước, kéo dài cả hai bên sườn.|Đặt một tay lên cẳng chân hoặc gạch yoga, tay kia giơ thẳng lên trời, mở ngực.|Giữ 30 giây rồi đổi bên.`,
+ `Stand with your feet wide, turn the front foot out 90 degrees and the back foot slightly in.|Extend your arms at shoulder height, reach forward and tilt your torso over the front leg, lengthening both sides.|Rest one hand on your shin or a block and reach the other arm up, opening your chest.|Hold 30 seconds, then switch sides.`,
+ `Giữ chân thẳng nhưng không khóa cứng đầu gối. Chỉ xuống tới mức bạn còn giữ được ngực mở.`,`Keep your legs straight but do not lock the knees. Go only as low as you can keep your chest open.`),
+X('bridge','yoga','Bridge (Setu Bandhasana)','Cây cầu',1,['mat'],['glutes','back','core'],{w:30,r:15,n:3,k:'hold'},
+ `Nằm ngửa, gập gối, hai bàn chân đặt trên thảm rộng bằng hông, tay xuôi theo thân.|Ấn bàn chân xuống thảm và nâng hông lên cho đến khi vai, hông, gối thành một đường.|Siết mông, mở ngực, giữ cổ thả lỏng và đầu ở yên trên thảm.|Giữ 30 giây rồi hạ từng đốt sống xuống.`,
+ `Lie on your back with knees bent, feet on the mat hip-width apart and arms alongside your body.|Press your feet down and lift your hips until shoulders, hips and knees form one line.|Squeeze your glutes, open your chest and keep your neck relaxed with your head still on the mat.|Hold 30 seconds, then lower your spine down slowly, one vertebra at a time.`,
+ `Không quay đầu khi đang nâng hông để tránh áp lực lên cổ.`,`Do not turn your head while your hips are lifted, to avoid pressure on the neck.`),
+X('sunsal','yoga','Sun Salutation A (Surya Namaskar A)','Chào mặt trời A',2,['mat'],['full','flex','cardio'],{w:60,r:15,n:5,k:'flow'},
+ `Đứng thẳng (tư thế núi), hít vào giơ tay lên cao, thở ra gập người về trước.|Hít vào ngẩng nửa người, thở ra bước hoặc nhảy chân về sau vào tư thế plank, hạ người xuống (gối chạm thảm nếu cần).|Hít vào chuyển sang tư thế rắn hoặc chó ngẩng, thở ra đẩy hông lên thành chó cúi mặt, giữ 5 nhịp thở.|Bước chân về trước, hít vào ngẩng nửa người, thở ra gập người, rồi hít vào đứng lên giơ tay; thở ra về tư thế núi. Lặp lại 5 vòng.`,
+ `Stand tall in Mountain Pose, inhale and reach your arms up, exhale and fold forward.|Inhale to lift halfway, exhale and step or jump back to plank and lower down (knees on the mat if needed).|Inhale into Cobra or Upward Dog, exhale and press your hips up into Downward Dog for five breaths.|Step forward, inhale halfway lift, exhale fold, then inhale to rise with arms overhead and exhale back to Mountain. Repeat for 5 rounds.`,
+ `Người mới nên hạ gối khi xuống plank và dùng tư thế rắn thay cho chó ngẩng.`,`Beginners should lower the knees when going down from plank and use Cobra instead of Upward Dog.`),
+X('savasana','yoga','Corpse Pose (Savasana)','Tư thế xác chết (thư giãn)',1,['mat'],['calm'],{w:300,r:0,n:1,k:'hold'},
+ `Nằm ngửa, hai chân thả lỏng rộng bằng hông, hai tay xuôi xa thân, lòng bàn tay hướng lên.|Nhắm mắt, để hơi thở trở về nhịp tự nhiên.|Lần lượt thả lỏng từng phần cơ thể từ bàn chân lên đến mặt.|Giữ khoảng 5 phút; khi kết thúc, cử động nhẹ ngón tay, ngón chân rồi từ từ ngồi dậy.`,
+ `Lie on your back with your legs relaxed hip-width apart and arms resting away from your body, palms up.|Close your eyes and let your breath return to its natural rhythm.|Release each part of the body in turn, from your feet up to your face.|Stay about 5 minutes; to finish, wiggle your fingers and toes and sit up slowly.`,
+ `Đắp chăn mỏng nếu thấy lạnh; ngồi dậy từ từ để tránh chóng mặt.`,`Cover up with a light blanket if you feel cold, and sit up slowly to avoid dizziness.`),
+/* PILATES */
+X('hundred','pilates','The Hundred','Bài Hundred (100 nhịp)',2,['mat'],['core'],{w:60,r:30,n:2,k:'flow'},
+ `Nằm ngửa, đưa hai chân lên tư thế bàn (gối gập 90 độ) hoặc duỗi chéo, nhấc đầu và vai khỏi thảm.|Duỗi thẳng hai tay cạnh thân, lòng bàn tay hướng xuống, không chạm thảm.|Đập tay nhẹ lên xuống theo nhịp: hít vào 5 nhịp, thở ra 5 nhịp.|Thực hiện 10 chu kỳ (100 nhịp). Nếu mỏi cổ hoặc võng lưng, đặt chân xuống thảm.`,
+ `Lie on your back, lift your legs to tabletop (knees at 90 degrees) or extend them diagonally, and curl your head and shoulders off the mat.|Reach your arms straight alongside your body, palms down, hovering above the mat.|Pump your arms in small beats: inhale for 5 counts, exhale for 5 counts.|Complete 10 cycles (100 beats). If your neck tires or your back arches, place your feet on the floor.`,
+ `Giữ lưng dưới ấn nhẹ xuống thảm và không nín thở.`,`Keep your lower back gently pressed into the mat and never hold your breath.`),
+X('rollup','pilates','Roll-Up','Cuộn người lên',2,['mat'],['core','back','flex'],{w:45,r:30,n:3,k:'reps',reps:'6–8'},
+ `Nằm ngửa, chân duỗi, hai tay giơ qua đầu.|Hít vào đưa tay lên trần nhà, thở ra hạ cằm về ngực và cuộn từng đốt sống rời khỏi thảm.|Vươn tay qua ngón chân, giữ bụng lõm vào.|Hít vào giữ, thở ra cuộn xuống chậm từng đốt sống. Lặp lại.`,
+ `Lie on your back with your legs extended and arms overhead.|Inhale to bring your arms to the ceiling, exhale to nod your chin to your chest and peel your spine off the mat.|Reach over your toes with your abs scooped in.|Inhale to pause, exhale to roll down slowly one vertebra at a time. Repeat.`,
+ `Gập gối nếu chân bật lên hoặc bạn phải dùng đà. Cẩn thận nếu bị loãng xương hoặc thoát vị đĩa đệm.`,`Bend your knees if your legs pop up or you need momentum. Take care if you have osteoporosis or a disc injury.`),
+X('legcircles','pilates','Single-Leg Circles','Vòng tròn một chân',1,['mat'],['core','legs'],{w:60,r:20,n:2,k:'reps',reps:'5 mỗi chiều§5 each way'},
+ `Nằm ngửa, một chân duỗi trên thảm, chân kia đưa thẳng lên trần nhà.|Giữ xương chậu và lưng dưới thật yên.|Vẽ vòng tròn nhỏ và đều bằng chân giơ lên, 5 vòng theo mỗi chiều.|Đổi chân và lặp lại.`,
+ `Lie on your back with one leg extended on the mat and the other reaching to the ceiling.|Keep your pelvis and lower back completely still.|Draw small, even circles with the raised leg, 5 in each direction.|Switch legs and repeat.`,
+ `Gập gối của chân giơ lên nếu gân kheo căng. Vòng tròn nhỏ nhưng kiểm soát tốt.`,`Bend the raised knee if your hamstrings are tight. Keep circles small but controlled.`),
+X('slstretch','pilates','Single-Leg Stretch','Duỗi một chân',2,['mat'],['core'],{w:45,r:20,n:3,k:'reps',reps:'10–16'},
+ `Nằm ngửa, nhấc đầu và vai, ôm một đầu gối về ngực, chân kia duỗi chếch lên.|Đổi chân nhịp nhàng, tay đổi theo (tay ngoài ở cổ chân, tay trong ở gối).|Giữ thân trên ổn định, bụng lõm vào, lưng dưới không rời thảm.|Hít vào hai lần, thở ra hai lần theo nhịp đổi chân.`,
+ `Lie on your back, lift your head and shoulders, hug one knee to your chest and extend the other leg on a diagonal.|Switch legs smoothly, changing your hands too (outside hand at the ankle, inside hand at the knee).|Keep your upper body steady, abs scooped and your lower back down.|Inhale for two switches, exhale for two switches.`,
+ `Nâng chân duỗi cao hơn nếu lưng dưới bị võng.`,`Raise the extended leg higher if your lower back starts to arch.`),
+X('swimming','pilates','Swimming','Bơi (nằm sấp)',2,['mat'],['back','glutes','core'],{w:30,r:20,n:3,k:'flow'},
+ `Nằm sấp, duỗi thẳng tay và chân, trán hướng xuống thảm.|Nâng nhẹ tay, ngực và chân khỏi thảm, giữ cổ dài.|Đập tay chân đối bên nhịp nhàng như đang bơi, đếm 5 nhịp hít, 5 nhịp thở.|Dừng và thả lỏng xuống thảm.`,
+ `Lie face down with your arms and legs extended, forehead toward the mat.|Lift your arms, chest and legs slightly off the mat, keeping your neck long.|Flutter opposite arms and legs rhythmically as if swimming, 5 counts in and 5 counts out.|Stop and lower to the mat.`,
+ `Nâng thấp hơn nếu đau lưng dưới. Không bóp cổ hay ngẩng đầu quá cao.`,`Lift less if your lower back hurts. Do not crank your neck or lift your head too high.`),
+X('sidelift','pilates','Side-Lying Leg Lift','Nâng chân nằm nghiêng',1,['mat'],['glutes','legs','core'],{w:45,r:15,n:4,k:'reps',reps:'10–12'},
+ `Nằm nghiêng, thân người thẳng một đường, đầu tựa tay, tay kia chống trước ngực.|Xếp hai chân chồng lên nhau, hơi đưa về phía trước.|Nâng chân trên lên ngang hông rồi hạ xuống chậm, giữ hông không xoay.|Thực hiện 10–12 lần mỗi bên (mỗi lượt đổi bên).`,
+ `Lie on your side with your body in one straight line, head resting on your arm and the other hand planted in front of your chest.|Stack your legs and angle them slightly forward.|Lift the top leg to hip height and lower it slowly without rolling your hips.|Do 10–12 reps per side (switch sides each round).`,
+ `Không để hông lăn ra sau; giữ eo thẳng và bụng siết nhẹ.`,`Do not let your hips roll back; keep your waist long and your abs lightly engaged.`),
+/* STRENGTH */
+X('deadlift','strength','Conventional Deadlift','Deadlift (kéo tạ từ sàn)',3,['barbell'],['back','glutes','legs'],{w:40,r:120,n:4,k:'reps',reps:'5'},
+ `Đứng chân rộng bằng hông, thanh tạ ở trên giữa bàn chân; gập hông và gối để nắm thanh tạ ngoài hai đùi.|Căng thẳng bụng, ưỡn ngực, lưng thẳng trung tính, kéo hết độ chùng của thanh tạ.|Đẩy chân xuống sàn để đứng lên, thanh tạ sát chân; duỗi hông và gối cùng lúc.|Đứng thẳng, siết mông, rồi hạ thanh tạ có kiểm soát bằng cách đẩy hông ra sau trước, sau đó gập gối.`,
+ `Stand hip-width apart with the bar over mid-foot; hinge and bend your knees to grip the bar just outside your legs.|Brace your abs, lift your chest and keep a neutral flat back, taking the slack out of the bar.|Push the floor away to stand up with the bar close to your legs, extending hips and knees together.|Stand tall and squeeze your glutes, then lower under control by pushing your hips back first and then bending the knees.`,
+ `Không cong lưng, không giật thanh tạ khỏi sàn. Bắt đầu với tạ rất nhẹ và nhờ PT kiểm tra.`,`Do not round your back or jerk the bar off the floor. Start very light and have a trainer check your form.`),
+X('squat','strength','Barbell Back Squat','Squat tạ đòn',3,['barbell','rack'],['legs','glutes','core'],{w:45,r:120,n:4,k:'reps',reps:'5–8'},
+ `Đặt thanh tạ trên cơ thang phía trên lưng, nắm chắc, lùi ra khỏi giá, chân rộng bằng vai, mũi chân hơi mở.|Hít sâu, siết bụng, ngồi hông ra sau và xuống như ngồi ghế, gối đi theo hướng mũi chân.|Xuống đến khi đùi gần song song với sàn hoặc đến độ sâu bạn kiểm soát được.|Đẩy cả bàn chân xuống sàn để đứng lên, thở ra khi qua điểm khó nhất.`,
+ `Set the bar on your upper traps, grip firmly, walk out of the rack and stand shoulder-width with toes slightly turned out.|Take a big breath, brace your abs and sit your hips back and down, keeping your knees tracking over your toes.|Descend until your thighs are about parallel to the floor, or as deep as you can control.|Drive through your whole foot to stand, exhaling past the hardest point.`,
+ `Luôn đặt chặn an toàn của giá và dùng spotter khi tạ nặng. Không để gối đổ vào trong.`,`Always set the rack safety bars and use a spotter with heavy loads. Do not let your knees cave inward.`),
+X('bench','strength','Barbell Bench Press','Đẩy ngực nằm với tạ đòn',3,['barbell','bench','rack'],['chest','shoulders','arms'],{w:40,r:120,n:4,k:'reps',reps:'5–8'},
+ `Nằm trên ghế, hai bàn chân đặt chắc trên sàn, kéo hai bả vai về sau và xuống dưới.|Nắm thanh tạ rộng hơn vai một chút, ngón cái quấn quanh thanh (không nắm hở).|Hạ thanh tạ chậm đến giữa ngực, khuỷu tay hợp với thân khoảng 45–75 độ.|Đẩy thanh tạ lên thẳng hoặc hơi chếch về phía vai, kiểm soát cả hai chiều.`,
+ `Lie on the bench with your feet planted firmly and your shoulder blades pulled back and down.|Grip the bar slightly wider than shoulder-width with your thumbs wrapped around it (no false grip).|Lower the bar slowly to mid-chest with elbows at roughly 45–75 degrees to your torso.|Press it back up in a straight or slightly angled line toward your shoulders, controlling both directions.`,
+ `Không bao giờ đẩy tạ nặng một mình: cần spotter hoặc giá có chặn an toàn.`,`Never press heavy loads alone: use a spotter or safety arms.`),
+X('ohp','strength','Overhead Press','Đẩy vai đứng',2,['barbell'],['shoulders','arms','core'],{w:35,r:90,n:4,k:'reps',reps:'6–8'},
+ `Đứng chân rộng bằng hông, thanh tạ đặt trên xương đòn, khuỷu tay hơi ở trước thanh tạ.|Siết mông và bụng để giữ thân thẳng.|Đẩy thanh tạ lên, đưa đầu nhẹ ra sau để thanh tạ đi qua, rồi đưa đầu vào lại khi tay duỗi thẳng trên cao.|Hạ thanh tạ có kiểm soát về xương đòn.`,
+ `Stand hip-width apart with the bar resting on your collarbone and elbows slightly in front of the bar.|Squeeze your glutes and abs to keep your torso rigid.|Press the bar up, moving your head back slightly to let it pass, then pushing your head through as your arms lock out overhead.|Lower the bar under control to your collarbone.`,
+ `Không ưỡn lưng dưới quá mức. Dùng tạ nhẹ hơn nếu thân người bị đổ về sau.`,`Do not over-arch your lower back. Use a lighter weight if your torso leans backward.`),
+X('row','strength','Bent-Over Row','Kéo tạ gập người',2,['barbell','dumbbell'],['back','arms'],{w:35,r:90,n:4,k:'reps',reps:'8–10'},
+ `Đứng chân rộng bằng hông, cầm tạ, gập hông đến khoảng 45 độ, lưng thẳng và gối hơi gập.|Siết bụng, nhìn xuống sàn phía trước để giữ cổ trung tính.|Kéo tạ về phía bụng dưới, khuỷu tay sát thân, siết bả vai.|Hạ tạ có kiểm soát cho tay duỗi thẳng.`,
+ `Stand hip-width apart holding the weight, hinge to about 45 degrees with a flat back and soft knees.|Brace your abs and look at the floor slightly ahead to keep your neck neutral.|Pull the weight toward your lower belly with elbows close to your body, squeezing your shoulder blades.|Lower it under control until your arms are straight.`,
+ `Không giật tạ bằng cách quơ thân người. Giảm tạ nếu lưng dưới bị cong.`,`Do not swing your torso to jerk the weight. Reduce the load if your lower back rounds.`),
+X('pullup','strength','Pull-Up','Hít xà đơn',3,['pullbar','band'],['back','arms'],{w:30,r:90,n:4,k:'reps',reps:'3–8'},
+ `Nắm xà đơn bằng tay úp, rộng hơn vai một chút, treo thân và kéo vai xuống khỏi tai.|Siết bụng và mông, hai chân hơi gập hoặc bắt chéo.|Kéo khuỷu tay xuống và về phía hông cho đến khi cằm qua xà.|Hạ chậm trong 2–3 giây về tư thế treo. Người mới dùng dây kháng lực hỗ trợ hoặc hạ người chậm.`,
+ `Grip the bar overhand slightly wider than your shoulders, hang and set your shoulders down away from your ears.|Brace your abs and glutes with your legs slightly bent or crossed.|Pull your elbows down and toward your hips until your chin clears the bar.|Lower slowly over 2–3 seconds to a hang. Beginners can use a resistance band for assistance or do slow lowering only.`,
+ `Không đung đưa, giật người. Dừng nếu đau vai hoặc khuỷu.`,`Do not swing or kip. Stop if your shoulders or elbows hurt.`),
+X('lunge','strength','Walking Lunge','Chùng chân bước đi',1,['dumbbell','none'],['legs','glutes'],{w:40,r:60,n:3,k:'reps',reps:'10–12 mỗi chân§10–12 per leg'},
+ `Đứng thẳng, hai tay chống hông hoặc cầm tạ tay ở hai bên.|Bước một bước dài về trước, hạ hông cho đến khi gối sau gần chạm sàn.|Gối trước nằm trên cổ chân, thân người thẳng.|Đẩy qua gót chân trước, bước chân sau lên và tiếp tục chùng bên kia.`,
+ `Stand tall with your hands on your hips or holding dumbbells at your sides.|Take a long step forward and lower your hips until the back knee almost touches the floor.|Keep the front knee over your ankle and your torso upright.|Push through the front heel, bring the back foot forward and lunge on the other side.`,
+ `Không để gối trước đổ vào trong. Rút ngắn bước nếu thấy đau gối.`,`Do not let the front knee collapse inward. Shorten your stride if your knee hurts.`),
+X('hipthrust','strength','Hip Thrust','Đẩy hông',2,['bench','barbell','dumbbell'],['glutes','legs'],{w:35,r:90,n:4,k:'reps',reps:'8–12'},
+ `Ngồi trên sàn, tựa phần lưng trên vào mép ghế, đặt tạ (có đệm) ngay trên xương hông.|Bàn chân đặt chắc trên sàn rộng bằng hông, gối gập.|Đẩy hông lên cho đến khi thân người thẳng từ vai đến gối, hạ cằm nhẹ.|Siết mông 1 giây ở trên đỉnh rồi hạ xuống có kiểm soát.`,
+ `Sit on the floor with your upper back against the edge of a bench and a padded weight over your hip bones.|Plant your feet hip-width apart with knees bent.|Drive your hips up until your torso is straight from shoulders to knees, chin slightly tucked.|Squeeze your glutes for a second at the top and lower under control.`,
+ `Không ưỡn lưng dưới ở đỉnh; dùng ghế đã cố định chắc chắn.`,`Do not over-arch your lower back at the top; use a bench that is firmly secured.`),
+/* HIIT */
+X('burpee','hiit','Burpee','Burpee',2,['none'],['full','cardio'],{w:20,r:10,n:8,k:'go'},
+ `Đứng thẳng, ngồi xổm và đặt tay xuống sàn trước chân.|Nhảy hoặc bước hai chân ra sau vào tư thế plank, giữ thân người thẳng.|Tùy chọn: hít đất một cái, rồi nhảy hoặc bước chân về sát tay.|Bật thẳng người lên, vỗ tay trên đầu. Làm liên tục trong 20 giây rồi nghỉ 10 giây.`,
+ `Stand tall, squat down and place your hands on the floor in front of your feet.|Jump or step both feet back into a plank, keeping your body in a straight line.|Optional: do one push-up, then jump or step your feet back to your hands.|Jump up with your arms overhead. Work continuously for 20 seconds, then rest 10 seconds.`,
+ `Bỏ động tác nhảy và hít đất nếu bạn mới tập. Dừng nếu đau cổ tay hoặc lưng dưới.`,`Skip the jump and the push-up if you are new. Stop if your wrists or lower back hurt.`),
+X('mclimber','hiit','Mountain Climbers','Leo núi tại chỗ',1,['none','mat'],['core','cardio','shoulders'],{w:30,r:30,n:6,k:'go'},
+ `Vào tư thế plank cao, tay dưới vai, thân người thẳng một đường.|Đưa một đầu gối về phía ngực, rồi nhanh chóng đổi chân.|Giữ hông thấp và bằng với vai, bụng siết.|Chạy "leo núi" liên tục 30 giây, nghỉ 30 giây.`,
+ `Start in a high plank with hands under shoulders and your body in a straight line.|Drive one knee toward your chest, then switch legs quickly.|Keep your hips low and level with your shoulders and your abs tight.|"Climb" continuously for 30 seconds, then rest 30 seconds.`,
+ `Chậm lại hoặc đặt tay lên ghế/bậc cao nếu cổ tay đau.`,`Slow down or put your hands on an elevated bench or step if your wrists hurt.`),
+X('jumpsquat','hiit','Jump Squat','Squat bật nhảy',2,['none'],['legs','glutes','cardio'],{w:20,r:10,n:8,k:'go'},
+ `Đứng chân rộng bằng vai, hạ người xuống tư thế squat.|Bật mạnh lên bằng cả hai chân, thân người thẳng, tay vung hỗ trợ.|Tiếp đất nhẹ nhàng bằng cả bàn chân, đầu gối gập để giảm chấn.|Hạ ngay vào squat tiếp theo. Làm 20 giây, nghỉ 10 giây.`,
+ `Stand shoulder-width apart and lower into a squat.|Explode upward with both feet, keeping your torso tall and swinging your arms to help.|Land softly on your whole foot with bent knees to absorb the impact.|Sink straight into the next squat. Work 20 seconds, rest 10 seconds.`,
+ `Chuyển sang squat thường nếu đau gối, mắt cá hoặc hông. Không tiếp đất khi gối thẳng cứng.`,`Switch to regular squats if your knees, ankles or hips hurt. Never land with locked knees.`),
+X('highknees','hiit','High Knees','Chạy nâng cao gối',1,['none'],['cardio','legs'],{w:30,r:30,n:6,k:'go'},
+ `Đứng thẳng, chân rộng bằng hông.|Chạy tại chỗ, nâng đầu gối cao ngang hông.|Vung tay đối bên nhịp nhàng, tiếp đất bằng nửa bàn chân trước.|Giữ thân người thẳng và bụng siết. 30 giây làm, 30 giây nghỉ.`,
+ `Stand tall with your feet hip-width apart.|Run in place, driving your knees up to hip height.|Pump your arms in opposition and land on the balls of your feet.|Keep your torso upright and abs tight. 30 seconds on, 30 seconds off.`,
+ `Giảm xuống chạy bước nhẹ (march) nếu đau khớp hoặc nhịp tim quá cao.`,`Drop to a marching pace if your joints hurt or your heart rate gets too high.`),
+X('jacks','hiit','Jumping Jacks','Nhảy dang tay chân',1,['none'],['cardio','full'],{w:40,r:20,n:5,k:'go'},
+ `Đứng thẳng, hai chân khép, tay xuôi theo thân.|Bật nhảy dang rộng hai chân, đồng thời đưa tay lên cao qua đầu.|Bật nhảy khép chân lại, tay hạ xuống.|Giữ nhịp đều trong 40 giây, nghỉ 20 giây.`,
+ `Stand with your feet together and arms at your sides.|Jump your feet wide while raising your arms overhead.|Jump back to feet together as your arms come down.|Keep a steady rhythm for 40 seconds, rest 20 seconds.`,
+ `Có thể bước sang hai bên (step jack) thay vì nhảy nếu khớp nhạy cảm.`,`Use step jacks instead of jumping if your joints are sensitive.`),
+X('tabata','hiit','Tabata Circuit (4 moves)','Vòng Tabata 4 động tác',2,['none','mat'],['full','cardio'],{w:20,r:10,n:8,k:'go'},
+ `Chọn 2 động tác đơn giản (ví dụ squat bật nhảy và leo núi), luân phiên mỗi hiệp 20 giây làm, 10 giây nghỉ.|Làm 8 hiệp liên tiếp, tổng cộng 4 phút.|Giữ kỹ thuật tốt đến hiệp cuối; giảm tốc nếu kỹ thuật xấu đi.|Nghỉ 1–2 phút, đi bộ nhẹ nhàng hạ nhiệt. Chỉ làm một vòng nếu bạn là người mới.`,
+ `Pick 2 simple moves (for example jump squats and mountain climbers) and alternate them: 20 seconds work, 10 seconds rest.|Complete 8 rounds back to back, 4 minutes in total.|Keep good form to the last round; slow down if form breaks.|Rest 1–2 minutes and walk lightly to cool down. Do a single circuit only if you are new.`,
+ `Tabata rất khắc nghiệt: chỉ tập khi đã khởi động kỹ và đủ thể lực nền.`,`Tabata is very demanding: only attempt it after a thorough warm-up and with a solid fitness base.`),
+X('sprint','hiit','Sprint Intervals','Chạy nước rút ngắt quãng',3,['none'],['cardio','legs'],{w:30,r:60,n:8,k:'go'},
+ `Khởi động 5–10 phút bằng chạy nhẹ và vài bài tăng tốc ngắn.|Chạy nhanh hết sức (cảm giác khoảng 8–9/10) trong 30 giây trên mặt phẳng, an toàn.|Đi bộ hoặc chạy rất chậm 60 giây để hồi phục (tỷ lệ làm:nghỉ khoảng 1:2).|Lặp lại 6–8 lần, sau đó đi bộ hạ nhiệt 5 phút.`,
+ `Warm up for 5–10 minutes with easy jogging and a few short build-ups.|Run hard (around 8–9 out of 10 effort) for 30 seconds on a flat, safe surface.|Walk or jog very slowly for 60 seconds to recover (work:rest of about 1:2).|Repeat 6–8 times, then walk for 5 minutes to cool down.`,
+ `Không chạy nước rút khi cơ còn lạnh hoặc đang đau; ưu tiên đường bằng phẳng, không trơn.`,`Do not sprint with cold or sore muscles; use a flat, non-slippery surface.`),
+/* BOXING */
+X('stance','boxing','Boxing Stance & Guard','Tư thế đứng và thủ thế',1,['none'],['full','balance'],{w:60,r:15,n:3,k:'flow'},
+ `Đứng chân rộng bằng vai; người thuận tay phải đặt chân trái lên trước, chân sau nhấc gót.|Gối hơi chùng, trọng tâm ở giữa hai chân, người hơi nghiêng 45 độ.|Hai tay giữ cao hai bên má, khuỷu tay khép sát sườn, cằm hạ xuống.|Di chuyển bước nhỏ tiến, lùi, sang hai bên mà không bắt chéo chân.`,
+ `Stand shoulder-width apart; if you are right-handed, place your left foot forward and lift the heel of your back foot.|Keep your knees soft, weight centred between both feet and your body angled about 45 degrees.|Hold your hands high beside your cheeks, elbows tucked to your ribs and chin down.|Move with small steps forward, back and side to side without crossing your feet.`,
+ `Người thuận tay trái làm ngược lại. Không đứng thẳng cứng gối.`,`Left-handers reverse the stance. Do not lock your knees.`),
+X('jabcross','boxing','Jab – Cross (1-2)','Đấm thẳng trái – phải (1-2)',1,['wraps','gloves','bag'],['shoulders','core','cardio'],{w:60,r:30,n:4,k:'flow'},
+ `Vào thế thủ, quấn tay và đeo găng nếu có.|Jab: duỗi thẳng tay trước nhanh, xoay nắm đấm úp xuống ở cuối cú đấm, rồi thu về.|Cross: xoay gót chân sau, hông và vai, đấm thẳng tay sau, rồi thu về thế thủ.|Phối hợp 1-2 liên tục, thở ra theo mỗi cú đấm, luôn giữ tay còn lại che cằm.`,
+ `Take your guard, wrapping your hands and wearing gloves if you have them.|Jab: snap the lead hand straight out, turn the fist palm-down at the end and return it quickly.|Cross: pivot your back heel, hips and shoulder and throw the rear hand straight, then return to guard.|Chain the 1-2 continuously, exhaling on each punch and keeping your free hand guarding your chin.`,
+ `Không khóa khuỷu tay ở cuối cú đấm và không đấm khi cổ tay bị cong.`,`Do not lock your elbow at the end of the punch or punch with a bent wrist.`),
+X('hook','boxing','Lead Hook','Móc trái',2,['wraps','gloves','bag'],['core','shoulders'],{w:60,r:30,n:4,k:'flow'},
+ `Vào thế thủ, hơi hạ trọng tâm và dồn sang chân trước.|Gập khuỷu tay khoảng 90 độ, khuỷu ngang tầm nắm đấm.|Xoay gót chân trước, hông và thân người để vung nắm đấm theo đường vòng ngắn.|Thu về thế thủ ngay lập tức. Làm chậm, đúng kỹ thuật trước khi tăng tốc.`,
+ `Take your guard, lower your centre slightly and load your front foot.|Bend your elbow to about 90 degrees with the elbow level with your fist.|Pivot your front heel, hips and torso to swing the fist in a short arc.|Return to guard immediately. Practise slowly with correct form before speeding up.`,
+ `Không vung rộng bằng tay; sức mạnh đến từ xoay hông và thân người.`,`Do not swing wide with just your arm; the power comes from rotating your hips and torso.`),
+X('uppercut','boxing','Uppercut','Móc lên (uppercut)',2,['wraps','gloves','bag'],['core','arms'],{w:60,r:30,n:4,k:'flow'},
+ `Vào thế thủ, hạ nhẹ gối và vai bên đấm.|Đẩy chân và hông lên, đưa nắm đấm đi lên theo đường thẳng, lòng bàn tay hướng về người.|Đấm đến tầm cằm mục tiêu rồi thu về nhanh.|Đổi tay, giữ tay kia che mặt.`,
+ `Take your guard and slightly bend your knees and drop the punching shoulder.|Drive up through your legs and hips, sending the fist upward in a straight line with your palm facing you.|Punch to chin height and bring it back quickly.|Switch hands, keeping the other hand guarding your face.`,
+ `Không ngả người ra sau khi đấm; giữ cằm hạ.`,`Do not lean back as you punch; keep your chin down.`),
+X('shadow','boxing','Shadow Boxing Round','Đánh bóng không đối thủ (3 phút)',1,['none'],['full','cardio'],{w:180,r:60,n:3,k:'go'},
+ `Khởi động nhẹ, vào thế thủ và di chuyển quanh phòng.|Hiệp 1: tập 1-2 và né tránh nhẹ nhàng; hiệp 2: thêm móc và uppercut.|Hiệp 3: tăng nhịp, phối hợp tổ hợp 3–4 đòn, vẫn giữ kỹ thuật.|Nghỉ 1 phút giữa các hiệp, uống nước.`,
+ `Warm up lightly, take your guard and move around the room.|Round 1: practise the 1-2 and light head movement; round 2: add hooks and uppercuts.|Round 3: raise the tempo and string 3–4 punch combinations while keeping your technique.|Rest 1 minute between rounds and drink water.`,
+ `Tưởng tượng đối thủ để giữ tư thế phòng thủ; không đấm hết cỡ vào không khí khi khớp chưa nóng.`,`Imagine an opponent to keep your defence up; do not snap punches fully into thin air before your joints are warm.`),
+X('bagcombo','boxing','Heavy Bag 1-2-3-2 Combo','Combo đấm bao cát 1-2-3-2',2,['bag','gloves','wraps'],['full','cardio','shoulders'],{w:180,r:60,n:3,k:'go'},
+ `Quấn băng tay, đeo găng đúng cỡ, đứng cách bao cát một sải tay.|Tổ hợp: jab, cross, móc trái, cross (1-2-3-2); giữ tay còn lại che cằm.|Xoay hông, giữ cổ tay thẳng, thở ra mỗi lần đấm; di chuyển quanh bao.|Mỗi hiệp 3 phút, nghỉ 1 phút. Dừng nếu cổ tay đau.`,
+ `Wrap your hands, put on correctly sized gloves and stand an arm's length from the bag.|Combo: jab, cross, lead hook, cross (1-2-3-2); keep your free hand guarding your chin.|Rotate your hips, keep your wrists straight, exhale with every punch and move around the bag.|Each round is 3 minutes with 1 minute rest. Stop if your wrists hurt.`,
+ `Không đấm bao cát khi không đeo găng hoặc không quấn tay.`,`Never hit a heavy bag without gloves and hand wraps.`),
+X('rope','boxing','Jump Rope','Nhảy dây',1,['rope'],['cardio','legs'],{w:60,r:30,n:5,k:'go'},
+ `Chọn dây dài vừa tầm: giẫm lên giữa dây, tay cầm sát nách là vừa.|Đứng thẳng, khuỷu tay sát thân, quay dây bằng cổ tay, không quay bằng cả cánh tay.|Nhảy thấp, tiếp đất bằng nửa bàn chân trước, gối hơi chùng.|Giữ nhịp đều trong 60 giây, nghỉ 30 giây. Lặp lại 5 lần.`,
+ `Pick the right length: stand on the middle of the rope and the handles should reach your armpits.|Stand tall with elbows close to your body and turn the rope with your wrists, not whole arms.|Jump low, landing on the balls of your feet with soft knees.|Keep a steady rhythm for 60 seconds, rest 30 seconds. Repeat 5 times.`,
+ `Tập trên mặt sàn có độ đàn hồi (thảm, sàn gỗ), tránh bê tông nếu có thể.`,`Jump on a surface with some give (mat, wooden floor) and avoid concrete if possible.`),
+/* CORE */
+X('plank','core','Plank','Plank (chống khuỷu tay)',1,['mat'],['core','shoulders'],{w:40,r:20,n:3,k:'hold'},
+ `Nằm sấp, chống hai khuỷu tay dưới vai, các ngón chân chạm sàn.|Nâng người lên, thân thành một đường thẳng từ đầu đến gót chân.|Siết bụng, mông và đùi; mắt nhìn xuống sàn.|Giữ 40 giây, thở đều rồi hạ xuống nghỉ 20 giây.`,
+ `Lie face down with your forearms under your shoulders and toes on the floor.|Lift your body into one straight line from head to heels.|Brace your abs, glutes and thighs and look down at the floor.|Hold 40 seconds, breathing evenly, then lower down for a 20-second rest.`,
+ `Dừng nếu lưng dưới võng xuống hoặc đau; hạ gối xuống thảm để giảm độ khó.`,`Stop if your lower back sags or hurts; lower your knees to the mat to make it easier.`),
+X('deadbug','core','Dead Bug','Con bọ chết',1,['mat'],['core'],{w:40,r:20,n:3,k:'reps',reps:'8–10 mỗi bên§8–10 per side'},
+ `Nằm ngửa, hai tay giơ thẳng lên trần, hai chân giơ ở tư thế bàn (gối 90 độ).|Ấn lưng dưới nhẹ xuống thảm và giữ suốt bài tập.|Thở ra, duỗi chậm tay đối diện và chân đối diện về phía sàn mà không để lưng võng.|Thu về, đổi bên. Làm chậm và có kiểm soát.`,
+ `Lie on your back with arms reaching to the ceiling and legs in tabletop (knees at 90 degrees).|Press your lower back gently into the mat and keep it there throughout.|Exhale and slowly extend the opposite arm and leg toward the floor without letting your back arch.|Return and switch sides. Move slowly and with control.`,
+ `Giảm biên độ nếu lưng dưới bắt đầu võng lên.`,`Reduce your range if your lower back starts to lift off the mat.`),
+X('bicycle','core','Bicycle Crunch','Gập bụng đạp xe',1,['mat'],['core'],{w:40,r:20,n:3,k:'flow'},
+ `Nằm ngửa, hai tay đặt nhẹ sau đầu, khuỷu mở rộng.|Nâng vai và chân khỏi sàn, gối gập 90 độ.|Xoay thân đưa khuỷu về phía gối đối diện, đồng thời duỗi chân kia.|Đổi bên chậm rãi, kiểm soát, không kéo cổ bằng tay.`,
+ `Lie on your back with your hands lightly behind your head and elbows wide.|Lift your shoulders and legs off the floor with knees bent to 90 degrees.|Rotate your torso to bring one elbow toward the opposite knee while extending the other leg.|Switch sides slowly and with control, without pulling on your neck.`,
+ `Không kéo cổ; ưu tiên xoay từ thân người, không phải nhanh.`,`Do not pull on your neck; rotate from the torso and prioritise control over speed.`),
+X('hollow','core','Hollow Hold','Giữ tư thế thuyền rỗng',3,['mat'],['core'],{w:25,r:20,n:3,k:'hold'},
+ `Nằm ngửa, hai tay giơ qua đầu, hai chân duỗi thẳng.|Ấn chặt lưng dưới xuống thảm, nhấc vai và chân khỏi sàn.|Thân hình thành đường cong hình quả chuối nông, giữ bụng siết.|Giữ 25 giây; gập gối hoặc hạ tay xuống thân nếu khó.`,
+ `Lie on your back with arms overhead and legs straight.|Press your lower back firmly into the mat and lift your shoulders and legs off the floor.|Your body forms a shallow banana shape with your abs tight.|Hold 25 seconds; bend your knees or bring your arms down to your sides to make it easier.`,
+ `Hạ chân cao hơn nếu lưng dưới không còn ép được xuống thảm.`,`Keep your legs higher if you can no longer keep your lower back pressed down.`),
+/* CARDIO */
+X('run','cardio','Run-Walk Intervals','Chạy nhẹ xen kẽ đi bộ',1,['none'],['cardio','legs'],{w:60,r:60,n:10,k:'go'},
+ `Đi bộ nhanh 5 phút để khởi động.|Chạy chậm ở nhịp vẫn nói chuyện được trong 60 giây.|Đi bộ 60 giây để hồi phục và lặp lại 10 lần.|Kết thúc bằng 5 phút đi bộ và giãn cơ nhẹ nhàng.`,
+ `Warm up with 5 minutes of brisk walking.|Jog at a pace where you can still talk for 60 seconds.|Walk for 60 seconds to recover and repeat 10 times.|Finish with 5 minutes of walking and gentle stretching.`,
+ `Tăng dần: mỗi tuần chỉ tăng thời gian chạy một chút. Chọn giày phù hợp để tránh chấn thương ống đồng.`,`Progress slowly: add only a little running time each week. Wear proper shoes to avoid shin problems.`),
+X('cycle','cardio','Cycling Intervals','Đạp xe ngắt quãng',2,['bike'],['cardio','legs'],{w:60,r:60,n:8,k:'go'},
+ `Chỉnh yên sao cho gối hơi gập nhẹ ở điểm thấp nhất của vòng đạp.|Đạp nhẹ 5 phút để khởi động.|Đạp nhanh và nặng hơn 60 giây, sau đó đạp nhẹ 60 giây; lặp lại 8 lần.|Đạp nhẹ 5 phút để hạ nhiệt.`,
+ `Set the saddle so your knee has a slight bend at the bottom of the pedal stroke.|Pedal easily for 5 minutes to warm up.|Ride hard for 60 seconds, then easy for 60 seconds; repeat 8 times.|Pedal easily for 5 minutes to cool down.`,
+ `Đạp xe ngoài đường: đội mũ bảo hiểm, đèn và tuân thủ luật giao thông.`,`When riding outdoors wear a helmet, use lights and follow traffic rules.`),
+X('walk','cardio','Brisk Walk','Đi bộ nhanh',1,['none'],['cardio','legs'],{w:600,r:60,n:3,k:'go'},
+ `Mang giày êm và đi ở tốc độ nói chuyện được nhưng không hát được.|Đứng thẳng, nhìn về phía trước, vung tay tự nhiên.|Đi 10 phút, nghỉ 1 phút uống nước; lặp lại 3 lần.|Giãn nhẹ bắp chân và đùi ở cuối buổi.`,
+ `Wear comfortable shoes and walk at a pace where you can talk but not sing.|Stand tall, look ahead and swing your arms naturally.|Walk 10 minutes, rest 1 minute and drink water; repeat 3 times.|Stretch your calves and thighs lightly at the end.`,
+ `Tránh đi bộ nhanh giữa trưa nắng nóng; mang đủ nước.`,`Avoid brisk walks in midday heat and carry enough water.`),
+/* MOBILITY */
+X('hipflexor','mobility','Kneeling Hip Flexor Stretch','Giãn cơ gập hông kiểu quỳ',1,['mat'],['flex','legs'],{w:30,r:5,n:4,k:'hold'},
+ `Quỳ một gối trên thảm, chân kia bước ra trước, gối trước trên cổ chân.|Đẩy nhẹ xương chậu về trước (cuộn xương cụt xuống) và siết mông bên chân quỳ.|Giơ tay cùng bên với chân quỳ lên cao để tăng độ giãn.|Giữ 30 giây rồi đổi bên; làm 2 lần mỗi bên.`,
+ `Kneel on one knee on a mat with the other foot forward and the front knee over the ankle.|Gently tuck your pelvis forward (tailbone down) and squeeze the glute on the kneeling side.|Raise the arm on the kneeling side overhead to deepen the stretch.|Hold 30 seconds then switch; do 2 rounds per side.`,
+ `Không ưỡn lưng dưới; kê chăn dưới gối nếu thấy đau.`,`Do not arch your lower back; place a folded blanket under the knee if it hurts.`),
+X('hamstring','mobility','Standing Hamstring Stretch','Giãn gân kheo đứng',1,['none'],['flex','legs'],{w:30,r:5,n:4,k:'hold'},
+ `Đứng thẳng, đặt gót một chân lên bậc thấp hoặc sàn phía trước, mũi chân hướng lên.|Giữ lưng thẳng, gập hông về trước cho đến khi cảm thấy căng sau đùi.|Hít thở đều, không nảy người.|Giữ 30 giây rồi đổi chân; làm 2 lần mỗi bên.`,
+ `Stand tall and place one heel on a low step or the floor in front of you with the toes up.|Keep your back straight and hinge forward at the hips until you feel a stretch behind the thigh.|Breathe steadily without bouncing.|Hold 30 seconds, then switch legs; do 2 rounds per side.`,
+ `Không cong lưng để chạm ngón chân; chỉ đi tới mức căng nhẹ.`,`Do not round your back to reach your toes; go only to mild tension.`),
+X('wgs','mobility',"World's Greatest Stretch",'Bài giãn toàn thân "tuyệt vời nhất"',2,['mat'],['flex','legs','back'],{w:60,r:10,n:3,k:'flow'},
+ `Từ tư thế plank, bước một chân ra ngoài bàn tay cùng bên.|Hạ khuỷu tay gần cùng bên xuống sát bàn chân nếu có thể.|Xoay thân, đưa tay trong lên trời và nhìn theo bàn tay.|Hạ tay, duỗi thẳng chân trước để giãn gân kheo; đổi bên.`,
+ `From a plank, step one foot outside the hand on the same side.|Lower the same-side elbow toward the foot if possible.|Rotate your torso, reach the inside arm to the sky and follow it with your eyes.|Lower the hand, straighten the front leg to stretch the hamstring, then switch sides.`,
+ `Dùng gạch yoga dưới tay nếu không chạm được sàn.`,`Use a yoga block under your hand if you cannot reach the floor.`),
+X('foamroll','mobility','Foam Rolling (Quads & Upper Back)','Lăn foam roller (đùi trước và lưng trên)',1,['foam','mat'],['flex','back','legs'],{w:60,r:15,n:4,k:'flow'},
+ `Đặt con lăn dưới đùi trước (nằm sấp) hoặc dưới lưng trên (nằm ngửa, tay ôm đầu).|Lăn chậm, mỗi đoạn 2–3 giây; dừng 20–30 giây ở điểm đau căng.|Thở sâu để cơ thư giãn; chuyển sang vùng khác sau 60 giây.|Uống nước sau khi lăn.`,
+ `Place the roller under your quads (lying face down) or your upper back (lying face up with hands behind your head).|Roll slowly, 2–3 seconds per section; pause 20–30 seconds on tender spots.|Breathe deeply so the muscle relaxes; move to a new area after 60 seconds.|Drink water afterwards.`,
+ `Không lăn trực tiếp lên khớp, xương hoặc lưng dưới; dừng nếu đau nhói.`,`Do not roll directly over joints, bone or your lower back; stop if you feel sharp pain.`),
+X('shoulderband','mobility','Band Shoulder Dislocates','Xoay vai với dây kháng lực',1,['band'],['shoulders','flex'],{w:40,r:15,n:3,k:'reps',reps:'10'},
+ `Đứng thẳng, cầm dây kháng lực hoặc gậy bằng hai tay, nắm rộng hơn vai.|Giữ tay thẳng, từ từ đưa dây từ trước đùi lên cao qua đầu.|Tiếp tục đưa ra sau lưng nếu thoải mái; sau đó quay lại theo đường cũ.|Nếu bị kẹt vai, nắm rộng hơn. Làm 10 lần chậm.`,
+ `Stand tall holding a resistance band or stick with both hands, wider than shoulder-width.|Keeping your arms straight, slowly raise the band from in front of your thighs up and overhead.|Continue behind your back if comfortable, then return along the same path.|If your shoulders pinch, widen your grip. Do 10 slow reps.`,
+ `Không ép nếu vai bị kẹt hoặc đau; đây chỉ là bài di động khớp, không phải bài tăng sức mạnh.`,`Do not force it if your shoulders pinch or hurt; this is a mobility drill, not a strength exercise.`),
+/* KETTLEBELL */
+X('kbswing','kettlebell','Kettlebell Swing','Vung tạ ấm',2,['kettlebell'],['glutes','back','cardio'],{w:30,r:30,n:6,k:'reps',reps:'15'},
+ `Đứng chân rộng hơn vai một chút, tạ ấm ở trước chân; gập hông (không phải squat) để nắm quai tạ bằng hai tay.|Hất tạ ra sau giữa hai chân như đang giao bóng, lưng thẳng.|Bật hông về trước mạnh để tạ bay lên ngang ngực; tay chỉ là sợi dây.|Để tạ rơi tự nhiên, gập hông ra sau và lặp lại liên tục.`,
+ `Stand slightly wider than your shoulders with the kettlebell in front of you; hinge at the hips (not a squat) to grab the handle with both hands.|Hike the bell back between your legs like a football snap, back flat.|Snap your hips forward powerfully so the bell floats to chest height; your arms are just ropes.|Let it fall naturally, hinge back and repeat continuously.`,
+ `Không nâng tạ bằng tay hay lưng. Dùng tạ nhẹ để học kỹ thuật và nên có HLV.`,`Do not lift the bell with your arms or back. Learn with a light weight and ideally a coach.`),
+X('goblet','kettlebell','Goblet Squat','Squat ôm tạ',1,['kettlebell','dumbbell'],['legs','glutes','core'],{w:40,r:60,n:3,k:'reps',reps:'10–12'},
+ `Cầm tạ ấm hoặc tạ tay trước ngực bằng hai tay, khuỷu tay chúc xuống.|Đứng chân rộng hơn vai một chút, mũi chân hơi mở ra.|Hạ hông xuống giữa hai chân, khuỷu tay đi vào trong khoảng giữa hai gối, ngực mở.|Đẩy cả bàn chân xuống sàn để đứng lên.`,
+ `Hold a kettlebell or dumbbell at your chest with both hands and elbows pointing down.|Stand slightly wider than shoulder-width with toes turned slightly out.|Sit your hips down between your legs so your elbows travel between your knees, keeping your chest open.|Drive through your whole foot to stand up.`,
+ `Giữ gót chân trên sàn và ngực cao; dừng nếu đau gối.`,`Keep your heels down and chest tall; stop if your knees hurt.`),
+X('tgu','kettlebell','Turkish Get-Up','Turkish get-up',3,['kettlebell','mat'],['full','core','shoulders'],{w:90,r:60,n:3,k:'reps',reps:'1–2 mỗi bên§1–2 per side'},
+ `Nằm ngửa, nắm tạ bằng một tay duỗi thẳng lên trần, cùng bên gập gối, chân kia duỗi.|Chống khuỷu tay rồi bàn tay đối diện để ngồi dậy, mắt luôn nhìn tạ.|Nâng hông, đưa chân duỗi ra sau để quỳ, rồi đứng thẳng lên.|Đảo ngược từng bước một cách chậm rãi để nằm xuống. Học không tải hoặc dùng một vật nhẹ.`,
+ `Lie on your back holding the bell straight up with one arm, the same-side knee bent and the other leg straight.|Prop up on your elbow and then your opposite hand to sit up, keeping your eyes on the bell.|Lift your hips, sweep the straight leg back to a kneeling position, then stand up.|Reverse each step slowly to lie back down. Learn it with no weight or a light object.`,
+ `Bài rất phức tạp: nên học với HLV. Không tập khi mệt.`,`A complex movement: learn it with a coach. Do not train it when tired.`),
+/* CALISTHENICS */
+X('pushup','calisthenics','Push-Up','Hít đất',1,['none'],['chest','arms','core'],{w:40,r:60,n:3,k:'reps',reps:'8–12'},
+ `Vào tư thế plank cao, hai tay đặt rộng hơn vai một chút, thân người thẳng.|Hạ ngực gần sàn, khuỷu tay hợp với thân khoảng 45 độ.|Đẩy người lên, giữ bụng và mông siết.|Người mới: quỳ gối hoặc chống tay lên mặt phẳng cao.`,
+ `Start in a high plank with hands slightly wider than your shoulders and your body straight.|Lower your chest close to the floor with elbows at about 45 degrees to your torso.|Press back up, keeping your abs and glutes tight.|Beginners: drop to your knees or place your hands on an elevated surface.`,
+ `Không để hông võng hoặc nhô lên; dừng nếu đau cổ tay hoặc vai.`,`Do not let your hips sag or pike; stop if your wrists or shoulders hurt.`),
+X('bodysquat','calisthenics','Bodyweight Squat','Squat tay không',1,['none'],['legs','glutes'],{w:40,r:45,n:3,k:'reps',reps:'12–15'},
+ `Đứng chân rộng bằng vai, mũi chân hơi mở, tay đưa ra trước hoặc chắp trước ngực.|Ngồi hông ra sau và xuống như đang ngồi vào ghế.|Giữ ngực cao, gối đi theo hướng mũi chân.|Xuống đến mức thoải mái rồi đẩy bàn chân xuống sàn để đứng lên.`,
+ `Stand shoulder-width apart with toes slightly out and arms in front of you or clasped at your chest.|Sit your hips back and down as if sitting into a chair.|Keep your chest tall and your knees tracking over your toes.|Go as deep as is comfortable, then push through your feet to stand.`,
+ `Không để gót chân nhấc lên hoặc gối đổ vào trong.`,`Do not let your heels lift or your knees cave inward.`),
+X('dips','calisthenics','Bench Dip','Chống đẩy ghế',1,['chair'],['arms','chest','shoulders'],{w:30,r:60,n:3,k:'reps',reps:'8–12'},
+ `Ngồi mép ghế chắc, hai tay nắm mép ghế cạnh hông, trượt mông ra khỏi ghế.|Duỗi chân ra trước (chân gập để dễ hơn), vai kéo xuống xa tai.|Gập khuỷu tay đến khoảng 90 độ, hạ người thẳng xuống, lưng sát ghế.|Đẩy lên bằng tay đến khi khuỷu gần duỗi thẳng.`,
+ `Sit on the edge of a sturdy bench, hands gripping the edge by your hips, and slide your hips off the bench.|Extend your legs forward (bend them to make it easier) and draw your shoulders down away from your ears.|Bend your elbows to about 90 degrees, lowering straight down with your back close to the bench.|Press up with your arms until your elbows are almost straight.`,
+ `Không hạ quá sâu; bỏ bài này nếu vai bị đau hoặc không ổn định.`,`Do not drop too low; skip this exercise if your shoulders are painful or unstable.`)
+];
+EXS.forEach(function(e,i){e.i=i;var t=e.tm;t.tot=t.n*t.w+(t.n-1)*t.r;});
+
+var TERMS={
+vi:{title:'Điều khoản sử dụng và Miễn trừ trách nhiệm về an toàn tập luyện',upd:'Cập nhật lần cuối: 14/11/2026 · Phiên bản 1.0',intro:'Vui lòng đọc kỹ toàn bộ văn bản này trước khi sử dụng trang. Đây là thỏa thuận có ràng buộc pháp lý, bao gồm việc bạn tự nguyện chấp nhận rủi ro và từ bỏ một số quyền khiếu nại trong phạm vi pháp luật cho phép.',
+ s:[
+ ['1. Chấp thuận điều khoản','Khi truy cập hoặc sử dụng trang "Hôm nay tập gì" (gọi là "Trang") do Alessandra Tran ("Chủ sở hữu") vận hành, bạn xác nhận rằng bạn đã đọc, hiểu và đồng ý bị ràng buộc bởi toàn bộ Điều khoản này. Nếu không đồng ý, vui lòng ngừng sử dụng Trang ngay lập tức.'],
+ ['2. Chỉ mang tính tham khảo, không phải tư vấn y tế hay huấn luyện chuyên nghiệp','Mọi nội dung trên Trang (bài tập, hướng dẫn, thời lượng, bộ hẹn giờ, gợi ý ngẫu nhiên, kết quả hỏi đáp, danh sách dụng cụ và trang phục…) chỉ nhằm mục đích thông tin chung và được tổng hợp từ các tài liệu tham khảo công khai. Không nội dung nào là chẩn đoán, điều trị, tư vấn y khoa, vật lý trị liệu, dinh dưỡng hay huấn luyện cá nhân hóa. Việc sử dụng Trang không tạo ra quan hệ bác sĩ – bệnh nhân, huấn luyện viên – học viên hay bất kỳ quan hệ chuyên môn nào giữa bạn và Chủ sở hữu.'],
+ ['3. Khám sức khỏe trước khi tập','Bạn phải hỏi ý kiến bác sĩ trước khi bắt đầu hoặc thay đổi chương trình tập, đặc biệt nếu bạn có bệnh tim mạch, huyết áp cao, tiểu đường, hen suyễn, bệnh về xương khớp, cột sống hoặc loãng xương, đang có chấn thương, đang mang thai hoặc sau sinh, sau phẫu thuật, đang dùng thuốc, lâu ngày ít vận động, hoặc không chắc về tình trạng sức khỏe của mình. Hãy ngừng tập ngay và tìm trợ giúp y tế nếu có đau ngực, khó thở bất thường, chóng mặt, choáng váng, buồn nôn, đau nhói, tê bì hoặc bất kỳ triệu chứng bất thường nào.'],
+ ['4. Rủi ro vốn có và tự nguyện chấp nhận rủi ro','Tập luyện, đặc biệt là nâng tạ nặng, HIIT, boxing, các bài bật nhảy, tư thế đảo ngược hoặc đòi hỏi thăng bằng, luôn tiềm ẩn rủi ro, bao gồm nhưng không giới hạn: căng hoặc rách cơ, bong gân, trật khớp, gãy xương, chấn thương cột sống, chấn động não, rối loạn nhịp tim, ngừng tim, đột quỵ, kiệt sức, mất nước, say nóng, và rủi ro do dụng cụ hỏng, đổ, rơi hoặc đè. Trong trường hợp nghiêm trọng có thể dẫn đến thương tật vĩnh viễn hoặc tử vong. Bạn hiểu rõ và tự nguyện chấp nhận toàn bộ các rủi ro này khi tự quyết định tập luyện.'],
+ ['5. Khuyến nghị mạnh mẽ về giám sát chuyên môn','Chủ sở hữu không khuyến khích bạn tự tập một mình, nhất là với các bài kỹ thuật cao hoặc tải nặng. Bạn nên tập dưới sự hướng dẫn trực tiếp của huấn luyện viên cá nhân (PT), giáo viên yoga hoặc pilates, huấn luyện viên boxing, hoặc chuyên gia vật lý trị liệu có chứng chỉ phù hợp; có người hỗ trợ (spotter) và thiết bị an toàn khi nâng tạ nặng; và không tập đối kháng khi chưa có huấn luyện viên cùng đồ bảo hộ. Hướng dẫn trực tiếp của chuyên gia luôn được ưu tiên hơn mọi nội dung trên Trang.'],
+ ['6. Độ tuổi','Trang dành cho người từ đủ 18 tuổi. Người dưới 18 tuổi chỉ được sử dụng khi có cha mẹ hoặc người giám hộ đồng ý, giám sát và có huấn luyện viên đủ chuyên môn phù hợp với lứa tuổi.'],
+ ['7. Nguồn tham khảo và độ chính xác','Nội dung được tổng hợp, diễn giải và rút gọn từ các tài liệu như "The Complete Yoga Poses" (PDF), "HIIT Manual" của Mladen Jovanović, khuyến nghị hoạt động thể chất của ACSM, và các nguồn công khai khác; một số phần chỉ dựa trên kiến thức phổ thông về kỹ thuật tập. Việc tham chiếu không có nghĩa là tác giả hay tổ chức nguồn xác nhận, tài trợ hoặc chịu trách nhiệm về Trang. Nội dung có thể thiếu sót, lỗi thời, bị diễn giải chưa đầy đủ hoặc không phù hợp với cơ thể và hoàn cảnh riêng của bạn. Thời lượng, số hiệp, số lần chỉ là gợi ý chung, không phải liều tập an toàn cho từng cá nhân.'],
+ ['8. Liên kết và nội dung của bên thứ ba','Các liên kết đến YouTube, tài liệu PDF hoặc trang web bên ngoài chỉ nhằm tiện tra cứu. Nhiều liên kết là kết quả tìm kiếm nên nội dung hiển thị có thể thay đổi bất kỳ lúc nào. Chủ sở hữu không kiểm soát, không bảo đảm và không chịu trách nhiệm về tính chính xác, an toàn, bản quyền hay quan điểm trong các nội dung đó, và việc đưa liên kết không có nghĩa là bảo trợ hay khuyến nghị.'],
+ ['9. Bộ hẹn giờ và công cụ trên Trang','Bộ hẹn giờ, âm báo, buổi tập ngẫu nhiên và các công cụ khác chỉ mang tính tiện ích. Chúng có thể sai lệch hoặc bị gián đoạn (ví dụ do trình duyệt hạn chế khi chạy nền, hết pin, tắt âm thanh hoặc lỗi kỹ thuật). Bạn không được dựa vào chúng để bảo đảm an toàn; hãy luôn lắng nghe cơ thể và tự quyết định thời điểm dừng.'],
+ ['10. Dụng cụ, trang phục và môi trường tập','Bạn hoàn toàn chịu trách nhiệm kiểm tra tình trạng dụng cụ, sàn tập, không gian, nhiệt độ, nước uống, trang phục và giày dép phù hợp. Thông tin về dụng cụ và trang phục trên Trang chỉ là gợi ý chung.'],
+ ['11. Không bảo đảm','Trang và toàn bộ nội dung được cung cấp "nguyên trạng" và "theo khả năng sẵn có", không kèm bất kỳ bảo đảm nào, dù rõ ràng hay ngầm định, bao gồm bảo đảm về tính chính xác, đầy đủ, phù hợp cho mục đích cụ thể, an toàn hay kết quả tập luyện.'],
+ ['12. Giới hạn trách nhiệm','Trong phạm vi tối đa mà pháp luật cho phép, Chủ sở hữu, người đóng góp và các bên liên quan không chịu trách nhiệm đối với bất kỳ thương tích, bệnh tật, tử vong, tổn thất tài sản, chi phí y tế, mất thu nhập hay thiệt hại trực tiếp, gián tiếp, đặc biệt, hệ quả hoặc mang tính răn đe nào phát sinh từ hoặc liên quan đến việc sử dụng, hoặc không thể sử dụng, Trang, kể cả khi đã được thông báo trước về khả năng xảy ra thiệt hại. Nếu pháp luật buộc phải xác lập trách nhiệm, tổng mức trách nhiệm tối đa của Chủ sở hữu sẽ không vượt quá số tiền bạn đã trả để sử dụng Trang (hiện là 0 đồng).'],
+ ['13. Miễn trừ và từ bỏ khiếu nại','Trong phạm vi pháp luật cho phép, bạn, thay mặt bản thân, người thừa kế, người đại diện hợp pháp và người nhận chuyển nhượng, miễn trừ và từ bỏ mọi khiếu nại, yêu cầu bồi thường và quyền khởi kiện đối với Chủ sở hữu liên quan đến thương tích hoặc thiệt hại phát sinh từ việc bạn thực hiện bất kỳ bài tập hoặc hoạt động nào được đề cập trên Trang, kể cả khi do sơ suất thông thường của Chủ sở hữu.'],
+ ['14. Bồi hoàn','Bạn đồng ý bồi hoàn và giữ cho Chủ sở hữu không bị thiệt hại trước mọi khiếu nại, tổn thất và chi phí (bao gồm phí luật sư hợp lý) phát sinh từ việc bạn vi phạm Điều khoản này, sử dụng Trang sai mục đích, hoặc hướng dẫn hay chia sẻ nội dung của Trang cho người khác (kể cả người dưới 18 tuổi) để họ tập luyện.'],
+ ['15. Phòng tập, huấn luyện viên và bên thứ ba','Nếu bạn tập tại phòng tập hoặc cùng huấn luyện viên, mối quan hệ đó hoàn toàn độc lập với Trang. Chủ sở hữu không chịu trách nhiệm về cơ sở vật chất, dịch vụ, chuyên môn hay hành vi của các bên đó. Hãy tuân thủ nội quy và hướng dẫn trực tiếp của họ.'],
+ ['16. Dữ liệu cá nhân','Trang không thu thập thông tin sức khỏe của bạn lên máy chủ. Các lựa chọn của bạn (ngôn ngữ, buổi tập, xác nhận điều khoản) chỉ được lưu cục bộ trong trình duyệt của bạn và có thể bị xóa bất cứ lúc nào bằng cách xóa dữ liệu trình duyệt.'],
+ ['17. Quyền sở hữu trí tuệ','Giao diện và cách trình bày của Trang thuộc về Chủ sở hữu. Tên gọi, tài liệu và nhãn hiệu của bên thứ ba thuộc về chủ sở hữu tương ứng. Bạn không được sao chép cho mục đích thương mại khi chưa được phép.'],
+ ['18. Luật áp dụng và giải quyết tranh chấp','Điều khoản này được điều chỉnh bởi pháp luật Việt Nam. Các bên ưu tiên thương lượng thiện chí; nếu không đạt được thỏa thuận, tranh chấp thuộc thẩm quyền của Tòa án có thẩm quyền tại Thành phố Hồ Chí Minh, Việt Nam. Không quy định nào trong Điều khoản này loại trừ hoặc hạn chế các quyền của người tiêu dùng mà pháp luật không cho phép loại trừ, hay trách nhiệm không thể loại trừ theo quy định pháp luật (ví dụ do cố ý hoặc lỗi nghiêm trọng).'],
+ ['19. Tính khả thi từng phần và toàn bộ thỏa thuận','Nếu một quy định bị coi là vô hiệu hoặc không thể thi hành, các quy định còn lại vẫn giữ nguyên hiệu lực. Điều khoản này là toàn bộ thỏa thuận giữa bạn và Chủ sở hữu về việc sử dụng Trang.'],
+ ['20. Thay đổi điều khoản','Chủ sở hữu có thể cập nhật Điều khoản bất kỳ lúc nào; phiên bản mới có hiệu lực kể từ khi đăng tải. Việc bạn tiếp tục sử dụng Trang đồng nghĩa với việc chấp nhận phiên bản mới, và Trang có thể yêu cầu bạn xác nhận lại.'],
+ ['21. Trường hợp khẩn cấp','Nếu bạn hoặc người khác bị thương nặng hoặc có triệu chứng nguy hiểm, hãy ngừng tập và gọi cấp cứu ngay: 115 tại Việt Nam (hoặc số khẩn cấp tại nơi bạn ở, ví dụ 112).'],
+ ['22. Liên hệ','Mọi thắc mắc về Điều khoản này vui lòng liên hệ qua www.alessandratran.com.']],
+ gateH:'Trước khi tập: Xác nhận an toàn',gateP:'Để tiếp tục, vui lòng đọc và xác nhận các điểm quan trọng sau:',
+ gateL:['Nội dung chỉ để tham khảo, không phải tư vấn y tế hay huấn luyện chuyên nghiệp.','Tôi đã hoặc sẽ hỏi ý kiến bác sĩ trước khi tập, đặc biệt nếu tôi có bệnh lý, chấn thương hoặc đang mang thai.','Tôi hiểu tập luyện có rủi ro chấn thương nghiêm trọng, thậm chí tử vong, và tôi tự nguyện chấp nhận rủi ro này.','Chủ sở hữu khuyến khích tôi tập cùng huấn luyện viên hoặc PT, và không chịu trách nhiệm đối với tai nạn hay chấn thương xảy ra khi tôi tập, trong phạm vi pháp luật cho phép.'],
+ gateC:'Tôi từ đủ 18 tuổi (hoặc có người giám hộ cùng đồng ý), đã đọc, hiểu và đồng ý với toàn bộ Điều khoản sử dụng và Miễn trừ trách nhiệm.',gateB:'Tôi đồng ý và tiếp tục',gateR:'Đọc đầy đủ Điều khoản',gateX:'Tôi không đồng ý, quay lại trang chủ',close:'Đóng',
+ banner:'Nội dung chỉ để tham khảo, không phải tư vấn y tế. Hãy hỏi bác sĩ trước khi tập và nên tập cùng PT hoặc huấn luyện viên. Bạn tự chịu rủi ro khi tập.',bannerL:'Xem Điều khoản',
+ safeH:'Lưu ý an toàn',safeG:'Không khuyến khích tự tập một mình: hãy tập cùng PT hoặc huấn luyện viên có chứng chỉ để bảo đảm an toàn. Dừng ngay khi đau, chóng mặt hoặc khó thở.',footT:'Điều khoản & Miễn trừ trách nhiệm'},
+en:{title:'Terms of Use and Exercise Safety Disclaimer',upd:'Last updated: 14 November 2026 · Version 1.0',intro:'Please read this entire document carefully before using the site. It is a legally binding agreement that includes your voluntary assumption of risk and a waiver of certain claims to the extent permitted by law.',
+ s:[
+ ['1. Acceptance of terms','By accessing or using the "What to work out today" site (the "Site") operated by Alessandra Tran (the "Owner"), you confirm that you have read, understood and agree to be bound by these Terms in full. If you do not agree, stop using the Site immediately.'],
+ ['2. Information only: not medical advice or professional coaching','All content on the Site (exercises, instructions, durations, timers, random suggestions, quiz results, equipment and clothing lists and so on) is for general information only and is compiled from publicly available references. Nothing on the Site is a diagnosis, treatment, medical advice, physiotherapy, nutrition advice or personalised coaching. Using the Site does not create a doctor–patient, trainer–client or any other professional relationship between you and the Owner.'],
+ ['3. Medical clearance before exercising','You must consult a physician before starting or changing any exercise programme, especially if you have heart disease, high blood pressure, diabetes, asthma, bone, joint, spine or osteoporosis problems, a current injury, are pregnant or postpartum, have had surgery, take medication, have been inactive for a long time, or are unsure about your health. Stop exercising immediately and seek medical help if you experience chest pain, unusual shortness of breath, dizziness, light-headedness, nausea, sharp pain, numbness or any other abnormal symptom.'],
+ ['4. Inherent risks and voluntary assumption of risk','Exercise, particularly heavy lifting, HIIT, boxing, jumping movements, inversions and balance-demanding poses, carries inherent risks including, without limitation: muscle strains and tears, sprains, dislocations, fractures, spinal injury, concussion, heart rhythm disorders, cardiac arrest, stroke, exhaustion, dehydration, heat illness, and hazards from faulty, falling, dropped or collapsing equipment. In serious cases these may result in permanent disability or death. You understand these risks and voluntarily assume all of them when you choose to exercise.'],
+ ['5. Strong recommendation for qualified supervision','The Owner does not encourage you to train alone, especially with technical or heavy-load exercises. You should train under the direct guidance of a certified personal trainer (PT), yoga or Pilates teacher, boxing coach or physiotherapist; use a spotter and safety equipment for heavy lifts; and never practise partner or contact drills without a coach and protective gear. In-person professional guidance always takes priority over anything on the Site.'],
+ ['6. Age','The Site is intended for people aged 18 and over. Anyone under 18 may use it only with the consent and supervision of a parent or guardian and a coach qualified for their age group.'],
+ ['7. References and accuracy','Content is compiled, paraphrased and condensed from sources such as "The Complete Yoga Poses" (PDF), Mladen Jovanović\'s "HIIT Manual", ACSM physical-activity guidance and other public sources; some parts rely only on common training knowledge. Citing a source does not mean its authors or organisations endorse, sponsor or are responsible for the Site. Content may be incomplete, outdated, simplified or unsuitable for your body and circumstances. Durations, sets and reps are general suggestions, not safe doses for any individual.'],
+ ['8. Third-party links and content','Links to YouTube, PDFs or other websites are provided for convenience only. Many are search links, so what appears can change at any time. The Owner does not control, guarantee or accept responsibility for the accuracy, safety, copyright or opinions of that content, and a link does not imply sponsorship or recommendation.'],
+ ['9. Timers and tools','Timers, sound cues, random workouts and other tools are conveniences only. They may be inaccurate or interrupted (for example by browser throttling in the background, a flat battery, muted sound or technical faults). Do not rely on them for safety; always listen to your body and decide for yourself when to stop.'],
+ ['10. Equipment, clothing and environment','You are solely responsible for checking the condition of equipment, the floor, the space, temperature, hydration, clothing and footwear. Equipment and clothing information on the Site is general guidance only.'],
+ ['11. No warranties','The Site and all content are provided "as is" and "as available" without warranties of any kind, express or implied, including as to accuracy, completeness, fitness for a particular purpose, safety or training results.'],
+ ['12. Limitation of liability','To the maximum extent permitted by law, the Owner, contributors and related parties are not liable for any injury, illness, death, property loss, medical expenses, loss of income or any direct, indirect, special, consequential or punitive damages arising from or related to the use of, or inability to use, the Site, even if advised of the possibility of such damages. Where liability cannot be excluded by law, the Owner\'s total maximum liability shall not exceed the amount you paid to use the Site (currently zero).'],
+ ['13. Release and waiver of claims','To the extent permitted by law, you, on behalf of yourself, your heirs, legal representatives and assigns, release and waive all claims, demands and rights of action against the Owner relating to any injury or loss arising from your performing any exercise or activity mentioned on the Site, including where caused by the Owner\'s ordinary negligence.'],
+ ['14. Indemnification','You agree to indemnify and hold the Owner harmless from any claims, losses and expenses (including reasonable legal fees) arising from your breach of these Terms, your misuse of the Site, or your sharing or instructing others (including anyone under 18) to exercise using content from the Site.'],
+ ['15. Gyms, instructors and third parties','If you train at a gym or with an instructor, that relationship is entirely independent of the Site. The Owner is not responsible for their facilities, services, qualifications or conduct. Follow their rules and direct instructions.'],
+ ['16. Personal data','The Site does not upload your health information to any server. Your choices (language, workout list, acceptance of these Terms) are stored locally in your browser only and can be deleted at any time by clearing your browser data.'],
+ ['17. Intellectual property','The Site\'s design and presentation belong to the Owner. Third-party names, documents and trademarks belong to their respective owners. You may not copy the Site for commercial purposes without permission.'],
+ ['18. Governing law and disputes','These Terms are governed by the laws of Vietnam. The parties will first try to resolve disputes through good-faith negotiation; failing that, disputes fall under the jurisdiction of the competent courts of Ho Chi Minh City, Vietnam. Nothing in these Terms excludes or limits any consumer right that cannot lawfully be excluded, or any liability that cannot lawfully be excluded (for example for wilful misconduct or gross negligence).'],
+ ['19. Severability and entire agreement','If any provision is held invalid or unenforceable, the remaining provisions stay in effect. These Terms are the entire agreement between you and the Owner regarding use of the Site.'],
+ ['20. Changes','The Owner may update these Terms at any time; the new version takes effect when posted. Continued use of the Site means you accept the new version, and the Site may ask you to confirm again.'],
+ ['21. Emergencies','If you or anyone else is seriously injured or has dangerous symptoms, stop exercising and call emergency services immediately: 115 in Vietnam (or your local emergency number, for example 112).'],
+ ['22. Contact','For questions about these Terms, please get in touch through www.alessandratran.com.']],
+ gateH:'Before you train: safety confirmation',gateP:'To continue, please read and confirm these key points:',
+ gateL:['The content is for reference only and is not medical advice or professional coaching.','I have consulted, or will consult, a doctor before exercising, especially if I have a medical condition, an injury or am pregnant.','I understand that exercise carries a risk of serious injury or even death, and I voluntarily accept that risk.','The Owner encourages me to train with a coach or personal trainer, and, to the extent permitted by law, is not responsible for accidents or injuries that occur when I exercise.'],
+ gateC:'I am 18 or older (or my guardian agrees with me), and I have read, understood and agree to the full Terms of Use and Disclaimer.',gateB:'I agree and continue',gateR:'Read the full Terms',gateX:'I do not agree, back to homepage',close:'Close',
+ banner:'For reference only, not medical advice. Check with a doctor before exercising and train with a PT or coach where possible. You exercise at your own risk.',bannerL:'View Terms',
+ safeH:'Safety notice',safeG:'Training alone is not recommended: please work with a certified PT or coach to stay safe. Stop immediately if you feel pain, dizziness or shortness of breath.',footT:'Terms & Disclaimer'}
+};
+
+(function(){
+'use strict';
+var $=function(s,r){return(r||document).querySelector(s);};
+var $$=function(s,r){return Array.prototype.slice.call((r||document).querySelectorAll(s));};
+var rnd=function(n){return Math.floor(Math.random()*n);};
+var reduce=window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches;
+function sample(a,n){var c=a.slice();for(var i=c.length-1;i>0;i--){var j=rnd(i+1),t=c[i];c[i]=c[j];c[j]=t;}return c.slice(0,n);}
+function esc(s){return String(s==null?'':s).replace(/[&<>"']/g,function(c){return{'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c];});}
+function fold(s){return String(s).toLowerCase().replace(/đ/g,'d').normalize('NFD').replace(/[̀-ͯ]/g,'');}
+function enc(s){return encodeURIComponent(s);}
+function lsGet(k){try{return localStorage.getItem(k);}catch(e){return null;}}
+function lsSet(k,v){try{localStorage.setItem(k,v);}catch(e){}}
+
+var T={
+vi:{back:'← Về trang chủ',kick:'Phòng tập của riêng bạn',sub:'Trả lời vài câu hỏi hoặc chơi game ngẫu nhiên để chọn bài tập hôm nay. Mỗi bài có hướng dẫn từng bước, bộ hẹn giờ, dụng cụ, trang phục và cảnh báo an toàn.',
+ genre:'Bộ môn',all:'Tất cả',noeq:'Không dụng cụ',
+ t_quiz:'Hỏi đáp',t_wheel:'Vòng quay',t_duck:'Đua vịt',t_cards:'Lật bài',t_quick:'Nhanh tay',t_session:'Buổi tập',t_timer:'Hẹn giờ',t_lib:'Thư viện bài tập',
+ wheelH:'Vòng quay bài tập',wheelP:'Chọn bộ môn ở trên, bấm quay và để số phận chọn bài tập cho bạn.',spin:'Quay!',spinning:'Đang quay…',reshuffle:'Đổi bài trên vòng',
+ duckH:'Đua vịt',duckP:'Mỗi chú vịt mang tên một bài tập. Vịt nào về nhất, hôm nay tập bài đó.',go:'Bắt đầu đua',racing:'Đang đua…',newduck:'Đổi đội hình',
+ cardH:'Lật bài',cardP:'Năm lá bài úp. Chọn một lá và xem bài tập nào đang chờ bạn.',deal:'Chia bài lại',
+ quickH:'Nhanh tay',quickP:'Không muốn nghĩ nhiều? Tung xu, đổ xúc xắc hoặc kéo máy xèng.',coin:'Tung xu',dice:'Xúc xắc',slot:'Máy xèng',flip:'Tung!',coinNew:'Đổi bài',roll:'Đổ xúc xắc',diceNew:'Đổi bài',pull:'Kéo cần',
+ sessH:'Buổi tập của bạn',sessP:'Gom nhiều bài tập thành một buổi và để bộ hẹn giờ dẫn bạn đi từng bài. Danh sách lưu trên trình duyệt này.',sessGo:'Bắt đầu buổi tập',sessAuto:'Tạo buổi tập ngẫu nhiên',sessClear:'Xóa hết',sessEmpty:'Buổi tập đang trống. Thêm bài từ kết quả hoặc Thư viện, hoặc bấm tạo buổi tập ngẫu nhiên.',sessTot:'{n} bài · khoảng {m} phút',up:'Lên',down:'Xuống',remove:'Xóa',confirmClear:'Bấm lần nữa để xóa hết',
+ timerH:'Hẹn giờ tự do',timerP:'Đặt thời gian tập, nghỉ và số hiệp. Bộ hẹn giờ sẽ báo bằng âm thanh.',fWork:'Tập (giây)',fRest:'Nghỉ (giây)',fRounds:'Số hiệp',fgo:'Bắt đầu',free:'Hẹn giờ tự do',
+ libH:'Thư viện bài tập',libHelp:'{n} bài tập. Lọc theo bộ môn, tìm theo tên.',search:'Tìm bài tập…',noRes:'Không tìm thấy bài tập nào.',
+ s_lv:'Dễ đến khó',s_lvd:'Khó đến dễ',s_t:'Thời gian ngắn nhất',s_az:'A → Z',
+ qOf:'Câu {a}/{b}',restart:'Làm lại',another:'Chọn bài khác',today:'Hôm nay tập',alsoTry:'Có thể kết hợp thêm',addAll:'Thêm cả 4 bài vào buổi tập',added:'Đã thêm',
+ startTimer:'Bắt đầu hẹn giờ',addSess:'+ Buổi tập',inSess:'✓ Trong buổi tập',video:'Xem video hướng dẫn',ref:'Nguồn tham khảo',
+ equip:'Dụng cụ',outfit:'Trang phục',muscle:'Nhóm cơ',how:'Cách thực hiện',mistake:'Lưu ý kỹ thuật',plan:'Kế hoạch hẹn giờ',
+ noPool:'Không có bài tập nào trong mục này.',whyQ:'Hợp với mục tiêu, thời gian, trình độ và dụng cụ bạn vừa chọn.',whyR:'Số phận đã chọn. Nhớ khởi động trước khi tập!',coinW:'Hôm nay tập',diceW:'Con số may mắn',
+ sets:'{n} hiệp × {w}s',rest:'nghỉ {r}s',restn:'không nghỉ',min:'phút',
+ prep:'Chuẩn bị',work:'Tập',restL:'Nghỉ',round:'Hiệp {a}/{b}',next:'Tiếp theo',done:'Hoàn thành!',doneP:'Làm tốt lắm. Hãy hạ nhiệt, uống nước và giãn nhẹ.',pause:'Tạm dừng',resume:'Tiếp tục',skip:'Bỏ qua',stop:'Dừng',closeD:'Đóng',snd:'Âm thanh',
+ cue_hold:'Giữ tư thế, thở đều',cue_flow:'Chuyển động chậm theo nhịp thở',cue_go:'Làm hết sức nhưng giữ kỹ thuật',cue_reps:'Làm {x} lần, kiểm soát chuyển động',cue_prep:'Vào tư thế sẵn sàng',cue_rest:'Thả lỏng, hít thở sâu',
+ qq:{goal:'Mục tiêu hôm nay của bạn?',time:'Bạn có bao nhiêu thời gian?',lvl:'Trình độ của bạn?',eq:'Bạn có dụng cụ gì?'},
+ srcnote:'Nguồn tham khảo: "The Complete Yoga Poses" (PDF), "HIIT Manual" của Mladen Jovanović (PDF), khuyến nghị hoạt động thể chất của ACSM, NSCA, Pilates Method Alliance và Wikipedia (Boxing). Mình chỉ đọc được một phần đầu của các tệp PDF; các hướng dẫn kỹ thuật được rút gọn và diễn giải, có thể thiếu sót. Liên kết video là kết quả tìm kiếm YouTube, không phải video cụ thể.'},
+en:{back:'← Back to homepage',kick:'Your private gym',sub:'Answer a few questions or play a random game to choose today\'s workout. Every exercise has step-by-step instructions, a timer, equipment, clothing and safety notes.',
+ genre:'Discipline',all:'All',noeq:'No equipment',
+ t_quiz:'Quiz',t_wheel:'Wheel',t_duck:'Duck race',t_cards:'Flip cards',t_quick:'Quick picks',t_session:'Session',t_timer:'Timer',t_lib:'Exercise library',
+ wheelH:'Exercise wheel',wheelP:'Pick a discipline above, hit spin and let fate choose your exercise.',spin:'Spin!',spinning:'Spinning…',reshuffle:'Shuffle the wheel',
+ duckH:'Duck race',duckP:'Every duck carries an exercise. The first one across the line is today\'s workout.',go:'Start race',racing:'Racing…',newduck:'New lineup',
+ cardH:'Flip cards',cardP:'Five face-down cards. Choose one and see which exercise is waiting.',deal:'Deal again',
+ quickH:'Quick picks',quickP:'Don\'t want to think? Flip a coin, roll a die or pull the slot lever.',coin:'Coin flip',dice:'Dice',slot:'Slot machine',flip:'Flip!',coinNew:'New exercises',roll:'Roll the die',diceNew:'New exercises',pull:'Pull lever',
+ sessH:'Your session',sessP:'Combine several exercises into one session and let the timer guide you through each. Your list is saved in this browser.',sessGo:'Start session',sessAuto:'Build a random session',sessClear:'Clear all',sessEmpty:'Your session is empty. Add exercises from a result or the Library, or build a random session.',sessTot:'{n} exercises · about {m} min',up:'Up',down:'Down',remove:'Remove',confirmClear:'Tap again to clear all',
+ timerH:'Free timer',timerP:'Set work time, rest time and rounds. The timer signals with sound.',fWork:'Work (seconds)',fRest:'Rest (seconds)',fRounds:'Rounds',fgo:'Start',free:'Free timer',
+ libH:'Exercise library',libHelp:'{n} exercises. Filter by discipline or search by name.',search:'Search exercises…',noRes:'No exercises found.',
+ s_lv:'Easiest first',s_lvd:'Hardest first',s_t:'Shortest first',s_az:'A → Z',
+ qOf:'Question {a}/{b}',restart:'Start over',another:'Another pick',today:'Today\'s exercise',alsoTry:'Pair it with',addAll:'Add all 4 to my session',added:'Added',
+ startTimer:'Start timer',addSess:'+ Session',inSess:'✓ In session',video:'Watch tutorial videos',ref:'Reference',
+ equip:'Equipment',outfit:'What to wear',muscle:'Muscles worked',how:'How to do it',mistake:'Form notes',plan:'Timer plan',
+ noPool:'There are no exercises in this category.',whyQ:'A good match for the goal, time, level and equipment you picked.',whyR:'Fate has spoken. Remember to warm up first!',coinW:'Today\'s exercise',diceW:'Lucky number',
+ sets:'{n} rounds × {w}s',rest:'rest {r}s',restn:'no rest',min:'min',
+ prep:'Get ready',work:'Work',restL:'Rest',round:'Round {a}/{b}',next:'Next',done:'Done!',doneP:'Great job. Cool down, drink water and stretch lightly.',pause:'Pause',resume:'Resume',skip:'Skip',stop:'Stop',closeD:'Close',snd:'Sound',
+ cue_hold:'Hold the position and breathe steadily',cue_flow:'Move slowly with your breath',cue_go:'Go hard but keep your form',cue_reps:'Do {x} reps with control',cue_prep:'Get into position',cue_rest:'Shake out and breathe deeply',
+ qq:{goal:'What is your goal today?',time:'How much time do you have?',lvl:'What is your level?',eq:'What equipment do you have?'},
+ srcnote:'References: "The Complete Yoga Poses" (PDF), Mladen Jovanović\'s "HIIT Manual" (PDF), ACSM physical-activity guidance, NSCA, the Pilates Method Alliance and Wikipedia (Boxing). Only the opening part of each PDF could be read; technique instructions are condensed and paraphrased and may be incomplete. Video links are YouTube searches, not specific videos.'}
+};
+var Tm=TERMS;
+var L='vi';
+function t(k,o){var s=(T[L][k]!=null?T[L][k]:T.vi[k]);if(s==null)s='';if(o)for(var x in o)s=s.split('{'+x+'}').join(o[x]);return s;}
+function nm(e){return '<span class="tt">'+esc(e.n)+'</span>'+(L==='vi'&&e.vi?' <span class="vt">('+esc(e.vi)+')</span>':'');}
+function dn(d){return DISC[d][L];}
+function repsOf(e){var r=e.tm.reps||'';var p=r.split('§');return p.length>1?(L==='vi'?p[0]:p[1]):r;}
+function dur(e){return Math.max(1,Math.round(e.tm.tot/60));}
+function planText(e){var m=e.tm;return t('sets',{n:m.n,w:m.w})+(m.n>1&&m.r?' · '+t('rest',{r:m.r}):'');}
+function byId(id){for(var i=0;i<EXS.length;i++)if(EXS[i].id===id)return EXS[i];return null;}
+
+/* ---------- state ---------- */
+var tab='quiz',gf='all',session=[],SKEY='homNayTapGi.session',SHOWN={};
+try{var rs=JSON.parse(lsGet(SKEY)||'[]');if(Array.isArray(rs))session=rs.filter(function(x){return !!byId(x);}).slice(0,40);}catch(e){}
+function saveSess(){lsSet(SKEY,JSON.stringify(session));}
+function inSess(id){return session.indexOf(id)>=0;}
+function pool(){
+  if(gf==='all')return EXS.slice();
+  if(gf==='noeq')return EXS.filter(function(e){return e.eq.some(function(k){return k==='none'||k==='mat';})&&e.eq.every(function(k){return k==='none'||k==='mat'||k==='chair'||k==='block';});});
+  return EXS.filter(function(e){return e.d===gf;});
+}
+
+/* ---------- exercise card ---------- */
+function poster(e){var h=DISC[e.d].h;return '<div class="poster" style="--h:'+h+'"><div class="hole"><i></i><i></i><i></i><i></i></div><div class="ltr" aria-hidden="true">'+DISC[e.d].e+'</div><small>'+esc(dn(e.d))+'</small><div class="hole"><i></i><i></i><i></i><i></i></div></div>';}
+function lvDots(l){return '<span class="lvl" aria-hidden="true">'+'●'.repeat(l)+'○'.repeat(3-l)+'</span>';}
+function ytUrl(e){return 'https://www.youtube.com/results?search_query='+enc(e.n+(L==='vi'?' hướng dẫn tập đúng kỹ thuật':' proper form tutorial'));}
+function exCard(e,why,label,opts){
+  var D=DISC[e.d];opts=opts||{};
+  var eq=e.eq.map(function(k){return '<span class="badge">'+esc(EQ[k][L])+'</span>';}).join('');
+  var mu=e.mu.map(function(k){return '<span class="badge">'+esc(MU[k][L])+'</span>';}).join('');
+  var steps=e.s[L].map(function(s){return '<li><span>'+esc(s)+'</span></li>';}).join('');
+  var rp=repsOf(e);
+  return '<div class="mv ex">'+poster(e)+'<div>'+(label?'<p class="qn">'+esc(label)+'</p>':'')+'<h3>'+nm(e)+'</h3>'+
+   '<div class="meta"><span class="badge g">'+esc(dn(e.d))+'</span><span class="badge">'+esc(LV[e.lv][L])+' '+lvDots(e.lv)+'</span><span class="badge w">≈ '+dur(e)+' '+t('min')+'</span></div>'+
+   (why?'<p class="why">'+esc(why)+'</p>':'')+
+   '<div class="kv"><p><b>'+t('plan')+'</b>'+esc(planText(e))+(rp?' · '+esc(rp)+(L==='vi'?' lần':' reps'):'')+'</p>'+
+   '<p><b>'+t('equip')+'</b></p><div class="chips">'+eq+'</div>'+
+   '<p><b>'+t('outfit')+'</b>'+esc(OUT[D.out][L])+'</p>'+
+   '<p><b>'+t('muscle')+'</b></p><div class="chips">'+mu+'</div></div>'+
+   '<p class="lbl" style="margin-top:16px">'+t('how')+'</p><ol class="steps">'+steps+'</ol>'+
+   '<p class="cau"><b>'+t('mistake')+':</b> '+esc(e.x[L])+'</p>'+
+   '<div class="safe" role="note"><b>⚠ '+Tm[L].safeH+'</b><p>'+esc(D.w[L])+'</p><p>'+esc(Tm[L].safeG)+'</p></div>'+
+   '<div class="links"><button class="btn sm" type="button" data-start="'+e.id+'">▶ '+t('startTimer')+'</button>'+
+   '<button class="btn sm ghost" type="button" data-sess="'+e.id+'">'+(inSess(e.id)?t('inSess'):t('addSess'))+'</button>'+
+   '<a class="btn sm white" target="_blank" rel="noopener" href="'+esc(ytUrl(e))+'">'+t('video')+'</a>'+
+   '<a class="btn sm ghost" target="_blank" rel="noopener" href="'+esc(D.ref)+'">'+t('ref')+': '+esc(D.rn[L])+'</a></div></div></div>';
+}
+function showRes(id,e,whyKey,labelKey,altsFn){
+  SHOWN[id]={e:e,whyKey:whyKey,labelKey:labelKey,altsFn:altsFn};drawRes(id);
+  var el=$('#res-'+id);if(!reduce&&el)try{el.scrollIntoView({behavior:'smooth',block:'nearest'});}catch(x){}
+}
+function drawRes(id){var s=SHOWN[id],el=$('#res-'+id);if(!s||!el)return;el.innerHTML=exCard(s.e,s.whyKey?t(s.whyKey):'',s.labelKey?t(s.labelKey):'')+(s.altsFn?s.altsFn():'');}
+function rerenderRes(){Object.keys(SHOWN).forEach(drawRes);}
+document.addEventListener('click',function(ev){
+  var b=ev.target.closest('[data-start]');
+  if(b){var e=byId(b.dataset.start);if(e)startTimer(phasesFor(e,true),e.n);return;}
+  b=ev.target.closest('[data-sess]');
+  if(b){toggleSess(b.dataset.sess);return;}
+});
+function toggleSess(id){var i=session.indexOf(id);if(i>=0)session.splice(i,1);else if(session.length<40)session.push(id);saveSess();
+  $$('[data-sess="'+id+'"]').forEach(function(x){x.textContent=inSess(id)?t('inSess'):t('addSess');});if(tab==='session')renderSession();}
+
+/* ---------- filter chips ---------- */
+var FT={wheel:1,duck:1,cards:1,quick:1,lib:1};
+function renderChips(){
+  var h='<button class="chip" type="button" data-g="all" aria-pressed="'+(gf==='all')+'">'+t('all')+'</button><button class="chip" type="button" data-g="noeq" aria-pressed="'+(gf==='noeq')+'">'+t('noeq')+'</button>';
+  DK.forEach(function(g){h+='<button class="chip" type="button" data-g="'+g+'" aria-pressed="'+(gf===g)+'">'+esc(DISC[g][L])+'</button>';});
+  $('#chips').innerHTML=h;$('#fbar').hidden=!FT[tab];
+}
+$('#chips').addEventListener('click',function(e){var b=e.target.closest('[data-g]');if(!b)return;gf=b.dataset.g;renderChips();onFilter();});
+function onFilter(){if(tab==='wheel')newWheel();else if(tab==='duck')newDucks();else if(tab==='cards')dealCards();else if(tab==='quick'){coinNew();diceNew();}else if(tab==='lib')renderLib();}
+
+/* ---------- tabs ---------- */
+var TABS=['quiz','wheel','duck','cards','quick','session','timer','lib'];
+function renderTabs(){$('#tabs').innerHTML=TABS.map(function(k){return '<button class="tab" type="button" role="tab" data-tab="'+k+'" aria-selected="'+(k===tab)+'" id="tab-'+k+'">'+t('t_'+k)+'</button>';}).join('');}
+$('#tabs').addEventListener('click',function(e){var b=e.target.closest('[data-tab]');if(b)showTab(b.dataset.tab);});
+function showTab(k){
+  tab=k;TABS.forEach(function(x){$('#p-'+x).hidden=x!==k;});
+  $$('#tabs .tab').forEach(function(b){b.setAttribute('aria-selected',String(b.dataset.tab===k));});
+  renderChips();
+  if(k==='wheel'){if(!wheel.items.length)newWheel();else drawWheel();}
+  if(k==='duck'&&!duck.list.length)newDucks();
+  if(k==='cards'&&!$('#deck').children.length)dealCards();
+  if(k==='quick'&&!coin.a){coinNew();diceNew();}
+  if(k==='lib')renderLib();
+  if(k==='session')renderSession();
+}
+
+/* ---------- quiz ---------- */
+var Q=[
+ {k:'goal',o:[
+  {e:'🔥',l:{vi:'Đốt mỡ, tăng cardio',en:'Burn fat, boost cardio'},w:{hiit:5,cardio:4,boxing:3,kettlebell:3,calisthenics:1}},
+  {e:'💪',l:{vi:'Tăng sức mạnh, cơ bắp',en:'Build strength and muscle'},w:{strength:5,kettlebell:3,calisthenics:3,core:1}},
+  {e:'🧘',l:{vi:'Dẻo dai, thư giãn',en:'Flexibility and relaxation'},w:{yoga:5,mobility:5,pilates:3}},
+  {e:'🎯',l:{vi:'Cơ bụng và tư thế',en:'Core and posture'},w:{core:5,pilates:4,yoga:1,mobility:1}},
+  {e:'🥊',l:{vi:'Vui, học kỹ năng mới',en:'Have fun, learn a new skill'},w:{boxing:4,calisthenics:3,kettlebell:2,hiit:2,yoga:1}}]},
+ {k:'time',o:[
+  {e:'⏱️',l:{vi:'Dưới 10 phút',en:'Under 10 minutes'},max:10},
+  {e:'⌚',l:{vi:'Khoảng 10 đến 20 phút',en:'About 10 to 20 minutes'},max:20},
+  {e:'🕒',l:{vi:'Khoảng 20 đến 40 phút',en:'About 20 to 40 minutes'},max:40},
+  {e:'🏁',l:{vi:'Hơn 40 phút',en:'Over 40 minutes'},max:999}]},
+ {k:'lvl',o:[
+  {e:'🌱',l:{vi:'Người mới bắt đầu',en:'Complete beginner'},lv:1},
+  {e:'🌿',l:{vi:'Đã tập đều một thời gian',en:'Training regularly'},lv:2},
+  {e:'🌳',l:{vi:'Có kinh nghiệm',en:'Experienced'},lv:3}]},
+ {k:'eq',o:[
+  {e:'🏠',l:{vi:'Không có gì, chỉ có sàn nhà',en:'Nothing, just floor space'},have:['none','mat','chair']},
+  {e:'🛋️',l:{vi:'Dụng cụ cơ bản tại nhà',en:'Basic home gear'},have:['none','mat','chair','dumbbell','band','block','foam','rope','kettlebell']},
+  {e:'🏋️',l:{vi:'Phòng tập đầy đủ',en:'A fully equipped gym'},have:['all']}]}
+];
+var qs={step:0,ans:[]},qRank=[],qIdx=0;
+function renderQuiz(){
+  var el=$('#quiz');if(qs.step>=Q.length){finishQuiz();return;}
+  var q=Q[qs.step],prog='';for(var i=0;i<Q.length;i++)prog+='<i class="'+(i<=qs.step?'on':'')+'"></i>';
+  el.innerHTML='<div class="prog">'+prog+'</div><p class="qn">'+t('qOf',{a:qs.step+1,b:Q.length})+'</p><h2>'+esc(t('qq')[q.k])+'</h2><div class="opts">'+
+   q.o.map(function(o,i){return '<button class="opt" type="button" data-o="'+i+'"><b>'+o.e+'</b>'+esc(o.l[L])+'</button>';}).join('')+'</div>'+
+   (qs.step?'<div class="row" style="margin-top:18px"><button class="btn ghost sm" type="button" id="qback">←</button><button class="btn ghost sm" type="button" id="qrs">'+t('restart')+'</button></div>':'');
+}
+$('#quiz').addEventListener('click',function(e){
+  var o=e.target.closest('[data-o]');
+  if(o){qs.ans[qs.step]=Q[qs.step].o[+o.dataset.o];qs.step++;renderQuiz();return;}
+  if(e.target.closest('#qback')){qs.step--;renderQuiz();return;}
+  if(e.target.closest('#qrs')||e.target.closest('#qagain')){qs={step:0,ans:[]};qIdx=0;delete SHOWN.quiz;renderQuiz();return;}
+  if(e.target.closest('#qnext')){qIdx=(qIdx+1)%Math.max(1,qRank.length);drawQuiz();return;}
+  if(e.target.closest('#qaddall')){var ids=[qRank[qIdx]].concat(quizAlts()).map(function(x){return x.id;});ids.forEach(function(id){if(!inSess(id)&&session.length<40)session.push(id);});saveSess();e.target.closest('#qaddall').textContent='✓ '+t('added');$$('[data-sess]').forEach(function(x){x.textContent=inSess(x.dataset.sess)?t('inSess'):t('addSess');});}
+});
+function scoreEx(e){
+  var s=0,lvl=1,max=999,have=['all'];
+  qs.ans.forEach(function(a){if(a.w)s+=a.w[e.d]||0;if(a.lv)lvl=a.lv;if(a.max)max=a.max;if(a.have)have=a.have;});
+  s+=e.lv<=lvl?1.5:-4*(e.lv-lvl);
+  var d=e.tm.tot/60;if(d<=max)s+=2;else s-=Math.min(6,(d-max)/4);
+  if(max===999&&d>=10)s+=1;
+  if(have[0]!=='all'){var miss=e.eq.filter(function(k){return have.indexOf(k)<0;}).length;
+    var any=e.eq.some(function(k){return have.indexOf(k)>=0;});if(!any)s-=8;else if(miss&&e.eq.length>1&&!e.eq.every(function(k){return have.indexOf(k)<0||true;}))s-=1;}
+  return s+Math.random()*1.6;
+}
+function finishQuiz(){qRank=EXS.map(function(e){return{e:e,s:scoreEx(e)};}).sort(function(a,b){return b.s-a.s;}).map(function(x){return x.e;}).slice(0,12);qIdx=0;drawQuiz();}
+function quizAlts(){var m=qRank[qIdx],out=[],used={};used[m.d]=1;
+  for(var i=1;i<qRank.length&&out.length<3;i++){var c=qRank[(qIdx+i)%qRank.length];if(!used[c.d]||i>8){out.push(c);used[c.d]=1;}}
+  for(var j=1;out.length<3&&j<qRank.length;j++){var c2=qRank[(qIdx+j)%qRank.length];if(out.indexOf(c2)<0)out.push(c2);}return out;}
+function drawQuiz(){
+  var prog='';for(var k=0;k<Q.length;k++)prog+='<i class="on"></i>';
+  $('#quiz').innerHTML='<div class="prog">'+prog+'</div><div id="res-quiz"></div><div class="row" style="margin-top:22px"><button class="btn" type="button" id="qnext">'+t('another')+'</button><button class="btn ghost" type="button" id="qagain">'+t('restart')+'</button></div>';
+  var altsFn=function(){var alts=quizAlts();return '<div class="alts"><p class="lbl">'+t('alsoTry')+'</p>'+alts.map(function(a){return '<div class="alt"><span>'+nm(a)+' <small style="color:var(--mute)">· '+esc(dn(a.d))+' · ≈'+dur(a)+' '+t('min')+'</small></span><span><button class="btn sm ghost" type="button" data-sess="'+a.id+'">'+(inSess(a.id)?t('inSess'):t('addSess'))+'</button></span></div>';}).join('')+'<div class="row" style="margin-top:14px"><button class="btn sm ghost" type="button" id="qaddall">'+t('addAll')+'</button></div></div>';};
+  showRes('quiz',qRank[qIdx],'whyQ','today',altsFn);
+}
+
+/* ---------- wheel ---------- */
+var WC=[['#D4AF37','#16120A'],['#101014','#F4F4F6'],['#E9EAEE','#0a0a0d'],['#1B1B21','#F4F4F6'],['#F6E7A8','#16120A'],['#08080b','#F6E7A8']];
+var wheel={items:[],theta:0,spinning:false},wcv=$('#wheel'),wx=wcv.getContext('2d');
+function wl(x){return (x.length>15&&x.indexOf('(')>0)?x.split('(')[0].trim():x;}
+function trunc(ctx,s,w){if(ctx.measureText(s).width<=w)return s;while(s.length>2&&ctx.measureText(s+'…').width>w)s=s.slice(0,-1);return s+'…';}
+function drawWheel(){
+  var n=wheel.items.length,W2=wcv.width,c=W2/2,R=c-6;wx.clearRect(0,0,W2,W2);if(!n)return;var a=2*Math.PI/n;
+  wheel.items.forEach(function(m,i){var s=wheel.theta+i*a,col=WC[i%WC.length];
+    wx.beginPath();wx.moveTo(c,c);wx.arc(c,c,R,s,s+a);wx.closePath();wx.fillStyle=col[0];wx.fill();wx.strokeStyle='rgba(0,0,0,.55)';wx.lineWidth=3;wx.stroke();
+    wx.save();wx.translate(c,c);wx.rotate(s+a/2);wx.fillStyle=col[1];wx.textAlign='right';wx.textBaseline='middle';
+    wx.font='700 30px "Be Vietnam Pro",system-ui,sans-serif';wx.fillText(trunc(wx,wl(m.n),R*.7),R-26,0);wx.restore();});
+  var g=wx.createRadialGradient(c,c,4,c,c,70);g.addColorStop(0,'#F6E7A8');g.addColorStop(1,'#8F6B12');
+  wx.beginPath();wx.arc(c,c,56,0,7);wx.fillStyle=g;wx.fill();wx.lineWidth=6;wx.strokeStyle='#0a0a0d';wx.stroke();
+  wx.fillStyle='#16120A';wx.font='700 40px "Playfair Display",serif';wx.textAlign='center';wx.textBaseline='middle';wx.fillText('★',c,c+2);
+}
+function newWheel(){var p=pool();wheel.items=sample(p,Math.min(8,p.length));wheel.theta=rnd(628)/100;drawWheel();$('#res-wheel').innerHTML='';delete SHOWN.wheel;$('#spin').disabled=wheel.items.length<2;}
+function spinWheel(){
+  if(wheel.spinning||wheel.items.length<2)return;wheel.spinning=true;$('#spin').disabled=true;$('#spin').textContent=t('spinning');
+  var n=wheel.items.length,a=2*Math.PI/n,win=rnd(n),target=1.5*Math.PI-(win+.5)*a+(rnd(100)/100-.5)*a*.7;
+  var start=wheel.theta%(2*Math.PI),end=target-Math.floor(target/(2*Math.PI))*2*Math.PI+2*Math.PI*(5+rnd(3));if(end<start)end+=2*Math.PI;
+  var dur2=reduce?1:4400,t0=performance.now();
+  (function f(now){var k=Math.min(1,(now-t0)/dur2),e=1-Math.pow(1-k,3);wheel.theta=start+(end-start)*e;drawWheel();
+    if(k<1)requestAnimationFrame(f);else{wheel.spinning=false;$('#spin').disabled=false;$('#spin').textContent=t('spin');showRes('wheel',wheel.items[win],'whyR','today');}})(t0);
+}
+$('#spin').onclick=spinWheel;$('#reshuffle').onclick=newWheel;
+
+/* ---------- duck race ---------- */
+var duck={list:[],racing:false,pos:[]};
+function newDucks(){var p=pool();duck.list=sample(p,Math.min(5,p.length));duck.pos=duck.list.map(function(){return 0;});$('#res-duck').innerHTML='';delete SHOWN.duck;
+  $('#lanes').innerHTML=duck.list.length>=2?duck.list.map(function(m){return '<div class="lane"><span class="dn">'+esc(m.n)+'</span><span class="duck">🦆</span><i class="fin"></i></div>';}).join(''):'<div class="empty">'+t('noPool')+'</div>';
+  $('#go').disabled=duck.list.length<2;}
+function raceFrame(){var lanes=$$('#lanes .lane'),win=-1;
+  duck.list.forEach(function(m,i){if(win<0){duck.pos[i]=Math.min(1,duck.pos[i]+0.0026+Math.random()*0.0042*(Math.random()<.08?2.2:1));if(duck.pos[i]>=1)win=i;}
+    var ln=lanes[i],w=ln.clientWidth-46-12;ln.querySelector('.duck').style.transform='translateX('+(duck.pos[i]*w)+'px) scaleX(-1)';});return win;}
+function startRace(){if(duck.racing||duck.list.length<2)return;duck.racing=true;duck.pos=duck.list.map(function(){return 0;});
+  $('#res-duck').innerHTML='';$$('#lanes .lane').forEach(function(l){l.classList.remove('win');});$('#go').disabled=true;$('#go').textContent=t('racing');
+  (function f(){var w=raceFrame();if(w<0){requestAnimationFrame(f);return;}duck.racing=false;$('#go').disabled=false;$('#go').textContent=t('go');
+    $$('#lanes .lane')[w].classList.add('win');showRes('duck',duck.list[w],'whyR','today');})();}
+$('#go').onclick=startRace;$('#newduck').onclick=function(){if(!duck.racing)newDucks();};
+
+/* ---------- cards ---------- */
+var deckList=[];
+function dealCards(){var p=pool();deckList=sample(p,Math.min(5,p.length));$('#res-cards').innerHTML='';delete SHOWN.cards;
+  $('#deck').innerHTML=deckList.length>=2?deckList.map(function(m,i){return '<button type="button" class="pc" data-c="'+i+'" style="--h:'+DISC[m.d].h+'" aria-label="Card '+(i+1)+'"><div class="in"><div class="b"><span>♠</span></div><div class="f"><span style="font-size:28px">'+DISC[m.d].e+'</span><b>'+esc(m.n)+'</b><i>'+esc(dn(m.d))+'</i></div></div></button>';}).join(''):'<div class="empty" style="grid-column:1/-1">'+t('noPool')+'</div>';}
+$('#deck').addEventListener('click',function(e){var b=e.target.closest('.pc');if(!b||$('#deck .pc.open'))return;b.classList.add('open');$$('#deck .pc').forEach(function(x){if(x!==b)x.classList.add('dim');});
+  setTimeout(function(){showRes('cards',deckList[+b.dataset.c],'whyR','today');},reduce?0:650);});
+$('#deal').onclick=dealCards;
+
+/* ---------- quick picks ---------- */
+var coin={a:null,b:null,rot:0,busy:false};
+function coinNew(){var p=sample(pool(),2);coin.a=p[0]||null;coin.b=p[1]||null;coin.rot=0;var c=$('#coin');c.style.transition='none';c.style.transform='rotateY(0deg)';
+  $('#cA').innerHTML=coin.a?'<b>A</b>'+esc(coin.a.n):'';$('#cB').innerHTML=coin.b?'<b>B</b>'+esc(coin.b.n):'';$('#flip').disabled=!(coin.a&&coin.b);delete SHOWN.quick;$('#res-quick').innerHTML=(coin.a&&coin.b)?'':'<div class="empty">'+t('noPool')+'</div>';}
+$('#flip').onclick=function(){if(coin.busy||!coin.a||!coin.b)return;coin.busy=true;var heads=Math.random()<.5;coin.rot=Math.ceil(coin.rot/360)*360+1800+(heads?0:180);
+  var cur=$('#coin');cur.style.transition=reduce?'none':'transform 1.4s cubic-bezier(.2,.7,.2,1)';cur.style.transform='rotateY('+coin.rot+'deg)';
+  setTimeout(function(){coin.busy=false;showRes('quick',heads?coin.a:coin.b,'whyR','coinW');},reduce?0:1450);};
+$('#coinNew').onclick=coinNew;
+var PIPS={1:[4],2:[0,8],3:[0,4,8],4:[0,2,6,8],5:[0,2,4,6,8],6:[0,2,3,5,6,8]};
+var dice={items:[],busy:false};
+function drawDie(n){var h='';for(var i=0;i<9;i++)h+='<i class="'+(PIPS[n].indexOf(i)>=0?'on':'')+'"></i>';$('#die').innerHTML=h;}
+function drawDList(w){$('#dlist').innerHTML=dice.items.map(function(m,i){return '<li class="'+(w===i?'win':'')+'"><b>'+(i+1)+'</b><span>'+esc(m.n)+'</span></li>';}).join('');}
+function diceNew(){dice.items=sample(pool(),6);drawDie(6);drawDList(-1);$('#roll').disabled=dice.items.length<2;}
+$('#roll').onclick=function(){if(dice.busy||dice.items.length<2)return;dice.busy=true;var die=$('#die'),n=dice.items.length,ticks=0;die.classList.add('roll');drawDList(-1);
+  var iv=setInterval(function(){drawDie(1+rnd(6));ticks++;if(ticks>(reduce?1:9)){clearInterval(iv);die.classList.remove('roll');var i=rnd(n);drawDie(Math.min(6,i+1));drawDList(i);dice.busy=false;showRes('quick',dice.items[i],'whyR','diceW');}},90);};
+$('#diceNew').onclick=diceNew;
+var slotBusy=false;
+$('#pull').onclick=function(){var p=pool();if(slotBusy||p.length<2)return;slotBusy=true;$('#pull').disabled=true;var d=40,ticks=0,max=reduce?1:20,win=p[rnd(p.length)];
+  (function step(){ticks++;var m=ticks>=max?win:p[rnd(p.length)];$('#slotwin').textContent=m.n;
+    if(ticks<max){d*=1.12;setTimeout(step,d);}else{slotBusy=false;$('#pull').disabled=false;showRes('quick',win,'whyR','today');}})();};
+
+/* ---------- session ---------- */
+function sessMinutes(){var s=0;session.forEach(function(id){var e=byId(id);if(e)s+=e.tm.tot+(session.length>1?10:5);});return Math.max(1,Math.round(s/60));}
+function renderSession(){
+  $('#sesslist').innerHTML=session.length?session.map(function(id,i){var e=byId(id);return '<li><span>'+(i+1)+'. '+nm(e)+' <small style="color:var(--mute)">· '+esc(dn(e.d))+' · ≈'+dur(e)+' '+t('min')+'</small></span><span class="ctl"><button class="rm" type="button" data-up="'+i+'" aria-label="'+t('up')+'">↑</button><button class="rm" type="button" data-dn="'+i+'" aria-label="'+t('down')+'">↓</button><button class="rm" type="button" data-rm="'+i+'" aria-label="'+t('remove')+'">✕</button></span></li>';}).join(''):'<div class="empty">'+t('sessEmpty')+'</div>';
+  $('#sesstot').textContent=session.length?t('sessTot',{n:session.length,m:sessMinutes()}):'';
+  $('#sessgo').disabled=!session.length;$('#sessclear').hidden=!session.length;
+}
+$('#sesslist').addEventListener('click',function(e){var b;
+  if(b=e.target.closest('[data-rm]')){session.splice(+b.dataset.rm,1);}
+  else if(b=e.target.closest('[data-up]')){var i=+b.dataset.up;if(i>0){var x=session[i];session[i]=session[i-1];session[i-1]=x;}}
+  else if(b=e.target.closest('[data-dn]')){var j=+b.dataset.dn;if(j<session.length-1){var y=session[j];session[j]=session[j+1];session[j+1]=y;}}
+  else return;saveSess();renderSession();});
+$('#sessgo').onclick=function(){if(!session.length)return;var ph=[];session.forEach(function(id,i){var e=byId(id);ph=ph.concat(phasesFor(e,true,i>0?10:5));});startTimer(ph,t('t_session'));};
+function pick(ds){var p=EXS.filter(function(e){return ds.indexOf(e.d)>=0;});return p[rnd(p.length)];}
+$('#sessauto').onclick=function(){
+  var plan=[pick(['mobility']),pick(['hiit','cardio','boxing','kettlebell']),pick(['strength','calisthenics','kettlebell']),pick(['strength','calisthenics','pilates']),pick(['core','pilates']),pick(['yoga','mobility'])];
+  var ids=[];plan.forEach(function(e){if(e&&ids.indexOf(e.id)<0)ids.push(e.id);});session=ids;saveSess();renderSession();};
+var sclr=false;
+$('#sessclear').onclick=function(){var b=$('#sessclear');if(!sclr){sclr=true;b.textContent=t('confirmClear');setTimeout(function(){sclr=false;b.textContent=t('sessClear');},3000);return;}sclr=false;session=[];saveSess();renderSession();b.textContent=t('sessClear');};
+
+/* ---------- free timer ---------- */
+$('#fgo').onclick=function(){
+  var w=Math.max(1,Math.min(3600,+$('#fw').value||30)),r=Math.max(0,Math.min(3600,+$('#fr').value||0)),n=Math.max(1,Math.min(99,+$('#fn').value||1));
+  var ph=[{t:'prep',s:5,ex:null}];for(var i=1;i<=n;i++){ph.push({t:'work',s:w,ex:null,r:i,n:n,k:'go'});if(i<n&&r>0)ph.push({t:'rest',s:r,ex:null,r:i,n:n});}
+  startTimer(ph,t('free'));};
+$$('[data-preset]').forEach(function(b){b.onclick=function(){var p=b.dataset.preset.split(',');$('#fw').value=p[0];$('#fr').value=p[1];$('#fn').value=p[2];};});
+
+/* ---------- timer engine ---------- */
+var TM={ph:[],i:0,left:0,end:0,run:false,iv:0,title:'',snd:true,done:false,ac:null,wl:null};
+function phasesFor(e,prep,prepS){var m=e.tm,ph=[];if(prep)ph.push({t:'prep',s:prepS||5,ex:e.id});
+  for(var r=1;r<=m.n;r++){ph.push({t:'work',s:m.w,ex:e.id,r:r,n:m.n,k:m.k});if(r<m.n&&m.r>0)ph.push({t:'rest',s:m.r,ex:e.id,r:r,n:m.n});}return ph;}
+function beep(f,ms){if(!TM.snd)return;try{if(!TM.ac)TM.ac=new (window.AudioContext||window.webkitAudioContext)();var a=TM.ac;if(a.state==='suspended')a.resume();var o=a.createOscillator(),g=a.createGain();o.type='sine';o.frequency.value=f;g.gain.value=.12;o.connect(g);g.connect(a.destination);o.start();o.stop(a.currentTime+ms/1000);}catch(e){}}
+function vib(p){try{if(navigator.vibrate)navigator.vibrate(p);}catch(e){}}
+function fmt(s){s=Math.max(0,s);var m=Math.floor(s/60),x=s%60;return (m<10?'0':'')+m+':'+(x<10?'0':'')+x;}
+function startTimer(ph,title){
+  if(!ph.length)return;stopTick();TM.ph=ph;TM.i=0;TM.left=ph[0].s;TM.end=Date.now()+TM.left*1000;TM.run=true;TM.title=title;TM.done=false;
+  $('#dock').hidden=false;document.body.classList.add('hasdock');beep(660,120);
+  try{if(navigator.wakeLock&&navigator.wakeLock.request)navigator.wakeLock.request('screen').then(function(l){TM.wl=l;}).catch(function(){});}catch(e){}
+  drawDock();TM.iv=setInterval(tick,200);
+}
+function stopTick(){if(TM.iv){clearInterval(TM.iv);TM.iv=0;}}
+function releaseWL(){try{if(TM.wl){TM.wl.release();TM.wl=null;}}catch(e){}}
+var lastSec=-1;
+function tick(){
+  if(!TM.run)return;var left=Math.ceil((TM.end-Date.now())/1000);
+  if(left!==lastSec){lastSec=left;if(left>0&&left<=3){beep(880,90);}}
+  if(left<=0){nextPhase();return;}TM.left=left;updateDock();
+}
+function nextPhase(){
+  if(TM.i>=TM.ph.length-1){stopTick();TM.run=false;TM.done=true;beep(523,200);setTimeout(function(){beep(659,200);},220);setTimeout(function(){beep(784,400);},440);vib([200,100,200,100,400]);releaseWL();drawDock();return;}
+  TM.i++;TM.left=TM.ph[TM.i].s;TM.end=Date.now()+TM.left*1000;lastSec=-1;beep(TM.ph[TM.i].t==='work'?988:587,260);vib(TM.ph[TM.i].t==='work'?[120,60,120]:[200]);drawDock();
+}
+function cueFor(p){
+  if(p.t==='prep')return t('cue_prep');if(p.t==='rest')return t('cue_rest');
+  var e=p.ex?byId(p.ex):null;if(p.k==='reps'&&e){var r=repsOf(e);return t('cue_reps',{x:r});}return t('cue_'+(p.k||'go'));}
+function phName(p){var e=p.ex?byId(p.ex):null;return e?e.n+(L==='vi'&&e.vi?' ('+e.vi+')':''):TM.title;}
+function drawDock(){
+  var dk=$('#dk');
+  if(TM.done){dk.className='dk';dk.innerHTML='<div class="nm">'+esc(t('done'))+' 🎉</div><div class="cue">'+esc(t('doneP'))+'</div><div class="ctl"><button class="btn sm" type="button" id="dclose">'+t('closeD')+'</button></div>';return;}
+  var p=TM.ph[TM.i],nx=TM.ph[TM.i+1];
+  var lab=p.t==='prep'?t('prep'):p.t==='work'?t('work')+' · '+t('round',{a:p.r,b:p.n}):t('restL')+(p.n?' · '+t('round',{a:p.r,b:p.n}):'');
+  var nxt='';if(nx){nxt=t('next')+': '+(nx.t==='work'?phName(nx):nx.t==='rest'?t('restL')+' '+nx.s+'s':phName(nx));}
+  dk.className='dk '+p.t;
+  dk.innerHTML='<div class="top2"><span class="pl" id="dpl">'+esc(lab)+'</span><span class="nx">'+esc(nxt)+'</span></div><div class="nm">'+esc(p.t==='rest'&&nx&&nx.ex?phName(nx):phName(p))+'</div><div class="cue">'+esc(cueFor(p))+'</div><div class="tm" id="dtm" aria-live="off">'+fmt(TM.left)+'</div><div class="bar"><i id="dbar"></i></div>'+
+   '<div class="ctl"><button class="btn sm" type="button" id="dpause">'+(TM.run?t('pause'):t('resume'))+'</button><button class="btn sm ghost" type="button" id="dskip">'+t('skip')+'</button><button class="btn sm ghost" type="button" id="dsnd" aria-pressed="'+TM.snd+'">'+(TM.snd?'🔊':'🔈')+' '+t('snd')+'</button><button class="btn sm ghost" type="button" id="dstop">'+t('stop')+'</button></div>';
+  updateDock();
+}
+function updateDock(){var p=TM.ph[TM.i];if(!p)return;var tm=$('#dtm');if(tm)tm.textContent=fmt(TM.left);var b=$('#dbar');if(b)b.style.width=Math.round((1-TM.left/p.s)*100)+'%';}
+$('#dock').addEventListener('click',function(e){
+  if(e.target.closest('#dclose')||e.target.closest('#dstop')){stopTick();TM.run=false;TM.done=false;releaseWL();$('#dock').hidden=true;document.body.classList.remove('hasdock');return;}
+  if(e.target.closest('#dpause')){if(TM.run){TM.run=false;TM.left=Math.ceil((TM.end-Date.now())/1000);}else{TM.run=true;TM.end=Date.now()+TM.left*1000;}drawDock();return;}
+  if(e.target.closest('#dskip')){nextPhase();return;}
+  if(e.target.closest('#dsnd')){TM.snd=!TM.snd;drawDock();}
+});
+
+/* ---------- library ---------- */
+function sortFn(k){return {lv:function(a,b){return a.lv-b.lv||a.n.localeCompare(b.n);},lvd:function(a,b){return b.lv-a.lv||a.n.localeCompare(b.n);},t:function(a,b){return a.tm.tot-b.tm.tot;},az:function(a,b){return a.n.localeCompare(b.n);}}[k];}
+function libList(){var q=fold($('#q').value.trim()),k=$('#sort').value||'lv';
+  return pool().filter(function(e){return !q||fold(e.n).indexOf(q)>=0||fold(e.vi).indexOf(q)>=0||fold(dn(e.d)).indexOf(q)>=0;}).sort(sortFn(k));}
+var openLib={};
+function renderLib(){
+  var l=libList();$('#libhelp').textContent=t('libHelp',{n:l.length});
+  $('#liblist').innerHTML=l.length?l.map(function(e){var o=!!openLib[e.id];
+    return '<div class="lwrap"><div class="lrow" data-open="'+e.id+'" role="button" tabindex="0" aria-expanded="'+o+'">'+poster(e)+'<div><h4>'+nm(e)+'</h4><p>'+esc(dn(e.d))+' · '+esc(LV[e.lv][L])+'</p></div><div class="sc"><span class="badge w">≈ '+dur(e)+' '+t('min')+'</span><span class="badge">'+(o?'▲':'▼')+'</span></div></div>'+(o?'<div class="lx">'+exCard(e,'','')+'</div>':'')+'</div>';}).join(''):'<div class="empty">'+t('noRes')+'</div>';
+}
+$('#liblist').addEventListener('click',function(e){var r=e.target.closest('[data-open]');if(!r||e.target.closest('a,button'))return;var id=r.dataset.open;openLib[id]=!openLib[id];renderLib();});
+$('#liblist').addEventListener('keydown',function(e){if(e.key!=='Enter'&&e.key!==' ')return;var r=e.target.closest('[data-open]');if(!r)return;e.preventDefault();var id=r.dataset.open;openLib[id]=!openLib[id];renderLib();});
+$('#q').addEventListener('input',renderLib);$('#sort').addEventListener('change',renderLib);
+
+/* ---------- terms + consent ---------- */
+var CKEY='homNayTapGi.consent.v1';
+function renderTerms(){var d=Tm[L];$('#termsh').textContent=d.title;
+  $('#tbody').innerHTML='<p><em>'+esc(d.upd)+'</em></p><p>'+esc(d.intro)+'</p>'+d.s.map(function(s){return '<h3>'+esc(s[0])+'</h3><p>'+esc(s[1])+'</p>';}).join('');
+  $('#tclose').setAttribute('aria-label',d.close);}
+var lastFocus=null;
+function openTerms(){lastFocus=document.activeElement;renderTerms();$('#terms').hidden=false;$('#tbody').scrollTop=0;$('#tclose').focus();}
+function closeTerms(){$('#terms').hidden=true;if(lastFocus&&lastFocus.focus)try{lastFocus.focus();}catch(e){}}
+$('#bannerlink').onclick=openTerms;$('#footterms').onclick=openTerms;$('#gread').onclick=openTerms;$('#tclose').onclick=closeTerms;
+document.addEventListener('keydown',function(e){if(e.key==='Escape'&&!$('#terms').hidden)closeTerms();});
+$('#terms').addEventListener('click',function(e){if(e.target===$('#terms'))closeTerms();});
+function renderGate(){var d=Tm[L];$('#gateh').textContent=d.gateH;$('#gatep').textContent=d.gateP;$('#gatel').innerHTML=d.gateL.map(function(x){return '<li>'+esc(x)+'</li>';}).join('');
+  $('#gatec').textContent=d.gateC;$('#gok').textContent=d.gateB;$('#gread').textContent=d.gateR;$('#gatex').textContent=d.gateX;}
+function needGate(){try{var c=JSON.parse(lsGet(CKEY)||'null');return !(c&&c.v===1);}catch(e){return true;}}
+function openGate(){renderGate();$('#gate').hidden=false;$('#app').inert=true;$('#dock').inert=true;setTimeout(function(){try{$('#gchk').focus();}catch(e){}},50);}
+$('#gchk').addEventListener('change',function(){$('#gok').disabled=!this.checked;});
+$('#gok').onclick=function(){if(!$('#gchk').checked)return;lsSet(CKEY,JSON.stringify({v:1,t:new Date().toISOString(),l:L}));$('#gate').hidden=true;$('#app').inert=false;$('#dock').inert=false;};
+
+/* ---------- language ---------- */
+function applyStatic(){
+  $$('[data-i]').forEach(function(el){el.textContent=t(el.dataset.i);});
+  $('#h1').innerHTML=L==='vi'?'Hôm nay <em>tập gì?</em>':'What to <em>train</em> today?';
+  $('#spin').textContent=wheel.spinning?t('spinning'):t('spin');$('#reshuffle').textContent=t('reshuffle');
+  $('#go').textContent=duck.racing?t('racing'):t('go');$('#newduck').textContent=t('newduck');$('#deal').textContent=t('deal');
+  $('#flip').textContent=t('flip');$('#coinNew').textContent=t('coinNew');$('#roll').textContent=t('roll');$('#diceNew').textContent=t('diceNew');$('#pull').textContent=t('pull');
+  $('#sessgo').textContent='▶ '+t('sessGo');$('#sessauto').textContent=t('sessAuto');$('#sessclear').textContent=t('sessClear');$('#fgo').textContent='▶ '+t('fgo');
+  $('#q').placeholder=t('search');$('#q').setAttribute('aria-label',t('search'));
+  var sv=$('#sort').value||'lv';$('#sort').innerHTML=['lv','lvd','t','az'].map(function(k){return '<option value="'+k+'">'+t('s_'+k)+'</option>';}).join('');$('#sort').value=sv;
+  $('#yr').textContent=new Date().getFullYear();$('#srcnote').textContent=t('srcnote');
+  $('#bannertxt').textContent=Tm[L].banner;$('#bannerlink').textContent=Tm[L].bannerL;$('#footterms').textContent=Tm[L].footT;
+  $$('.lang button').forEach(function(b){b.setAttribute('aria-pressed',String(b.dataset.l===L));});
+  document.documentElement.lang=L;
+}
+function setLang(l,fromHash){
+  if(l!=='vi'&&l!=='en')return;L=l;lsSet('homNayTapGi.lang',l);
+  if(!fromHash){try{history.replaceState(null,'','#'+l);}catch(e){location.hash=l;}}
+  applyStatic();renderTabs();renderChips();
+  if(qs.step>=Q.length&&qRank.length)drawQuiz();else renderQuiz();
+  rerenderRes();if(!$('#terms').hidden)renderTerms();if(!$('#gate').hidden)renderGate();
+  if(tab==='lib')renderLib();if(tab==='session')renderSession();if(TM.ph.length&&!$('#dock').hidden)drawDock();
+}
+$$('.lang button').forEach(function(b){b.onclick=function(){setLang(b.dataset.l);};});
+window.addEventListener('hashchange',function(){var h=location.hash.slice(1);if((h==='vi'||h==='en')&&h!==L)setLang(h,true);});
+
+/* ---------- init ---------- */
+(function(){
+  var h=location.hash.slice(1),l='vi';
+  if(h==='en'||h==='vi')l=h;else{var s=lsGet('homNayTapGi.lang');if(s==='en'||s==='vi')l=s;else if((navigator.language||'').toLowerCase().indexOf('vi')!==0)l='en';}
+  L=l;applyStatic();renderTabs();renderChips();renderQuiz();
+  $$('section[role=tabpanel]').forEach(function(s){s.hidden=s.id!=='p-quiz';});$('#fbar').hidden=true;
+  if(needGate())openGate();
+})();
+})();
+</script>
+
+</body></html>
