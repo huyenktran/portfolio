@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Blog Editor · alessandratran.com</title>
+<style>
+:root{--bg:#f6f5f2;--sf:#fff;--tx:#1d1d1b;--mu:#6b6a65;--bd:#e3e1db;--ac:#b4532a;--ac2:#fbeee6;--ok:#2f7d4f;--wa:#b7791f;--er:#c0392b;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);color-scheme:light}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#161615;--sf:#1f1f1d;--tx:#ecebe6;--mu:#9b9a93;--bd:#33322f;--ac:#e07a4d;--ac2:#2e211b;--ok:#5cc08a;--wa:#e0b050;--er:#ef6a5b;color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#161615;--sf:#1f1f1d;--tx:#ecebe6;--mu:#9b9a93;--bd:#33322f;--ac:#e07a4d;--ac2:#2e211b;--ok:#5cc08a;--wa:#e0b050;--er:#ef6a5b;color-scheme:dark}
+*{box-sizing:border-box}html{scroll-padding-top:env(safe-area-inset-top,0px)}
+body{margin:0;background:var(--bg);color:var(--tx);font:15px/1.5 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
+button,input,textarea{font:inherit;color:inherit}
+header{display:flex;align-items:center;gap:10px;padding:10px 16px;background:var(--sf);border-bottom:1px solid var(--bd);position:sticky;top:env(safe-area-inset-top,0px);z-index:5;flex-wrap:wrap}
+header b{font-size:16px}header small{color:var(--mu)}.sp{flex:1}
+.btn{border:1px solid var(--bd);background:var(--sf);padding:7px 13px;border-radius:8px;cursor:pointer}
+.btn:hover{border-color:var(--ac)}.btn.p{background:var(--ac);border-color:var(--ac);color:#fff;font-weight:600}
+.btn.sm{padding:4px 9px;font-size:13px}
+main{display:grid;grid-template-columns:240px minmax(0,1fr) 320px;gap:16px;padding:16px;max-width:1500px;margin:auto}
+@media(max-width:1100px){main{grid-template-columns:200px minmax(0,1fr)}#seo{grid-column:1/-1}}
+@media(max-width:720px){main{grid-template-columns:1fr}}
+.card{background:var(--sf);border:1px solid var(--bd);border-radius:12px;padding:14px}
+h3{margin:0 0 10px;font-size:13px;text-transform:uppercase;letter-spacing:.05em;color:var(--mu)}
+.item{padding:9px 10px;border-radius:8px;cursor:pointer;border:1px solid transparent}
+.item:hover{background:var(--bg)}.item.on{background:var(--ac2);border-color:var(--ac)}
+.item .t{font-weight:600;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.tag{font-size:11px;padding:1px 7px;border-radius:99px;border:1px solid var(--bd);color:var(--mu)}
+.tag.pub{color:var(--ok);border-color:var(--ok)}
+#title{width:100%;border:0;background:transparent;font-size:28px;font-weight:700;outline:none;padding:4px 0;margin-bottom:6px}
+.bar{display:flex;gap:4px;flex-wrap:wrap;padding:8px 0;border-top:1px solid var(--bd);border-bottom:1px solid var(--bd);margin-bottom:12px;position:sticky;top:calc(52px + env(safe-area-inset-top,0px));background:var(--sf);z-index:3}
+.bar button{min-width:34px}
+#ed{min-height:420px;outline:none;font-size:17px;line-height:1.7}
+#ed:empty:before{content:attr(data-ph);color:var(--mu)}
+#ed h2{font-size:24px;margin:1.2em 0 .4em}#ed h3{font-size:19px}#ed img{max-width:100%;height:auto;border-radius:8px}
+#ed blockquote{margin:1em 0;padding:.2em 1em;border-left:3px solid var(--ac);color:var(--mu)}#ed a{color:var(--ac)}
+label{display:block;font-size:12px;color:var(--mu);margin:12px 0 4px;font-weight:600}
+input[type=text],input[type=url],textarea{width:100%;border:1px solid var(--bd);background:var(--bg);border-radius:8px;padding:7px 10px;outline:none}
+input:focus,textarea:focus{border-color:var(--ac)}textarea{resize:vertical;min-height:70px}
+.cnt{float:right;font-weight:400}.ok{color:var(--ok)}.wa{color:var(--wa)}.er{color:var(--er)}
+.serp{border:1px solid var(--bd);border-radius:8px;padding:10px;background:var(--bg)}
+.serp .u{font-size:12px;color:var(--mu);word-break:break-all}.serp .h{color:#1a0dab;font-size:18px;margin:2px 0}
+@media(prefers-color-scheme:dark){.serp .h{color:#8ab4f8}}.serp .d{font-size:13px;color:var(--mu)}
+.ck{display:flex;gap:8px;font-size:13px;padding:3px 0}.score{font-size:30px;font-weight:700}
+.modal{position:fixed;inset:0;background:#0008;display:none;align-items:center;justify-content:center;padding:16px;z-index:20}
+.modal.on{display:flex}.modal .card{max-width:560px;width:100%;max-height:90vh;overflow:auto}
+.row{display:flex;gap:8px;align-items:center;justify-content:space-between;padding:8px 0;border-bottom:1px solid var(--bd)}
+.empty{color:var(--mu);font-size:13px;padding:8px}
+</style>
+</head>
+<body>
+<header>
+  <b>✍️ Blog Editor</b><small>alessandratran.com</small><span class="sp"></span>
+  <small id="saved"></small>
+  <button class="btn" id="prev">Xem trước</button>
+  <button class="btn p" id="pub">Xuất bản</button>
+</header>
+<main>
+  <aside class="card"><div style="display:flex;justify-content:space-between;align-items:center"><h3 style="margin:0">Bài viết</h3><button class="btn sm p" id="new">+ Mới</button></div><div id="list" style="margin-top:10px"></div></aside>
+  <section class="card">
+    <input id="title" type="text" placeholder="Tiêu đề bài viết">
+    <div class="bar" id="bar"></div>
+    <div id="ed" contenteditable="true" data-ph="Bắt đầu viết ở đây…"></div>
+  </section>
+  <aside id="seo">
+    <div class="card">
+      <h3>SEO</h3>
+      <div style="display:flex;align-items:center;gap:12px"><div class="score" id="score">0</div><div style="color:var(--mu);font-size:13px">/ 100 điểm SEO cơ bản</div></div>
+      <label>Từ khóa chính</label><input id="kw" type="text" placeholder="vd: du lịch Đà Lạt">
+      <label>Đường dẫn (slug)</label><input id="slug" type="text">
+      <label>Tiêu đề SEO <span class="cnt" id="c1"></span></label><input id="mt" type="text" placeholder="Mặc định lấy từ tiêu đề">
+      <label>Meta description <span class="cnt" id="c2"></span></label><textarea id="md" placeholder="Mô tả 120–160 ký tự hiển thị trên Google"></textarea>
+      <label>Ảnh đại diện / OG image (URL)</label><input id="og" type="url" placeholder="https://alessandratran.com/images/...">
+      <label>Tags (cách nhau bằng dấu phẩy)</label><input id="tags" type="text">
+      <h3 style="margin-top:16px">Xem trước trên Google</h3>
+      <div class="serp"><div class="u" id="su"></div><div class="h" id="sh"></div><div class="d" id="sd"></div></div>
+      <h3 style="margin-top:16px">Kiểm tra</h3><div id="checks"></div>
+    </div>
+  </aside>
+</main>
+
+<div class="modal" id="m"><div class="card">
+  <div style="display:flex;justify-content:space-between"><b>Xuất bản bài viết</b><button class="btn sm" id="mx">✕</button></div>
+  <p style="color:var(--mu);font-size:13px">Tải 3 file bên dưới rồi upload lên hosting của bạn. Trang blog có thể đọc <code>posts.json</code> để tự hiển thị danh sách bài.</p>
+  <div id="files"></div>
+</div></div>
+
+<script>
+const BASE='https://alessandratran.com', BLOG='/blog/';
+const $=id=>document.getElementById(id);
+let posts=[],cur=null,mem=null,dl=null,t;
+const ld=()=>{try{return JSON.parse(localStorage.getItem('atb_posts')||'null')}catch(e){return mem}};
+const sv=()=>{mem=posts;try{localStorage.setItem('atb_posts',JSON.stringify(posts))}catch(e){}$('saved').textContent='Đã lưu '+new Date().toLocaleTimeString('vi-VN',{hour:'2-digit',minute:'2-digit'})};
+const esc=s=>String(s||'').replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const slugify=s=>s.toLowerCase().replace(/đ/g,'d').normalize('NFD').replace(/[\u0300-\u036f]/g,'').replace(/[^a-z0-9]+/g,'-').replace(/^-+|-+$/g,'');
+const mk=()=>({id:Date.now()+'',title:'',slug:'',html:'',kw:'',mt:'',md:'',og:'',tags:'',status:'draft',updated:Date.now()});
+const P=()=>posts.find(p=>p.id===cur);
+const text=h=>{const d=document.createElement('div');d.innerHTML=h;return d.textContent.trim()};
+
+function renderList(){
+  const l=$('list');l.innerHTML='';
+  if(!posts.length)l.innerHTML='<div class="empty">Chưa có bài nào.</div>';
+  [...posts].sort((a,b)=>b.updated-a.updated).forEach(p=>{
+    const d=document.createElement('div');d.className='item'+(p.id===cur?' on':'');
+    d.innerHTML='<div class="t"></div><span class="tag'+(p.status==='published'?' pub':'')+'">'+(p.status==='published'?'Đã xuất bản':'Nháp')+'</span>';
+    d.firstChild.textContent=p.title||'(Chưa có tiêu đề)';
+    d.onclick=()=>open(p.id);l.appendChild(d)});
+}
+function open(id){
+  cur=id;const p=P();
+  $('title').value=p.title;$('ed').innerHTML=p.html;
+  ['kw','slug','mt','md','og','tags'].forEach(k=>$(k).value=p[k]||'');
+  renderList();seo();
+}
+function newPost(){const p=mk();posts.push(p);sv();open(p.id);$('title').focus()}
+function save(){
+  const p=P();if(!p)return;
+  p.title=$('title').value;p.html=$('ed').innerHTML;
+  ['kw','slug','mt','md','og','tags'].forEach(k=>p[k]=$(k).value);
+  p.updated=Date.now();clearTimeout(t);t=setTimeout(()=>{sv();renderList()},500);seo();
+}
+function cnt(el,n,lo,hi){el.textContent=n+' ký tự';el.className='cnt '+(n>=lo&&n<=hi?'ok':n?'wa':'')}
+function seo(){
+  const p=P();if(!p)return;
+  const title=p.mt||p.title,txt=text(p.html),words=txt.split(/\s+/).filter(Boolean).length,kw=(p.kw||'').toLowerCase().trim();
+  const d=document.createElement('div');d.innerHTML=p.html;
+  const imgs=[...d.querySelectorAll('img')],links=d.querySelectorAll('a[href]').length;
+  const first=txt.split(/\s+/).slice(0,100).join(' ').toLowerCase();
+  cnt($('c1'),title.length,30,60);cnt($('c2'),(p.md||'').length,120,160);
+  const url=BASE+BLOG+(p.slug||'slug')+'.html';
+  $('su').textContent=url.replace('https://','').replace(/\//g,' › ').replace('.html','');
+  $('sh').textContent=title||'Tiêu đề bài viết';$('sd').textContent=p.md||txt.slice(0,155)||'Mô tả bài viết sẽ hiển thị ở đây.';
+  const c=[
+    ['Tiêu đề SEO 30–60 ký tự',title.length>=30&&title.length<=60,15],
+    ['Meta description 120–160 ký tự',(p.md||'').length>=120&&(p.md||'').length<=160,15],
+    ['Có từ khóa chính',!!kw,5],
+    ['Từ khóa nằm trong tiêu đề',!!kw&&title.toLowerCase().includes(kw),10],
+    ['Từ khóa nằm trong meta description',!!kw&&(p.md||'').toLowerCase().includes(kw),10],
+    ['Từ khóa nằm trong slug',!!kw&&(p.slug||'').includes(slugify(kw)),10],
+    ['Từ khóa trong 100 từ đầu',!!kw&&first.includes(kw),10],
+    ['Bài dài ≥ 300 từ ('+words+')',words>=300,10],
+    ['Có thẻ H2 chia mục',!!d.querySelector('h2'),5],
+    ['Có ít nhất 1 liên kết',links>0,5],
+    ['Ảnh có alt text',imgs.length>0&&imgs.every(i=>i.alt),5]
+  ];
+  let s=0;$('checks').innerHTML='';
+  c.forEach(([l,ok,w])=>{if(ok)s+=w;const e=document.createElement('div');e.className='ck';e.innerHTML='<span class="'+(ok?'ok':'er')+'">'+(ok?'✓':'✗')+'</span><span></span>';e.lastChild.textContent=l;$('checks').appendChild(e)});
+  $('score').textContent=s;$('score').className='score '+(s>=80?'ok':s>=50?'wa':'er');
+}
+function clean(h){
+  const d=document.createElement('div');d.innerHTML=h;
+  d.querySelectorAll('script,style,iframe,object').forEach(e=>e.remove());
+  d.querySelectorAll('*').forEach(e=>[...e.attributes].forEach(a=>{if(/^on/i.test(a.name))e.removeAttribute(a.name)}));
+  return d.innerHTML;
+}
+function buildPost(p){
+  const url=BASE+BLOG+p.slug+'.html',title=p.mt||p.title,desc=p.md||text(p.html).slice(0,155);
+  const pubd=new Date(p.publishedAt||Date.now()).toISOString(),upd=new Date(p.updated).toISOString();
+  const ld={"@context":"https://schema.org","@type":"BlogPosting",headline:p.title,description:desc,image:p.og||undefined,datePublished:pubd,dateModified:upd,mainEntityOfPage:url,author:{"@type":"Person",name:"Alessandra Tran"}};
+  return `<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>${esc(title)}</title>
+<meta name="description" content="${esc(desc)}">
+<link rel="canonical" href="${url}">
+<meta name="robots" content="index, follow">
+<meta property="og:type" content="article">
+<meta property="og:title" content="${esc(title)}">
+<meta property="og:description" content="${esc(desc)}">
+<meta property="og:url" content="${url}">
+${p.og?`<meta property="og:image" content="${esc(p.og)}">\n<meta name="twitter:image" content="${esc(p.og)}">`:''}
+<meta name="twitter:card" content="${p.og?'summary_large_image':'summary'}">
+<script type="application/ld+json">${JSON.stringify(ld)}<\/script>
+<style>body{max-width:720px;margin:0 auto;padding:24px 16px;font:18px/1.75 Georgia,serif;color:#222}nav{font:14px system-ui;margin-bottom:32px}nav a{color:#b4532a;margin-right:14px;text-decoration:none}h1{font-size:34px;line-height:1.25}h2{margin-top:1.6em}img{max-width:100%;height:auto}blockquote{border-left:3px solid #b4532a;margin:1em 0;padding-left:1em;color:#555}a{color:#b4532a}time{font:14px system-ui;color:#777}</style>
+</head>
+<body>
+<nav><a href="/">Trang chủ</a><a href="/blog.html">Blog</a></nav>
+<article>
+<h1>${esc(p.title)}</h1>
+<time datetime="${pubd}">${new Date(p.publishedAt||Date.now()).toLocaleDateString('vi-VN')}</time>
+${clean(p.html)}
+</article>
+</body>
+</html>`;
+}
+function files(){
+  const pub=posts.filter(p=>p.status==='published'&&p.slug);
+  const idx=pub.sort((a,b)=>b.publishedAt-a.publishedAt).map(p=>({title:p.title,slug:p.slug,url:BLOG+p.slug+'.html',description:p.md||text(p.html).slice(0,155),image:p.og||'',tags:(p.tags||'').split(',').map(x=>x.trim()).filter(Boolean),publishedAt:new Date(p.publishedAt).toISOString()}));
+  const urls=[BASE+'/',BASE+'/blog.html',...pub.map(p=>BASE+BLOG+p.slug+'.html')];
+  const sm='<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'+urls.map(u=>'  <url><loc>'+u+'</loc></url>').join('\n')+'\n</urlset>';
+  return[[cur&&P().slug+'.html',buildPost(P()),'Trang bài viết (upload vào '+BLOG+')'],['posts.json',JSON.stringify(idx,null,2),'Danh sách bài cho blog.html (upload vào '+BLOG+')'],['sitemap.xml',sm,'Sitemap cho Google (upload vào thư mục gốc)']];
+}
+async function dlf(n,d){
+  if(dl){try{await dl.save({filename:n,data:d})}catch(e){}}
+  else{navigator.clipboard&&navigator.clipboard.writeText(d).then(()=>alert('Đã copy nội dung '+n))}
+}
+function publish(){
+  const p=P();if(!p)return;save();
+  if(!p.title.trim())return alert('Hãy nhập tiêu đề.');
+  if(!p.slug)p.slug=$('slug').value=slugify(p.title);
+  p.status='published';p.publishedAt=p.publishedAt||Date.now();sv();renderList();
+  const f=$('files');f.innerHTML='';
+  files().forEach(([n,d,desc])=>{
+    const r=document.createElement('div');r.className='row';
+    r.innerHTML='<div><b></b><div style="font-size:12px;color:var(--mu)"></div></div>';
+    r.querySelector('b').textContent=n;r.querySelector('div div').textContent=desc;
+    const b=document.createElement('button');b.className='btn sm p';b.textContent=dl?'Tải về':'Copy';b.onclick=()=>dlf(n,d);r.appendChild(b);f.appendChild(r)});
+  $('m').classList.add('on');
+}
+function preview(){
+  const p=P();if(!p)return;save();
+  const w=window.open('','_blank');if(w){w.document.write(buildPost({...p,slug:p.slug||'preview'}));w.document.close()}
+}
+// toolbar
+[['H2','formatBlock','h2'],['H3','formatBlock','h3'],['P','formatBlock','p'],['B','bold'],['I','italic'],['• Danh sách','insertUnorderedList'],['1. Danh sách','insertOrderedList'],['❝','formatBlock','blockquote'],['🔗 Link','link'],['🖼 Ảnh','img'],['↶','undo'],['↷','redo']].forEach(([l,c,a])=>{
+  const b=document.createElement('button');b.className='btn sm';b.textContent=l;b.onmousedown=e=>e.preventDefault();
+  b.onclick=()=>{
+    $('ed').focus();
+    if(c==='link'){const u=prompt('Nhập URL liên kết:','https://');if(u)document.execCommand('createLink',false,u)}
+    else if(c==='img'){const u=prompt('URL ảnh:');if(!u)return;const alt=prompt('Mô tả ảnh (alt text, tốt cho SEO):')||'';document.execCommand('insertHTML',false,'<img src="'+esc(u)+'" alt="'+esc(alt)+'">')}
+    else document.execCommand(c,false,a||null);
+    save()};
+  $('bar').appendChild(b)});
+$('ed').addEventListener('input',save);
+$('ed').addEventListener('paste',e=>{e.preventDefault();const h=e.clipboardData.getData('text/html'),t=e.clipboardData.getData('text/plain');document.execCommand(h?'insertHTML':'insertText',false,h?clean(h).replace(/ (style|class|id)="[^"]*"/g,''):t)});
+$('title').addEventListener('input',()=>{const p=P();if(p&&p.status==='draft'&&(!p.slug||p.slug===slugify(p.title))){$('slug').value=slugify($('title').value)}save()});
+['kw','slug','mt','md','og','tags'].forEach(k=>$(k).addEventListener('input',()=>{if(k==='slug')$('slug').value=slugify($('slug').value.replace(/-$/,'x')).replace(/x$/,'-');save()}));
+$('new').onclick=newPost;$('pub').onclick=publish;$('prev').onclick=preview;$('mx').onclick=()=>$('m').classList.remove('on');
+posts=ld()||[];if(!posts.length)posts=[mk()];cur=posts[0].id;open(cur);
+(async()=>{try{dl=await claude.use('downloads')}catch(e){dl=null}})();
+</script>
+</body>
+</html>
