@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>What to read today? 📚 · Hôm nay đọc gì?</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Pinyon+Script&family=Playfair+Display:wght@500;700&family=Quicksand:wght@500;700&display=swap">
+<style>
+:root{color-scheme:light;--ink:#111;--card:#ffffffd9;--line:#cfe5f5;--sky:#bfe3f8;--sky2:#6bb6e6;--holo:#bfe3f8;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+*{box-sizing:border-box;margin:0}
+body{min-height:100vh;color:var(--ink);font-family:Quicksand,system-ui,sans-serif;font-weight:500;background:linear-gradient(180deg,#e6f3fc,#ffffff 65%) fixed;padding:18px 5vw 60px;overflow-x:hidden}
+@keyframes bg{to{background-position:400% 0}}
+.wrap{max-width:860px;margin:auto}
+.top{display:flex;justify-content:space-between;align-items:center;font-size:14px;font-weight:700}
+.top a{text-decoration:none;color:inherit}
+#lg,.btn,.tab,.opt{font:700 15px Quicksand,sans-serif;cursor:pointer;border:0;color:#111}
+#lg{padding:6px 14px;border-radius:99px;background:var(--card);color:var(--ink);border:1.5px solid var(--line)}
+.holo{color:var(--ink)}
+@keyframes sh{to{background-position:300% 0}}
+.kick{text-align:center;margin-top:26px;font-family:'Pinyon Script',cursive;font-size:34px}
+h1{font-family:'Playfair Display',serif;font-size:clamp(36px,8vw,62px);text-align:center;line-height:1.1}
+.sub{text-align:center;max-width:560px;margin:10px auto 22px;opacity:.85}
+.tabs{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin-bottom:16px}
+.tab{padding:9px 15px;border-radius:99px;background:var(--card);color:var(--ink);border:1.5px solid var(--line)}
+.tab.on{background:var(--holo);background-size:200%;color:#111;box-shadow:0 6px 18px #6bb6e655}
+.card{background:var(--card);backdrop-filter:blur(12px);border:1.5px solid var(--line);border-radius:28px;padding:22px;box-shadow:0 10px 34px #6bb6e633;margin-bottom:16px}
+h2,h3{font-family:'Playfair Display',serif;margin-bottom:10px}
+textarea{width:100%;min-height:78px;border-radius:16px;border:1.5px solid var(--line);background:#ffffff55;color:var(--ink);padding:10px 12px;font:500 15px Quicksand,sans-serif;resize:vertical}
+small.u{display:block;margin-top:6px;opacity:.75}
+.btn{padding:11px 22px;border-radius:99px;background:var(--holo);background-size:200%;margin:6px 6px 0 0;transition:.2s;box-shadow:0 6px 16px #6bb6e644}
+.btn:hover{transform:translateY(-2px) scale(1.04)}
+.btn.g{background:var(--card);color:var(--ink);border:1.5px solid var(--line);box-shadow:none}
+.mid{text-align:center}
+.opts{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px}
+.opt{padding:14px;border-radius:20px;background:#ffffffaa;border:1.5px solid var(--line);transition:.2s}
+.opt:hover{background:var(--holo);transform:rotate(-1.5deg) scale(1.04)}
+.dots{display:flex;gap:6px;justify-content:center;margin-bottom:10px}.dots i{width:10px;height:10px;border-radius:50%;background:var(--line)}.dots i.on{background:#6bb6e6}
+.wh{position:relative;width:min(320px,80vw);margin:6px auto 14px}.wh canvas{width:100%;border-radius:50%;border:6px solid #fff;box-shadow:0 8px 30px #6bb6e666}
+.ptr{position:absolute;top:-16px;left:50%;transform:translateX(-50%);font-size:30px;z-index:2;font-style:normal}
+.chips{display:flex;flex-wrap:wrap;gap:6px;justify-content:center;margin-top:12px}.chips span{padding:4px 11px;border-radius:99px;font-size:13px;color:#111}
+.lane{display:flex;align-items:center;gap:8px;margin:7px 0}.ln{flex:0 0 36%;font-size:13px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.track{flex:1;height:34px;border-radius:99px;background:repeating-linear-gradient(90deg,#8ad8ff55 0 12px,#8ad8ff22 12px 24px);position:relative}
+.dk{position:absolute;left:0;top:2px;font-size:26px;font-style:normal}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(92px,1fr));gap:10px;perspective:700px}
+.pc{height:128px;border:0;background:none;position:relative;cursor:pointer;transform-style:preserve-3d;transition:transform .7s,opacity .5s}
+.pc span{position:absolute;inset:0;display:grid;place-items:center;align-content:center;border-radius:18px;backface-visibility:hidden;font-size:40px;text-align:center;padding:6px;border:2px solid #fff}
+.pc .bk{background:var(--holo);background-size:300%;}
+.pc .fr{background:#fffffff0;color:#111;transform:rotateY(180deg)}.pc small{font:700 12px Quicksand;display:block}
+.pc.open{transform:rotateY(180deg)}.pc.dim{opacity:.4}
+.coin{width:130px;height:130px;margin:10px auto;transform-style:preserve-3d;transition:transform 2s cubic-bezier(.2,.7,.2,1);perspective:600px;position:relative}
+.coin span{position:absolute;inset:0;border-radius:50%;display:grid;place-items:center;font-size:56px;backface-visibility:hidden;background:var(--holo);border:5px solid #fff;box-shadow:0 8px 24px #6bb6e666}
+.coin span+span{transform:rotateY(180deg)}
+.cups{position:relative;height:130px;width:340px;max-width:100%;margin:6px auto}
+.cup{position:absolute;top:0;width:100px;height:120px;border:0;background:none;font-size:70px;cursor:pointer;transition:left .35s,transform .3s}
+.cup.up{transform:translateY(-34px)}.cup small{display:block;font:700 12px Quicksand;color:var(--ink)}
+.die{font-size:110px;text-align:center;line-height:1.1}
+.res{text-align:center;animation:pop .5s}@keyframes pop{from{transform:scale(.7);opacity:0}}
+.res .big{font-size:76px}.res h2{font-size:30px}
+a.btn{display:inline-block;text-decoration:none}
+.foot{text-align:center;font-size:13px;opacity:.75;max-width:600px;margin:20px auto 0}
+.float{position:fixed;font-size:30px;pointer-events:none;animation:fl 6s ease-in-out infinite;z-index:0}@keyframes fl{50%{transform:translateY(-16px) rotate(10deg)}}
+.wrap{position:relative;z-index:1}
+
+#gf{display:flex;flex-wrap:wrap;gap:6px}#gf button{padding:6px 13px;border-radius:99px;border:1.5px solid var(--line);background:#ffffff88;color:var(--ink);font:700 13px Quicksand,sans-serif;cursor:pointer}#gf button.on{background:var(--holo);background-size:200%;color:#111;border-color:#fff}
+.meta{opacity:.85;margin:4px 0}.bt{max-width:560px;margin:6px auto 12px;font-size:15px}
+.lg{text-align:left;margin:18px 0 8px}.lg small{font-family:Quicksand,sans-serif;font-size:13px;opacity:.7}
+.bkg{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:12px;text-align:left}
+.bc{background:#ffffffaa;border:1.5px solid var(--line);border-radius:20px;padding:14px;display:flex;flex-direction:column;gap:3px;color:#111}.bc b{font-family:'Playfair Display',serif;font-size:17px;line-height:1.25}.bc small{opacity:.75;font-size:12px}.bc p{font-size:13px;flex:1;margin:4px 0}.bs{display:flex;gap:6px;flex-wrap:wrap}.bs .btn{padding:7px 14px;font-size:13px;margin:0}
+.tw{overflow-x:auto;text-align:left}.tb{width:100%;border-collapse:collapse;font-size:14px}.tb th{padding:8px 10px;border-bottom:2px solid #ffffffd0;white-space:nowrap;text-align:left}.tb th button{font:700 14px Quicksand,sans-serif;cursor:pointer;color:inherit;background:none;border:0}.tb td{padding:9px 10px;border-bottom:1px solid #ffffff99;vertical-align:top}.tb tr:hover td{background:#ffffff55}
+.bl{display:inline-block;margin:2px 4px 2px 0;padding:5px 12px;border-radius:99px;background:var(--holo);background-size:200%;font-size:12px;color:#111;font-weight:700;text-decoration:none;white-space:nowrap}
+.sr{width:100%;padding:10px 16px;border-radius:99px;border:1.5px solid var(--line);background:#ffffff88;color:var(--ink);margin-bottom:6px;font:500 15px Quicksand,sans-serif}.u2{text-align:left;opacity:.7;font-size:13px;margin-bottom:8px}
+</style>
+</head>
+<body>
+<span class="float" style="top:12%;left:3%">📚</span><span class="float" style="top:60%;right:3%;animation-delay:1.5s">☁️</span><span class="float" style="top:85%;left:8%;animation-delay:3s">☕</span>
+<div class="wrap">
+<div class="top"><a id="back" href="https://alessandratran.com/"></a><button id="lg" type="button"></button></div>
+<div class="kick holo" id="kick"></div>
+<h1 class="holo" id="h1"></h1>
+<p class="sub" id="sub"></p>
+<div class="tabs" id="tabs"></div>
+<div class="card"><h3 id="gh"></h3><div id="gf"></div></div>
+<div class="card" id="opt"><h3 id="oh"></h3><textarea id="mine"></textarea><small class="u" id="used"></small></div>
+<div class="card mid" id="stage"></div>
+<div class="card res" id="res" hidden></div>
+<p class="foot" id="foot"></p>
+</div>
+<script>
+var GN={lit:{e:"📖",en:"Literary fiction",vi:"Văn học"},mys:{e:"🕵️",en:"Mystery & thriller",vi:"Trinh thám & giật gân"},sf:{e:"🚀",en:"Sci-fi & fantasy",vi:"Khoa học viễn tưởng & giả tưởng"},rom:{e:"💕",en:"Romance",vi:"Lãng mạn"},his:{e:"🏛️",en:"History & biography",vi:"Lịch sử & tiểu sử"},self:{e:"🌱",en:"Self-help",vi:"Phát triển bản thân"},biz:{e:"💼",en:"Business & finance",vi:"Kinh doanh & tài chính"},sci:{e:"🔬",en:"Science & technology",vi:"Khoa học & công nghệ"},kid:{e:"🧸",en:"Children & young adult",vi:"Thiếu nhi & thiếu niên"},phi:{e:"🧠",en:"Philosophy & psychology",vi:"Triết học & tâm lý"},vn:{e:"🇻🇳",en:"Vietnamese literature",vi:"Văn học Việt Nam"}};
+// [thể loại, tên gốc, tên tiếng Việt (nếu có bản dịch), tác giả, năm xuất bản lần đầu, giới thiệu EN, giới thiệu VI, tên tiếng Anh (cho sách Việt)]
+var RAW=[
+["lit","To Kill a Mockingbird","Giết con chim nhại","Harper Lee",1960,"In 1930s Alabama, young Scout Finch watches her father, a lawyer, defend a Black man falsely accused of a crime. A gentle, powerful story about justice, empathy and growing up.","Ở bang Alabama những năm 1930, cô bé Scout chứng kiến cha mình, một luật sư, bào chữa cho người đàn ông da đen bị buộc tội oan. Câu chuyện nhẹ nhàng mà sâu sắc về công lý, lòng thấu cảm và sự trưởng thành."],
+["lit","The Great Gatsby","Gatsby vĩ đại","F. Scott Fitzgerald",1925,"Narrator Nick Carraway is drawn into the glittering world of his mysterious neighbor Jay Gatsby on Long Island. A short, elegant novel about wealth, longing and the American Dream.","Nick Carraway bị cuốn vào thế giới lộng lẫy của người hàng xóm bí ẩn Jay Gatsby ở Long Island. Cuốn tiểu thuyết ngắn, tinh tế về tiền bạc, khao khát và giấc mơ Mỹ."],
+["lit","One Hundred Years of Solitude","Trăm năm cô đơn","Gabriel García Márquez",1967,"The Buendía family rises and falls across seven generations in the fictional town of Macondo. A landmark of magical realism, where the extraordinary feels perfectly ordinary.","Gia đình Buendía thăng trầm qua bảy thế hệ ở thị trấn Macondo hư cấu. Một kiệt tác của chủ nghĩa hiện thực huyền ảo, nơi điều kỳ diệu trở nên bình thường."],
+["lit","Norwegian Wood","Rừng Na Uy","Haruki Murakami",1987,"Toru Watanabe looks back on his student years in 1960s Tokyo, caught between two very different women. A quiet, melancholy novel about love, loss and memory.","Toru Watanabe nhớ lại thời sinh viên ở Tokyo những năm 1960, giằng xé giữa hai người phụ nữ rất khác nhau. Một tiểu thuyết lặng lẽ, man mác buồn về tình yêu, mất mát và ký ức."],
+["lit","The Kite Runner","Người đua diều","Khaled Hosseini",2003,"Amir, a boy from Kabul, carries a heavy secret about his childhood friend Hassan for decades. A moving story of guilt, friendship and redemption set against Afghanistan’s turbulent history.","Cậu bé Amir ở Kabul mang theo suốt nhiều thập kỷ một bí mật nặng nề về người bạn thuở nhỏ Hassan. Câu chuyện xúc động về tội lỗi, tình bạn và sự chuộc lỗi giữa lịch sử đầy biến động của Afghanistan."],
+["lit","The Old Man and the Sea","Ông già và biển cả","Ernest Hemingway",1952,"An aging Cuban fisherman goes far out to sea and fights a giant marlin for days. A short, powerful tale about endurance, pride and dignity.","Một lão ngư dân Cuba ra khơi xa và vật lộn nhiều ngày với con cá kiếm khổng lồ. Truyện ngắn đầy sức mạnh về sự bền bỉ, lòng tự trọng và phẩm giá."],
+["mys","And Then There Were None","Và rồi chẳng còn ai","Agatha Christie",1939,"Ten strangers are invited to an isolated island and begin to die one by one, following an old nursery rhyme. A masterclass in suspense and one of the best-selling mysteries ever.","Mười người xa lạ được mời đến một hòn đảo biệt lập và lần lượt thiệt mạng theo lời một bài đồng dao cũ. Bậc thầy của sự hồi hộp, thuộc hàng truyện trinh thám bán chạy nhất mọi thời đại."],
+["mys","The Girl with the Dragon Tattoo","Cô gái có hình xăm rồng","Stieg Larsson",2005,"A disgraced journalist and a brilliant, rebellious hacker investigate a decades-old disappearance in a wealthy Swedish family. Dark, twisty and hard to put down.","Một nhà báo bị thất thế và một nữ hacker thiên tài nổi loạn điều tra vụ mất tích đã hàng chục năm trong một gia tộc giàu có ở Thụy Điển. U tối, nhiều ngoặt bất ngờ và khó đặt xuống."],
+["mys","Gone Girl","Cô gái mất tích","Gillian Flynn",2012,"On their fifth anniversary, Amy disappears, and her husband Nick becomes the prime suspect. A sharp psychological thriller about marriage and the stories we tell.","Đúng kỷ niệm 5 năm ngày cưới, Amy mất tích và chồng cô, Nick, trở thành nghi phạm số một. Một tiểu thuyết tâm lý sắc sảo về hôn nhân và những câu chuyện ta kể."],
+["mys","The Da Vinci Code","Mật mã Da Vinci","Dan Brown",2003,"A Harvard symbologist races through Paris and London to solve a murder and uncover a secret hidden in famous artworks. A fast, puzzle-packed page-turner.","Một giáo sư biểu tượng học chạy đua qua Paris và London để phá một vụ giết người và khám phá bí mật giấu trong các tác phẩm nghệ thuật nổi tiếng. Nhịp nhanh, đầy câu đố và rất cuốn."],
+["mys","Murder on the Orient Express","Án mạng trên chuyến tàu tốc hành Phương Đông","Agatha Christie",1934,"A snowbound train, a murdered passenger and a carriage full of suspects: detective Hercule Poirot must find the killer before the line reopens. A classic closed-circle puzzle.","Chuyến tàu bị kẹt giữa tuyết, một hành khách bị sát hại và toa tàu đầy nghi phạm: thám tử Hercule Poirot phải tìm ra hung thủ trước khi đường thông trở lại. Một câu đố kinh điển trong không gian khép kín."],
+["mys","The Silent Patient","Bệnh nhân thầm lặng","Alex Michaelides",2019,"Alicia Berenson shoots her husband and then never speaks again. A therapist becomes obsessed with uncovering why in this twisty psychological thriller.","Alicia Berenson bắn chồng rồi từ đó không nói một lời. Một nhà trị liệu bị ám ảnh phải tìm ra lý do, trong một tiểu thuyết kinh dị tâm lý nhiều ngoặt."],
+["sf","Dune","Dune: Xứ Cát","Frank Herbert",1965,"On the desert planet Arrakis, young Paul Atreides is thrust into a struggle over the universe’s most valuable substance. An epic of politics, religion and ecology.","Trên hành tinh sa mạc Arrakis, chàng trai Paul Atreides bị cuốn vào cuộc tranh giành chất quý giá nhất vũ trụ. Một sử thi về chính trị, tôn giáo và sinh thái."],
+["sf","The Hobbit","Người Hobbit","J.R.R. Tolkien",1937,"Bilbo Baggins, a comfort-loving hobbit, is swept into a quest with thirteen dwarves to reclaim a treasure guarded by a dragon. A charming, adventurous prelude to The Lord of the Rings.","Bilbo Baggins, một người Hobbit thích yên ổn, bị cuốn vào chuyến phiêu lưu cùng mười ba chú lùn để lấy lại kho báu do một con rồng canh giữ. Khúc dạo đầu thú vị cho bộ Chúa tể những chiếc nhẫn."],
+["sf","1984","1984","George Orwell",1949,"In a totalitarian state watched by Big Brother, Winston Smith secretly begins to think for himself. A chilling classic about surveillance, truth and control.","Trong một nhà nước toàn trị bị Big Brother theo dõi, Winston Smith bí mật bắt đầu suy nghĩ độc lập. Tác phẩm kinh điển rùng rợn về giám sát, sự thật và quyền kiểm soát."],
+["sf","Harry Potter and the Philosopher’s Stone","Harry Potter và Hòn đá Phù thủy","J.K. Rowling",1997,"Orphaned Harry discovers he is a wizard and starts at Hogwarts School of Witchcraft and Wizardry. The warm, imaginative first book of a worldwide phenomenon.","Cậu bé mồ côi Harry phát hiện mình là phù thủy và nhập học trường Hogwarts. Cuốn đầu tiên ấm áp, giàu trí tưởng tượng của một hiện tượng toàn cầu."],
+["sf","The Hitchhiker’s Guide to the Galaxy",null,"Douglas Adams",1979,"Moments before Earth is demolished, Arthur Dent hitches a ride across space with an alien friend. A wildly funny sci-fi comedy with a famous answer: 42.","Ngay trước khi Trái Đất bị phá hủy, Arthur Dent quá giang một chuyến đi xuyên vũ trụ cùng người bạn ngoài hành tinh. Hài khoa học viễn tưởng cực vui, với đáp án nổi tiếng: 42."],
+["sf","The Left Hand of Darkness",null,"Ursula K. Le Guin",1969,"An envoy visits the icy planet Gethen, whose people have no fixed gender, and struggles to understand its culture. A thoughtful classic about identity, trust and difference.","Một sứ giả đến hành tinh băng giá Gethen, nơi người dân không có giới tính cố định, và cố gắng hiểu nền văn hóa nơi đây. Tác phẩm kinh điển giàu suy ngẫm về bản sắc, lòng tin và sự khác biệt."],
+["rom","Pride and Prejudice","Kiêu hãnh và định kiến","Jane Austen",1813,"Spirited Elizabeth Bennet and proud Mr. Darcy must overcome first impressions and social expectations. A witty, timeless romance about love and class.","Elizabeth Bennet lanh lợi và ngài Darcy kiêu hãnh phải vượt qua ấn tượng ban đầu và những định kiến xã hội. Mối tình dí dỏm, vượt thời gian về tình yêu và giai cấp."],
+["rom","Jane Eyre",null,"Charlotte Brontë",1847,"An orphaned governess falls in love with her mysterious employer, Mr. Rochester, at Thornfield Hall. A passionate gothic romance about independence and self-respect.","Cô gia sư mồ côi yêu người chủ bí ẩn, ngài Rochester, ở Thornfield Hall. Câu chuyện tình gothic mãnh liệt về sự độc lập và lòng tự trọng."],
+["rom","The Notebook",null,"Nicholas Sparks",1996,"An elderly man reads from a worn notebook to a woman with memory loss, telling the story of a summer romance that lasted a lifetime. A tender, tearjerking love story.","Một cụ ông đọc cuốn sổ cũ cho người phụ nữ mất trí nhớ nghe, kể về mối tình mùa hè kéo dài cả đời. Câu chuyện tình dịu dàng, dễ làm người đọc rơi nước mắt."],
+["rom","Me Before You","Trước ngày em đến","Jojo Moyes",2012,"Lou, a cheerful small-town woman, becomes caregiver to Will, a once-adventurous man now paralyzed. A bittersweet love story that is funny and heartbreaking.","Lou, cô gái vui vẻ ở thị trấn nhỏ, trở thành người chăm sóc Will, người đàn ông từng mê phiêu lưu nay bị liệt. Chuyện tình buồn vui lẫn lộn, vừa hài hước vừa đau lòng."],
+["rom","Outlander",null,"Diana Gabaldon",1991,"In 1945, nurse Claire Randall touches an ancient stone and wakes up in 18th-century Scotland. A sweeping blend of romance, history and adventure.","Năm 1945, y tá Claire Randall chạm vào một phiến đá cổ rồi tỉnh dậy ở Scotland thế kỷ 18. Sự hòa quyện của tình yêu, lịch sử và phiêu lưu."],
+["rom","Normal People",null,"Sally Rooney",2018,"Connell and Marianne grow up in the same small Irish town and keep drifting together and apart over the years. A sharp, intimate story about class, friendship and love.","Connell và Marianne lớn lên cùng một thị trấn nhỏ ở Ireland và nhiều năm cứ gần lại rồi xa nhau. Một câu chuyện tinh tế, gần gũi về giai cấp, tình bạn và tình yêu."],
+["his","Sapiens","Sapiens: Lược sử loài người","Yuval Noah Harari",2011,"A sweeping history of humankind, from early foragers to the age of technology. It asks how stories, money and empires shaped who we are.","Lược sử loài người từ thời săn bắt hái lượm đến kỷ nguyên công nghệ. Sách đặt câu hỏi về việc những câu chuyện, tiền bạc và đế chế đã định hình chúng ta thế nào."],
+["his","The Diary of a Young Girl","Nhật ký Anne Frank","Anne Frank",1947,"The real diary of a Jewish teenager hiding from the Nazis in Amsterdam. Honest, vivid and deeply human.","Cuốn nhật ký có thật của một cô gái tuổi teen người Do Thái trốn tránh phát xít Đức ở Amsterdam. Chân thật, sống động và đầy tính người."],
+["his","Steve Jobs",null,"Walter Isaacson",2011,"The authorized biography of Apple’s co-founder, based on dozens of interviews. A candid portrait of genius, perfectionism and a complicated personality.","Tiểu sử được ủy quyền của người đồng sáng lập Apple, dựa trên hàng chục cuộc phỏng vấn. Bức chân dung thẳng thắn về thiên tài, chủ nghĩa cầu toàn và một tính cách phức tạp."],
+["his","Educated","Được học","Tara Westover",2018,"Tara grows up in a survivalist family in rural Idaho and first enters a classroom at seventeen. A memoir about the power of education and the cost of choosing your own path.","Tara lớn lên trong gia đình sống tự cung tự cấp ở vùng quê Idaho và lần đầu đặt chân vào lớp học năm 17 tuổi. Hồi ký về sức mạnh của giáo dục và cái giá của việc chọn con đường riêng."],
+["his","Guns, Germs, and Steel","Súng, vi trùng và thép","Jared Diamond",1997,"Why did some societies come to dominate others? Diamond points to geography, farming and disease rather than innate differences. A big-picture look at human history.","Vì sao một số xã hội thống trị các xã hội khác? Diamond chỉ ra địa lý, nông nghiệp và dịch bệnh thay vì khác biệt bẩm sinh. Cái nhìn tổng quan về lịch sử loài người."],
+["his","Long Walk to Freedom","Hành trình dài đến tự do","Nelson Mandela",1994,"Mandela’s autobiography, from a village childhood to 27 years in prison and the presidency of South Africa. A story of courage, patience and forgiveness.","Tự truyện của Mandela, từ tuổi thơ ở làng quê đến 27 năm tù và chức tổng thống Nam Phi. Câu chuyện về lòng dũng cảm, sự kiên nhẫn và sự tha thứ."],
+["self","Atomic Habits","Atomic Habits: Thay đổi tí hon, hiệu quả bất ngờ","James Clear",2018,"A practical guide to building good habits and breaking bad ones through tiny daily improvements. Full of simple, science-backed strategies.","Cẩm nang thực tế để xây thói quen tốt và bỏ thói quen xấu qua những cải thiện nhỏ mỗi ngày. Đầy những chiến lược đơn giản, có cơ sở khoa học."],
+["self","The 7 Habits of Highly Effective People","7 thói quen của người thành đạt","Stephen R. Covey",1989,"A classic framework of seven principles for personal and professional effectiveness. It focuses on character, responsibility and long-term thinking.","Khung nguyên tắc kinh điển gồm bảy thói quen giúp hiệu quả trong cá nhân và công việc. Tập trung vào phẩm chất, trách nhiệm và tư duy dài hạn."],
+["self","How to Win Friends and Influence People","Đắc nhân tâm","Dale Carnegie",1936,"Timeless advice on communication, empathy and building genuine relationships. Short chapters packed with everyday examples.","Lời khuyên vượt thời gian về giao tiếp, đồng cảm và xây dựng các mối quan hệ chân thành. Các chương ngắn đầy ví dụ đời thường."],
+["self","Man’s Search for Meaning","Đi tìm lẽ sống","Viktor E. Frankl",1946,"A psychiatrist reflects on surviving Nazi concentration camps and how finding purpose helps people endure suffering. A short, profound and deeply moving read.","Một bác sĩ tâm thần suy ngẫm về việc sống sót qua các trại tập trung của phát xít và cách tìm được mục đích giúp con người chịu đựng khổ đau. Ngắn gọn, sâu sắc và rất xúc động."],
+["self","Deep Work",null,"Cal Newport",2016,"Argues that the ability to focus without distraction is becoming rare and valuable. Offers practical rules for training your attention.","Lập luận rằng khả năng tập trung không bị xao nhãng ngày càng hiếm và quý. Đưa ra những quy tắc thực tế để rèn sự tập trung."],
+["self","The Power of Now","Sức mạnh của hiện tại","Eckhart Tolle",1997,"A spiritual guide to quieting the mind and living in the present moment. Gentle, reflective and easy to dip into.","Cẩm nang tinh thần giúp làm dịu tâm trí và sống trong khoảnh khắc hiện tại. Nhẹ nhàng, nhiều suy ngẫm và dễ đọc từng đoạn."],
+["biz","Rich Dad Poor Dad","Cha giàu cha nghèo","Robert T. Kiyosaki",1997,"Contrasts the money lessons of the author’s two father figures. A popular, easy introduction to financial mindset, assets and investing.","Đối chiếu bài học về tiền bạc của hai người cha trong đời tác giả. Cuốn nhập môn dễ đọc, phổ biến về tư duy tài chính, tài sản và đầu tư."],
+["biz","Thinking, Fast and Slow","Tư duy nhanh và chậm","Daniel Kahneman",2011,"A Nobel laureate explains the two systems of thought that drive our decisions and why we often misjudge. Rich with experiments and everyday examples.","Một người đoạt giải Nobel giải thích hai hệ thống tư duy chi phối quyết định của ta và vì sao ta hay đánh giá sai. Giàu thí nghiệm và ví dụ đời thường."],
+["biz","The Lean Startup","Khởi nghiệp tinh gọn","Eric Ries",2011,"Introduces a method for building new products through quick experiments and customer feedback. Popular with founders and product teams.","Giới thiệu phương pháp xây dựng sản phẩm mới qua các thử nghiệm nhanh và phản hồi của khách hàng. Được giới sáng lập và đội sản phẩm ưa chuộng."],
+["biz","Zero to One","Từ 0 đến 1","Peter Thiel & Blake Masters",2014,"Notes on startups and building something truly new rather than copying what already works. Provocative and full of strong opinions.","Những ghi chép về khởi nghiệp và việc tạo ra điều thật sự mới thay vì sao chép cái đã có. Gợi nhiều tranh luận và đầy quan điểm mạnh."],
+["biz","The Intelligent Investor","Nhà đầu tư thông minh","Benjamin Graham",1949,"The foundational book on value investing, with lessons on risk, patience and the temperament of a sensible investor. A classic that still shapes how people think about the market.","Cuốn nền tảng về đầu tư giá trị, với bài học về rủi ro, sự kiên nhẫn và bản lĩnh của một nhà đầu tư sáng suốt. Tác phẩm kinh điển vẫn ảnh hưởng đến cách nhìn thị trường."],
+["biz","Good to Great","Từ tốt đến vĩ đại","Jim Collins",2001,"Researches why some companies make a lasting leap from good to great while others do not. Packed with case studies and management ideas.","Nghiên cứu vì sao một số công ty bứt phá bền vững từ tốt lên vĩ đại còn số khác thì không. Nhiều ca nghiên cứu và ý tưởng quản trị."],
+["sci","A Brief History of Time","Lược sử thời gian","Stephen Hawking",1988,"A famous physicist explains black holes, the Big Bang and the nature of time for general readers. Short, ambitious and mind-stretching.","Nhà vật lý nổi tiếng giải thích hố đen, Vụ nổ lớn và bản chất của thời gian cho bạn đọc phổ thông. Ngắn gọn, đầy tham vọng và mở rộng tầm nhìn."],
+["sci","Cosmos",null,"Carl Sagan",1980,"A poetic tour of the universe, from ancient astronomy to the search for life beyond Earth. Inspired a generation of space lovers.","Chuyến du hành đầy chất thơ khắp vũ trụ, từ thiên văn cổ đại đến việc tìm kiếm sự sống ngoài Trái Đất. Truyền cảm hứng cho cả một thế hệ yêu vũ trụ."],
+["sci","The Selfish Gene","Gen vị kỷ","Richard Dawkins",1976,"Presents evolution from the gene’s point of view and introduced the word “meme”. A bold, influential book on how life evolves.","Trình bày tiến hóa từ góc nhìn của gen và giới thiệu khái niệm “meme”. Cuốn sách táo bạo, có ảnh hưởng lớn về cách sự sống tiến hóa."],
+["sci","The Gene: An Intimate History",null,"Siddhartha Mukherjee",2016,"Traces the history of genetics, from Mendel’s peas to modern gene editing, woven with the author’s own family story. Clear, human and thought-provoking.","Lần theo lịch sử di truyền học, từ những hạt đậu của Mendel đến chỉnh sửa gen hiện đại, đan xen câu chuyện gia đình tác giả. Rõ ràng, giàu tính người và nhiều suy ngẫm."],
+["sci","Astrophysics for People in a Hurry","Vật lý thiên văn cho người vội vã","Neil deGrasse Tyson",2017,"A quick, witty tour of the biggest ideas about the universe, from the Big Bang to dark matter. Perfect for a busy reader.","Chuyến lướt nhanh, dí dỏm qua những ý tưởng lớn về vũ trụ, từ Vụ nổ lớn đến vật chất tối. Rất hợp với người đọc bận rộn."],
+["sci","Life 3.0",null,"Max Tegmark",2017,"Explores how artificial intelligence could reshape work, society and even what it means to be human. Balances big possibilities with serious questions.","Khám phá việc trí tuệ nhân tạo có thể thay đổi công việc, xã hội và cả ý nghĩa của làm người. Cân bằng giữa những khả năng lớn lao và các câu hỏi nghiêm túc."],
+["kid","The Little Prince","Hoàng tử bé","Antoine de Saint-Exupéry",1943,"A pilot stranded in the desert meets a small prince who has traveled from planet to planet. A gentle fable about friendship, love and seeing with the heart.","Một phi công rơi giữa sa mạc gặp chú hoàng tử bé đã du hành từ hành tinh này sang hành tinh khác. Truyện ngụ ngôn dịu dàng về tình bạn, tình yêu và việc nhìn bằng trái tim."],
+["kid","Charlotte’s Web",null,"E. B. White",1952,"A clever spider named Charlotte saves her friend Wilbur the pig with words woven into her web. A warm farm tale about friendship and loss.","Chú nhện thông minh Charlotte cứu người bạn heo Wilbur bằng những dòng chữ dệt trên mạng nhện. Truyện nông trại ấm áp về tình bạn và mất mát."],
+["kid","The Hunger Games","Đấu trường sinh tử","Suzanne Collins",2008,"In a dystopian nation, 16-year-old Katniss volunteers to take her sister’s place in a televised fight to the death. Fast, gripping and thought-provoking.","Ở một quốc gia phản địa đàng, Katniss 16 tuổi tình nguyện thế chỗ em gái trong cuộc chiến sinh tử được truyền hình. Nhanh, hấp dẫn và nhiều điều để suy nghĩ."],
+["kid","Matilda",null,"Roald Dahl",1988,"Brilliant little Matilda loves books and discovers a special power, which she uses against her awful parents and the terrifying headmistress. Funny, clever and full of heart.","Cô bé Matilda thông minh mê sách và phát hiện mình có một năng lực đặc biệt, dùng để đối phó với bố mẹ tệ bạc và bà hiệu trưởng đáng sợ. Hài hước, thông minh và đầy tình cảm."],
+["kid","The Fault in Our Stars","Khi lỗi thuộc về những vì sao","John Green",2012,"Two teenagers, Hazel and Gus, meet in a cancer support group and fall in love. Funny, honest and moving, with plenty of tissues needed.","Hai thiếu niên Hazel và Gus gặp nhau trong nhóm hỗ trợ bệnh nhân ung thư và yêu nhau. Hài hước, chân thật và cảm động, nhớ chuẩn bị khăn giấy."],
+["kid","Where the Wild Things Are",null,"Maurice Sendak",1963,"Max, sent to bed without supper, sails to an island of wild creatures and becomes their king. A classic picture book about imagination and big feelings.","Max bị phạt đi ngủ không ăn tối, nhưng lại chèo thuyền đến hòn đảo của những sinh vật hoang dã và trở thành vua của chúng. Sách tranh kinh điển về trí tưởng tượng và những cảm xúc lớn."],
+["phi","Meditations","Suy tưởng","Marcus Aurelius",180,"Personal notes by a Roman emperor on self-discipline, duty and facing hardship with calm. Short passages you can read anywhere.","Những ghi chép riêng của một hoàng đế La Mã về kỷ luật bản thân, bổn phận và đối diện khó khăn bằng sự bình thản. Các đoạn ngắn có thể đọc ở bất cứ đâu."],
+["phi","Sophie’s World","Thế giới của Sophie","Jostein Gaarder",1991,"A teenage girl receives mysterious letters that take her through the history of philosophy. A clever novel that makes big ideas approachable.","Một cô gái tuổi teen nhận được những lá thư bí ẩn dẫn cô đi qua lịch sử triết học. Tiểu thuyết thông minh làm cho những ý tưởng lớn trở nên dễ tiếp cận."],
+["phi","The Alchemist","Nhà giả kim","Paulo Coelho",1988,"Santiago, an Andalusian shepherd boy, travels toward the Egyptian pyramids in search of treasure. A simple, inspiring fable about following your dreams.","Santiago, cậu bé chăn cừu xứ Andalusia, đi về phía kim tự tháp Ai Cập để tìm kho báu. Một ngụ ngôn giản dị, truyền cảm hứng về việc theo đuổi ước mơ."],
+["phi","The Myth of Sisyphus","Huyền thoại Sisyphus","Albert Camus",1942,"A philosophical essay that asks how to live in a world without clear meaning. Camus argues we must imagine Sisyphus happy.","Tiểu luận triết học đặt câu hỏi sống thế nào trong một thế giới thiếu ý nghĩa rõ ràng. Camus cho rằng ta phải tưởng tượng Sisyphus hạnh phúc."],
+["phi","Quiet","Hướng nội","Susan Cain",2012,"Explores the strengths of introverts in a world that often rewards extroversion. Part research, part stories, part encouragement.","Khám phá thế mạnh của người hướng nội trong một thế giới thường đề cao sự hướng ngoại. Vừa có nghiên cứu, vừa có câu chuyện, vừa là lời động viên."],
+["phi","The Courage to Be Disliked","Dám bị ghét","Ichiro Kishimi & Fumitake Koga",2013,"A conversation between a philosopher and a young man introduces Adlerian psychology and how to free yourself from other people’s expectations. Easy to read and thought-provoking.","Cuộc đối thoại giữa một triết gia và một chàng trai trẻ giới thiệu tâm lý học Adler và cách giải phóng bản thân khỏi kỳ vọng của người khác. Dễ đọc và gợi nhiều suy nghĩ."],
+["vn","Dế Mèn phiêu lưu ký",null,"Tô Hoài",1941,"A young cricket leaves home to explore the world and learns about friendship, courage and humility along the way. A beloved Vietnamese children’s classic.","Chú dế Mèn rời nhà đi khám phá thế giới và học về tình bạn, lòng dũng cảm và sự khiêm tốn trên đường đi. Tác phẩm thiếu nhi kinh điển được yêu mến của Việt Nam.","Diary of a Cricket"],
+["vn","Số đỏ",null,"Vũ Trọng Phụng",1936,"A satirical novel that follows Xuân Tóc Đỏ, a street kid who rises to fame in 1930s Hanoi by sheer luck and trickery. Sharp, funny and still relevant.","Tiểu thuyết trào phúng kể về Xuân Tóc Đỏ, một gã lêu lổng nhờ may rủi và mánh khóe mà nổi tiếng ở Hà Nội những năm 1930. Sắc sảo, hài hước và vẫn còn nguyên tính thời sự.","Dumb Luck"],
+["vn","Nỗi buồn chiến tranh",null,"Bảo Ninh",1990,"A former soldier, Kiên, replays memories of the Vietnam War and of lost love in fragments. A haunting, widely translated novel about the human cost of war.","Người lính Kiên nhớ lại chiến tranh và mối tình đã mất qua những mảnh ký ức đứt quãng. Tiểu thuyết ám ảnh, được dịch nhiều thứ tiếng, về cái giá con người phải trả của chiến tranh.","The Sorrow of War"],
+["vn","Mắt biếc",null,"Nguyễn Nhật Ánh",1990,"Ngạn grows up in a village, quietly loving his childhood friend Hà Lan. A gentle, nostalgic story of first love and the paths life takes.","Ngạn lớn lên ở làng quê, thầm yêu cô bạn thuở nhỏ Hà Lan. Câu chuyện nhẹ nhàng, hoài niệm về mối tình đầu và những ngã rẽ cuộc đời."],
+["vn","Tuổi thơ dữ dội",null,"Phùng Quán",1988,"Based on the real experiences of teenage scouts during the resistance war in Huế. A moving tale of courage, friendship and sacrifice.","Dựa trên trải nghiệm thật của những thiếu niên trinh sát trong kháng chiến ở Huế. Câu chuyện cảm động về lòng dũng cảm, tình bạn và sự hy sinh."],
+["vn","Đất rừng phương Nam",null,"Đoàn Giỏi",1957,"Through the eyes of a boy named An, it brings the rivers, forests and people of the Mekong Delta to life. An adventure full of local color.","Qua mắt cậu bé An, tác phẩm tái hiện sông nước, rừng rú và con người miền Tây Nam Bộ. Một câu chuyện phiêu lưu đậm màu sắc địa phương."]];
+var BK=RAW.map(function(r,i){return{id:i,g:r[0],e:GN[r[0]].e,title:r[1],vit:r[2],au:r[3],y:r[4],en:r[5],vi:r[6],tr:r[7]||null}});
+var T={
+en:{lg:"🌐 Tiếng Việt",ti:"What to read today? 📚 · Hôm nay đọc gì?",back:"← alessandratran.com",kick:"time to pick a book ✨",h1:"What to read today? 📚",sub:"Take the quiz, spin the wheel, race the ducks or draw lots. Or browse the library and the table to find your next book.",
+quiz:"🧠 Quiz",wheel:"🎡 Wheel",duck:"🦆 Duck race",draw:"🧧 Draw lots",coin:"🪙 Coin",cards:"🃏 Cards",shell:"🥤 Shell game",dice:"🎲 Dice",lib:"📚 By genre",tbl:"📋 Table",
+gh:"📂 Genre",gAll:"✨ All genres",oh:"✏️ Your own reading list",ph:"One book per line (2 or more lines and we’ll use yours instead of ours)…",u1:"Using your {n} books 💖",u0:"Using random picks from our {n} books 🌈",
+spin:"🌀 Spin!",race:"🏁 Start race!",flip:"🪙 Flip!",roll:"🎲 Roll!",shuf:"🔀 Shuffle!",ns:"✨ New set",again:"🔁 Try again",fate:"🔮 Fate says…",pick:"👆 Pick one!",cup:"👆 Shuffle, then pick a cup!",heads:"👑 Heads",tails:"🌸 Tails",
+by:"by",buy:"Buy this book",b1:"🛒 Amazon",b2:"📖 Bookshop.org",circa:"c. ",
+q1:"💭 What kind of read do you feel like?",q2:"⏳ Classic or modern?",m:["😌 Something cozy","🧠 Learn something","🎢 Edge of my seat","💭 Make me think","🇻🇳 Vietnamese literature","🎁 Surprise me"],a:["🏛️ Classic (before 1980)","✨ Modern (1980 or later)","🤷 Either"],
+none:"No books match. Try another genre 🌷",cnt:"{n} books",search:"Search by title or author…",cTitle:"Title",cAuthor:"Author",cYear:"Year",cGenre:"Genre",cBuy:"Buy",
+foot:"Descriptions are short summaries written for this page. The year is the first publication. Buy links open a search on the bookstore, so check the edition, price and stock there."},
+vi:{lg:"🌐 English",ti:"Hôm nay đọc gì? 📚 · What to read today?",back:"← alessandratran.com",kick:"đến giờ chọn sách rồi ✨",h1:"Hôm nay đọc gì? 📚",sub:"Làm quiz, quay vòng quay, xem vịt đua hoặc bốc thăm. Hoặc xem thư viện và bảng sách để tìm cuốn tiếp theo.",
+quiz:"🧠 Hỏi đáp",wheel:"🎡 Vòng quay",duck:"🦆 Đua vịt",draw:"🧧 Bốc thăm",coin:"🪙 Tung xu",cards:"🃏 Rút bài",shell:"🥤 Tráo cốc",dice:"🎲 Xúc xắc",lib:"📚 Theo thể loại",tbl:"📋 Bảng sách",
+gh:"📂 Thể loại",gAll:"✨ Mọi thể loại",oh:"✏️ Danh sách đọc của bạn",ph:"Mỗi dòng một cuốn (từ 2 dòng trở lên sẽ dùng danh sách của bạn)…",u1:"Đang dùng {n} cuốn của bạn 💖",u0:"Đang chọn ngẫu nhiên từ {n} cuốn có sẵn 🌈",
+spin:"🌀 Quay!",race:"🏁 Bắt đầu đua!",flip:"🪙 Tung!",roll:"🎲 Gieo!",shuf:"🔀 Tráo!",ns:"✨ Bộ mới",again:"🔁 Thử lại",fate:"🔮 Số phận chọn…",pick:"👆 Chọn một nhé!",cup:"👆 Tráo xong rồi chọn một cốc!",heads:"👑 Mặt ngửa",tails:"🌸 Mặt sấp",
+by:"của",buy:"Mua sách",b1:"🛒 Fahasa",b2:"🛍️ Tiki",circa:"khoảng ",
+q1:"💭 Hôm nay bạn muốn đọc kiểu nào?",q2:"⏳ Kinh điển hay hiện đại?",m:["😌 Nhẹ nhàng thư giãn","🧠 Học thêm điều mới","🎢 Hồi hộp cuốn hút","💭 Nhiều suy ngẫm","🇻🇳 Văn học Việt Nam","🎁 Bất ngờ đi"],a:["🏛️ Kinh điển (trước 1980)","✨ Hiện đại (từ 1980)","🤷 Sao cũng được"],
+none:"Chưa có sách phù hợp. Thử chọn thể loại khác nhé 🌷",cnt:"{n} cuốn",search:"Tìm theo tên sách hoặc tác giả…",cTitle:"Tên sách",cAuthor:"Tác giả",cYear:"Năm",cGenre:"Thể loại",cBuy:"Mua",
+foot:"Phần giới thiệu là tóm tắt ngắn viết riêng cho trang này. Năm là năm xuất bản lần đầu. Nút mua mở trang tìm kiếm của nhà sách, bạn kiểm tra lại ấn bản, giá và tồn kho ở đó nhé."}};
+var L="en",tab="quiz",GF="all",S={},qi=0,ans=[],rot=0,turns=0,SORT={k:"title",d:1},QS="";
+var $=function(s){return document.querySelector(s)},t=function(k,r){var v=T[L][k];if(r)for(var x in r)v=v.split("{"+x+"}").join(r[x]);return v};
+function shuf(a){a=a.slice();for(var i=a.length-1;i>0;i--){var j=Math.floor(Math.random()*(i+1)),x=a[i];a[i]=a[j];a[j]=x}return a}
+function disp(b){if(b.c)return b.title;if(L==="vi")return b.vit?b.title+" ("+b.vit+")":b.title;return b.tr?b.title+" ("+b.tr+")":b.title}
+function gname(g){return GN[g][L]}
+function yd(b){return b.y<1000?t("circa")+b.y:b.y}
+function esc(s){return String(s).replace(/&/g,"&amp;").replace(/</g,"&lt;")}
+function buy(b){var q,x,y,u1,u2;if(L==="vi"){q=encodeURIComponent(b.vit||b.title);return[["https://www.fahasa.com/catalogsearch/result/?q="+q,t("b1")],["https://tiki.vn/search?q="+q,t("b2")]]}
+q=encodeURIComponent(b.title+(b.au?" "+b.au:""));return[["https://www.amazon.com/s?k="+q,t("b1")],["https://bookshop.org/search?keywords="+q,t("b2")]]}
+function bl(b){return buy(b).map(function(u){return'<a class="btn" target="_blank" rel="noopener" href="'+u[0]+'">'+u[1]+'</a>'}).join("")}
+function custom(){var v=$("#mine").value.split("\n").map(function(s){return s.trim()}).filter(Boolean);return v.length>=2?v.slice(0,30).map(function(s){return{e:"✨",title:s,c:1,id:-1}}):null}
+function pool(){return BK.filter(function(b){return GF==="all"||b.g===GF})}
+function getSet(n){var c=custom();return c?shuf(c).slice(0,n):shuf(pool()).slice(0,n)}
+function col(i){return["#cfe9fa","#ffffff","#a9d6f2","#f1f6fa","#e1f1fb","#bcdff5"][i%6]}
+function res(b){var r=$("#res");r.hidden=false;
+r.innerHTML='<div class="holo" style="font-family:Pinyon Script,cursive;font-size:30px">'+t("fate")+'</div><div class="big">'+b.e+'</div><h2>'+esc(disp(b))+'</h2>'+(b.c?'':'<p class="meta">'+t("by")+' <b>'+esc(b.au)+'</b> · '+yd(b)+' · '+gname(b.g)+'</p><p class="bt">'+esc(b[L])+'</p>')+'<div>'+bl(b)+'<button class="btn g" id="rr">'+t("again")+'</button></div>';
+$("#rr").onclick=function(){r.hidden=true;S[tab]=null;if(tab==="quiz"){qi=0;ans=[]}render()};r.scrollIntoView({behavior:"smooth",block:"nearest"})}
+var TABS=["quiz","wheel","duck","draw","coin","cards","shell","dice","lib","tbl"];
+function setTabs(){$("#tabs").innerHTML=TABS.map(function(k){return'<button class="tab'+(k===tab?" on":"")+'" data-a="tab" data-v="'+k+'">'+t(k)+'</button>'}).join("")}
+function setG(){$("#gh").textContent=t("gh");$("#gf").innerHTML='<button class="'+(GF==="all"?"on":"")+'" data-a="g" data-v="all">'+t("gAll")+'</button>'+Object.keys(GN).map(function(g){return'<button class="'+(GF===g?"on":"")+'" data-a="g" data-v="'+g+'">'+GN[g].e+" "+GN[g][L]+'</button>'}).join("")}
+function ns(){return'<button class="btn g" id="ns">'+t("ns")+'</button>'}
+function bindNs(){var b=$("#ns");if(b)b.onclick=function(){S[tab]=null;$("#res").hidden=true;render()}}
+function lab(b){return b.e+" "+esc(b.title)}
+function rQuiz(){var q=qi<2,h="";if(qi<2){var ops=qi===0?t("m"):t("a");h='<div class="dots">'+[0,1].map(function(i){return'<i class="'+(i<=qi?"on":"")+'"></i>'}).join("")+'</div><h3>'+t(qi===0?"q1":"q2")+'</h3><div class="opts">'+ops.map(function(o,i){return'<button class="opt" data-a="opt" data-i="'+i+'">'+o+'</button>'}).join("")+'</div>';$("#stage").innerHTML=h;return}
+$("#stage").innerHTML='<h3>🎉 '+t("fate")+'</h3><button class="btn" data-a="qa">'+t("again")+'</button>'}
+function done(){var G={0:["rom","kid","vn"],1:["his","self","biz","sci"],2:["mys","sf"],3:["lit","phi"],4:["vn"],5:[]}[ans[0]],era=ans[1],f=function(rel){return pool().filter(function(b){return(!G.length||G.indexOf(b.g)>-1)&&(rel||era===2||(era===0?b.y<1980:b.y>=1980))})},p=f(false);if(!p.length)p=f(true);if(!p.length)p=BK;rQuiz();res(shuf(p)[0])}
+function rWheel(){var s=S.wheel||(S.wheel=getSet(12)),n=s.length;
+$("#stage").innerHTML='<div class="wh"><i class="ptr">🔻</i><canvas id="cv" width="360" height="360"></canvas></div><button class="btn" id="go">'+t("spin")+'</button>'+ns()+'<div class="chips">'+s.map(function(b,i){return'<span style="background:'+col(i)+'">'+lab(b)+'</span>'}).join("")+'</div>';
+var cv=$("#cv"),c=cv.getContext("2d"),a=2*Math.PI/n;
+s.forEach(function(b,i){c.beginPath();c.moveTo(180,180);c.arc(180,180,180,-Math.PI/2+i*a,-Math.PI/2+(i+1)*a);c.fillStyle=col(i);c.fill();c.save();c.translate(180,180);c.rotate(-Math.PI/2+(i+.5)*a);c.font="30px serif";c.textAlign="right";c.fillText(b.e,150,10);c.restore()});
+cv.style.transform="rotate("+rot+"deg)";
+$("#go").onclick=function(){var go=this;go.disabled=true;rot+=1440+Math.random()*360;cv.style.transition="transform 4.5s cubic-bezier(.15,.8,.1,1)";cv.style.transform="rotate("+rot+"deg)";setTimeout(function(){go.disabled=false;res(s[Math.floor(((360-rot%360)%360)/(360/n))])},4700)};bindNs()}
+function rDuck(){var s=S.duck||(S.duck=getSet(6));
+$("#stage").innerHTML=s.map(function(b){return'<div class="lane"><span class="ln">'+lab(b)+'</span><div class="track"><i class="dk">🦆</i></div></div>'}).join("")+'<button class="btn" id="go">'+t("race")+'</button>'+ns();
+$("#go").onclick=function(){var go=this,d=s.map(function(){return 3+Math.random()*3.5}),ks=document.querySelectorAll(".dk");go.disabled=true;
+ks.forEach(function(k){k.style.transition="none";k.style.transform="none"});void document.body.offsetWidth;
+ks.forEach(function(k,i){k.style.transition="transform "+d[i]+"s ease-in-out";k.style.transform="translateX("+(k.parentNode.clientWidth-36)+"px)"});
+setTimeout(function(){go.disabled=false;res(s[d.indexOf(Math.min.apply(0,d))])},Math.max.apply(0,d)*1000+400)};bindNs()}
+function rPick(k,n,back){var s=S[k]||(S[k]=getSet(n));
+$("#stage").innerHTML='<h3>'+t("pick")+'</h3><div class="cards">'+s.map(function(b,i){return'<button class="pc" data-a="pc" data-i="'+i+'"><span class="bk">'+back+'</span><span class="fr">'+b.e+'<small>'+esc(b.title)+'</small></span></button>'}).join("")+'</div>'+ns();bindNs()}
+function rCoin(){var s=S.coin||(S.coin=getSet(2));
+$("#stage").innerHTML='<div class="coin" id="cn"><span>👑</span><span>🌸</span></div><p>'+t("heads")+': <b>'+lab(s[0])+'</b><br>'+t("tails")+': <b>'+lab(s[1])+'</b></p><button class="btn" id="go">'+t("flip")+'</button>'+ns();
+var cn=$("#cn");cn.style.transform="rotateY("+turns+"deg)";
+$("#go").onclick=function(){var go=this,tl=Math.random()<.5;go.disabled=true;turns=Math.ceil(turns/360)*360+1440+(tl?180:0);cn.style.transform="rotateY("+turns+"deg)";setTimeout(function(){go.disabled=false;res(s[tl?1:0])},2100)};bindNs()}
+function rShell(){var s=S.shell||(S.shell=getSet(3)),pos=[0,1,2],busy=false;
+$("#stage").innerHTML='<h3>'+t("cup")+'</h3><div class="cups">'+s.map(function(b,i){return'<button class="cup" data-i="'+i+'" style="left:'+i*110+'px">🥤</button>'}).join("")+'</div><button class="btn" id="go">'+t("shuf")+'</button>'+ns();
+var cs=document.querySelectorAll(".cup");
+$("#go").onclick=function(){if(busy)return;busy=true;var k=0,iv=setInterval(function(){var a=Math.floor(Math.random()*3),b=(a+1+Math.floor(Math.random()*2))%3,x=pos[a];pos[a]=pos[b];pos[b]=x;cs.forEach(function(c,i){c.style.left=pos[i]*110+"px"});if(++k>8){clearInterval(iv);busy=false}},420)};
+cs.forEach(function(c){c.onclick=function(){if(busy)return;c.classList.add("up");setTimeout(function(){res(s[+c.dataset.i])},700)}});bindNs()}
+function rDice(){var s=S.dice||(S.dice=getSet(6)),F="⚀⚁⚂⚃⚄⚅";
+$("#stage").innerHTML='<div class="die" id="dd">🎲</div><div class="chips">'+s.map(function(b,i){return'<span style="background:'+col(i)+'">'+F[i]+" "+lab(b)+'</span>'}).join("")+'</div><button class="btn" id="go">'+t("roll")+'</button>'+ns();
+$("#go").onclick=function(){var go=this,k=0;go.disabled=true;var iv=setInterval(function(){$("#dd").textContent=F[Math.floor(Math.random()*6)];if(++k>14){clearInterval(iv);var r=Math.floor(Math.random()*6);$("#dd").textContent=F[r];go.disabled=false;setTimeout(function(){res(s[r])},400)}},90)};bindNs()}
+function rLib(){var gs=Object.keys(GN).filter(function(g){return GF==="all"||g===GF});
+$("#stage").innerHTML=gs.map(function(g){var l=BK.filter(function(b){return b.g===g});return'<h3 class="lg">'+GN[g].e+" "+GN[g][L]+' <small>('+t("cnt",{n:l.length})+')</small></h3><div class="bkg">'+l.map(function(b){return'<article class="bc"><b>'+esc(b.title)+'</b>'+((L==="vi"?b.vit:b.tr)?'<small>('+esc(L==="vi"?b.vit:b.tr)+')</small>':"")+'<small>'+t("by")+' '+esc(b.au)+' · '+yd(b)+'</small><p>'+esc(b[L])+'</p><div class="bs">'+bl(b)+'</div></article>'}).join("")+'</div>'}).join("")}
+function rTbl(){var q=QS.toLowerCase(),l=pool().filter(function(b){return!q||(b.title+" "+(b.vit||"")+" "+(b.tr||"")+" "+b.au).toLowerCase().indexOf(q)>-1});
+var key={title:function(b){return b.title.toLowerCase()},au:function(b){return b.au.toLowerCase()},y:function(b){return b.y},g:function(b){return gname(b.g)}}[SORT.k];
+l.sort(function(a,b){var x=key(a),y=key(b);return(x<y?-1:x>y?1:0)*SORT.d});
+var H=[["title","cTitle"],["au","cAuthor"],["y","cYear"],["g","cGenre"]];
+$("#stage").innerHTML='<input class="sr" id="qs" value="'+esc(QS)+'" placeholder="'+t("search")+'" aria-label="'+t("search")+'"><p class="u2">'+t("cnt",{n:l.length})+'</p><div class="tw"><table class="tb"><thead><tr>'+H.map(function(h){return'<th><button data-a="sort" data-v="'+h[0]+'">'+t(h[1])+(SORT.k===h[0]?(SORT.d>0?" ▲":" ▼"):"")+'</button></th>'}).join("")+'<th>'+t("cBuy")+'</th></tr></thead><tbody>'+(l.length?l.map(function(b){var u=buy(b);return'<tr><td><b>'+esc(b.title)+'</b>'+((L==="vi"?b.vit:b.tr)?'<br><small>'+esc(L==="vi"?b.vit:b.tr)+'</small>':"")+'</td><td>'+esc(b.au)+'</td><td>'+yd(b)+'</td><td>'+b.e+" "+gname(b.g)+'</td><td><a class="bl" target="_blank" rel="noopener" href="'+u[0][0]+'">'+u[0][1]+'</a> <a class="bl" target="_blank" rel="noopener" href="'+u[1][0]+'">'+u[1][1]+'</a></td></tr>'}).join(""):'<tr><td colspan="5">'+t("none")+'</td></tr>')+'</tbody></table></div>';
+var i=$("#qs");i.oninput=function(){QS=this.value;var p=this.selectionStart;rTbl();var n=$("#qs");n.focus();n.setSelectionRange(p,p)}}
+function render(){setTabs();setG();var lib=tab==="lib"||tab==="tbl";$("#opt").style.display=lib||tab==="quiz"?"none":"block";$("#stage").className=lib?"card":"card mid";
+({quiz:rQuiz,wheel:rWheel,duck:rDuck,draw:function(){rPick("draw",8,"🧧")},coin:rCoin,cards:function(){rPick("cards",5,"🃏")},shell:rShell,dice:rDice,lib:rLib,tbl:rTbl})[tab]();upd()}
+function upd(){var c=custom();$("#used").textContent=c?t("u1",{n:Math.min(c.length,30)}):t("u0",{n:pool().length})}
+function lang(l){L=l;document.documentElement.lang=l;document.title=t("ti");$("#back").textContent=t("back");$("#kick").textContent=t("kick");$("#h1").textContent=t("h1");$("#sub").textContent=t("sub");$("#oh").textContent=t("oh");$("#mine").placeholder=t("ph");$("#foot").textContent=t("foot");$("#lg").textContent=t("lg");$("#res").hidden=true;render()}
+document.addEventListener("click",function(e){var b=e.target.closest("[data-a]");if(!b)return;var a=b.dataset.a,v=b.dataset.v,i=+b.dataset.i;
+if(a==="tab"){tab=v;$("#res").hidden=true;render()}else if(a==="g"){GF=v;S={};$("#res").hidden=true;render()}
+else if(a==="opt"){ans[qi]=i;qi++;if(qi===2)done();else rQuiz()}else if(a==="qa"){qi=0;ans=[];$("#res").hidden=true;rQuiz()}
+else if(a==="pc"){var s=S[tab];if(document.querySelector(".pc.open"))return;b.classList.add("open");document.querySelectorAll(".pc:not(.open)").forEach(function(x){x.classList.add("dim")});setTimeout(function(){res(s[i])},800)}
+else if(a==="sort"){SORT=SORT.k===v?{k:v,d:-SORT.d}:{k:v,d:1};rTbl()}});
+$("#lg").onclick=function(){var n=L==="en"?"vi":"en";lang(n);try{localStorage.setItem("lang-book",n)}catch(e){}};
+$("#mine").oninput=function(){S={};if(tab!=="quiz"&&tab!=="lib"&&tab!=="tbl"){$("#res").hidden=true;render()}else upd()};
+var s0="en";try{s0=localStorage.getItem("lang-book")||"en"}catch(e){}if(location.hash==="#vi")s0="vi";else if(location.hash==="#en")s0="en";
+lang(s0==="vi"?"vi":"en");
+
+</script>
+</body>
+</html>
