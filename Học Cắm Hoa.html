@@ -1,0 +1,479 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<title>Học Cắm Hoa</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;700&family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500;1,600&display=swap">
+<style>
+:root{--bg:#F6EFE3;--bg2:#FBF7EF;--paper:#FFFDF8;--ink:#3A322A;--mute:#8A7D6C;--gold:#B08D57;--goldd:#8E6F3E;--goldl:#E6D5B2;--sage:#6F8466;--sagel:#DCE5D6;--blush:#EBCFC7;--line:rgba(142,111,62,.22);--shadow:0 18px 40px -22px rgba(90,70,40,.45);color-scheme:light}
+*{box-sizing:border-box}
+[hidden]{display:none!important}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:'Be Vietnam Pro',system-ui,sans-serif;font-size:15px;line-height:1.6;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:0;background-image:radial-gradient(1100px 520px at 85% -10%,rgba(255,255,255,.9),transparent 60%),radial-gradient(900px 600px at -10% 20%,rgba(235,207,199,.35),transparent 60%),radial-gradient(800px 600px at 110% 80%,rgba(220,229,214,.5),transparent 60%);background-attachment:fixed}
+.wrap{max-width:1080px;margin:0 auto;padding:18px 0 56px}
+h1,h2,h3,h4{font-family:'Cormorant Garamond','Playfair Display',Georgia,serif;font-weight:600;margin:0;text-wrap:balance}
+a{color:var(--goldd)}
+.top{display:flex;align-items:center;justify-content:space-between;gap:12px}
+.back{color:var(--goldd);text-decoration:none;font-size:13px;font-weight:500}
+.back:hover{text-decoration:underline}
+.lang{display:inline-flex;border:1px solid var(--line);border-radius:999px;padding:3px;background:rgba(255,253,248,.8)}
+.lang button{border:0;background:transparent;color:var(--mute);font:500 12px 'Be Vietnam Pro',sans-serif;padding:6px 14px;border-radius:999px;cursor:pointer;letter-spacing:.08em}
+.lang button[aria-pressed=true]{background:var(--ink);color:#FBF6EE}
+.hero{display:grid;grid-template-columns:1.05fr .95fr;gap:28px;align-items:center;margin:26px 0 8px}
+.kick{letter-spacing:.28em;text-transform:uppercase;font-size:11px;color:var(--goldd);margin:0 0 12px}
+.hero h1{font-size:clamp(38px,6vw,64px);line-height:1.04;font-weight:500}
+.hero h1 em{color:var(--goldd);font-style:italic}
+.sub{color:var(--mute);max-width:46ch;margin:14px 0 20px}
+.cta{display:flex;gap:10px;flex-wrap:wrap}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;border:1px solid var(--ink);background:var(--ink);color:#FBF6EE;font:500 14px 'Be Vietnam Pro',sans-serif;padding:11px 22px;border-radius:999px;cursor:pointer;text-decoration:none;transition:transform .15s,box-shadow .2s}
+.btn:hover{transform:translateY(-1px);box-shadow:var(--shadow)}
+.btn.gold{background:linear-gradient(135deg,#C9A872,#A7824B);border-color:#A7824B;color:#fff}
+.btn.ghost{background:transparent;color:var(--ink)}
+.btn.sm{padding:7px 15px;font-size:13px}
+.btn:focus-visible,.tab:focus-visible,.chip:focus-visible,.opt:focus-visible{outline:2px solid var(--gold);outline-offset:2px}
+.art{display:flex;justify-content:center}
+.art svg{width:min(100%,380px);height:auto;filter:drop-shadow(0 26px 24px rgba(120,95,55,.25))}
+.prog{margin:20px 0 6px;display:flex;align-items:center;gap:12px;color:var(--mute);font-size:13px}
+.prog .bar{flex:1;height:6px;border-radius:99px;background:rgba(142,111,62,.15);overflow:hidden}
+.prog .bar i{display:block;height:100%;background:linear-gradient(90deg,var(--sage),var(--gold));width:0;transition:width .4s}
+.tabs{display:flex;gap:6px;overflow-x:auto;padding:6px;border:1px solid var(--line);border-radius:999px;background:rgba(255,253,248,.85);margin:14px 0 20px;scrollbar-width:none}
+.tabs::-webkit-scrollbar{display:none}
+.tab{flex:0 0 auto;border:0;background:transparent;color:var(--mute);font:500 13.5px 'Be Vietnam Pro',sans-serif;padding:9px 16px;border-radius:999px;cursor:pointer;white-space:nowrap}
+.tab[aria-selected=true]{background:var(--ink);color:#FBF6EE}
+.panel{background:rgba(255,253,248,.88);border:1px solid var(--line);border-radius:26px;padding:clamp(18px,3vw,34px);box-shadow:var(--shadow)}
+.panel h2{font-size:clamp(28px,4vw,38px);font-weight:500}
+.help{color:var(--mute);margin:6px 0 18px;max-width:64ch}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:14px}
+.card{background:var(--paper);border:1px solid var(--line);border-radius:18px;padding:16px 18px;min-width:0}
+.card .em{font-size:26px}
+.card h3{font-size:22px;margin:6px 0 4px}
+.card p{margin:0;color:var(--mute);font-size:14px}
+.sec{margin-top:26px}
+.sec>h3{font-size:26px;margin-bottom:10px}
+ol.st{counter-reset:s;list-style:none;margin:0;padding:0;display:grid;gap:10px}
+ol.st li{counter-increment:s;display:flex;gap:12px;align-items:flex-start}
+ol.st li::before{content:counter(s);flex:0 0 28px;height:28px;border-radius:50%;border:1px solid var(--gold);color:var(--goldd);font:600 15px 'Cormorant Garamond',serif;display:grid;place-items:center;margin-top:1px}
+ol.st li>span,ol.st li>label{min-width:0;flex:1}
+.lesson{background:var(--paper);border:1px solid var(--line);border-radius:20px;margin-bottom:12px;overflow:hidden}
+.lh{display:flex;align-items:center;gap:14px;padding:16px 18px;cursor:pointer;width:100%;border:0;background:transparent;text-align:left;color:inherit;font:inherit}
+.lh .no{flex:0 0 38px;height:38px;border-radius:50%;background:var(--sagel);color:var(--sage);display:grid;place-items:center;font:600 20px 'Cormorant Garamond',serif}
+.lesson.done .lh .no{background:var(--sage);color:#fff}
+.lh h3{font-size:23px;line-height:1.2}
+.lh small{color:var(--mute)}
+.lh .ch{margin-left:auto;color:var(--mute)}
+.lb{padding:4px 18px 20px;border-top:1px solid var(--line)}
+.badge{display:inline-block;border:1px solid var(--line);border-radius:999px;padding:2px 10px;font-size:12px;color:var(--goldd);margin-right:6px;background:var(--bg2)}
+.cols{display:grid;grid-template-columns:1fr 1.4fr;gap:22px;margin-top:14px}
+.cols>div{min-width:0}
+.lbl{letter-spacing:.2em;text-transform:uppercase;font-size:11px;color:var(--goldd);margin:0 0 8px}
+.mat{list-style:none;margin:0;padding:0;display:grid;gap:8px}
+.mat label,ol.st label{display:flex;gap:10px;align-items:flex-start;cursor:pointer}
+input[type=checkbox]{accent-color:var(--sage);width:18px;height:18px;margin-top:2px;flex:0 0 auto}
+.checked{color:var(--mute);text-decoration:line-through}
+.tip{margin-top:14px;padding:12px 16px;border-left:3px solid var(--gold);background:rgba(176,141,87,.1);border-radius:0 12px 12px 0}
+.warn{margin-top:14px;padding:12px 16px;border:1px solid var(--blush);background:rgba(235,207,199,.28);border-radius:12px;font-size:13.5px}
+.row{display:flex;gap:10px;flex-wrap:wrap;margin-top:16px}
+.chips{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:14px}
+.chip{border:1px solid var(--line);background:var(--paper);color:var(--ink);font:500 13px 'Be Vietnam Pro',sans-serif;padding:7px 15px;border-radius:999px;cursor:pointer}
+.chip[aria-pressed=true]{background:var(--ink);color:#FBF6EE;border-color:var(--ink)}
+.in{width:100%;border:1px solid var(--line);background:var(--paper);color:var(--ink);font:inherit;padding:10px 14px;border-radius:12px}
+.fl{display:flex;gap:14px;align-items:flex-start}
+.fl svg{flex:0 0 64px;width:64px;height:64px}
+.fl>div{min-width:0}
+.meta{display:flex;flex-wrap:wrap;gap:6px;margin:6px 0}
+.swatches{display:flex;gap:8px;margin:10px 0}
+.swatches i{width:34px;height:34px;border-radius:50%;border:1px solid var(--line);box-shadow:inset 0 0 0 3px rgba(255,255,255,.55)}
+table.t{width:100%;border-collapse:collapse;margin:12px 0}
+table.t td,table.t th{padding:9px 10px;border-bottom:1px solid var(--line);text-align:left}
+table.t th{font-weight:500;color:var(--mute);font-size:12px;letter-spacing:.1em;text-transform:uppercase}
+.tw{overflow-x:auto}
+.opts{display:grid;gap:10px;margin:14px 0}
+.opt{border:1px solid var(--line);background:var(--paper);color:var(--ink);font:inherit;padding:13px 16px;border-radius:14px;cursor:pointer;text-align:left}
+.opt:hover:not([disabled]){border-color:var(--gold)}
+.opt.right{border-color:var(--sage);background:rgba(111,132,102,.14)}
+.opt.wrong{border-color:#C0705F;background:rgba(192,112,95,.12)}
+.fb{margin-top:12px;padding:12px 16px;border-radius:12px;border:1px solid var(--line);background:var(--bg2)}
+.scorebig{font:600 46px 'Cormorant Garamond',serif;text-align:center;margin:10px 0}
+details.fx{background:var(--paper);border:1px solid var(--line);border-radius:16px;padding:4px 18px;margin-bottom:10px}
+details.fx summary{cursor:pointer;padding:12px 0;font:600 21px 'Cormorant Garamond',serif;list-style:none;display:flex;justify-content:space-between;gap:10px}
+details.fx summary::-webkit-details-marker{display:none}
+details.fx summary::after{content:'+';color:var(--goldd)}
+details.fx[open] summary::after{content:'–'}
+details.fx p{margin:0 0 14px;color:var(--mute)}
+footer{margin-top:30px;text-align:center;color:var(--mute);font-size:12.5px;display:grid;gap:8px}
+footer .linkb,.linkb{background:none;border:0;color:var(--goldd);text-decoration:underline;font:inherit;cursor:pointer;padding:0}
+.safebar{margin:16px 0 0;padding:10px 16px;border:1px solid var(--line);border-radius:14px;background:rgba(255,253,248,.7);font-size:13px;color:var(--mute)}
+.modal{position:fixed;inset:0;background:rgba(58,50,42,.55);display:grid;place-items:center;padding:16px;z-index:50}
+.mbox{background:var(--paper);border-radius:22px;max-width:640px;width:100%;max-height:86vh;display:flex;flex-direction:column;overflow:hidden;border:1px solid var(--line)}
+.mhead{display:flex;justify-content:space-between;align-items:center;gap:10px;padding:18px 22px;border-bottom:1px solid var(--line)}
+.mhead h2{font-size:26px}
+.xbtn{border:0;background:transparent;font-size:18px;cursor:pointer;color:var(--ink)}
+.mbody{padding:16px 22px 22px;overflow:auto}
+.mbody h3{font-size:20px;margin:16px 0 4px}
+.mbody p{margin:0;color:var(--mute)}
+@media(max-width:760px){.hero{grid-template-columns:1fr}.art{order:-1}.art svg{width:min(70%,280px)}.cols{grid-template-columns:1fr}}
+@media(prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
+</style>
+<div class="wrap" id="app">
+<header class="top">
+ <a class="back" href="https://www.alessandratran.com" data-i="back"></a>
+ <div class="lang" role="group" aria-label="Language / Ngôn ngữ"><button type="button" data-l="vi" aria-pressed="true">VI</button><button type="button" data-l="en" aria-pressed="false">EN</button></div>
+</header>
+<section class="hero">
+ <div>
+  <p class="kick" data-i="kick"></p>
+  <h1 id="h1"></h1>
+  <p class="sub" data-i="sub"></p>
+  <div class="cta"><button class="btn gold" type="button" id="ctastart"></button><button class="btn ghost" type="button" id="ctawed"></button></div>
+ </div>
+ <div class="art" id="art" aria-hidden="true"></div>
+</section>
+<div class="prog"><span id="progt"></span><div class="bar"><i id="progb"></i></div></div>
+<div class="tabs" role="tablist" id="tabs"></div>
+<main class="panel" id="panel"></main>
+<p class="safebar"><span id="safetxt"></span> <button class="linkb" type="button" id="safelink"></button></p>
+<footer><div><button class="linkb" type="button" id="footterms"></button></div><div>© <span id="yr"></span> Alessandra Tran · <a href="https://www.alessandratran.com">alessandratran.com</a></div><div id="srcnote"></div></footer>
+</div>
+<div class="modal" id="terms" role="dialog" aria-modal="true" aria-labelledby="termsh" hidden>
+ <div class="mbox"><div class="mhead"><h2 id="termsh"></h2><button class="xbtn" type="button" id="tclose" aria-label="Close">✕</button></div><div class="mbody" id="tbody"></div></div>
+</div>
+<script>
+function b(v,e){return{vi:v,en:e};}
+var TOOLS=[
+{e:'✂️',n:b('Kéo cắm hoa','Floral shears'),d:b('Cắt cành mềm và thân hoa. Luôn giữ lưỡi sắc và sạch để vết cắt không dập.','Cuts soft stems cleanly. Keep blades sharp and clean so the cut does not crush the stem.')},
+{e:'🔪',n:b('Dao cắt hoa','Florist knife'),d:b('Cắt góc nghiêng, tỉa thân dày. Dùng cẩn thận, cắt hướng ra xa người.','Makes angled cuts and trims thick stems. Use carefully and cut away from your body.')},
+{e:'🌿',n:b('Kéo cắt cành cứng','Pruning snips'),d:b('Dành cho cành gỗ như khuynh diệp hoặc cành khô.','For woody stems such as eucalyptus branches.')},
+{e:'🧤',n:b('Dụng cụ gỡ gai, găng tay','Thorn stripper and gloves'),d:b('Gỡ gai và lá dưới thấp, bảo vệ tay khi xử lý hoa hồng.','Strips thorns and lower leaves and protects your hands when handling roses.')},
+{e:'🎀',n:b('Dây thun, dây đay, băng keo hoa','Rubber bands, raffia, floral tape'),d:b('Cố định điểm buộc của bó hoa và quấn thân cành.','Secures the binding point of a bouquet and wraps stems.')},
+{e:'🧱',n:b('Xốp cắm hoa hoặc lưới thép','Floral foam or chicken wire'),d:b('Giữ cành đứng trong hộp hoa và bình rộng. Lưới thép hoặc đế kiếm sơn là lựa chọn thay cho xốp.','Holds stems in boxes and wide vessels. Chicken wire or a kenzan pin frog is an alternative to foam.')},
+{e:'🏺',n:b('Bình, lọ, hộp hoa','Vases and boxes'),d:b('Chọn bình sạch, cao bằng khoảng một phần hai đến một phần ba chiều cao tổng thể.','Choose a clean vase, about one half to one third of the total height.')},
+{e:'📜',n:b('Giấy gói, lưới voan, ruy băng','Wrapping paper, tulle, ribbon'),d:b('Tạo lớp bọc và điểm nhấn. Ruy băng satin màu champagne cho vẻ sang trọng.','Creates the wrap and finishing touch. Champagne satin ribbon gives a luxurious look.')},
+{e:'🪣',n:b('Xô nước và dưỡng chất hoa','Bucket and flower food'),d:b('Ngâm hoa trước khi cắm. Dưỡng chất giúp hoa lâu tàn hơn khi pha đúng theo hướng dẫn trên bao bì.','Condition flowers before arranging. Flower food helps them last longer when mixed as the packaging directs.')}
+];
+var COND=[
+b('Rửa sạch xô và bình bằng nước xà phòng. Vi khuẩn là nguyên nhân chính khiến hoa nhanh héo.','Wash buckets and vases with soapy water. Bacteria are a main cause of fast-wilting flowers.'),
+b('Mở gói hoa và kiểm tra. Bỏ cánh ngoài bị dập nếu cần.','Unwrap and inspect. Remove bruised outer petals if needed.'),
+b('Tuốt hết lá nằm dưới mực nước và gỡ gai nếu cần.','Strip every leaf that would sit below the waterline and remove thorns if needed.'),
+b('Cắt chéo khoảng 45 độ, bớt chừng 2 đến 3 cm bằng dụng cụ sắc và sạch.','Cut at about 45 degrees, trimming 2 to 3 cm with a sharp, clean tool.'),
+b('Cắm ngay vào nước sạch (hơi ấm) có pha dưỡng chất hoa theo hướng dẫn.','Place straight into clean, lukewarm water mixed with flower food as directed.'),
+b('Để hoa nghỉ 2 đến 4 giờ ở nơi mát, tránh nắng, gió và xa trái cây chín.','Let the flowers rest for 2 to 4 hours somewhere cool, away from sun, drafts and ripe fruit.')
+];
+var PRIN=[
+{e:'🌹',n:b('Hoa chính, hoa phụ, lá','Focal, filler, greenery'),d:b('Mỗi bó có ba vai: hoa chính thu hút ánh nhìn, hoa phụ (như baby) làm mềm và lấp khoảng trống, lá tạo khung và chiều sâu.','Every piece has three roles: focal flowers draw the eye, fillers (such as baby\'s breath) soften and fill gaps, greenery frames and adds depth.')},
+{e:'3️⃣',n:b('Số lẻ','Odd numbers'),d:b('Nhóm 3, 5, 7 hoặc 9 bông thường trông tự nhiên hơn số chẵn. Đây là gợi ý thẩm mỹ, không phải luật cứng.','Groups of 3, 5, 7 or 9 usually look more natural than even numbers. This is a style guideline, not a hard rule.')},
+{e:'📏',n:b('Tỉ lệ chiều cao','Height proportion'),d:b('Với bình, tổng chiều cao thường khoảng 1,5 đến 2 lần chiều cao bình để nhìn cân đối.','For a vase, the overall height is often about 1.5 to 2 times the vase height for a balanced look.')},
+{e:'🎨',n:b('Quy tắc màu 60-30-10','The 60-30-10 colour rule'),d:b('Một màu chủ đạo khoảng 60 phần trăm, màu phụ 30 phần trăm, màu nhấn 10 phần trăm. Trắng kem, champagne và xanh lá là bộ phối kinh điển cho hoa cưới.','One dominant colour at about 60 percent, a secondary at 30 and an accent at 10. Ivory, champagne and green is a classic wedding palette.')},
+{e:'🪶',n:b('Kết cấu tương phản','Contrasting texture'),d:b('Kết hợp bề mặt mịn (hồng), mảnh nhẹ (baby) và lá (khuynh diệp) để bó hoa có chiều sâu.','Mix smooth (roses), airy (baby\'s breath) and leafy (eucalyptus) textures to add depth.')},
+{e:'⚖️',n:b('Cân bằng và điểm nhìn','Balance and focal point'),d:b('Đặt hoa lớn nhất ở gần trung tâm hoặc thấp hơn, hoa nhỏ và lá ra ngoài. Xoay bình và nhìn từ mọi phía.','Place the largest blooms near the centre or lower, smaller flowers and leaves outward. Turn the piece and check every side.')},
+{e:'🌀',n:b('Kỹ thuật xoắn ốc','Spiral technique'),d:b('Mỗi cành được thêm nghiêng cùng một hướng và xoay bó trong tay, tạo bó tròn đầy, thân cành xếp xoắn đẹp bên dưới.','Add each stem at the same angle while rotating the bunch in your hand, giving a full dome with an attractive spiral of stems below.')},
+{e:'🍃',n:b('Khoảng thở','Negative space'),d:b('Chừa khoảng trống có chủ ý, như trong ikebana, để từng bông hoa được nhìn thấy rõ.','Leave deliberate space, as in ikebana, so each bloom can be seen clearly.')}
+];
+var LESS=[
+{id:'spiral',lv:1,min:40,n:b('Hand-tied Spiral Bouquet','Bó hoa cầm tay xoắn ốc'),
+ d:b('Bài nền tảng: học cách cầm, thêm cành và buộc để có bó hoa tròn đầy.','The foundation lesson: learn to hold, add stems and bind for a full, round bouquet.'),
+ m:[b('15 đến 20 cành hoa chính (hồng, cẩm chướng...)','15 to 20 focal stems (roses, carnations...)'),b('2 bó hoa phụ','2 bunches of filler'),b('6 cành lá','6 stems of greenery'),b('Dây thun hoặc dây đay','Rubber band or raffia'),b('Kéo cắm hoa','Floral shears')],
+ s:[b('Xử lý hoa theo bước chuẩn bị ở tab Bắt đầu và tuốt lá ở khoảng 15 cm cuối cành.','Condition the flowers as in the Start tab and strip leaves from the lower 15 cm of each stem.'),
+    b('Cầm một cành hoa chính ở giữa, ngón cái và ngón trỏ giữ điểm buộc cách đầu hoa khoảng một phần ba cành.','Hold one focal stem in the middle, thumb and finger gripping the binding point about a third down from the bloom.'),
+    b('Thêm cành tiếp theo nghiêng chéo cùng một hướng, đặt đầu hoa cao thấp xen kẽ.','Add the next stem on a diagonal in the same direction, staggering the bloom heights.'),
+    b('Xoay bó một phần tư vòng sau mỗi lần thêm cành. Xen kẽ hoa phụ và lá.','Turn the bunch a quarter turn after each stem. Alternate filler and greenery.'),
+    b('Khi đủ đầy, buộc chặt tại điểm buộc bằng dây thun rồi quấn dây đay che đi.','When full, bind tightly at the binding point with a rubber band and cover with raffia.'),
+    b('Cắt gốc đều ngang bằng nhau để bó tự đứng được, rồi cắm vào nước.','Cut stems level so the bouquet can stand by itself, then place in water.')],
+ t:b('Giữ điểm buộc cố định và chỉ xoay bó, đừng xoay cành.','Keep the binding point fixed and rotate the bunch, not the stems.'),q:'hand tied spiral bouquet tutorial'},
+{id:'wrapped',lv:2,min:60,n:b('White Rose Wrapped Bouquet','Bó hồng trắng gói giấy kiểu cưới'),
+ d:b('Bó tròn lớn gồm hồng trắng, baby và khuynh diệp, gói giấy kem và thắt nơ champagne.','A large round bouquet of white roses, baby\'s breath and eucalyptus, wrapped in cream paper with a champagne bow.'),
+ m:[b('30 đến 33 bông hồng trắng','30 to 33 white roses'),b('4 bó baby','4 bunches of baby\'s breath'),b('8 cành khuynh diệp','8 eucalyptus stems'),b('Giấy gói kem, lưới voan, giấy bóng mờ','Cream wrapping paper, tulle, translucent film'),b('Ruy băng satin champagne rộng 4 cm','4 cm champagne satin ribbon'),b('Thẻ nhỏ và dây thun','A small tag and rubber bands')],
+ s:[b('Xử lý hồng theo chuẩn, để hồng nở nhẹ trước khi cắm. Gỡ gai và lá thấp.','Condition the roses as standard and let them open slightly. Remove thorns and lower leaves.'),
+    b('Làm khung: tạo bó nhỏ từ 5 cành hồng bằng kỹ thuật xoắn ốc, đây là tâm của bó.','Build the core: make a small bunch of 5 roses with the spiral technique to form the centre.'),
+    b('Thêm từng vòng hồng quanh tâm, đầu hoa thấp dần ra phía ngoài để bó thành vòm.','Add rings of roses around the core, lowering the heads outward to form a dome.'),
+    b('Xen baby giữa các vòng hồng và đặt khuynh diệp ở phía ngoài làm viền.','Tuck baby\'s breath between rings and place eucalyptus around the outside as a frame.'),
+    b('Buộc chặt, cắt thân bằng nhau. Xếp giấy gói thành hình quạt phía sau và gấp lớp voan.','Bind firmly and trim stems level. Fan the wrapping paper behind and layer the tulle.'),
+    b('Bọc thân bằng giấy và dây thun, kiểm tra bó đứng vững, rồi thắt nơ champagne và gắn thẻ.','Wrap the stems with paper and a band, check the bouquet stands steadily, then tie the champagne bow and attach the tag.')],
+ t:b('Bọc phần thân bằng khăn ướt hoặc bông giữ nước nếu cần mang đi xa.','Wrap the stem ends in a damp towel or water gel if it needs to travel.'),q:'white rose wrapped bouquet tutorial baby breath eucalyptus'},
+{id:'vase',lv:1,min:25,n:b('Seasonal Vase Arrangement','Bình hoa theo mùa'),
+ d:b('Cắm bình bằng lưới băng keo, cách đơn giản và bền cho nhà ở.','Arrange a vase using a tape grid, a simple, durable method for the home.'),
+ m:[b('Bình miệng rộng','Wide-mouth vase'),b('Băng keo trong','Clear tape'),b('3 đến 5 hoa chính','3 to 5 focal flowers'),b('Hoa phụ và lá','Filler and greenery'),b('Dưỡng chất hoa','Flower food')],
+ s:[b('Rửa bình và kẻ lưới ô vuông bằng băng keo lên miệng bình, để khô.','Wash the vase and tape a grid across the mouth, then let it dry.'),
+    b('Đổ nước sạch pha dưỡng chất hoa đến khoảng hai phần ba bình.','Fill about two thirds with clean water mixed with flower food.'),
+    b('Cắm lá trước theo hình tam giác để tạo khung.','Place greenery first in a triangle shape to create the frame.'),
+    b('Thêm hoa chính, lẻ bông, ở các độ cao khác nhau quanh điểm nhìn.','Add focal flowers in odd numbers at varied heights around the focal point.'),
+    b('Lấp khoảng trống bằng hoa phụ. Xoay bình và chỉnh để nhìn đẹp từ mọi phía.','Fill gaps with filler. Turn the vase and adjust until it looks good from every side.')],
+ t:b('Thay nước sau mỗi 2 ngày và cắt thêm một chút gốc để hoa lâu hơn.','Change the water every 2 days and trim a little off the stems to extend vase life.'),q:'flower vase arrangement tape grid tutorial'},
+{id:'box',lv:2,min:60,n:b('Round Flower Box','Hộp hoa tròn'),
+ d:b('Hoa dày, sát nhau trong hộp, thích hợp làm quà tặng.','Densely packed blooms in a box, ideal as a gift.'),
+ m:[b('Hộp hoa tròn có nắp','Round flower box with lid'),b('Khối xốp ướt cắt vừa hộp','Wet floral foam cut to fit'),b('Màng bọc hoặc túi nilon lót','Plastic liner'),b('20 đến 30 bông hoa','20 to 30 blooms'),b('Lá và hoa phụ','Greenery and filler')],
+ s:[b('Lót hộp bằng màng nhựa để tránh thấm nước.','Line the box with plastic to prevent leaks.'),
+    b('Ngâm xốp trong nước sạch để tự chìm, không ấn xuống. Đeo khẩu trang khi cắt xốp khô.','Soak the foam in clean water and let it sink on its own, do not push it. Wear a mask when cutting dry foam.'),
+    b('Đặt xốp vừa khít, cao hơn miệng hộp khoảng 2 cm.','Fit the foam snugly, about 2 cm above the rim.'),
+    b('Cắm một vòng lá quanh viền để che xốp.','Insert a ring of greenery around the rim to hide the foam.'),
+    b('Cắm hoa chính theo vòng tròn từ ngoài vào trong, đầu hoa tạo thành mặt vòm đều.','Insert focal flowers in circles from the outside inward, forming an even dome.'),
+    b('Điền khoảng trống bằng hoa phụ rồi thấm nước thừa trước khi đậy nắp.','Fill gaps with filler and blot extra water before closing the lid.')],
+ t:b('Cắm cành xiên chéo ra ngoài ở viền để mép hoa tròn đẹp.','Angle the outer stems slightly outward at the rim for a neat round edge.'),q:'round flower box arrangement floral foam tutorial'},
+{id:'bridal',lv:3,min:90,n:b('Bridal Hand-tied Bouquet','Hoa cầm tay cô dâu'),
+ d:b('Bó cầm tay nhỏ gọn, thân quấn ruy băng, phù hợp lễ cưới.','A compact hand-tied bouquet with a ribbon-wrapped handle for ceremonies.'),
+ m:[b('12 đến 15 bông hoa chính (hồng, mao lương, mẫu đơn)','12 to 15 focal blooms (rose, ranunculus, peony)'),b('Hoa phụ và lá mảnh','Delicate filler and greenery'),b('Ruy băng satin','Satin ribbon'),b('Ghim cài ngọc trai','Pearl-head pins'),b('Băng keo hoa','Floral tape')],
+ s:[b('Chọn hoa đã nở vừa phải và xử lý kỹ vì bó phải giữ dáng suốt buổi lễ.','Choose blooms that are moderately open and condition them thoroughly, because the bouquet must hold its shape all ceremony.'),
+    b('Làm bó nhỏ theo kỹ thuật xoắn ốc, giữ đường kính khoảng 18 đến 22 cm.','Build a small spiral bunch, keeping a diameter of about 18 to 22 cm.'),
+    b('Đặt hoa lớn ở trung tâm và hoa nhỏ hoặc lá mảnh ở viền để mềm mại.','Put larger blooms in the centre and small flowers or delicate leaves at the edge for softness.'),
+    b('Buộc chặt, cắt thân còn khoảng 12 đến 15 cm để cầm vừa tay.','Bind firmly and trim stems to about 12 to 15 cm so it fits the hand.'),
+    b('Quấn băng keo hoa quanh thân rồi quấn ruy băng từ trên xuống, cố định bằng ghim.','Wrap the stems in floral tape, then wind ribbon from top to bottom and secure with pins.'),
+    b('Giữ lạnh trong nước đến sát giờ sử dụng.','Keep it in cool water until just before use.')],
+ t:b('Làm thử một bó trước ngày cưới để chọn tỉ lệ hoa và màu ưng ý.','Make a trial bouquet before the big day to settle proportions and colours.'),q:'bridal hand tied bouquet tutorial ribbon wrap handle'},
+{id:'boutonniere',lv:3,min:30,n:b('Boutonniere','Hoa cài áo'),
+ d:b('Hoa nhỏ cho vest, kết hợp một bông hoa, lá và băng keo.','A small flower for a lapel, combining one bloom, greenery and tape.'),
+ m:[b('1 bông hồng nhỏ hoặc mao lương','1 spray rose or ranunculus'),b('Vài cọng baby và lá','A few sprigs of baby\'s breath and leaves'),b('Dây thép hoa','Floral wire'),b('Băng keo hoa màu xanh','Green floral tape'),b('Ghim cài','Corsage pin')],
+ s:[b('Cắt thân hoa còn 8 cm và đặt dây thép dọc thân để làm xương.','Trim the stem to 8 cm and lay wire along it for support.'),
+    b('Quấn băng keo hoa từ dưới đầu hoa xuống, kéo căng nhẹ để băng dính vào nhau.','Wrap floral tape from beneath the bloom downward, stretching it slightly so it bonds.'),
+    b('Thêm lá và baby phía sau hoa, quấn băng giữ chặt.','Add leaves and baby\'s breath behind the bloom and tape firmly.'),
+    b('Cắt gọn thân, quấn kín phần cuối bằng ruy băng.','Trim neatly and cover the end with ribbon.'),
+    b('Gắn ghim và giữ lạnh đến lúc cài.','Attach the pin and keep it cool until worn.')],
+ t:b('Đầu ghim nên nằm phía sau để không gây vướng hoặc trầy xước.','Keep the pin tip behind the piece to avoid snagging or scratches.'),q:'boutonniere making tutorial'},
+{id:'centerpiece',lv:2,min:45,n:b('Low Table Centerpiece','Hoa trang trí bàn tiệc'),
+ d:b('Hoa thấp để khách nhìn thấy nhau, kết hợp nến.','A low arrangement so guests can see each other, paired with candles.'),
+ m:[b('Khay hoặc bát thấp','Low tray or bowl'),b('Xốp ướt hoặc lưới thép','Wet foam or chicken wire'),b('10 đến 15 hoa chính','10 to 15 focal flowers'),b('Hoa phụ và lá','Filler and greenery'),b('Nến trong ly','Candles in holders')],
+ s:[b('Cố định xốp hoặc lưới thép vào khay.','Secure the foam or wire inside the tray.'),
+    b('Cắm lá tạo hình tròn thấp hoặc hình thoi.','Insert greenery into a low round or oval shape.'),
+    b('Thêm hoa chính theo cụm ba bông và xoay đều các mặt.','Add focal flowers in clusters of three and turn evenly on all sides.'),
+    b('Điền hoa phụ, kiểm tra tổng chiều cao thấp hơn tầm mắt khoảng 30 cm.','Fill with filler and check the overall height stays below eye level, around 30 cm.'),
+    b('Đặt nến cách xa lá và hoa, không để lửa chạm vào cành.','Place candles clear of leaves and flowers, never letting flames touch the stems.')],
+ t:b('Không đặt nến sát hoa khô hoặc giấy. Đây là nguy cơ cháy.','Never place candles next to dry flowers or paper. That is a fire risk.'),q:'low table centerpiece flower arrangement tutorial'}
+];
+var FLW=[
+{id:'rose',h:350,c:'#F4E4E4',role:'focal',life:'5-7',n:b('Rose','Hoa hồng'),care:b('Gỡ gai và lá thấp, cắt chéo, tránh để chạm nước lạnh. Nếu cổ hoa gục, cắt lại và ngâm sâu 1 đến 2 giờ.','Strip thorns and lower leaves and cut on a slant. If the neck bends, recut and soak deeply for 1 to 2 hours.'),t:b('Hoa phổ biến nhất cho hoa cưới và quà tặng.','The most popular choice for weddings and gifts.')},
+{id:'baby',h:60,c:'#FFFFFF',role:'filler',life:'7-14',n:b('Baby\'s Breath','Hoa baby'),care:b('Cắt chéo, loại cành ngập nước. Có thể phơi khô để giữ lâu.','Cut on a slant and remove leaves below water. Can be air-dried to keep longer.'),t:b('Hoa phụ nhẹ, tạo cảm giác mềm mại.','A light filler that adds softness.')},
+{id:'eucalyptus',h:120,c:'#A9BBA2',role:'green',life:'7-14',n:b('Eucalyptus','Lá khuynh diệp'),care:b('Cành gỗ nên cắt chéo và tách xẻ nhẹ. Có thể để khô tự nhiên.','Woody stems should be cut at an angle and lightly split. Can dry naturally.'),t:b('Lá xanh xám tạo khung cho bó kem trắng.','Grey-green foliage frames a cream and white bouquet.')},
+{id:'ranunculus',h:25,c:'#F7D9C4',role:'focal',life:'5-7',n:b('Ranunculus','Mao lương'),care:b('Thân rỗng và mềm, cắt nhẹ tay, cắm nước mát.','Hollow, delicate stems: cut gently and use cool water.'),t:b('Cánh xếp lớp như giấy, hợp hoa cô dâu.','Papery layered petals suit bridal work.')},
+{id:'peony',h:345,c:'#F4C9D2',role:'focal',life:'5-7',n:b('Peony','Mẫu đơn'),care:b('Mua lúc nụ mềm như kẹo marshmallow rồi để nở dần ở nơi mát. Mùa vụ ngắn.','Buy at the soft marshmallow bud stage and let it open slowly somewhere cool. The season is short.'),t:b('Bông lớn, thường là điểm nhấn sang trọng.','Large blooms often serve as a luxurious focal point.')},
+{id:'lisianthus',h:280,c:'#E6D9EC',role:'focal',life:'10-14',n:b('Lisianthus','Cát tường'),care:b('Tuốt lá thấp, cắt chéo và thay nước thường xuyên.','Strip lower leaves, cut on a slant and change the water regularly.'),t:b('Trông giống hồng nhưng nhẹ nhàng, rất bền.','Resembles a rose yet softer, and lasts well.')},
+{id:'hydrangea',h:215,c:'#C9D6EC',role:'focal',life:'5-7',n:b('Hydrangea','Cẩm tú cầu'),care:b('Hút nước qua cả cánh hoa nên có thể xịt sương hoặc ngâm cả đầu hoa vào nước mát khi rũ.','Drinks through its petals, so mist or soak the whole head in cool water when drooping.'),t:b('Cụm hoa lớn, lấp đầy bó nhanh.','Large clusters fill an arrangement quickly.')},
+{id:'lily',h:15,c:'#FDF3EC',role:'focal',life:'7-10',n:b('Lily','Hoa ly'),care:b('Ngắt nhị hoa để tránh dính phấn. Hoa ly độc với mèo, kể cả phấn hoa và nước cắm, nên tránh nếu nhà có mèo.','Remove the anthers to avoid pollen stains. True lilies are toxic to cats, including pollen and vase water, so avoid them in homes with cats.'),t:b('Hương thơm mạnh, hoa lớn.','Strongly fragrant with large blooms.')},
+{id:'tulip',h:330,c:'#F6D3D8',role:'focal',life:'4-7',n:b('Tulip','Hoa tulip'),care:b('Tiếp tục dài ra sau khi cắt và nghiêng về phía ánh sáng. Dùng nước mát và ít nước.','Keeps growing after cutting and leans toward light. Use cool, shallow water.'),t:b('Dáng thanh, hợp bình thấp.','Elegant shape, good in low vases.')},
+{id:'carnation',h:340,c:'#F4B9C4',role:'focal',life:'10-14',n:b('Carnation','Cẩm chướng'),care:b('Cắt trên mắt đốt, thay nước thường xuyên.','Cut above a node and change water regularly.'),t:b('Rất bền và dễ tìm, giá mềm.','Very durable, easy to find and budget friendly.')},
+{id:'gerbera',h:20,c:'#F9B88D',role:'focal',life:'5-7',n:b('Gerbera','Hoa đồng tiền'),care:b('Thân dễ gập. Dùng ít nước, cắt chéo và đỡ bằng dây thép nếu cần.','Stems bend easily. Use shallow water, cut on a slant and support with wire if needed.'),t:b('Màu rực rỡ, vui mắt.','Bright, cheerful colours.')},
+{id:'chrysanthemum',h:48,c:'#F6E3A3',role:'focal',life:'14-21',n:b('Chrysanthemum','Hoa cúc'),care:b('Tuốt lá thấp. Hoa rất bền, đổi nước đều đặn.','Strip lower leaves. Very durable, change water regularly.'),t:b('Thường dùng ngày Tết và lễ hội.','Often used at Tet and celebrations.')},
+{id:'sunflower',h:46,c:'#F2CC4C',role:'focal',life:'7-10',n:b('Sunflower','Hoa hướng dương'),care:b('Thân dày nên dùng bình nặng. Cắt chéo và đổi nước thường xuyên. Có thể gây dị ứng phấn hoa với một số người.','Thick stems need a heavy vase. Cut on a slant and change water often. Pollen may bother some allergy sufferers.'),t:b('Màu vàng tươi, phổ biến mùa tốt nghiệp.','Bright yellow, popular for graduations.')}
+];
+var OCC=[
+{id:'wedding',e:'💍',n:b('Wedding','Đám cưới'),v:[
+ {n:b('Ivory and Champagne','Trắng kem và champagne'),p:['#FBF6EE','#E8DCC4','#B08D57','#7C8F73'],f:'rose',fi:'baby',g:'eucalyptus',x:b('Giấy gói kem, voan, ruy băng satin champagne.','Cream wrapping paper, tulle, champagne satin ribbon.')},
+ {n:b('Blush Romance','Hồng phấn lãng mạn'),p:['#F3D9D6','#FBF6EE','#B08D57','#7C8F73'],f:'peony',fi:'baby',g:'eucalyptus',x:b('Mẫu đơn có mùa ngắn, có thể thay bằng hồng phấn.','Peony season is short; blush roses can replace it.')}]},
+{id:'anniversary',e:'🥂',n:b('Anniversary','Kỷ niệm'),v:[
+ {n:b('Classic Red','Đỏ cổ điển'),p:['#7B1E2B','#FBF6EE','#B08D57'],f:'rose',fi:'baby',g:'eucalyptus',x:b('Giấy gói đen mờ hoặc kem và ruy băng vàng.','Matte black or cream paper with gold ribbon.')},
+ {n:b('Wine and Plum','Đỏ rượu vang và tím mận'),p:['#6B2D5C','#C9A0B8','#FBF6EE'],f:'lisianthus',fi:'baby',g:'eucalyptus',x:b('Giấy tím nhạt, ruy băng nhung.','Soft violet paper with velvet ribbon.')}]},
+{id:'birthday',e:'🎂',n:b('Birthday','Sinh nhật'),v:[
+ {n:b('Sunny Brights','Rực rỡ như nắng'),p:['#F4A261','#F6D55C','#FBF6EE','#6F8466'],f:'gerbera',fi:'baby',g:'eucalyptus',x:b('Giấy gói màu kem để màu hoa nổi bật.','Cream paper so the colours stand out.')},
+ {n:b('Soft Pastels','Pastel dịu'),p:['#F6D3D8','#F6E3A3','#FBF6EE','#7C8F73'],f:'tulip',fi:'baby',g:'eucalyptus',x:b('Hợp bình thủy tinh thấp.','Works well in a low glass vase.')}]},
+{id:'graduation',e:'🎓',n:b('Graduation','Tốt nghiệp'),v:[
+ {n:b('Golden Sunshine','Vàng nắng'),p:['#F2CC4C','#FBF6EE','#6F8466'],f:'sunflower',fi:'baby',g:'eucalyptus',x:b('Ruy băng xanh navy hoặc màu trường.','Navy ribbon or the school colours.')},
+ {n:b('Fresh and Bright','Tươi sáng'),p:['#F6E3A3','#FFFFFF','#6F8466'],f:'chrysanthemum',fi:'baby',g:'eucalyptus',x:b('Bó nhỏ gọn dễ cầm khi chụp ảnh.','A compact bunch that is easy to hold in photos.')}]},
+{id:'thanks',e:'💐',n:b('Thank You','Tri ân'),v:[
+ {n:b('Gentle Pink','Hồng nhẹ'),p:['#F4B9C4','#FBF6EE','#6F8466'],f:'carnation',fi:'baby',g:'eucalyptus',x:b('Hoa bền, giá hợp lý.','Durable and affordable.')},
+ {n:b('Hydrangea Cloud','Đám mây cẩm tú cầu'),p:['#C9D6EC','#F4C9D2','#FBF6EE'],f:'hydrangea',fi:'baby',g:'eucalyptus',x:b('Một ít hoa đã lấp đầy bó.','A few blooms fill the bouquet.')}]},
+{id:'tet',e:'🧧',n:b('Lunar New Year','Tết'),v:[
+ {n:b('Golden Tet','Tết vàng'),p:['#F6E3A3','#C0392B','#FBF6EE','#6F8466'],f:'chrysanthemum',fi:'baby',g:'eucalyptus',x:b('Cúc bền ngày Tết, đặt bình lớn ở phòng khách.','Chrysanthemums last through Tet; use a large vase in the living room.')},
+ {n:b('Fragrant White','Trắng thơm'),p:['#FDF3EC','#C0392B','#6F8466'],f:'lily',fi:'baby',g:'eucalyptus',x:b('Hoa ly độc với mèo, kiểm tra nếu nhà có thú cưng.','Lilies are toxic to cats; check if you have pets.')}]}
+];
+var SIZES=[{id:'S',n:b('Small','Nhỏ'),dim:b('khoảng 15 cm','about 15 cm'),f:5,fi:1,g:3},{id:'M',n:b('Medium','Vừa'),dim:b('khoảng 25 cm','about 25 cm'),f:15,fi:3,g:6},{id:'L',n:b('Large','Lớn'),dim:b('khoảng 40 cm','about 40 cm'),f:30,fi:5,g:10}];
+var QZ=[
+{q:b('Nên cắt cuống hoa theo góc nào?','At what angle should you cut flower stems?'),o:[b('Cắt thẳng ngang','Straight across'),b('Cắt chéo khoảng 45 độ','Slanted at about 45 degrees'),b('Bóp dập cuống','Crush the stem')],a:1,x:b('Cắt chéo tăng diện tích hút nước và tránh gốc áp sát đáy bình.','A slant increases the water-absorbing area and keeps the stem from sealing against the vase bottom.')},
+{q:b('Vì sao phải tuốt lá nằm dưới mực nước?','Why remove leaves below the waterline?'),o:[b('Để hoa trông cao hơn','To make the flower look taller'),b('Lá ngâm nước làm vi khuẩn sinh sôi, khiến nước đục và hoa nhanh héo','Submerged leaves feed bacteria, clouding water and shortening life'),b('Không có lý do gì','There is no reason')],a:1,x:b('Vi khuẩn làm tắc mạch dẫn nước của cuống hoa.','Bacteria clog the stem\'s water-carrying vessels.')},
+{q:b('Theo gợi ý thẩm mỹ, nhóm hoa chính nên có số lượng thế nào cho tự nhiên?','As a style guideline, what count of focal flowers feels natural?'),o:[b('Số lẻ như 3, 5, 7','Odd numbers such as 3, 5, 7'),b('Chỉ số chẵn','Only even numbers'),b('Luôn đúng 10 bông','Always exactly 10')],a:0,x:b('Số lẻ thường tạo bố cục tự nhiên. Đây là gợi ý, bạn vẫn có thể phá lệ.','Odd numbers tend to feel natural. It is a guideline, and you can break it.')},
+{q:b('Trong kỹ thuật xoắn ốc, bạn làm gì sau mỗi lần thêm cành?','In the spiral technique, what do you do after adding each stem?'),o:[b('Xoay bó trong tay một chút','Rotate the bunch slightly in your hand'),b('Buộc ngay lập tức','Bind immediately'),b('Cắt ngắn tất cả cành','Cut all stems short')],a:0,x:b('Thêm cành nghiêng cùng hướng và xoay bó để tạo dáng vòm.','Add stems at the same angle and rotate to form the dome.')},
+{q:b('Hoa hồng gục cổ, cách xử lý thường dùng là gì?','A rose with a bent neck: what is the usual fix?'),o:[b('Vứt bỏ ngay','Throw it away'),b('Cắt lại gốc, bọc giấy và ngâm sâu trong nước mát vài giờ','Recut the stem, wrap in paper and soak deeply in cool water for a few hours'),b('Đặt dưới nắng','Put it in the sun')],a:1,x:b('Bọt khí trong thân thường gây tắc nước. Cắt lại và ngâm sâu giúp thông thoáng.','Air bubbles often block water uptake. Recutting and deep soaking helps clear it.')},
+{q:b('Nơi nào nên tránh đặt bình hoa?','Where should you avoid placing a vase?'),o:[b('Gần cửa sổ mát','Near a cool window'),b('Cạnh quả chín, dưới nắng trực tiếp hoặc gần nguồn nhiệt','Beside ripe fruit, in direct sun or near heat'),b('Trên bàn ăn','On a dining table')],a:1,x:b('Quả chín thải khí ethylene, nhiệt và nắng làm hoa nhanh tàn.','Ripe fruit releases ethylene, and heat and sun age flowers faster.')},
+{q:b('Chiều cao bình hoa thường nên bằng khoảng bao nhiêu tổng chiều cao?','About how tall should the overall piece be relative to the vase?'),o:[b('Khoảng 1,5 đến 2 lần chiều cao bình','About 1.5 to 2 times the vase height'),b('Bằng chiều cao bình','Equal to the vase height'),b('Gấp 5 lần','5 times')],a:0,x:b('Đây là tỉ lệ gợi ý, nên tùy ý theo phong cách.','A suggested ratio; adjust to your style.')},
+{q:b('Nếu nhà có mèo, bạn nên cân nhắc điều gì với hoa ly?','If you have a cat, what should you consider about lilies?'),o:[b('Không sao cả','Nothing at all'),b('Hoa ly có thể độc với mèo, nên tránh hoặc đặt nơi mèo không tới được','Lilies can be toxic to cats, so avoid them or keep them out of reach'),b('Chỉ độc khi ăn rễ','Only the roots are toxic')],a:1,x:b('Nhiều loại ly thật độc với mèo, kể cả phấn và nước cắm. Hãy hỏi bác sĩ thú y nếu mèo tiếp xúc.','Many true lilies are toxic to cats, including pollen and vase water. Ask a vet if a cat has been exposed.')}
+];
+var FIX=[
+{n:b('Hoa nhanh héo','Flowers wilt quickly'),d:b('Kiểm tra bình sạch chưa, nước có đục không, lá có ngập nước không. Cắt lại gốc và đặt nơi mát, tránh nắng và quả chín.','Check whether the vase is clean, the water is cloudy or leaves are submerged. Recut the stems and place somewhere cool, away from sun and ripe fruit.')},
+{n:b('Hồng gục cổ','Bent-neck roses'),d:b('Cắt lại gốc 3 cm, bọc cả bó bằng giấy và ngâm sâu trong nước mát 1 đến 2 giờ.','Recut 3 cm off the base, wrap the roses in paper and soak deeply in cool water for 1 to 2 hours.')},
+{n:b('Cẩm tú cầu rũ','Drooping hydrangea'),d:b('Cắt lại gốc, ngâm cả đầu hoa trong nước mát khoảng 30 phút rồi cắm lại.','Recut and submerge the whole head in cool water for about 30 minutes, then re-arrange.')},
+{n:b('Nước đục, có mùi','Cloudy or smelly water'),d:b('Thay nước, rửa sạch bình và cuống, bỏ lá chìm. Thay nước sau 2 ngày.','Replace the water, wash the vase and stems and remove submerged leaves. Change every 2 days.')},
+{n:b('Bó hoa không đứng vững','Bouquet will not stand'),d:b('Cắt gốc thật đều và buộc đúng điểm buộc. Giữ bó thẳng khi đặt xuống.','Trim stems perfectly level and bind at the right point. Keep the bouquet upright when setting it down.')},
+{n:b('Hoa nở không đều','Uneven blooming'),d:b('Hoa đặt nơi ấm nở nhanh hơn và nơi mát nở chậm hơn. Để hoa trong cùng điều kiện và thay nước đều.','Flowers in warmth open faster and in cool places open slower. Keep them in the same conditions and change water regularly.')}
+];
+/* names above were authored as (english, vietnamese); normalise to {vi,en} */
+(function(){function sw(o){var a=o.vi;o.vi=o.en;o.en=a;}
+LESS.forEach(function(x){sw(x.n);});FLW.forEach(function(x){sw(x.n);});SIZES.forEach(function(x){sw(x.n);});
+OCC.forEach(function(x){sw(x.n);x.v.forEach(function(v){sw(v.n);});});})();
+
+var TERMS={
+vi:{title:'Lưu ý an toàn và Điều khoản sử dụng',upd:'Cập nhật lần cuối: 16/11/2026. Phiên bản 1.0.',
+intro:'Trang “Học cắm hoa” (“Trang”) là sản phẩm hướng dẫn và giải trí của Alessandra Tran (“Chúng tôi”). Khi sử dụng Trang, bạn đồng ý với các điều khoản dưới đây.',
+s:[
+['1. Mục đích','Nội dung chỉ mang tính hướng dẫn chung và tham khảo sở thích. Đây không phải khóa học chuyên nghiệp, chứng chỉ hay tư vấn chuyên môn.'],
+['2. An toàn khi dùng dụng cụ','Kéo, dao, dây thép và ghim rất sắc. Hãy dùng đúng cách, cắt ra xa người, đeo găng khi gỡ gai, để xa tầm tay trẻ em và luôn cẩn thận. Bạn tự chịu trách nhiệm về sự an toàn của mình và người xung quanh.'],
+['3. Dị ứng, phấn hoa và độc tính','Một số hoa và lá có thể gây dị ứng, kích ứng da hoặc độc với người, trẻ em và thú cưng (ví dụ hoa ly rất độc với mèo). Hãy kiểm tra từng loại hoa, giữ ngoài tầm với của trẻ nhỏ và thú cưng, và hỏi bác sĩ hoặc bác sĩ thú y khi cần. Thông tin trên Trang không thay thế tư vấn y tế hay thú y.'],
+['4. Xốp cắm hoa, nến và đồ dùng khác','Xốp cắm hoa có thể tạo bụi khi cắt khô, nên đeo khẩu trang và xử lý rác đúng cách. Nến phải đặt xa hoa khô, giấy và vật dễ cháy, và không để không người trông. Bạn tự chịu rủi ro khi dùng các vật dụng này.'],
+['5. Độ chính xác','Thông tin về hoa, độ bền và cách chăm sóc là gợi ý chung, có thể khác nhau theo vùng, mùa vụ, nhà cung cấp và điều kiện bảo quản. Chúng tôi không đảm bảo hoa sẽ bền hoặc đạt kết quả như mô tả.'],
+['6. Không bảo đảm','Trang được cung cấp “như hiện có”, không có bảo đảm nào, rõ ràng hay ngụ ý.'],
+['7. Giới hạn trách nhiệm','Trong phạm vi pháp luật cho phép, Chúng tôi không chịu trách nhiệm đối với thương tích, thiệt hại tài sản, chi phí mua hoa, vật liệu, thiệt hại gián tiếp hay hệ quả nào phát sinh từ việc làm theo nội dung Trang.'],
+['8. Liên kết bên ngoài','Trang có thể liên kết tới YouTube, Google hoặc trang khác. Chúng tôi không kiểm soát và không chịu trách nhiệm về nội dung của họ. Liên kết video là kết quả tìm kiếm, không phải video cụ thể.'],
+['9. Dữ liệu cá nhân','Ngôn ngữ và tiến độ học của bạn lưu trên trình duyệt của bạn (localStorage), không gửi đến máy chủ của Chúng tôi. Trang có thể tải phông chữ từ Google Fonts.'],
+['10. Sở hữu trí tuệ','Mã nguồn, giao diện và nội dung do Chúng tôi biên soạn thuộc quyền của Chúng tôi. Bạn được dùng cho mục đích cá nhân, phi thương mại.'],
+['11. Luật áp dụng và liên hệ','Điều khoản này theo pháp luật Việt Nam, không loại trừ các quyền mà pháp luật bảo vệ người tiêu dùng không cho phép loại trừ. Nếu thấy nội dung sai, xin liên hệ qua trang Liên hệ của alessandratran.com.']
+],close:'Đóng',footT:'Lưu ý an toàn và Điều khoản',safe:'An toàn: dụng cụ sắc, dị ứng, độc tính với trẻ em và thú cưng, nến. Xem Lưu ý an toàn.'},
+en:{title:'Safety Notes and Terms of Use',upd:'Last updated: 16 November 2026. Version 1.0.',
+intro:'The “Learn Flower Arranging” page (the “Site”) is an instructional and entertainment project by Alessandra Tran (“We”). By using the Site you agree to the terms below.',
+s:[
+['1. Purpose','Content is general guidance and a reflection of personal taste. It is not a professional course, certification or professional advice.'],
+['2. Tool safety','Scissors, knives, wire and pins are sharp. Use them properly, cut away from your body, wear gloves when stripping thorns, keep them from children and stay careful. You are responsible for your own safety and that of others.'],
+['3. Allergies, pollen and toxicity','Some flowers and foliage can cause allergies, skin irritation or be toxic to people, children and pets (for example, lilies are highly toxic to cats). Check each plant, keep them away from small children and pets, and ask a doctor or vet when needed. The Site does not replace medical or veterinary advice.'],
+['4. Floral foam, candles and other items','Floral foam can create dust when cut dry, so wear a mask and dispose of waste properly. Candles must stay clear of dry flowers, paper and flammable items and must never be left unattended. You use these items at your own risk.'],
+['5. Accuracy','Information about flowers, vase life and care is general and may vary by region, season, supplier and storage. We do not guarantee flowers will last or results will match the description.'],
+['6. No warranties','The Site is provided “as is” without warranties of any kind, express or implied.'],
+['7. Limitation of liability','To the extent permitted by law, We are not liable for injury, property damage, the cost of flowers or materials, or any indirect or consequential loss arising from following the Site\'s content.'],
+['8. External links','The Site may link to YouTube, Google or other sites. We do not control or take responsibility for their content. Video links are searches, not specific videos.'],
+['9. Personal data','Your language and learning progress are stored in your own browser (localStorage) and are not sent to our servers. The Site may load fonts from Google Fonts.'],
+['10. Intellectual property','The source code, interface and content We authored belong to Us. You may use them for personal, non-commercial purposes.'],
+['11. Governing law and contact','These terms are governed by the laws of Vietnam and do not exclude rights that consumer protection law does not allow to be excluded. If you find incorrect content, please contact Us through the Contact page of alessandratran.com.']
+],close:'Close',footT:'Safety notes and Terms',safe:'Safety: sharp tools, allergies, toxicity to children and pets, candles. See Safety notes.'}
+};
+
+(function(){
+'use strict';
+var $=function(s,r){return(r||document).querySelector(s);};
+var $$=function(s,r){return Array.prototype.slice.call((r||document).querySelectorAll(s));};
+function esc(s){return String(s==null?'':s).replace(/[&<>"']/g,function(c){return{'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c];});}
+function fold(s){return String(s).toLowerCase().replace(/đ/g,'d').normalize('NFD').replace(/[̀-ͯ]/g,'');}
+function lsGet(k){try{return localStorage.getItem(k);}catch(e){return null;}}
+function lsSet(k,v){try{localStorage.setItem(k,v);}catch(e){}}
+function rnd(n){return Math.floor(Math.random()*n);}
+var T={
+vi:{back:'← Về trang chủ',kick:'Nghệ thuật cắm hoa',sub:'Từ cách xử lý hoa đến bó hồng trắng gói giấy kiểu cưới. Học từng bước, đánh dấu tiến độ và thử công thức cho từng dịp.',cta1:'Bắt đầu học',cta2:'Công thức hoa cưới',
+ t_start:'Bắt đầu',t_prin:'Nguyên tắc',t_less:'Bài học',t_flow:'Thư viện hoa',t_rec:'Công thức',t_quiz:'Kiểm tra',t_fix:'Gỡ rối',
+ prog:'Tiến độ: {a}/{b} bài học',
+ startH:'Bắt đầu: dụng cụ và xử lý hoa',startP:'Chuẩn bị tốt là một nửa thành công. Đây là bộ dụng cụ cơ bản và sáu bước xử lý hoa trước khi cắm.',tools:'Dụng cụ cơ bản',cond:'Sáu bước xử lý hoa',
+ prinH:'Tám nguyên tắc thiết kế',prinP:'Những nguyên tắc chung giúp bó hoa và bình hoa trông hài hòa. Hãy coi chúng là gợi ý và tự do sáng tạo.',
+ lessH:'Bảy bài học thực hành',lessP:'Đánh dấu từng bước khi làm. Bài học xong, bấm hoàn thành để tính vào tiến độ.',mat:'Vật liệu',steps:'Các bước',tip:'Mẹo',video:'Tìm video hướng dẫn (YouTube)',markDone:'Đánh dấu hoàn thành',undone:'Bỏ đánh dấu',min:'phút',lv:'Cấp độ',lvn:{1:'Dễ',2:'Vừa',3:'Khó'},safeL:'Dụng cụ sắc, dây thép, xốp và nến cần dùng cẩn thận. Xem Lưu ý an toàn.',
+ flowH:'Thư viện hoa',flowP:'Vai trò, độ bền gợi ý và cách chăm sóc. Số ngày chỉ là ước lượng chung.',all:'Tất cả',focal:'Hoa chính',filler:'Hoa phụ',green:'Lá',search:'Tìm hoa…',life:'Độ bền gợi ý: {x} ngày',role:{focal:'Hoa chính',filler:'Hoa phụ',green:'Lá'},noRes:'Không tìm thấy.',
+ recH:'Công thức theo dịp',recP:'Chọn dịp và kích thước để nhận gợi ý số cành, bảng màu và cách gói. Đây là gợi ý ước lượng.',occ:'Dịp',size:'Kích thước',another:'Gợi ý khác',recipe:'Công thức',focalL:'Hoa chính',fillerL:'Hoa phụ',greenL:'Lá',stems:'cành',bunches:'bó',pal:'Bảng màu',count:'Số lượng gợi ý',wrapL:'Gói và hoàn thiện',seeLesson:'Xem bài học',
+ quizH:'Kiểm tra nhanh',quizP:'Tám câu hỏi, có giải thích sau mỗi câu.',qStart:'Bắt đầu',qNext:'Câu tiếp',qDone:'Xem kết quả',qAgain:'Làm lại',qOk:'Chính xác!',qNo:'Chưa đúng.',qScore:'Bạn đúng {a}/{b} câu',qOf:'Câu {a}/{b}',
+ fixH:'Gỡ rối thường gặp',fixP:'Những vấn đề phổ biến và cách xử lý.',
+ srcnote:'Nội dung là hướng dẫn chung do mình tổng hợp và diễn giải, có thể khác theo vùng, mùa vụ và nhà cung cấp. Link video là kết quả tìm kiếm YouTube. Trang chỉ mang tính hướng dẫn và giải trí.'},
+en:{back:'← Back to homepage',kick:'The art of flower arranging',sub:'From conditioning flowers to a wedding-style white rose bouquet wrapped in paper. Learn step by step, track your progress and try recipes for every occasion.',cta1:'Start learning',cta2:'Wedding recipe',
+ t_start:'Start',t_prin:'Principles',t_less:'Lessons',t_flow:'Flower library',t_rec:'Recipes',t_quiz:'Quiz',t_fix:'Fixes',
+ prog:'Progress: {a}/{b} lessons',
+ startH:'Start here: tools and conditioning',startP:'Good preparation is half the work. Here are the basic tools and the six conditioning steps before arranging.',tools:'Essential tools',cond:'Six conditioning steps',
+ prinH:'Eight design principles',prinP:'General principles that help bouquets and vase arrangements look harmonious. Treat them as guidelines and stay creative.',
+ lessH:'Seven hands-on lessons',lessP:'Tick steps as you go. When a lesson is finished, mark it complete to count toward your progress.',mat:'Materials',steps:'Steps',tip:'Tip',video:'Find video tutorials (YouTube)',markDone:'Mark complete',undone:'Unmark',min:'min',lv:'Level',lvn:{1:'Easy',2:'Medium',3:'Hard'},safeL:'Sharp tools, wire, foam and candles need care. See Safety notes.',
+ flowH:'Flower library',flowP:'Role, suggested vase life and care. Day counts are general estimates.',all:'All',focal:'Focal',filler:'Filler',green:'Greenery',search:'Search flowers…',life:'Suggested vase life: {x} days',role:{focal:'Focal',filler:'Filler',green:'Greenery'},noRes:'Nothing found.',
+ recH:'Recipes by occasion',recP:'Choose an occasion and size to get suggested stem counts, a palette and wrapping ideas. These are estimates.',occ:'Occasion',size:'Size',another:'Another idea',recipe:'Recipe',focalL:'Focal',fillerL:'Filler',greenL:'Greenery',stems:'stems',bunches:'bunches',pal:'Palette',count:'Suggested counts',wrapL:'Wrap and finish',seeLesson:'See lesson',
+ quizH:'Quick quiz',quizP:'Eight questions with an explanation after each.',qStart:'Start',qNext:'Next',qDone:'See results',qAgain:'Try again',qOk:'Correct!',qNo:'Not quite.',qScore:'You got {a}/{b} right',qOf:'Question {a}/{b}',
+ fixH:'Common fixes',fixP:'Frequent problems and how to handle them.',
+ srcnote:'Content is general guidance compiled and paraphrased by the author and may vary by region, season and supplier. Video links are YouTube searches. This page is for instruction and entertainment only.'}
+};
+var Tm=TERMS,L='vi';
+function t(k,o){var s=T[L][k];if(s==null)s=T.vi[k];if(s==null)s='';if(o&&typeof s==='string')for(var x in o)s=s.split('{'+x+'}').join(o[x]);return s;}
+function V(o){return o[L];}
+function nm(f){return '<span>'+esc(f.n.en)+'</span>'+(L==='vi'?' <span style="color:var(--mute)">('+esc(f.n.vi)+')</span>':'');}
+function lessonName(l){return L==='vi'?l.n.vi:l.n.en;}
+var ST={done:{},steps:{}};
+try{var j=JSON.parse(lsGet('hocCamHoa.v1')||'{}');if(j&&j.done)ST.done=j.done;if(j&&j.steps)ST.steps=j.steps;}catch(e){}
+function saveST(){lsSet('hocCamHoa.v1',JSON.stringify(ST));}
+var tab='start',openL='',flt='all',q='',rec={o:'wedding',s:'M',v:0},qz={started:false,i:0,sel:null,score:0};
+
+function bloom(c,sz){var p='',i;for(i=0;i<8;i++)p+='<ellipse cx="32" cy="17" rx="8.5" ry="14" transform="rotate('+(i*45)+' 32 32)" fill="'+c+'" stroke="rgba(142,111,62,.35)" stroke-width="1"/>';
+  return '<svg viewBox="0 0 64 64" aria-hidden="true">'+p+'<circle cx="32" cy="32" r="6" fill="#B08D57"/></svg>';}
+function seeded(n){var s=n;return function(){s=(s*9301+49297)%233280;return s/233280;};}
+function heroSvg(){
+  var r=seeded(7),o='',i,k;
+  o+='<path d="M180 120 L330 40 L350 190 L270 330 L90 330 L10 190 L30 40 Z" fill="#FFFDF8" stroke="#E6D5B2" stroke-width="2" opacity=".95"/>';
+  for(i=0;i<9;i++){var a=-160+i*40*Math.PI/180*0;}
+  for(i=0;i<10;i++){var ang=(-170+i*20)*Math.PI/180,x=180+Math.cos(ang)*118,y=150+Math.sin(ang)*98;o+='<ellipse cx="'+x.toFixed(1)+'" cy="'+y.toFixed(1)+'" rx="9" ry="22" fill="#A9BBA2" transform="rotate('+(i*20-80)+' '+x.toFixed(1)+' '+y.toFixed(1)+')"/>';}
+  for(i=0;i<150;i++){var ag=r()*Math.PI*2,rad=Math.sqrt(r())*118;o+='<circle cx="'+(180+Math.cos(ag)*rad*1.05).toFixed(1)+'" cy="'+(150+Math.sin(ag)*rad*.9).toFixed(1)+'" r="'+(1.8+r()*2).toFixed(1)+'" fill="#fff" stroke="#EDE3D0" stroke-width=".6"/>';}
+  var pos=[[180,150],[140,120],[220,120],[110,160],[250,160],[150,190],[210,190],[180,105],[132,205],[228,205],[85,125],[275,125],[180,235]];
+  pos.forEach(function(p,n){var rr=n<7?27:21;o+='<g transform="translate('+p[0]+' '+p[1]+')"><circle r="'+rr+'" fill="#FFFDF8" stroke="#E0D2B8" stroke-width="1.5"/><circle r="'+(rr*.7)+'" fill="none" stroke="#E6D8BF" stroke-width="1.5"/><circle r="'+(rr*.4)+'" fill="none" stroke="#E0D2B8" stroke-width="1.5"/><path d="M-'+(rr*.15)+' -'+(rr*.15)+' q'+(rr*.3)+' -'+(rr*.2)+' '+(rr*.3)+' '+(rr*.3)+'" fill="none" stroke="#D5C4A3" stroke-width="1.5"/></g>';});
+  o+='<path d="M150 250 L180 330 L210 250 Z" fill="#EFE3CC"/><path d="M180 262 C120 275 100 320 120 346 C150 330 168 300 180 270 Z M180 262 C240 275 260 320 240 346 C210 330 192 300 180 270 Z" fill="#E6D5B2" stroke="#B08D57" stroke-width="2"/><circle cx="180" cy="266" r="9" fill="#B08D57"/>';
+  return '<svg viewBox="0 0 360 360" role="img" aria-label="">'+o+'</svg>';
+}
+
+/* ---------- render ---------- */
+var TABS=['start','prin','less','flow','rec','quiz','fix'];
+function renderTabs(){$('#tabs').innerHTML=TABS.map(function(k){return '<button class="tab" type="button" role="tab" data-tab="'+k+'" aria-selected="'+(k===tab)+'">'+t('t_'+k)+'</button>';}).join('');}
+function doneCount(){var n=0;LESS.forEach(function(l){if(ST.done[l.id])n++;});return n;}
+function renderProg(){var a=doneCount(),b=LESS.length;$('#progt').textContent=t('prog',{a:a,b:b});$('#progb').style.width=Math.round(a/b*100)+'%';}
+function view(){
+  var h='';
+  if(tab==='start'){
+    h='<h2>'+t('startH')+'</h2><p class="help">'+t('startP')+'</p><div class="sec" style="margin-top:6px"><h3>'+t('tools')+'</h3><div class="grid">'+TOOLS.map(function(x){return '<div class="card"><div class="em">'+x.e+'</div><h3>'+esc(V(x.n))+'</h3><p>'+esc(V(x.d))+'</p></div>';}).join('')+'</div></div>'+
+      '<div class="sec"><h3>'+t('cond')+'</h3><ol class="st">'+COND.map(function(x){return '<li><span>'+esc(V(x))+'</span></li>';}).join('')+'</ol></div>';
+  }else if(tab==='prin'){
+    h='<h2>'+t('prinH')+'</h2><p class="help">'+t('prinP')+'</p><div class="grid">'+PRIN.map(function(x){return '<div class="card"><div class="em">'+x.e+'</div><h3>'+esc(V(x.n))+'</h3><p>'+esc(V(x.d))+'</p></div>';}).join('')+'</div>';
+  }else if(tab==='less'){
+    h='<h2>'+t('lessH')+'</h2><p class="help">'+t('lessP')+'</p>'+LESS.map(function(l,i){var o=openL===l.id,d=!!ST.done[l.id],sd=ST.steps[l.id]||{};
+      var body='';if(o){body='<div class="lb"><p style="margin:14px 0 0;color:var(--mute)">'+esc(V(l.d))+'</p><div class="cols"><div><p class="lbl">'+t('mat')+'</p><ul class="mat">'+l.m.map(function(m){return '<li><label><span>'+esc(V(m))+'</span></label></li>';}).join('')+'</ul></div><div><p class="lbl">'+t('steps')+'</p><ol class="st">'+l.s.map(function(s,k){var c=!!sd[k];return '<li><label><input type="checkbox" data-step="'+l.id+':'+k+'"'+(c?' checked':'')+'><span class="'+(c?'checked':'')+'">'+esc(V(s))+'</span></label></li>';}).join('')+'</ol></div></div>'+
+        '<div class="tip"><b>'+t('tip')+':</b> '+esc(V(l.t))+'</div><div class="warn">'+esc(t('safeL'))+'</div>'+
+        '<div class="row"><button class="btn gold sm" type="button" data-done="'+l.id+'">'+(d?t('undone'):'✓ '+t('markDone'))+'</button><a class="btn ghost sm" target="_blank" rel="noopener" href="https://www.youtube.com/results?search_query='+encodeURIComponent(l.q)+'">▶ '+t('video')+'</a></div></div>';}
+      return '<div class="lesson'+(d?' done':'')+'"><button class="lh" type="button" data-open="'+l.id+'" aria-expanded="'+o+'"><span class="no">'+(d?'✓':(i+1))+'</span><span><h3>'+nm(l)+'</h3><small>'+t('lv')+': '+t('lvn')[l.lv]+' · ≈ '+l.min+' '+t('min')+'</small></span><span class="ch">'+(o?'▲':'▼')+'</span></button>'+body+'</div>';}).join('');
+  }else if(tab==='flow'){
+    var list=FLW.filter(function(f){return(flt==='all'||f.role===flt)&&(!q||fold(f.n.en+' '+f.n.vi).indexOf(fold(q))>=0);});
+    h='<h2>'+t('flowH')+'</h2><p class="help">'+t('flowP')+'</p><div class="chips">'+['all','focal','filler','green'].map(function(k){return '<button class="chip" type="button" data-flt="'+k+'" aria-pressed="'+(flt===k)+'">'+t(k)+'</button>';}).join('')+'</div><input class="in" id="fq" type="search" placeholder="'+esc(t('search'))+'" value="'+esc(q)+'" style="margin-bottom:16px" aria-label="'+esc(t('search'))+'">'+
+      (list.length?'<div class="grid">'+list.map(function(f){return '<div class="card"><div class="fl">'+bloom(f.c)+'<div><h3>'+nm(f)+'</h3><div class="meta"><span class="badge">'+esc(t('role')[f.role])+'</span><span class="badge">'+esc(t('life',{x:f.life}))+'</span></div></div></div><p style="margin-top:10px"><b style="color:var(--ink)">'+esc(V(f.t))+'</b></p><p style="margin-top:6px">'+esc(V(f.care))+'</p></div>';}).join('')+'</div>':'<p class="help">'+t('noRes')+'</p>');
+  }else if(tab==='rec'){
+    var oc=OCC.filter(function(x){return x.id===rec.o;})[0],vr=oc.v[rec.v%oc.v.length],sz=SIZES.filter(function(x){return x.id===rec.s;})[0];
+    function fn(id){return FLW.filter(function(f){return f.id===id;})[0];}
+    var ff=fn(vr.f),fi=fn(vr.fi),fg=fn(vr.g);
+    h='<h2>'+t('recH')+'</h2><p class="help">'+t('recP')+'</p><p class="lbl">'+t('occ')+'</p><div class="chips">'+OCC.map(function(x){return '<button class="chip" type="button" data-occ="'+x.id+'" aria-pressed="'+(rec.o===x.id)+'">'+x.e+' '+esc(V(x.n))+'</button>';}).join('')+'</div><p class="lbl">'+t('size')+'</p><div class="chips">'+SIZES.map(function(x){return '<button class="chip" type="button" data-size="'+x.id+'" aria-pressed="'+(rec.s===x.id)+'">'+esc(V(x.n))+' · '+esc(V(x.dim))+'</button>';}).join('')+'</div>'+
+      '<div class="card" style="margin-top:8px"><p class="lbl">'+t('recipe')+'</p><h3 style="font-size:28px">'+esc(V(vr.n))+'</h3><p class="lbl" style="margin-top:12px">'+t('pal')+'</p><div class="swatches">'+vr.p.map(function(c){return '<i style="background:'+c+'" title="'+c+'"></i>';}).join('')+'</div><p class="lbl">'+t('count')+'</p><div class="tw"><table class="t"><tr><th></th><th>'+t('count')+'</th></tr>'+
+      '<tr><td>'+t('focalL')+': '+nm(ff)+'</td><td>'+sz.f+' '+t('stems')+'</td></tr><tr><td>'+t('fillerL')+': '+nm(fi)+'</td><td>'+sz.fi+' '+t('bunches')+'</td></tr><tr><td>'+t('greenL')+': '+nm(fg)+'</td><td>'+sz.g+' '+t('stems')+'</td></tr></table></div>'+
+      '<p class="lbl">'+t('wrapL')+'</p><p>'+esc(V(vr.x))+'</p><div class="row"><button class="btn sm" type="button" id="recnext">'+t('another')+'</button><button class="btn ghost sm" type="button" data-goless="'+(rec.o==='wedding'?'wrapped':'spiral')+'">'+t('seeLesson')+'</button></div></div>';
+  }else if(tab==='quiz'){
+    h='<h2>'+t('quizH')+'</h2><p class="help">'+t('quizP')+'</p>';
+    if(!qz.started)h+='<div class="row"><button class="btn gold" type="button" id="qgo">'+t('qStart')+'</button></div>';
+    else if(qz.i>=QZ.length)h+='<div class="scorebig">'+t('qScore',{a:qz.score,b:QZ.length})+'</div><div class="row" style="justify-content:center"><button class="btn gold" type="button" id="qgo">'+t('qAgain')+'</button></div>';
+    else{var c=QZ[qz.i];h+='<p class="lbl">'+t('qOf',{a:qz.i+1,b:QZ.length})+'</p><h3 style="font-size:26px">'+esc(V(c.q))+'</h3><div class="opts">'+c.o.map(function(o,i){var cl='opt';if(qz.sel!==null){if(i===c.a)cl+=' right';else if(i===qz.sel)cl+=' wrong';}return '<button class="'+cl+'" type="button" data-q="'+i+'"'+(qz.sel!==null?' disabled':'')+'>'+esc(V(o))+'</button>';}).join('')+'</div>';
+      if(qz.sel!==null)h+='<div class="fb" aria-live="polite"><b>'+(qz.sel===c.a?t('qOk'):t('qNo'))+'</b><p style="margin:6px 0 0">'+esc(V(c.x))+'</p></div><div class="row"><button class="btn sm" type="button" id="qnext">'+(qz.i>=QZ.length-1?t('qDone'):t('qNext'))+'</button></div>';}
+  }else{
+    h='<h2>'+t('fixH')+'</h2><p class="help">'+t('fixP')+'</p>'+FIX.map(function(f){return '<details class="fx"><summary>'+esc(V(f.n))+'</summary><p>'+esc(V(f.d))+'</p></details>';}).join('');
+  }
+  $('#panel').innerHTML=h;
+}
+$('#tabs').addEventListener('click',function(e){var b=e.target.closest('[data-tab]');if(!b)return;tab=b.dataset.tab;renderTabs();view();});
+$('#panel').addEventListener('click',function(e){var b;
+  if(b=e.target.closest('[data-open]')){openL=openL===b.dataset.open?'':b.dataset.open;view();return;}
+  if(b=e.target.closest('[data-done]')){var id=b.dataset.done;if(ST.done[id])delete ST.done[id];else ST.done[id]=true;saveST();renderProg();view();return;}
+  if(b=e.target.closest('[data-flt]')){flt=b.dataset.flt;view();return;}
+  if(b=e.target.closest('[data-occ]')){rec.o=b.dataset.occ;rec.v=0;view();return;}
+  if(b=e.target.closest('[data-size]')){rec.s=b.dataset.size;view();return;}
+  if(e.target.closest('#recnext')){rec.v++;view();return;}
+  if(b=e.target.closest('[data-goless]')){tab='less';openL=b.dataset.goless;renderTabs();view();return;}
+  if(e.target.closest('#qgo')){qz={started:true,i:0,sel:null,score:0};view();return;}
+  if(b=e.target.closest('[data-q]')){if(qz.sel===null){qz.sel=+b.dataset.q;if(qz.sel===QZ[qz.i].a)qz.score++;view();}return;}
+  if(e.target.closest('#qnext')){qz.i++;qz.sel=null;view();}
+});
+$('#panel').addEventListener('change',function(e){var c=e.target.closest('[data-step]');if(!c)return;var p=c.dataset.step.split(':');ST.steps[p[0]]=ST.steps[p[0]]||{};if(c.checked)ST.steps[p[0]][p[1]]=true;else delete ST.steps[p[0]][p[1]];saveST();c.nextElementSibling.className=c.checked?'checked':'';});
+$('#panel').addEventListener('input',function(e){if(e.target.id==='fq'){q=e.target.value;var pos=e.target.selectionStart;view();var n=$('#fq');if(n){n.focus();try{n.setSelectionRange(pos,pos);}catch(x){}}}});
+
+/* terms */
+function renderTerms(){var d=Tm[L];$('#termsh').textContent=d.title;$('#tbody').innerHTML='<p><em>'+esc(d.upd)+'</em></p><p style="margin-top:8px">'+esc(d.intro)+'</p>'+d.s.map(function(s){return '<h3>'+esc(s[0])+'</h3><p>'+esc(s[1])+'</p>';}).join('');$('#tclose').setAttribute('aria-label',d.close);}
+var lastF=null;
+function openTerms(){lastF=document.activeElement;renderTerms();$('#terms').hidden=false;$('#tclose').focus();}
+function closeTerms(){$('#terms').hidden=true;if(lastF&&lastF.focus)try{lastF.focus();}catch(e){}}
+$('#safelink').onclick=openTerms;$('#footterms').onclick=openTerms;$('#tclose').onclick=closeTerms;
+document.addEventListener('keydown',function(e){if(e.key==='Escape'&&!$('#terms').hidden)closeTerms();});
+$('#terms').addEventListener('click',function(e){if(e.target===$('#terms'))closeTerms();});
+
+/* language */
+function applyStatic(){
+  $$('[data-i]').forEach(function(el){el.textContent=t(el.dataset.i);});
+  $('#h1').innerHTML=L==='vi'?'Học <em>cắm hoa</em> sang trọng':'Learn the art of <em>flower arranging</em>';
+  $('#ctastart').textContent=t('cta1');$('#ctawed').textContent=t('cta2');
+  $('#safetxt').textContent=Tm[L].safe;$('#safelink').textContent=Tm[L].footT;$('#footterms').textContent=Tm[L].footT;
+  $('#srcnote').textContent=t('srcnote');$('#yr').textContent=new Date().getFullYear();
+  $$('.lang button').forEach(function(b){b.setAttribute('aria-pressed',String(b.dataset.l===L));});
+  document.documentElement.lang=L;
+}
+function setLang(l,fromHash){
+  if(l!=='vi'&&l!=='en')return;L=l;lsSet('hocCamHoa.lang',l);
+  if(!fromHash){try{history.replaceState(null,'','#'+l);}catch(e){location.hash=l;}}
+  applyStatic();renderTabs();renderProg();view();if(!$('#terms').hidden)renderTerms();
+}
+$$('.lang button').forEach(function(b){b.onclick=function(){setLang(b.dataset.l);};});
+window.addEventListener('hashchange',function(){var h=location.hash.slice(1);if((h==='vi'||h==='en')&&h!==L)setLang(h,true);});
+$('#ctastart').onclick=function(){tab='less';openL='spiral';renderTabs();view();$('#tabs').scrollIntoView({behavior:'smooth',block:'start'});};
+$('#ctawed').onclick=function(){tab='rec';rec.o='wedding';rec.v=0;renderTabs();view();$('#tabs').scrollIntoView({behavior:'smooth',block:'start'});};
+(function(){var h=location.hash.slice(1),l='vi';if(h==='en'||h==='vi')l=h;else{var s=lsGet('hocCamHoa.lang');if(s==='en'||s==='vi')l=s;else if((navigator.language||'').toLowerCase().indexOf('vi')!==0)l='en';}
+  L=l;$('#art').innerHTML=heroSvg();applyStatic();renderTabs();renderProg();view();})();
+})();
+</script>
+
+</body></html>
