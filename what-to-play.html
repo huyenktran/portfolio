@@ -1,0 +1,1597 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Hôm Nay Chơi Game Gì? · Global Game Hub · Alessandra Tran</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,700;1,500&family=Quicksand:wght@400;500;600;700&display=swap">
+<style>
+:root {
+  color-scheme: light;
+  --bg-pink: #fff4f6;
+  --surface: #ffffff;
+  --surface-alt: #fbebee;
+  --ink: #221c1f;
+  --muted: #6e5b62;
+  --border: #f0ccd5;
+  --deep-green: #1a4d36;
+  --deep-green-hover: #123827;
+  --rose: #d94f7d;
+  --rose-dark: #b83762;
+  --shadow: 0 10px 30px rgba(26, 77, 54, 0.07);
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  background-color: var(--bg-pink);
+  background-image: radial-gradient(#edd3dc 1.2px, transparent 1.2px);
+  background-size: 26px 26px;
+  color: var(--ink);
+  font-family: 'Quicksand', system-ui, sans-serif;
+  line-height: 1.65;
+  padding-bottom: 80px;
+}
+
+a { color: inherit; text-decoration: none; transition: all 0.25s ease; }
+
+.wrap { max-width: 1280px; margin: 0 auto; padding: 0 4vw; }
+
+/* HEADER & NAV */
+header {
+  background: linear-gradient(180deg, #fce4e8 0%, rgba(255, 244, 246, 0.95) 100%);
+  border-bottom: 1.5px solid var(--border);
+  padding: 26px 0 36px;
+  margin-bottom: 28px;
+  box-shadow: 0 4px 20px rgba(26,77,54,0.04);
+}
+
+.top-nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+.nav-left, .nav-right { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
+
+.nav-pill {
+  display: inline-flex; align-items: center; gap: 8px; padding: 8px 18px; border-radius: 99px; background: var(--surface); border: 1.5px solid var(--border); font-size: 13.5px; font-weight: 700; color: var(--deep-green); box-shadow: 0 4px 12px rgba(26,77,54,0.05);
+}
+.nav-pill:hover { border-color: var(--deep-green); background: var(--deep-green); color: #fff; }
+
+.lang-switch {
+  display: inline-flex; background: var(--surface); border: 1.5px solid var(--border); border-radius: 99px; padding: 3px; box-shadow: 0 4px 12px rgba(26,77,54,0.06);
+}
+.lang-switch button {
+  border: none; background: transparent; font: 700 12.5px 'Quicksand', sans-serif; color: var(--muted); padding: 6px 16px; border-radius: 99px; cursor: pointer; transition: all 0.2s ease;
+}
+.lang-switch button.active { background: var(--deep-green); color: #fff; }
+
+.hero-title {
+  text-align: center;
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(30px, 5vw, 46px);
+  font-weight: 700;
+  color: var(--deep-green);
+  margin-bottom: 8px;
+}
+.hero-sub {
+  text-align: center;
+  color: var(--muted);
+  font-size: 15px;
+  max-width: 720px;
+  margin: 0 auto;
+}
+
+/* MAIN VIEW TABS (Random Picker vs Directory) */
+.view-tabs {
+  display: flex;
+  justify-content: center;
+  gap: 14px;
+  margin-bottom: 32px;
+}
+
+.view-tab-btn {
+  padding: 12px 28px;
+  border-radius: 99px;
+  border: 2px solid var(--border);
+  background: var(--surface);
+  color: var(--deep-green);
+  font: 700 15px 'Quicksand', sans-serif;
+  cursor: pointer;
+  box-shadow: 0 4px 14px rgba(26,77,54,0.06);
+  transition: all 0.25s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.view-tab-btn.active, .view-tab-btn:hover {
+  background: var(--deep-green);
+  color: #fff;
+  border-color: var(--deep-green);
+  transform: translateY(-2px);
+}
+
+/* SECTIONS */
+.tab-section { display: none; }
+.tab-section.active { display: block; animation: fadeIn 0.35s ease; }
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* RANDOM PICKER PANEL */
+.picker-card {
+  background: var(--surface);
+  border: 1.5px solid var(--border);
+  border-radius: 26px;
+  padding: 32px;
+  box-shadow: var(--shadow);
+  max-width: 920px;
+  margin: 0 auto 36px;
+}
+
+.filter-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  margin-bottom: 22px;
+}
+
+@media(max-width: 768px) {
+  .filter-grid { grid-template-columns: 1fr; }
+}
+
+label { display: block; font-size: 13px; font-weight: 700; color: var(--deep-green); margin-bottom: 6px; }
+select, input[type="text"] {
+  width: 100%; background: var(--bg-pink); border: 1.5px solid var(--border); border-radius: 12px; padding: 11px 14px; font: 600 14px 'Quicksand', sans-serif; color: var(--ink); outline: none; transition: border-color 0.2s;
+}
+select:focus, input[type="text"]:focus { border-color: var(--deep-green); background: #fff; }
+
+.btn-primary {
+  display: inline-flex; justify-content: center; align-items: center; gap: 8px; width: 100%; background: var(--deep-green); color: #fff; border: none; border-radius: 14px; padding: 14px 24px; font: 700 16px 'Quicksand', sans-serif; cursor: pointer; box-shadow: 0 8px 22px rgba(26,77,54,0.22); transition: transform 0.2s, background 0.2s;
+}
+.btn-primary:hover { background: var(--deep-green-hover); transform: translateY(-2px); }
+
+/* FEATURED GAME RESULT CARD */
+.featured-game-box {
+  margin-top: 28px;
+  background: var(--surface-alt);
+  border: 2px solid var(--deep-green);
+  border-radius: 22px;
+  padding: 28px;
+  display: none;
+  animation: fadeIn 0.4s ease;
+}
+
+.fg-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  gap: 12px;
+  border-bottom: 1.5px dashed var(--border);
+  padding-bottom: 16px;
+  margin-bottom: 18px;
+}
+
+.fg-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 26px;
+  color: var(--deep-green);
+  font-weight: 700;
+}
+
+.fg-badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.badge {
+  font-size: 12px;
+  font-weight: 700;
+  padding: 4px 12px;
+  border-radius: 99px;
+}
+.badge-players { background: var(--deep-green); color: #fff; }
+.badge-genre { background: #ffe0e9; color: var(--rose-dark); }
+.badge-origin { background: #e8f5e9; color: #2e7d32; border: 1px solid #c8e6c9; }
+
+.fg-section { margin-bottom: 16px; }
+.fg-section h4 { font-size: 14.5px; font-weight: 700; color: var(--deep-green); margin-bottom: 6px; display: flex; align-items: center; gap: 6px; }
+.fg-section p, .fg-section ul { font-size: 14.5px; color: var(--ink); }
+.fg-section ul { padding-left: 20px; }
+.fg-section li { margin-bottom: 5px; }
+
+/* DIRECTORY SECTION (FILTER BAR & 2-COLUMN CARDS) */
+.dir-controls {
+  background: var(--surface);
+  border: 1.5px solid var(--border);
+  border-radius: 20px;
+  padding: 20px;
+  margin-bottom: 24px;
+  box-shadow: var(--shadow);
+}
+
+.dir-search-row {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr;
+  gap: 14px;
+}
+
+@media(max-width: 820px) {
+  .dir-search-row { grid-template-columns: 1fr; }
+}
+
+.games-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 22px;
+}
+
+@media(max-width: 860px) {
+  .games-grid { grid-template-columns: 1fr; }
+}
+
+.game-card {
+  background: var(--surface);
+  border: 1.5px solid var(--border);
+  border-radius: 22px;
+  padding: 24px;
+  box-shadow: var(--shadow);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: transform 0.2s, border-color 0.2s;
+}
+
+.game-card:hover {
+  transform: translateY(-3px);
+  border-color: var(--deep-green);
+}
+
+.game-card h3 {
+  font-family: 'Playfair Display', serif;
+  font-size: 20px;
+  color: var(--deep-green);
+  margin: 10px 0 8px;
+}
+
+.game-card p.short-desc {
+  font-size: 13.8px;
+  color: var(--muted);
+  margin-bottom: 16px;
+}
+
+.btn-outline {
+  background: var(--surface-alt);
+  color: var(--deep-green);
+  border: 1.5px solid var(--border);
+  border-radius: 12px;
+  padding: 9px 16px;
+  font: 700 13.5px 'Quicksand', sans-serif;
+  cursor: pointer;
+  width: 100%;
+  transition: all 0.2s;
+}
+.btn-outline:hover {
+  background: var(--deep-green);
+  color: #fff;
+  border-color: var(--deep-green);
+}
+
+/* MODAL FOR FULL INSTRUCTIONS */
+.modal-overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(34, 28, 31, 0.55);
+  backdrop-filter: blur(4px);
+  z-index: 999;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+.modal-overlay.open { display: flex; animation: fadeIn 0.25s ease; }
+
+.modal-box {
+  background: var(--surface);
+  border: 2px solid var(--deep-green);
+  border-radius: 26px;
+  max-width: 680px;
+  width: 100%;
+  max-height: 88vh;
+  overflow-y: auto;
+  padding: 30px;
+  position: relative;
+  box-shadow: 0 20px 50px rgba(0,0,0,0.2);
+}
+
+.modal-close {
+  position: absolute;
+  top: 20px;
+  right: 22px;
+  background: var(--surface-alt);
+  border: 1.5px solid var(--border);
+  color: var(--deep-green);
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  font-size: 20px;
+  font-weight: 700;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.modal-close:hover { background: var(--deep-green); color: #fff; }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap">
+    <nav class="top-nav">
+      <div class="nav-left">
+        <a class="nav-pill" href="/" data-i18n="nav_home">← Trang chủ</a>
+        <a class="nav-pill" href="/projects" data-i18n="nav_hub">✨ Subdomain Hub</a>
+      </div>
+      <div class="nav-right">
+        <div class="lang-switch" role="group" aria-label="Language switcher">
+          <button type="button" id="btn-vi" class="active" onclick="setLang('vi')">VI</button>
+          <button type="button" id="btn-en" onclick="setLang('en')">EN</button>
+        </div>
+      </div>
+    </nav>
+    <h1 class="hero-title" data-i18n="hero_title">🎲 Hôm Nay Chơi Game Gì?</h1>
+    <p class="hero-sub" data-i18n="hero_sub">Kho tàng trò chơi gắn kết, phá băng, boardgame &amp; hoạt động nhóm từ khắp thế giới — phân loại theo số người chơi và thể loại kèm luật chơi chi tiết.</p>
+  </div>
+</header>
+
+<main class="wrap">
+  <!-- NAVIGATION TABS -->
+  <div class="view-tabs">
+    <button class="view-tab-btn active" onclick="switchView('picker', this)" data-i18n="tab_picker">🎯 Gợi Ý Ngẫu Nhiên</button>
+    <button class="view-tab-btn" onclick="switchView('directory', this)" data-i18n="tab_directory">📚 Danh Sách Toàn Bộ Game (<span id="totalGameCount">0</span>)</button>
+  </div>
+
+  <!-- TAB 1: RANDOM GAME PICKER -->
+  <section id="view-picker" class="tab-section active">
+    <div class="picker-card">
+      <div class="filter-grid">
+        <div>
+          <label data-i18n="lbl_players">👥 Số lượng người chơi</label>
+          <select id="pickPlayers">
+            <option value="all" data-i18n="opt_p_all">Tất cả số lượng người</option>
+            <option value="1" data-i18n="opt_p_1">1 người (Solo / Tự thử thách)</option>
+            <option value="2" data-i18n="opt_p_2">2 người (Cặp đôi / Đối kháng 1v1)</option>
+            <option value="3" data-i18n="opt_p_3">3 người (Nhóm nhỏ 3 người)</option>
+            <option value="4" data-i18n="opt_p_4">4 người (Tứ quý / Chia 2 đội)</option>
+            <option value="5+" data-i18n="opt_p_5">5+ người trở lên (Tiệc tùng / Đám đông)</option>
+          </select>
+        </div>
+        <div>
+          <label data-i18n="lbl_genre">🎭 Thể loại (Genre / Category)</label>
+          <select id="pickGenre">
+            <option value="all" data-i18n="opt_g_all">Tất cả thể loại</option>
+            <option value="icebreaker" data-i18n="opt_g_ice">🧊 Icebreakers &amp; Phá băng làm quen</option>
+            <option value="drawing" data-i18n="opt_g_draw">🎨 Vẽ vời &amp; Đoán chữ (Drawing &amp; Guessing)</option>
+            <option value="party" data-i18n="opt_g_party">🎉 Tiệc tùng &amp; Nhập vai (Active &amp; Party)</option>
+            <option value="teambuilding" data-i18n="opt_g_team">🤝 Team Building &amp; Thử thách trí tuệ</option>
+            <option value="outdoor" data-i18n="opt_g_out">🌳 Vận động ngoài trời (Outdoor &amp; Active)</option>
+            <option value="virtual" data-i18n="opt_g_virt">💻 Chơi Online / Từ xa (Virtual Games)</option>
+            <option value="classic" data-i18n="opt_g_clas">♟️ Cờ &amp; Trò chơi truyền thống thế giới</option>
+          </select>
+        </div>
+        <div>
+          <label data-i18n="lbl_props">🎒 Dụng cụ chuẩn bị</label>
+          <select id="pickProps">
+            <option value="all" data-i18n="opt_pr_all">Bất kỳ (Có hoặc không dụng cụ)</option>
+            <option value="none" data-i18n="opt_pr_none">✨ Không cần dụng cụ (Zero-Prep)</option>
+            <option value="simple" data-i18n="opt_pr_simp">📝 Dụng cụ đơn giản (Giấy, bút, băng keo...)</option>
+          </select>
+        </div>
+      </div>
+
+      <button class="btn-primary" onclick="pickRandomGame()" data-i18n="btn_pick">🎲 Chọn Game Ngẫu Nhiên Ngay!</button>
+
+      <!-- FEATURED RESULT WITH FULL INSTRUCTIONS -->
+      <div class="featured-game-box" id="featuredGameBox">
+        <div class="fg-header">
+          <div>
+            <div style="font-size:12.5px; font-weight:700; color:var(--rose-dark); text-transform:uppercase; letter-spacing:0.5px; margin-bottom:4px;" data-i18n="res_tag">✨ Trò chơi dành cho bạn hôm nay</div>
+            <h2 class="fg-title" id="fgTitle">--</h2>
+          </div>
+          <div class="fg-badges" id="fgBadges"></div>
+        </div>
+
+        <div class="fg-section">
+          <h4 data-i18n="sec_overview">📌 Giới thiệu tổng quan</h4>
+          <p id="fgOverview">--</p>
+        </div>
+
+        <div class="fg-section">
+          <h4 data-i18n="sec_prep">🎒 Chuẩn bị dụng cụ</h4>
+          <p id="fgPrep">--</p>
+        </div>
+
+        <div class="fg-section">
+          <h4 data-i18n="sec_rules">📖 Hướng dẫn cách chơi chi tiết</h4>
+          <ul id="fgRules"></ul>
+        </div>
+
+        <div class="fg-section" style="background:#fff; padding:14px; border-radius:14px; border:1px solid var(--border); margin-bottom:0;">
+          <h4 data-i18n="sec_tips">💡 Mẹo khuấy động không khí</h4>
+          <p id="fgTips" style="font-size:13.5px; color:var(--muted);">--</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TAB 2: FULL GAME DIRECTORY -->
+  <section id="view-directory" class="tab-section">
+    <div class="dir-controls">
+      <div class="dir-search-row">
+        <div>
+          <label data-i18n="dir_search_lbl">🔍 Tìm kiếm tên game hoặc từ khóa</label>
+          <input type="text" id="dirSearchInput" oninput="renderDirectory()" placeholder="Ví dụ: Mafia, Sticky Beak, Cờ vây, 2 người...">
+        </div>
+        <div>
+          <label data-i18n="lbl_players">👥 Số người chơi</label>
+          <select id="dirPlayerFilter" onchange="renderDirectory()">
+            <option value="all" data-i18n="opt_p_all">Tất cả số lượng người</option>
+            <option value="1" data-i18n="opt_p_1">1 người (Solo)</option>
+            <option value="2" data-i18n="opt_p_2">2 người</option>
+            <option value="3" data-i18n="opt_p_3">3 người</option>
+            <option value="4" data-i18n="opt_p_4">4 người</option>
+            <option value="5+" data-i18n="opt_p_5">5+ người trở lên</option>
+          </select>
+        </div>
+        <div>
+          <label data-i18n="lbl_genre">🎭 Thể loại</label>
+          <select id="dirGenreFilter" onchange="renderDirectory()">
+            <option value="all" data-i18n="opt_g_all">Tất cả thể loại</option>
+            <option value="icebreaker" data-i18n="opt_g_ice">🧊 Icebreakers &amp; Phá băng</option>
+            <option value="drawing" data-i18n="opt_g_draw">🎨 Vẽ &amp; Đoán chữ</option>
+            <option value="party" data-i18n="opt_g_party">🎉 Tiệc tùng &amp; Nhập vai</option>
+            <option value="teambuilding" data-i18n="opt_g_team">🤝 Team Building &amp; Trí tuệ</option>
+            <option value="outdoor" data-i18n="opt_g_out">🌳 Vận động ngoài trời</option>
+            <option value="virtual" data-i18n="opt_g_virt">💻 Chơi Online / Từ xa</option>
+            <option value="classic" data-i18n="opt_g_clas">♟️ Cờ &amp; Trò chơi truyền thống</option>
+          </select>
+        </div>
+      </div>
+    </div>
+
+    <div class="games-grid" id="directoryGrid"></div>
+  </section>
+</main>
+
+<!-- MODAL FOR GAME DETAILS -->
+<div class="modal-overlay" id="gameModal" onclick="closeModal(event)">
+  <div class="modal-box" onclick="event.stopPropagation()">
+    <button class="modal-close" onclick="closeModalDirect()">×</button>
+    <div id="modalContent"></div>
+  </div>
+</div>
+
+<script>
+// COMPREHENSIVE WORLDWIDE GAME DATABASE (BILINGUAL VI / EN)
+const gamesDB = [
+  // --- ICEBREAKERS & QUICK WARM-UPS ---
+  {
+    id: "sticky-beak",
+    players: ["4", "5+"],
+    genre: "icebreaker",
+    props: "simple",
+    origin: { vi: "Quốc tế (Playmeo)", en: "International (Playmeo)" },
+    title: { vi: "Sticky Beak (Chiếc Mũi Dính Băng Keo)", en: "Sticky Beak" },
+    playersLabel: { vi: "4 - 30+ người", en: "4 - 30+ Players" },
+    overview: {
+      vi: "Trò chơi phá băng siêu hài hước khiến cả phòng phải bật cười và di chuyển liên tục để 'thu thập' băng keo bằng mũi.",
+      en: "A hilarious, fast-paced icebreaker that gets everyone moving and laughing as they try to collect masking tape loops using only their noses."
+    },
+    prep: {
+      vi: "Mỗi người 1 vòng băng keo giấy (masking tape) dài khoảng 15-20 cm dán dính mặt keo ra ngoài.",
+      en: "One loop of masking tape (about 6–8 inches / 15–20 cm long) per person, sticky side out."
+    },
+    rules: {
+      vi: [
+        "Mỗi người dán vòng băng keo lên đầu chóp mũi của mình.",
+        "Khi có hiệu lệnh bắt đầu, mọi người đi quanh phòng và tìm cách chạm đầu mũi vào vòng băng keo của người khác.",
+        "Hai chiếc mũi chạm nhau: ai làm dính được vòng băng keo của đối phương sang mũi mình sẽ giành chiến thắng lượt đó.",
+        "Người bị mất băng keo bị loại (hoặc cổ vũ). Trò chơi tiếp tục cho đến khi 1 người thu thập được tất cả băng keo trên mũi!"
+      ],
+      en: [
+        "Each player places a sticky loop of masking tape on the tip of their nose.",
+        "On 'Go!', players mingle around the room and try to touch their nose tape to another person's nose tape.",
+        "When two tape loops touch, one loop will stick to the other—whoever keeps both loops wins the duel.",
+        "The game continues until one ultimate champion ends up with every single loop of tape stuck to their nose!"
+      ]
+    },
+    tips: {
+      vi: "Không được dùng tay chạm vào mũi hay băng keo. Hãy bật nhạc nền sôi động để tăng độ kịch tính!",
+      en: "No hands allowed! Play upbeat background music to raise the energy during the final showdown."
+    }
+  },
+  {
+    id: "two-truths-lie",
+    players: ["2", "3", "4", "5+"],
+    genre: "icebreaker",
+    props: "none",
+    origin: { vi: "Quốc tế", en: "Global Classic" },
+    title: { vi: "Two Truths and a Lie (Hai Thật Một Giả)", en: "Two Truths and a Lie" },
+    playersLabel: { vi: "2 - 20+ người", en: "2 - 20+ Players" },
+    overview: {
+      vi: "Trò chơi kinh điển giúp mọi người khám phá những bí mật thú vị về nhau mà không cần bất kỳ dụng cụ nào.",
+      en: "A timeless zero-prep icebreaker that reveals surprising stories and fun facts about friends, coworkers, or strangers."
+    },
+    prep: {
+      vi: "Không cần dụng cụ (Zero-prep).",
+      en: "No props or equipment needed."
+    },
+    rules: {
+      vi: [
+        "Mỗi người lần lượt chia sẻ 3 câu khẳng định về bản thân: trong đó có 2 sự thật và 1 lời nói dối.",
+        "Các thành viên còn lại đặt câu hỏi chất vấn nhanh trong 30 giây để dò xét biểu cảm.",
+        "Mọi người cùng biểu quyết đâu là câu nói dối.",
+        "Người kể công bố đáp án và chia sẻ câu chuyện đằng sau 2 sự thật đó."
+      ],
+      en: [
+        "Each player takes turns stating three facts about themselves: two must be true and one must be completely made up.",
+        "The group gets 30 seconds to ask quick questions and read body language.",
+        "Everyone votes on which statement they believe is the lie.",
+        "The speaker reveals the lie and shares the real story behind the two truths."
+      ]
+    },
+    tips: {
+      vi: "Hãy kể những sự thật nghe có vẻ vô lý nhất và lời nói dối nghe thật bình thường để đánh lừa mọi người.",
+      en: "Make your truths sound unbelievable and your lie sound mundane to throw everyone off!"
+    }
+  },
+  {
+    id: "air-names",
+    players: ["2", "3", "4", "5+"],
+    genre: "icebreaker",
+    props: "none",
+    origin: { vi: "Úc / Quốc tế (Playmeo)", en: "Australia / Global (Playmeo)" },
+    title: { vi: "Air Names (Viết Tên Trong Không Khí)", en: "Air Names" },
+    playersLabel: { vi: "2 - 30+ người", en: "2 - 30+ Players" },
+    overview: {
+      vi: "Trò chơi khởi động cơ thể cực vui nhộn, có thể chơi trực tiếp hoặc qua màn hình Zoom/Google Meet.",
+      en: "A silly physical warm-up that works brilliantly both in-person and over virtual video calls."
+    },
+    prep: {
+      vi: "Không cần dụng cụ.",
+      en: "No supplies required."
+    },
+    rules: {
+      vi: [
+        "Yêu cầu mọi người dùng ngón trỏ viết tên mình thật to trong không khí.",
+        "Vòng 2: Viết tên hoặc từ khóa bí mật bằng... khuỷu tay!",
+        "Vòng 3: Viết bằng bàn chân hoặc bằng chóp mũi trong khi những người khác đoán xem chữ gì đang được viết.",
+        "Ai đoán đúng nhanh nhất sẽ được quyền đố từ tiếp theo."
+      ],
+      en: [
+        "Ask everyone to write their first name in big letters in the air using just their index finger.",
+        "Round 2: Spell out a secret word or name using only your elbow!",
+        "Round 3: Spell using your foot or the tip of your nose while others try to guess the word.",
+        "The fastest person to guess correctly gets to spell the next secret word."
+      ]
+    },
+    tips: {
+      vi: "Nhắc người viết nhớ viết ngược chiều (như soi gương) nếu đang chơi qua webcam để người đối diện dễ đọc!",
+      en: "Remind players to write backwards (mirror-style) if playing on a video call so viewers can read it!"
+    }
+  },
+  {
+    id: "crosstown-connections",
+    players: ["5+"],
+    genre: "icebreaker",
+    props: "none",
+    origin: { vi: "Quốc tế (Playmeo)", en: "International (Playmeo)" },
+    title: { vi: "Crosstown Connections (Mạng Lưới Chào Hỏi)", en: "Crosstown Connections" },
+    playersLabel: { vi: "8 - 50+ người", en: "8 - 50+ Players" },
+    overview: {
+      vi: "Trò chơi vận động trí nhớ tốc độ cao giúp kết nối các thành viên trong đám đông chỉ trong vài phút.",
+      en: "A dynamic, fast-paced memory and networking game that energizes large rooms in minutes."
+    },
+    prep: {
+      vi: "Không gian rộng để mọi người di chuyển.",
+      en: "Open floor space to mingle."
+    },
+    rules: {
+      vi: [
+        "Mọi người bắt cặp ngẫu nhiên với người A, tạo một kiểu chào độc lạ (ví dụ: đập tay 2 cái + xoay người) và hỏi nhau 1 câu (VD: Món ăn yêu thích?).",
+        "Tiếp tục tìm người B, tạo kiểu chào khác và hỏi câu hỏi mới.",
+        "Lặp lại với người C và D.",
+        "Khi quản trò hô 'Bắt đầu chuỗi kết nối!', tất cả chạy đi tìm lại đúng người A, B, C, D theo thứ tự để thực hiện lại đúng kiểu chào và nhắc lại câu trả lời của họ!"
+      ],
+      en: [
+        "Pair up with Partner A, invent a unique greeting (e.g., double high-five + spin), and share one quick answer (e.g., dream vacation).",
+        "Find Partner B, invent a brand-new greeting, and answer a new question.",
+        "Repeat with Partners C and D.",
+        "When the host yells 'Run the sequence!', everyone races to find A, B, C, and D in order to repeat their exact greetings!"
+      ]
+    },
+    tips: {
+      vi: "Càng nhiều người tham gia, cảnh tượng mọi người chạy tìm nhau càng náo nhiệt và vui nhộn.",
+      en: "The larger the group, the more chaotic and hilarious the race to find partners becomes!"
+    }
+  },
+  {
+    id: "name-tag-fiasco",
+    players: ["5+"],
+    genre: "icebreaker",
+    props: "simple",
+    origin: { vi: "Mỹ (Group Dynamix)", en: "USA (Group Dynamix)" },
+    title: { vi: "Name Tag Fiasco (Sự Cố Bảng Tên)", en: "Name Tag Fiasco" },
+    playersLabel: { vi: "6 - 40+ người", en: "6 - 40+ Players" },
+    overview: {
+      vi: "Biến việc đeo bảng tên nhàm chán thành cuộc săn tìm danh tính đầy tiếng cười.",
+      en: "Turns boring name tag introductions into an interactive mystery hunt."
+    },
+    prep: {
+      vi: "Giấy dán bảng tên và bút lông.",
+      en: "Sticky name tags and markers."
+    },
+    rules: {
+      vi: [
+        "Phát cho mỗi người một bảng tên có ghi tên của một người KHÁC trong phòng.",
+        "Mọi người đi giao lưu để tìm lại đúng bảng tên của mình.",
+        "Luật khó: Mỗi lần nói chuyện với một người, bạn chỉ được hỏi tối đa 3 câu hỏi (không được hỏi thẳng 'Bạn có giữ tên tôi không?').",
+        "Khi tìm thấy tên mình, hai người trao đổi lại bảng tên cho đúng."
+      ],
+      en: [
+        "Give everyone a name tag bearing someone else's name.",
+        "Players mingle around the room trying to track down their own name tag.",
+        "The catch: You can only ask three questions per conversation (and cannot directly ask 'Do you have my name?').",
+        "Once found, swap tags until everyone wears their rightful name."
+      ]
+    },
+    tips: {
+      vi: "Khuyến khích đặt câu hỏi về sở thích, quê quán hoặc công việc để dò ra chủ nhân chiếc thẻ.",
+      en: "Encourage asking clues about hobbies, hometowns, or roles to deduce who owns which name."
+    }
+  },
+  {
+    id: "categories-twist",
+    players: ["4", "5+"],
+    genre: "icebreaker",
+    props: "simple",
+    origin: { vi: "Quốc tế (Playmeo)", en: "International (Playmeo)" },
+    title: { vi: "Categories Twist (Điểm Chung Độc Đáo)", en: "Categories Twist" },
+    playersLabel: { vi: "4 - 30+ người", en: "4 - 30+ Players" },
+    overview: {
+      vi: "Trò chơi kích thích tư duy sáng tạo và tìm kiếm sự đồng điệu giữa các thành viên trong nhóm.",
+      en: "A creative brainstorming game where teams uncover unique commonalities."
+    },
+    prep: {
+      vi: "Giấy và bút cho mỗi đội.",
+      en: "Paper and pens for each team."
+    },
+    rules: {
+      vi: [
+        "Chia nhóm thành các đội nhỏ (3-5 người/đội).",
+        "Trong 3 phút, mỗi đội liệt kê càng nhiều điểm chung mà TẤT CẢ thành viên trong đội đều có càng tốt (VD: Đều thích ăn sầu riêng, đều sinh tháng 9...).",
+        "Hết giờ, các đội lần lượt đọc danh sách. Nếu đội khác cũng ghi trùng ý đó, CẢ HAI ĐỘI đều phải gạch bỏ ý đó!",
+        "Đội nào giữ lại được nhiều điểm chung độc nhất vô nhị nhất sẽ thắng."
+      ],
+      en: [
+        "Divide into small teams of 3–5 players.",
+        "In 3 minutes, each team lists as many things as possible that EVERY member shares in common.",
+        "Teams read their lists aloud—if another team wrote the same item, BOTH teams must cross it out!",
+        "The team with the most unique, unshared commonalities wins."
+      ]
+    },
+    tips: {
+      vi: "Tránh những điểm chung hiển nhiên như 'đều là con người' hay 'đều mặc áo', hãy đào sâu các chi tiết thú vị!",
+      en: "Skip obvious traits like 'we all breathe' and dig for quirky shared experiences!"
+    }
+  },
+
+  // --- DRAWING & GUESSING GAMES ---
+  {
+    id: "telestrations",
+    players: ["4", "5+"],
+    genre: "drawing",
+    props: "simple",
+    origin: { vi: "Mỹ / Quốc tế", en: "USA / Global Party Hit" },
+    title: { vi: "Telephone Pictionary (Tam Sao Thất Bản Vẽ)", en: "Telephone Pictionary (Telestrations)" },
+    playersLabel: { vi: "4 - 8 người (Lý tưởng < 7 người)", en: "4 - 8 Players (Best under 7)" },
+    overview: {
+      vi: "Sự kết hợp giữa trò chơi 'Truyền tin' và 'Đuổi hình bắt chữ', tạo ra những bức vẽ 'thảm họa' cười ra nước mắt.",
+      en: "A hilarious mashup of Telephone and Pictionary where phrases morph into unrecognizable drawings and wild guesses."
+    },
+    prep: {
+      vi: "Mỗi người 1 xấp giấy nhỏ (bằng số người chơi) và 1 cây bút.",
+      en: "A small stack of paper slips (equal to the number of players) and a pen for each person."
+    },
+    rules: {
+      vi: [
+        "Mỗi người viết một cụm từ/câu bất kỳ lên tờ giấy đầu tiên (VD: 'Con mèo đang lái tàu vũ trụ') rồi chuyền cả xấp giấy sang bên trái.",
+        "Người nhận đọc câu đó, lật tờ giấy ra sau và VẼ minh họa lại câu đó lên tờ thứ 2, sau đó chuyền tiếp sang trái.",
+        "Người tiếp theo chỉ được nhìn bức vẽ ở tờ 2, lật ra sau và VIẾT đoán xem bức vẽ đó nghĩa là gì lên tờ 3.",
+        "Cứ thế luân phiên Viết - Vẽ - Viết cho đến khi xấp giấy quay về chủ nhân ban đầu. Cả nhóm cùng lật từng trang xem sự biến dạng!"
+      ],
+      en: [
+        "Each player writes a funny phrase on their top slip (e.g., 'A cat flying a UFO') and passes the stack left.",
+        "The next player reads the phrase, moves that slip to the back, and DRAWS the phrase on the new top sheet, then passes left.",
+        "The following player looks ONLY at the drawing, moves it to the back, and WRITES what they think it depicts.",
+        "Alternate drawing and writing until stacks return to their original owners, then reveal the hilarious evolution!"
+      ]
+    },
+    tips: {
+      vi: "Không cần vẽ đẹp! Vẽ càng ngây ngô thì kết quả tam sao thất bản càng buồn cười.",
+      en: "Bad drawing skills actually make this game ten times funnier!"
+    }
+  },
+  {
+    id: "reverse-charades",
+    players: ["5+"],
+    genre: "drawing",
+    props: "simple",
+    origin: { vi: "Mỹ", en: "USA" },
+    title: { vi: "Reverse Charades (Diễn Kịch Ngược)", en: "Reverse Charades" },
+    playersLabel: { vi: "6 - 20+ người", en: "6 - 20+ Players" },
+    overview: {
+      vi: "Thay vì 1 người diễn cho cả đội đoán, lần này CẢ ĐỘI sẽ cùng diễn tả một từ khóa cho DUY NHẤT 1 người đoán!",
+      en: "Flip classic Charades on its head: the entire team acts out a word simultaneously for just ONE person to guess!"
+    },
+    prep: {
+      vi: "Các mảnh giấy ghi từ khóa (phim ảnh, hành động, đồ vật) và đồng hồ bấm giờ 60 giây.",
+      en: "Slips of paper with words/phrases and a 60-second timer."
+    },
+    rules: {
+      vi: [
+        "Chia thành 2 đội. Mỗi lượt, một đội cử 1 người ngồi ghế đoán, toàn bộ thành viên còn lại của đội đứng lên diễn.",
+        "Quản trò đưa từ khóa cho nhóm diễn (không được nói, chỉ dùng ngôn ngữ cơ thể).",
+        "Cả đội cùng phối hợp diễn kịch câm trong 60 giây để người đoán đọc đúng càng nhiều từ khóa càng tốt.",
+        "Đổi vai người đoán ở các vòng tiếp theo."
+      ],
+      en: [
+        "Split into two teams. Each round, one player sits in the guesser's chair while the rest of their team acts.",
+        "The host shows a word to the acting team—no talking or sound effects allowed.",
+        "The whole team acts out the clue together for 60 seconds while their single teammate guesses as many words as possible.",
+        "Rotate guessers each round."
+      ]
+    },
+    tips: {
+      vi: "Những từ khóa như 'Tàu lượn siêu tốc', 'Trận bóng đá' hay 'Máy giặt' khi cả đội cùng diễn sẽ cực kỳ bùng nổ!",
+      en: "Words like 'Rollercoaster', 'Washing Machine', or 'Orchestra' look hilarious when acted out by a whole group!"
+    }
+  },
+  {
+    id: "fishbowl",
+    players: ["4", "5+"],
+    genre: "drawing",
+    props: "simple",
+    origin: { vi: "Anh / Mỹ", en: "UK / USA Party Classic" },
+    title: { vi: "Celebrity / Fishbowl (Bể Cá 3 Vòng)", en: "Celebrity / Fishbowl" },
+    playersLabel: { vi: "4 - 16 người", en: "4 - 16 Players" },
+    overview: {
+      vi: "Trò chơi đoán chữ 3 vòng liên hoàn sử dụng chung một rổ từ khóa duy nhất, đòi hỏi trí nhớ và khả năng diễn đạt đỉnh cao.",
+      en: "An escalating 3-round guessing game using the exact same bowl of clues across Taboo, Charades, and One-Word rounds."
+    },
+    prep: {
+      vi: "Một chiếc bát/mũ, giấy nhỏ và bút.",
+      en: "A bowl or hat, small slips of paper, and pens."
+    },
+    rules: {
+      vi: [
+        "Mỗi người viết 3 tên người nổi tiếng hoặc cụm từ thú vị vào 3 mảnh giấy, gấp lại bỏ vào bát.",
+        "Chia 2 đội. Mỗi lượt 1 người bốc giấy trong 45 giây cho đội mình đoán.",
+        "Vòng 1 (Taboo): Diễn tả bằng lời nói (không nhắc từ trong giấy). Hết giấy thì bỏ lại tất cả vào bát.",
+        "Vòng 2 (Charades): Diễn tả bằng hành động câm (không phát ra tiếng) với chính các mảnh giấy đó!",
+        "Vòng 3 (One-Word): Chỉ được nói DUY NHẤT 1 TỪ gợi ý cho mỗi mảnh giấy!"
+      ],
+      en: [
+        "Each player writes 3 famous names or fun phrases on slips of paper and drops them into a bowl.",
+        "Split into two teams. Players take 45-second turns drawing clues for their team to guess.",
+        "Round 1 (Describe): Use any words except the clue itself. Once the bowl is empty, put all slips back in.",
+        "Round 2 (Charades): Act out the exact same clues silently without speaking.",
+        "Round 3 (One Word): Say ONLY ONE single word as a clue for each slip!"
+      ]
+    },
+    tips: {
+      vi: "Hãy chú ý ghi nhớ các từ khóa đã xuất hiện ở Vòng 1 để đoán siêu tốc ở Vòng 2 và Vòng 3!",
+      en: "Pay close attention during Round 1—remembering the clues in the bowl is the secret to winning Rounds 2 and 3!"
+    }
+  },
+
+  // --- ACTIVE & PARTY GAMES ---
+  {
+    id: "mafia-werewolf",
+    players: ["5+"],
+    genre: "party",
+    props: "simple",
+    origin: { vi: "Nga / Quốc tế", en: "Russia / Global Phenomenon" },
+    title: { vi: "Mafia / Ma Sói (Werewolf)", en: "Mafia / Werewolf" },
+    playersLabel: { vi: "6 - 25+ người", en: "6 - 25+ Players" },
+    overview: {
+      vi: "Tựa game suy luận xã hội ẩn vai nổi tiếng nhất thế giới, nơi dân làng phải tìm ra kẻ phản bội trước khi bị loại hết.",
+      en: "The world's most iconic social deduction game where villagers must unmask hidden wolves before night falls."
+    },
+    prep: {
+      vi: "Bộ bài Ma Sói hoặc bộ bài Tây thông thường để chia vai bí mật.",
+      en: "A Werewolf deck or standard playing cards to assign secret roles."
+    },
+    rules: {
+      vi: [
+        "Quản trò chia bài ẩn danh: Phe Sói (Mafia), Dân Làng, Tiên Tri (soi phe mỗi đêm), Bảo Vệ (cứu người).",
+        "Ban Đêm: Tất cả nhắm mắt. Quản trò gọi Sói dậy chọn 1 người để loại; Tiên Tri dậy soi 1 người; Bảo Vệ chọn 1 người để che chở.",
+        "Ban Ngày: Tất cả mở mắt, quản trò thông báo ai bị loại đêm qua. Mọi người tranh luận, biện minh và bỏ phiếu treo cổ kẻ tình nghi.",
+        "Dân làng thắng nếu loại hết Sói; Phe Sói thắng khi số Sói bằng số Dân."
+      ],
+      en: [
+        "The moderator secretly deals roles: Werewolves/Mafia, Villagers, Seer (checks alignment at night), and Doctor (protects one player).",
+        "Night Phase: Everyone closes their eyes. Wolves wake up to choose a victim; Seer investigates one player; Doctor saves one player.",
+        "Day Phase: Everyone wakes up, the moderator announces who was eliminated, and the group debates and votes to banish a suspect.",
+        "Villagers win by eliminating all Wolves; Wolves win when they equal the number of Villagers."
+      ]
+    },
+    tips: {
+      vi: "Đừng quá im lặng nhưng cũng đừng nói quá nhiều ngay ngày đầu tiên nếu bạn là Sói!",
+      en: "Avoid being completely silent or overly aggressive on Day 1 if you draw a Wolf card!"
+    }
+  },
+  {
+    id: "wink-murder",
+    players: ["5+"],
+    genre: "party",
+    props: "simple",
+    origin: { vi: "Anh (Party Classic)", en: "UK Party Classic" },
+    title: { vi: "Wink Murder (Sát Thủ Nháy Mắt)", en: "Wink Murder" },
+    playersLabel: { vi: "6 - 20 người", en: "6 - 20 Players" },
+    overview: {
+      vi: "Trò chơi trinh thám nhẹ nhàng ngồi vòng tròn, thử thách khả năng quan sát ánh mắt và diễn xuất 'chết' đầy kịch tính.",
+      en: "A suspenseful circle game testing subtle eye contact, stealthy winks, and dramatic 'death' scenes."
+    },
+    prep: {
+      vi: "Các mảnh giấy gấp lại (1 tờ ghi chữ 'Sát thủ', các tờ còn lại để trống).",
+      en: "Folded slips of paper (one marked 'Murderer', the rest blank)."
+    },
+    rules: {
+      vi: [
+        "Mọi người ngồi thành vòng tròn, bốc thăm bí mật để biết ai là Sát thủ.",
+        "Sát thủ sẽ âm thầm 'hạ gục' người khác bằng cách nháy mắt kín đáo với họ khi giao tiếp ánh mắt.",
+        "Người bị nháy mắt phải đếm nhẩm 3 giây rồi giả vờ ngã gục một cách thật kịch tính!",
+        "Những người còn sống có thể giơ tay tố cáo danh tính Sát thủ (nếu đoán sai sẽ bị loại ngay lập tức)."
+      ],
+      en: [
+        "Everyone sits in a circle and draws a secret slip to determine who is the Murderer.",
+        "The Murderer eliminates players by catching their eye and giving a subtle wink.",
+        "When winked at, a player waits three seconds and then performs a dramatic 'death'!",
+        "Living players can raise a hand to accuse the Murderer—but a wrong guess eliminates the accuser."
+      ]
+    },
+    tips: {
+      vi: "Khuyến khích người bị nháy mắt diễn cảnh ngã gục càng hài hước càng tốt!",
+      en: "Encourage winked players to give Oscar-worthy dramatic death performances!"
+    }
+  },
+  {
+    id: "camera-hot-potato",
+    players: ["3", "4", "5+"],
+    genre: "party",
+    props: "simple",
+    origin: { vi: "Hiện đại / Kỹ thuật số", en: "Modern Party Game" },
+    title: { vi: "Camera Hot Potato (Chuyền Điện Thoại Hẹn Giờ)", en: "Camera Hot Potato" },
+    playersLabel: { vi: "3 - 15 người", en: "3 - 15 Players" },
+    overview: {
+      vi: "Trò chơi tiệc tùng hiện đại lưu giữ những bức ảnh dìm hàng có một không hai dưới áp lực đếm ngược.",
+      en: "A fast-paced modern party game that captures hilarious candid selfies under timer pressure."
+    },
+    prep: {
+      vi: "1 chiếc điện thoại mở camera trước và đặt chế độ hẹn giờ 10 giây.",
+      en: "One smartphone with the front-facing camera set to a 10-second self-timer."
+    },
+    rules: {
+      vi: [
+        "Mọi người ngồi thành vòng tròn. Bấm nút chụp hẹn giờ 10 giây trên camera trước.",
+        "Người cầm máy phải làm một biểu cảm mặt thật hài hước, chụp 1 tấm (hoặc giữ máy 2 giây) rồi chuyền nhanh sang người bên cạnh.",
+        "Ai đang cầm điện thoại đúng khoảnh khắc màn hình chớp sáng chụp ảnh sẽ bị tính 1 điểm phạt (hoặc trả lời một câu hỏi Truth or Dare).",
+        "Cuối buổi cùng xem lại bộ sưu tập ảnh để đời!"
+      ],
+      en: [
+        "Sit in a circle and press the shutter button on a 10-second camera self-timer.",
+        "Players quickly pass the phone around the circle while making funny faces at the lens.",
+        "Whoever is holding the phone when the shutter snaps gets a penalty point or must answer a Truth or Dare!",
+        "Review the hilarious camera roll together at the end of the party."
+      ]
+    },
+    tips: {
+      vi: "Bật chế độ chụp liên tục (Burst) hoặc Live Photo để bắt trọn khoảnh khắc giật mình!",
+      en: "Turn on Live Photos or Flash to capture the exact split-second panic!"
+    }
+  },
+
+  // --- TEAM BUILDING & MENTAL CHALLENGES ---
+  {
+    id: "marshmallow-challenge",
+    players: ["4", "5+"],
+    genre: "teambuilding",
+    props: "simple",
+    origin: { vi: "Mỹ (Design Thinking)", en: "USA (Design Thinking Classic)" },
+    title: { vi: "Marshmallow Challenge (Tháp Mì Ý & Kẹo Dẻo)", en: "Marshmallow Challenge" },
+    playersLabel: { vi: "4 - 30+ người (Chia đội 4 người)", en: "4 - 30+ Players (Teams of 4)" },
+    overview: {
+      vi: "Thử thách thiết kế kỹ thuật kinh điển giúp rèn luyện tư duy sáng tạo, làm việc nhóm và quản lý thời gian.",
+      en: "A renowned design-thinking challenge testing prototyping, teamwork, and structural creativity under time pressure."
+    },
+    prep: {
+      vi: "Mỗi đội gồm: 20 sợi mì Ý khô (spaghetti), 1m băng keo giấy, 1m dây dù và 1 viên kẹo dẻo marshmallow.",
+      en: "Per team: 20 sticks of dry spaghetti, 1 yard of masking tape, 1 yard of string, and 1 standard marshmallow."
+    },
+    rules: {
+      vi: [
+        "Các đội có đúng 18 phút để xây dựng một tòa tháp tự đứng vững cao nhất có thể.",
+        "Điều kiện bắt buộc: Toàn bộ viên kẹo dẻo marshmallow phải nằm ở ĐỈNH cao nhất của tòa tháp.",
+        "Không được dùng tay giữ tháp khi hết giờ; tháp phải tự đứng vững ít nhất 5 giây để đo chiều cao.",
+        "Đội có tòa tháp cao nhất giành chiến thắng."
+      ],
+      en: [
+        "Teams have exactly 18 minutes to build the tallest freestanding structure using only the supplied materials.",
+        "Crucial rule: The entire marshmallow must rest on the very TOP of the structure.",
+        "Teams cannot hold the tower when time expires; it must stand on its own for at least 5 seconds to be measured.",
+        "The tallest standing tower wins."
+      ]
+    },
+    tips: {
+      vi: "Đừng đợi đến phút cuối mới đặt viên kẹo lên đỉnh—sức nặng của kẹo thường làm sập tháp vào giây cuối cùng!",
+      en: "Test the weight of the marshmallow early—waiting until the final second usually collapses the tower!"
+    }
+  },
+  {
+    id: "20-questions",
+    players: ["2", "3", "4", "5+"],
+    genre: "teambuilding",
+    props: "none",
+    origin: { vi: "Quốc tế", en: "Global Classic" },
+    title: { vi: "20 Questions (20 Câu Hỏi Đúng/Sai)", en: "20 Questions" },
+    playersLabel: { vi: "2 - 15 người", en: "2 - 15 Players" },
+    overview: {
+      vi: "Trò chơi suy luận logic tuyệt vời cho những chuyến đi xa trên ô tô hoặc quán cafe.",
+      en: "A brilliant deductive reasoning game ideal for road trips, cafes, or waiting in line."
+    },
+    prep: {
+      vi: "Không cần dụng cụ.",
+      en: "No supplies required."
+    },
+    rules: {
+      vi: [
+        "Một người nghĩ thầm trong đầu một đối tượng (người nổi tiếng, loài vật, đồ vật hoặc địa danh).",
+        "Những người còn lại có tổng cộng 20 câu hỏi để tìm ra đáp án.",
+        "Người nghĩ chỉ được trả lời 'Đúng' (Yes), 'Sai' (No) hoặc 'Không rõ' (Maybe).",
+        "Nếu đoán trúng trước câu hỏi thứ 20, cả nhóm chiến thắng!"
+      ],
+      en: [
+        "One player secretly thinks of a person, place, animal, or object.",
+        "The remaining players have up to 20 questions to deduce what it is.",
+        "The thinker can only answer 'Yes', 'No', or 'Sometimes/Maybe'.",
+        "If the group guesses correctly within 20 questions, they win!"
+      ]
+    },
+    tips: {
+      vi: "Hãy dùng chiến thuật chia đôi không gian tìm kiếm: 'Nó có sống không?', 'Nó có lớn hơn một chiếc ô tô không?'.",
+      en: "Use binary elimination questions early on, like 'Is it alive?' or 'Is it larger than a microwave?'"
+    }
+  },
+
+  // --- OUTDOOR & ACTIVE GAMES ---
+  {
+    id: "giants-wizards-elves",
+    players: ["5+"],
+    genre: "outdoor",
+    props: "none",
+    origin: { vi: "Mỹ (Group Dynamix)", en: "USA (Group Dynamix)" },
+    title: { vi: "Giants, Wizards, Elves (Người Khổng Lồ, Phù Thủy & Yêu Tinh)", en: "Giants, Wizards, Elves" },
+    playersLabel: { vi: "8 - 40+ người", en: "8 - 40+ Players" },
+    overview: {
+      vi: "Phiên bản vận động rượt đuổi siêu kịch tính của trò Oẳn Tù Tì dành cho không gian rộng.",
+      en: "A high-energy, full-body tag version of Rock-Paper-Scissors designed for open spaces."
+    },
+    prep: {
+      vi: "Không gian sân cỏ hoặc hội trường rộng, vạch chia 2 vùng an toàn.",
+      en: "An open field or gym with two designated safe zones."
+    },
+    rules: {
+      vi: [
+        "Chia làm 2 đội đứng đối diện nhau ở vạch giữa sân.",
+        "3 nhân vật đối kháng: Người Khổng Lồ (giơ tay cao gầm lên - thắng Yêu Tinh), Phù Thủy (vung đũa phép - thắng Khổng Lồ), Yêu Tinh (ngồi thấp làm tai nhọn - thắng Phù Thủy).",
+        "Mỗi đội hội ý bí mật chọn 1 nhân vật. Khi hô '1-2-3!', cả hai đội cùng tạo dáng nhân vật đã chọn.",
+        "Đội thua phải chạy thật nhanh về vạch an toàn của mình trước khi bị đội thắng đuổi theo chạm vào (ai bị chạm sẽ gia nhập đội đối phương)!"
+      ],
+      en: [
+        "Split into two teams facing each other at a center line.",
+        "Learn three poses: Giants (stand tall & roar — beats Elves), Wizards (wave wands — beats Giants), Elves (crouch with pointy ears — beats Wizards).",
+        "Each team huddles secretly to pick one character. On 'Reveal!', both teams act out their choice simultaneously.",
+        "The losing team sprints back to their safe zone while the winners chase and tag them onto their team!"
+      ]
+    },
+    tips: {
+      vi: "Mỗi đội nên thống nhất một phương án dự phòng nếu lượt đầu hai đội chọn trùng nhân vật!",
+      en: "Have teams pick a backup character during their huddle in case of a tie!"
+    }
+  },
+  {
+    id: "sardines",
+    players: ["4", "5+"],
+    genre: "outdoor",
+    props: "none",
+    origin: { vi: "Anh (Trốn tìm ngược)", en: "UK (Reverse Hide & Seek)" },
+    title: { vi: "Sardines (Cá Mòi Đóng Hộp - Trốn Tìm Ngược)", en: "Sardines (Reverse Hide & Seek)" },
+    playersLabel: { vi: "4 - 20 người", en: "4 - 20 Players" },
+    overview: {
+      vi: "Phiên bản trốn tìm ngược: chỉ 1 người đi trốn và tất cả mọi người cùng đi tìm rồi chui vào trốn chung một chỗ!",
+      en: "Reverse hide-and-seek: one person hides while everyone else searches—and quietly squeezes into the hiding spot when they find them!"
+    },
+    prep: {
+      vi: "Không cần dụng cụ, quy định rõ phạm vi khu vực chơi.",
+      en: "No supplies needed; set clear boundaries for hiding spots."
+    },
+    rules: {
+      vi: [
+        "Chỉ DUY NHẤT 1 người đi trốn, tất cả những người còn lại nhắm mắt đếm đến 50.",
+        "Mọi người tản ra đi tìm một cách độc lập.",
+        "Khi một người tìm thấy chỗ trốn của người đầu tiên, họ KHÔNG được la lên mà phải lặng lẽ chui vào trốn chung chỗ đó!",
+        "Chỗ trốn ngày càng chật cứng như hộp cá mòi. Người cuối cùng tìm thấy chỗ trốn sẽ là người đi trốn ở ván tiếp theo."
+      ],
+      en: [
+        "Only ONE person hides while everyone else closes their eyes and counts to 50.",
+        "Everyone splits up and searches independently.",
+        "When you find the hider, stay completely silent and squeeze into the exact same hiding spot with them!",
+        "The hiding spot gets tighter like a can of sardines—the last person to find the group hides next round."
+      ]
+    },
+    tips: {
+      vi: "Nhịn cười khi 6-7 người cùng nín thở nấp sau một tấm rèm chính là điểm vui nhất của trò này!",
+      en: "Trying not to burst out laughing while 7 people are crammed behind a curtain is the best part!"
+    }
+  },
+
+  // --- VIRTUAL / ONLINE GAMES ---
+  {
+    id: "gartic-phone",
+    players: ["4", "5+"],
+    genre: "virtual",
+    props: "simple",
+    origin: { vi: "Quốc tế (Web Game)", en: "International Browser Game" },
+    title: { vi: "Gartic Phone / Skribbl.io (Vẽ Online)", en: "Gartic Phone / Skribbl.io" },
+    playersLabel: { vi: "4 - 30 người (Online)", en: "4 - 30 Players (Online)" },
+    overview: {
+      vi: "Nền tảng game trình duyệt miễn phí cực đỉnh cho hội bạn ở xa hoặc họp nhóm online.",
+      en: "Free browser-based drawing and telephone games ideal for remote friends and virtual hangouts."
+    },
+    prep: {
+      vi: "Điện thoại hoặc máy tính có kết nối Internet và trình duyệt web.",
+      en: "Smartphones or laptops with internet access."
+    },
+    rules: {
+      vi: [
+        "Một người tạo phòng miễn phí trên garticphone.com (hoặc skribbl.io) và gửi link cho mọi người.",
+        "Mỗi người nhập một câu mô tả hài hước trên máy của mình.",
+        "Hệ thống tự động luân chuyển câu mô tả sang máy người khác để vẽ bằng chuột/cảm ứng.",
+        "Cuối ván, hệ thống tự động ghép thành album hoạt hình trình chiếu cho cả nhóm cùng xem."
+      ],
+      en: [
+        "One host creates a free room on garticphone.com (or skribbl.io) and shares the invite link.",
+        "Everyone types a wacky sentence on their device.",
+        "The game rotates prompts to other players to draw on screen using a mouse or touchscreen.",
+        "At the end, the app plays back animated sequences of how every prompt evolved!"
+      ]
+    },
+    tips: {
+      vi: "Chọn chế độ 'Animation' hoặc 'Knock-off' trên Gartic Phone để tăng độ thử thách!",
+      en: "Try 'Knock-off' mode on Gartic Phone where players redraw the previous picture in half the time!"
+    }
+  },
+
+  // --- CLASSIC & SOLO / 2-4 PLAYER WORLD GAMES ---
+  {
+    id: "klondike-solitaire",
+    players: ["1"],
+    genre: "classic",
+    props: "simple",
+    origin: { vi: "Châu Âu / Quốc tế", en: "Europe / Global Solo Classic" },
+    title: { vi: "Solitaire / Xếp Bài Thư Giãn (1 Người)", en: "Classic Solitaire (Klondike)" },
+    playersLabel: { vi: "1 người (Solo)", en: "1 Player (Solo)" },
+    overview: {
+      vi: "Trò chơi xếp bài kinh điển giúp rèn luyện sự tập trung, tính kiên nhẫn và thư giãn đầu óc khi ở một mình.",
+      en: "The iconic single-player card puzzle that sharpens focus, patience, and strategic planning."
+    },
+    prep: {
+      vi: "1 bộ bài Tây 52 lá (hoặc chơi trên ứng dụng).",
+      en: "One standard 52-card deck (or digital app)."
+    },
+    rules: {
+      vi: [
+        "Chia 7 cột bài trên bàn: cột 1 có 1 lá, cột 2 có 2 lá... đến cột 7 có 7 lá (chỉ lật ngửa lá trên cùng mỗi cột).",
+        "Mục tiêu: Gom toàn bộ 52 lá về 4 ô nền (Foundation) theo thứ tự từ Át (A) lên K cùng chất (Cơ, Rô, Chuồn, Bích).",
+        "Trên 7 cột chính, bạn được xếp các lá bài theo thứ tự giảm dần (K -> Q -> J -> 10...) và xen kẽ màu Đỏ - Đen.",
+        "Rút thêm bài từ nọc (Stock) khi hết nước đi."
+      ],
+      en: [
+        "Deal 7 columns: column 1 has 1 card, column 2 has 2 cards, up to 7 cards in column 7 (only the top card of each column is face up).",
+        "Goal: Build four foundation piles ascending from Ace to King by suit.",
+        "On the tableau columns, stack cards in descending order alternating red and black colors.",
+        "Draw cards from the remaining stock pile whenever you run out of moves."
+      ]
+    },
+    tips: {
+      vi: "Luôn ưu tiên lật mở các lá bài úp ở các cột bên phải trước để mở rộng không gian xoay xở!",
+      en: "Always prioritize uncovering face-down cards in the larger columns first!"
+    }
+  },
+  {
+    id: "sudoku-logic",
+    players: ["1"],
+    genre: "classic",
+    props: "simple",
+    origin: { vi: "Nhật Bản / Thụy Sĩ", en: "Japan / Switzerland" },
+    title: { vi: "Sudoku (Ô Số Trí Tuệ Nhật Bản)", en: "Sudoku Logic Puzzle" },
+    playersLabel: { vi: "1 người (Solo)", en: "1 Player (Solo)" },
+    overview: {
+      vi: "Trò chơi giải đố con số nổi tiếng từ Nhật Bản giúp kích thích bán cầu não trái khi bạn muốn dành thời gian yên tĩnh.",
+      en: "Japan's beloved number-placement logic puzzle for quiet solo focus and mental sharpness."
+    },
+    prep: {
+      vi: "Bảng ô vuông 9x9 và bút chì.",
+      en: "A 9x9 Sudoku grid and a pencil."
+    },
+    rules: {
+      vi: [
+        "Điền các chữ số từ 1 đến 9 vào các ô trống trên lưới 9x9.",
+        "Mỗi hàng ngang phải chứa đủ các số từ 1 đến 9 không trùng lặp.",
+        "Mỗi cột dọc phải chứa đủ các số từ 1 đến 9 không trùng lặp.",
+        "Mỗi vùng vuông nhỏ 3x3 (được tô đậm viền) cũng phải chứa đủ từ 1 đến 9."
+      ],
+      en: [
+        "Fill every empty cell in the 9x9 grid with a digit from 1 to 9.",
+        "Every horizontal row must contain digits 1–9 without repetition.",
+        "Every vertical column must contain digits 1–9 without repetition.",
+        "Every 3x3 sub-box must also contain digits 1–9 without repetition."
+      ]
+    },
+    tips: {
+      vi: "Bắt đầu quét từ những con số đã xuất hiện nhiều nhất trên bàn cờ để loại trừ nhanh các ô trống.",
+      en: "Start by scanning whichever number already appears most frequently across the grid!"
+    }
+  },
+  {
+    id: "mancala-o-an-quan",
+    players: ["2"],
+    genre: "classic",
+    props: "simple",
+    origin: { vi: "Châu Phi & Việt Nam (Ô Ăn Quan)", en: "Africa & Vietnam (Mancala / Ô Ăn Quan)" },
+    title: { vi: "Mancala / Ô Ăn Quan (Trò Chơi Rải Sỏi 2 Người)", en: "Mancala / Vietnamese Ô Ăn Quan" },
+    playersLabel: { vi: "2 người (Đối kháng 1v1)", en: "2 Players (1v1 Strategy)" },
+    overview: {
+      vi: "Trò chơi chiến thuật cổ xưa nổi tiếng tại Việt Nam và châu Phi, tính toán nước đi thông minh để thu hoạch nhiều sỏi nhất.",
+      en: "An ancient count-and-capture strategy game beloved across Vietnam and Africa."
+    },
+    prep: {
+      vi: "Vẽ 10 ô nhỏ và 2 ô quan lớn trên giấy/sân + 70 viên sỏi nhỏ (hoặc hạt đậu).",
+      en: "A board with 10 small pits and 2 large end stores + 70 small pebbles, beans, or beads."
+    },
+    rules: {
+      vi: [
+        "Mỗi người quản lý 5 ô dân phía trước mặt mình; mỗi ô đặt 5 viên sỏi nhỏ, 2 ô quan hai đầu đặt 1 viên sỏi lớn (10 điểm).",
+        "Đến lượt, chọn 1 ô bên phía mình, bốc hết sỏi và rải lần lượt từng viên vào các ô tiếp theo theo chiều kim đồng hồ hoặc ngược lại.",
+        "Nếu viên cuối cùng rơi vào một ô có sỏi, bốc tiếp ô đó rải tiếp. Nếu rơi vào ô trống và ô kế tiếp có sỏi, bạn được 'ăn' toàn bộ số sỏi ô kế tiếp!",
+        "Trò chơi kết thúc khi 2 ô quan bị ăn hết. Ai có tổng điểm sỏi cao hơn sẽ thắng."
+      ],
+      en: [
+        "Each player controls 5 small pits on their side (5 stones each), with 2 large 'Mandarin' pits at the ends (worth 10 points each).",
+        "On your turn, scoop all stones from one of your pits and sow them one by one into consecutive pits in either direction.",
+        "If your last stone lands in an occupied pit, pick up its stones and keep sowing. If it lands in an empty pit followed by an occupied pit, capture those stones!",
+        "The game ends when both end pits are captured; the player with the highest stone score wins."
+      ]
+    },
+    tips: {
+      vi: "Tính toán số lượng sỏi sao cho viên cuối cùng rơi trước ô quan đang đầy để ăn trọn điểm lớn!",
+      en: "Count your pebbles carefully to set up chain captures right before a loaded Mandarin pit!"
+    }
+  },
+  {
+    id: "go-baduk-weiqi",
+    players: ["2"],
+    genre: "classic",
+    props: "simple",
+    origin: { vi: "Đông Á (Trung Quốc / Nhật / Hàn)", en: "East Asia (China / Japan / Korea)" },
+    title: { vi: "Cờ Vây (Go / Weiqi / Baduk)", en: "Go (Weiqi / Baduk)" },
+    playersLabel: { vi: "2 người (Đối kháng trí tuệ)", en: "2 Players (Abstract Strategy)" },
+    overview: {
+      vi: "Môn cờ chiến thuật lâu đời nhất thế giới với luật chơi đơn giản nhưng chiều sâu biến hóa vô tận.",
+      en: "The world's oldest continuously played board game—simple rules with infinite strategic depth."
+    },
+    prep: {
+      vi: "Bàn cờ lưới (9x9 cho người mới hoặc 19x19 tiêu chuẩn) cùng quân cờ Đen và Trắng.",
+      en: "A grid board (9x9 for beginners or standard 19x19) with black and white stones."
+    },
+    rules: {
+      vi: [
+        "Quân Đen đi trước, hai người luân phiên đặt quân lên các giao điểm của đường kẻ trên bàn cờ.",
+        "Mục tiêu: Bao vây các vùng lãnh thổ trống trên bàn cờ nhiều hơn đối thủ.",
+        "Khi một quân cờ hoặc cụm quân bị đối phương vây kín tất cả các đường 'khí' (giao điểm trống liền kề), cụm quân đó bị bắt khỏi bàn cờ.",
+        "Khi cả hai cùng bỏ lượt, tiến hành đếm số giao điểm lãnh thổ + số quân bắt được để phân thắng bại."
+      ],
+      en: [
+        "Black plays first; players alternate placing stones onto the intersections of the grid.",
+        "Goal: Surround more empty territory on the board than your opponent.",
+        "When a stone or connected group of stones has all its adjacent intersections ('liberties') surrounded by enemy stones, it is captured and removed.",
+        "When both players pass consecutively, count surrounded territory plus captured stones to determine the winner."
+      ]
+    },
+    tips: {
+      vi: "Người mới chơi nên bắt đầu trên bàn cờ nhỏ 9x9 để nắm vững cách vây đất và tạo 'hai mắt sống'!",
+      en: "Beginners should start on a 9x9 board to master territory building and forming 'two eyes'!"
+    }
+  },
+  {
+    id: "three-player-chess-trichess",
+    players: ["3"],
+    genre: "classic",
+    props: "simple",
+    origin: { vi: "Châu Âu / Quốc tế", en: "Europe / International Variant" },
+    title: { vi: "Cờ Vua 3 Người / Cờ Đua Cá Ngựa 3 Người", en: "3-Player Strategy / Ludo Trio" },
+    playersLabel: { vi: "3 người (Tam quốc tranh hùng)", en: "3 Players (Three-Way Battle)" },
+    overview: {
+      vi: "Trò chơi bàn cờ đối kháng 3 chiều đầy tính ngoại giao—nơi liên minh tạm thời có thể lật ngược thế cờ bất cứ lúc nào.",
+      en: "A thrilling three-way tabletop battle where temporary alliances and sudden betrayals keep all 3 players on edge."
+    },
+    prep: {
+      vi: "Bàn cờ Cá Ngựa (Ludo) hoặc bàn Cờ Vua 3 người (hoặc bộ bài Uno/Mèo Nổ cho 3 người).",
+      en: "A Ludo board, 3-player hexagonal chess board, or an Uno / Exploding Kittens card deck."
+    },
+    rules: {
+      vi: [
+        "Ba người chơi ngồi 3 góc bàn cờ, lần lượt tung xúc xắc hoặc đi quân theo chiều kim đồng hồ.",
+        "Trong Cờ Cá Ngựa 3 người: Mỗi người điều khiển 4 quân ngựa đi đủ 1 vòng bàn cờ về chuồng an toàn.",
+        "Nếu quân của bạn dừng đúng ô quân của 1 trong 2 đối thủ đang đứng, bạn sẽ 'đá' quân đó về chuồng xuất phát!",
+        "Người đầu tiên đưa đủ 4 quân về đích xếp hạng 1, 2, 3, 4 sẽ thắng."
+      ],
+      en: [
+        "Three players take three corners of the board and roll dice clockwise.",
+        "Each player races 4 tokens around the perimeter track into their home column.",
+        "Landing on an opponent's square sends their token all the way back to their starting yard!",
+        "The first player to bring all 4 tokens safely home wins the trio."
+      ]
+    },
+    tips: {
+      vi: "Khi thấy 1 người sắp về đích, 2 người còn lại hãy tạm hợp sức chặn đường để kéo dài trận đấu!",
+      en: "Whenever one player gets close to winning, the other two can team up to block their path!"
+    }
+  },
+  {
+    id: "mahjong-tu-sac",
+    players: ["4"],
+    genre: "classic",
+    props: "simple",
+    origin: { vi: "Trung Quốc / Châu Á (Mạt Chược)", en: "China / East Asia (Mahjong)" },
+    title: { vi: "Mạt Chược (Mahjong 4 Người)", en: "Classic 4-Player Mahjong" },
+    playersLabel: { vi: "4 người (Chuẩn 4 nhà)", en: "4 Players (Classic Quartet)" },
+    overview: {
+      vi: "Bộ môn trí tuệ 4 người trứ danh của châu Á kết hợp giữa xác suất, trí nhớ và khả năng đọc bài đối phương.",
+      en: "Asia's iconic 4-player tile game blending pattern recognition, probability, and reading opponents' discards."
+    },
+    prep: {
+      vi: "1 bộ quân Mạt Chược 144 quân và xúc xắc.",
+      en: "A standard 144-tile Mahjong set and dice."
+    },
+    rules: {
+      vi: [
+        "4 người ngồi 4 hướng Đông - Tây - Nam - Bắc, mỗi người bốc 13 quân bài ban đầu.",
+        "Đến lượt, người chơi bốc 1 quân từ tường bài và đánh ra 1 quân rác.",
+        "Mục tiêu: Sắp xếp 14 quân thành 4 bộ (3 quân giống nhau hoặc 3 quân liên tiếp cùng chất) + 1 đôi mắt để hô 'Ù' (Mahjong)!",
+        "Bạn có thể 'Ăn' (Chow), 'Phỗng' (Pung) hoặc 'Càn' (Kong) quân bài đối phương vừa đánh ra để hoàn thiện bộ."
+      ],
+      en: [
+        "Four players sit at East, South, West, and North winds, starting with 13 tiles each.",
+        "On each turn, draw one tile from the wall and discard one unwanted tile.",
+        "Goal: Complete a 14-tile winning hand consisting of four melds (triplets or sequences) plus one identical pair ('Mahjong!').",
+        "Players can claim opponents' discards to complete triplets (Pung) or sequences (Chow)."
+      ]
+    },
+    tips: {
+      vi: "Quan sát kỹ các quân bài đối phương đã đánh ra để tránh đánh 'mồi' cho họ Ù!",
+      en: "Watch the discard pond closely so you don't accidentally feed a winning tile to an opponent!"
+    }
+  },
+  {
+    id: "spades-bridge-4p",
+    players: ["4"],
+    genre: "classic",
+    props: "simple",
+    origin: { vi: "Mỹ / Anh (Đánh Bài Đồng Đội 2v2)", en: "USA / UK (2v2 Partnership Card Game)" },
+    title: { vi: "Spades / Bài Đấu Cặp (2 vs 2)", en: "Spades (4-Player Partnership)" },
+    playersLabel: { vi: "4 người (Chia 2 cặp đối diện)", en: "4 Players (2v2 Teams)" },
+    overview: {
+      vi: "Trò chơi bài 4 người chia làm 2 cặp ngồi chéo nhau, rèn luyện sự ăn ý không lời giữa hai đồng đội.",
+      en: "A classic 4-player trick-taking card game played in two partnerships sitting across from each other."
+    },
+    prep: {
+      vi: "1 bộ bài Tây 52 lá (chất Bích là chất chủ mạnh nhất).",
+      en: "One standard 52-card deck (Spades are always trump)."
+    },
+    rules: {
+      vi: [
+        "Chia đều 52 lá bài cho 4 người (mỗi người 13 lá). Hai người ngồi đối diện nhau là 1 đội.",
+        "Trước khi đánh, mỗi người nhìn bài và tuyên bố (Bid) số vòng (trick) mình tự tin sẽ thắng được.",
+        "Người đi đầu đánh 1 lá, 3 người còn lại phải đánh theo đúng chất đó (nếu không có chất đó mới được dùng chất Bích để chặt).",
+        "Đội nào đạt đủ tổng số vòng đã tuyên bố sẽ cộng điểm; đội đầu tiên chạm 500 điểm chiến thắng."
+      ],
+      en: [
+        "Deal all 52 cards evenly (13 per player). Players sitting opposite each other form a team.",
+        "Before play begins, each player bids the exact number of tricks they expect to win.",
+        "Players must follow the suit led if possible; if void in that suit, they may play a Spade trump card.",
+        "Teams score points for meeting their combined contract; first team to 500 points wins."
+      ]
+    },
+    tips: {
+      vi: "Đừng hô số vòng quá cao nếu trong tay không có lá Át hoặc K của chất Bích!",
+      en: "Avoid overbidding unless you hold high Spades like the Ace or King!"
+    }
+  }
+];
+
+// UI TRANSLATIONS
+const i18n = {
+  vi: {
+    nav_home: "← Trang chủ",
+    nav_hub: "✨ Subdomain Hub",
+    hero_title: "🎲 Hôm Nay Chơi Game Gì?",
+    hero_sub: "Kho tàng trò chơi gắn kết, phá băng, boardgame & hoạt động nhóm từ khắp thế giới — phân loại theo số người chơi và thể loại kèm luật chơi chi tiết.",
+    tab_picker: "🎯 Gợi Ý Ngẫu Nhiên",
+    tab_directory: "📚 Danh Sách Toàn Bộ Game",
+    lbl_players: "👥 Số lượng người chơi",
+    opt_p_all: "Tất cả số lượng người",
+    opt_p_1: "1 người (Solo / Tự thử thách)",
+    opt_p_2: "2 người (Cặp đôi / Đối kháng 1v1)",
+    opt_p_3: "3 người (Nhóm nhỏ 3 người)",
+    opt_p_4: "4 người (Tứ quý / Chia 2 đội)",
+    opt_p_5: "5+ người trở lên (Tiệc tùng / Đám đông)",
+    lbl_genre: "🎭 Thể loại (Genre / Category)",
+    opt_g_all: "Tất cả thể loại",
+    opt_g_ice: "🧊 Icebreakers & Phá băng làm quen",
+    opt_g_draw: "🎨 Vẽ vời & Đoán chữ (Drawing & Guessing)",
+    opt_g_party: "🎉 Tiệc tùng & Nhập vai (Active & Party)",
+    opt_g_team: "🤝 Team Building & Thử thách trí tuệ",
+    opt_g_out: "🌳 Vận động ngoài trời (Outdoor & Active)",
+    opt_g_virt: "💻 Chơi Online / Từ xa (Virtual Games)",
+    opt_g_clas: "♟️ Cờ & Trò chơi truyền thống thế giới",
+    lbl_props: "🎒 Dụng cụ chuẩn bị",
+    opt_pr_all: "Bất kỳ (Có hoặc không dụng cụ)",
+    opt_pr_none: "✨ Không cần dụng cụ (Zero-Prep)",
+    opt_pr_simp: "📝 Dụng cụ đơn giản (Giấy, bút, băng keo...)",
+    btn_pick: "🎲 Chọn Game Ngẫu Nhiên Ngay!",
+    res_tag: "✨ Trò chơi dành cho bạn hôm nay",
+    sec_overview: "📌 Giới thiệu tổng quan",
+    sec_prep: "🎒 Chuẩn bị dụng cụ",
+    sec_rules: "📖 Hướng dẫn cách chơi chi tiết",
+    sec_tips: "💡 Mẹo khuấy động không khí",
+    dir_search_lbl: "🔍 Tìm kiếm tên game hoặc từ khóa",
+    btn_view_rules: "📖 Xem luật chơi chi tiết",
+    no_games: "Không tìm thấy trò chơi phù hợp với bộ lọc hiện tại. Hãy thử chọn 'Tất cả'!"
+  },
+  en: {
+    nav_home: "← Home",
+    nav_hub: "✨ Subdomain Hub",
+    hero_title: "🎲 What Game To Play Today?",
+    hero_sub: "A worldwide collection of icebreakers, party games, classics & group activities — organized by player count and genre with complete step-by-step rules.",
+    tab_picker: "🎯 Random Game Picker",
+    tab_directory: "📚 Full Game Directory",
+    lbl_players: "👥 Number of Players",
+    opt_p_all: "Any Player Count",
+    opt_p_1: "1 Player (Solo / Brain Teaser)",
+    opt_p_2: "2 Players (Duos / 1v1 Strategy)",
+    opt_p_3: "3 Players (Trio Games)",
+    opt_p_4: "4 Players (Quartet / 2v2 Teams)",
+    opt_p_5: "5+ Players (Parties & Large Crowds)",
+    lbl_genre: "🎭 Genre / Category",
+    opt_g_all: "All Genres & Categories",
+    opt_g_ice: "🧊 Icebreakers & Quick Warm-Ups",
+    opt_g_draw: "🎨 Drawing & Guessing Games",
+    opt_g_party: "🎉 Active & Party Games",
+    opt_g_team: "🤝 Team Building & Mental Challenges",
+    opt_g_out: "🌳 Outdoor & Active Games",
+    opt_g_virt: "💻 Virtual & Digital Crowd Games",
+    opt_g_clas: "♟️ World Classics & Tabletop Games",
+    lbl_props: "🎒 Props & Setup",
+    opt_pr_all: "Any Setup",
+    opt_pr_none: "✨ Zero-Prep (No Supplies Needed)",
+    opt_pr_simp: "📝 Simple Supplies (Paper, Pens, Tape...)",
+    btn_pick: "🎲 Pick a Random Game Now!",
+    res_tag: "✨ Today's Selected Game",
+    sec_overview: "📌 Overview",
+    sec_prep: "🎒 Supplies & Preparation",
+    sec_rules: "📖 Step-by-Step How to Play",
+    sec_tips: "💡 Host & Pro Tips",
+    dir_search_lbl: "🔍 Search game title or keyword",
+    btn_view_rules: "📖 View Full Rules",
+    no_games: "No games match your current filters. Try resetting to 'All'!"
+  }
+};
+
+const genreNames = {
+  icebreaker: { vi: "🧊 Icebreaker", en: "🧊 Icebreaker" },
+  drawing: { vi: "🎨 Vẽ & Đoán chữ", en: "🎨 Drawing & Guessing" },
+  party: { vi: "🎉 Tiệc tùng & Nhập vai", en: "🎉 Active & Party" },
+  teambuilding: { vi: "🤝 Team Building", en: "🤝 Team Building" },
+  outdoor: { vi: "🌳 Ngoài trời", en: "🌳 Outdoor" },
+  virtual: { vi: "💻 Online / Từ xa", en: "💻 Virtual" },
+  classic: { vi: "♟️ Cờ & Kinh điển", en: "♟️ World Classic" }
+};
+
+let currentLang = 'vi';
+let lastPickedGameId = null;
+
+function setLang(lang) {
+  currentLang = lang;
+  document.documentElement.lang = lang;
+  document.getElementById('btn-vi').classList.toggle('active', lang === 'vi');
+  document.getElementById('btn-en').classList.toggle('active', lang === 'en');
+
+  document.querySelectorAll('[data-i18n]').forEach(el => {
+    const k = el.getAttribute('data-i18n');
+    if (i18n[lang][k]) {
+      if (k === 'tab_directory') {
+        el.innerHTML = `${i18n[lang][k]} (<span id="totalGameCount">${gamesDB.length}</span>)`;
+      } else {
+        el.textContent = i18n[lang][k];
+      }
+    }
+  });
+
+  document.getElementById('dirSearchInput').placeholder = lang === 'vi'
+    ? "Ví dụ: Mafia, Sticky Beak, Cờ vây, 2 người..."
+    : "e.g. Mafia, Sticky Beak, Go, 2 players...";
+
+  if (lastPickedGameId) {
+    const g = gamesDB.find(x => x.id === lastPickedGameId);
+    if (g) displayFeaturedGame(g);
+  }
+  renderDirectory();
+  try { localStorage.setItem('alessa_games_lang', lang); } catch(e){}
+}
+
+function switchView(viewName, btn) {
+  document.querySelectorAll('.tab-section').forEach(s => s.classList.remove('active'));
+  document.querySelectorAll('.view-tab-btn').forEach(b => b.classList.remove('active'));
+  document.getElementById('view-' + viewName).classList.add('active');
+  btn.classList.add('active');
+}
+
+function pickRandomGame() {
+  const pFilter = document.getElementById('pickPlayers').value;
+  const gFilter = document.getElementById('pickGenre').value;
+  const prFilter = document.getElementById('pickProps').value;
+
+  const filtered = gamesDB.filter(g => {
+    const matchP = pFilter === 'all' || g.players.includes(pFilter);
+    const matchG = gFilter === 'all' || g.genre === gFilter;
+    const matchPr = prFilter === 'all' || g.props === prFilter;
+    return matchP && matchG && matchPr;
+  });
+
+  if (filtered.length === 0) {
+    alert(i18n[currentLang].no_games);
+    return;
+  }
+
+  let chosen = filtered[Math.floor(Math.random() * filtered.length)];
+  if (filtered.length > 1 && chosen.id === lastPickedGameId) {
+    chosen = filtered.find(x => x.id !== lastPickedGameId) || chosen;
+  }
+  lastPickedGameId = chosen.id;
+  displayFeaturedGame(chosen);
+}
+
+function displayFeaturedGame(g) {
+  const box = document.getElementById('featuredGameBox');
+  document.getElementById('fgTitle').textContent = g.title[currentLang];
+  document.getElementById('fgBadges').innerHTML = `
+    <span class="badge badge-players">👥 ${g.playersLabel[currentLang]}</span>
+    <span class="badge badge-genre">${genreNames[g.genre][currentLang]}</span>
+    <span class="badge badge-origin">🌍 ${g.origin[currentLang]}</span>
+  `;
+  document.getElementById('fgOverview').textContent = g.overview[currentLang];
+  document.getElementById('fgPrep').textContent = g.prep[currentLang];
+  document.getElementById('fgRules').innerHTML = g.rules[currentLang].map(step => `<li>${step}</li>`).join('');
+  document.getElementById('fgTips').textContent = g.tips[currentLang];
+  box.style.display = 'block';
+}
+
+function renderDirectory() {
+  const query = document.getElementById('dirSearchInput').value.toLowerCase().trim();
+  const pFilter = document.getElementById('dirPlayerFilter').value;
+  const gFilter = document.getElementById('dirGenreFilter').value;
+  const grid = document.getElementById('directoryGrid');
+
+  const filtered = gamesDB.filter(g => {
+    const matchP = pFilter === 'all' || g.players.includes(pFilter);
+    const matchG = gFilter === 'all' || g.genre === gFilter;
+    const titleStr = (g.title.vi + " " + g.title.en + " " + g.overview.vi + " " + g.overview.en + " " + g.origin.vi + " " + g.origin.en).toLowerCase();
+    const matchQ = !query || titleStr.includes(query);
+    return matchP && matchG && matchQ;
+  });
+
+  document.getElementById('totalGameCount').textContent = filtered.length;
+
+  if (filtered.length === 0) {
+    grid.innerHTML = `<div style="grid-column: span 2; text-align:center; padding:40px; background:var(--surface); border-radius:20px; border:1.5px solid var(--border); color:var(--muted); font-weight:600;">${i18n[currentLang].no_games}</div>`;
+    return;
+  }
+
+  grid.innerHTML = filtered.map(g => `
+    <article class="game-card">
+      <div>
+        <div class="fg-badges">
+          <span class="badge badge-players">👥 ${g.playersLabel[currentLang]}</span>
+          <span class="badge badge-genre">${genreNames[g.genre][currentLang]}</span>
+          <span class="badge badge-origin">🌍 ${g.origin[currentLang]}</span>
+        </div>
+        <h3>${g.title[currentLang]}</h3>
+        <p class="short-desc">${g.overview[currentLang]}</p>
+      </div>
+      <button class="btn-outline" onclick="openGameModal('${g.id}')">${i18n[currentLang].btn_view_rules}</button>
+    </article>
+  `).join('');
+}
+
+function openGameModal(id) {
+  const g = gamesDB.find(x => x.id === id);
+  if (!g) return;
+  const t = i18n[currentLang];
+  document.getElementById('modalContent').innerHTML = `
+    <div style="padding-right:30px; margin-bottom:14px;">
+      <div class="fg-badges" style="margin-bottom:10px;">
+        <span class="badge badge-players">👥 ${g.playersLabel[currentLang]}</span>
+        <span class="badge badge-genre">${genreNames[g.genre][currentLang]}</span>
+        <span class="badge badge-origin">🌍 ${g.origin[currentLang]}</span>
+      </div>
+      <h2 class="fg-title">${g.title[currentLang]}</h2>
+    </div>
+    <div class="fg-section">
+      <h4>${t.sec_overview}</h4>
+      <p>${g.overview[currentLang]}</p>
+    </div>
+    <div class="fg-section">
+      <h4>${t.sec_prep}</h4>
+      <p>${g.prep[currentLang]}</p>
+    </div>
+    <div class="fg-section">
+      <h4>${t.sec_rules}</h4>
+      <ul>${g.rules[currentLang].map(s => `<li>${s}</li>`).join('')}</ul>
+    </div>
+    <div class="fg-section" style="background:var(--surface-alt); padding:14px; border-radius:14px; border:1px solid var(--border); margin-bottom:0;">
+      <h4>${t.sec_tips}</h4>
+      <p style="font-size:13.5px; color:var(--muted);">${g.tips[currentLang]}</p>
+    </div>
+  `;
+  document.getElementById('gameModal').classList.add('open');
+}
+
+function closeModal(e) {
+  if (e.target.id === 'gameModal') closeModalDirect();
+}
+function closeModalDirect() {
+  document.getElementById('gameModal').classList.remove('open');
+}
+
+// INIT
+try {
+  const saved = localStorage.getItem('alessa_games_lang');
+  if (saved === 'en' || saved === 'vi') currentLang = saved;
+} catch(e){}
+setLang(currentLang);
+</script>
+
+</body>
+</html>
