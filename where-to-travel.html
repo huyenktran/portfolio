@@ -1,0 +1,1293 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Hôm Nay Đi Du Lịch Ở Đâu? · Travel Destination Hub · Alessandra Tran</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,700;1,500&family=Quicksand:wght@400;500;600;700&display=swap">
+<style>
+:root {
+  color-scheme: light;
+  --bg-pink: #fff4f6;
+  --surface: #ffffff;
+  --surface-alt: #fbebee;
+  --ink: #221c1f;
+  --muted: #6e5b62;
+  --border: #f0ccd5;
+  --deep-green: #1a4d36;
+  --deep-green-hover: #123827;
+  --rose: #d94f7d;
+  --rose-dark: #b83762;
+  --shadow: 0 10px 30px rgba(26, 77, 54, 0.07);
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  background-color: var(--bg-pink);
+  background-image: radial-gradient(#edd3dc 1.2px, transparent 1.2px);
+  background-size: 26px 26px;
+  color: var(--ink);
+  font-family: 'Quicksand', system-ui, sans-serif;
+  line-height: 1.65;
+  padding-bottom: 80px;
+}
+
+a { color: inherit; text-decoration: none; transition: all 0.25s ease; }
+
+.wrap { max-width: 1280px; margin: 0 auto; padding: 0 4vw; }
+
+/* HEADER & NAV */
+header {
+  background: linear-gradient(180deg, #fce4e8 0%, rgba(255, 244, 246, 0.95) 100%);
+  border-bottom: 1.5px solid var(--border);
+  padding: 26px 0 36px;
+  margin-bottom: 28px;
+  box-shadow: 0 4px 20px rgba(26,77,54,0.04);
+}
+
+.top-nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+.nav-left, .nav-right { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
+
+.nav-pill {
+  display: inline-flex; align-items: center; gap: 8px; padding: 8px 18px; border-radius: 99px; background: var(--surface); border: 1.5px solid var(--border); font-size: 13.5px; font-weight: 700; color: var(--deep-green); box-shadow: 0 4px 12px rgba(26,77,54,0.05);
+}
+.nav-pill:hover { border-color: var(--deep-green); background: var(--deep-green); color: #fff; }
+
+.lang-switch {
+  display: inline-flex; background: var(--surface); border: 1.5px solid var(--border); border-radius: 99px; padding: 3px; box-shadow: 0 4px 12px rgba(26,77,54,0.06);
+}
+.lang-switch button {
+  border: none; background: transparent; font: 700 12.5px 'Quicksand', sans-serif; color: var(--muted); padding: 6px 16px; border-radius: 99px; cursor: pointer; transition: all 0.2s ease;
+}
+.lang-switch button.active { background: var(--deep-green); color: #fff; }
+
+.hero-title {
+  text-align: center;
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(30px, 5vw, 46px);
+  font-weight: 700;
+  color: var(--deep-green);
+  margin-bottom: 8px;
+}
+.hero-sub {
+  text-align: center;
+  color: var(--muted);
+  font-size: 15px;
+  max-width: 740px;
+  margin: 0 auto;
+}
+
+/* MAIN VIEW TABS */
+.view-tabs {
+  display: flex;
+  justify-content: center;
+  gap: 14px;
+  margin-bottom: 32px;
+  flex-wrap: wrap;
+}
+
+.view-tab-btn {
+  padding: 12px 26px;
+  border-radius: 99px;
+  border: 2px solid var(--border);
+  background: var(--surface);
+  color: var(--deep-green);
+  font: 700 15px 'Quicksand', sans-serif;
+  cursor: pointer;
+  box-shadow: 0 4px 14px rgba(26,77,54,0.06);
+  transition: all 0.25s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.view-tab-btn.active, .view-tab-btn:hover {
+  background: var(--deep-green);
+  color: #fff;
+  border-color: var(--deep-green);
+  transform: translateY(-2px);
+}
+
+.tab-section { display: none; }
+.tab-section.active { display: block; animation: fadeIn 0.35s ease; }
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* RANDOM PICKER PANEL */
+.picker-card {
+  background: var(--surface);
+  border: 1.5px solid var(--border);
+  border-radius: 26px;
+  padding: 32px;
+  box-shadow: var(--shadow);
+  max-width: 960px;
+  margin: 0 auto 36px;
+}
+
+.filter-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+  margin-bottom: 22px;
+}
+
+@media(max-width: 768px) {
+  .filter-grid { grid-template-columns: 1fr; }
+}
+
+label { display: block; font-size: 13px; font-weight: 700; color: var(--deep-green); margin-bottom: 6px; }
+select, input[type="text"] {
+  width: 100%; background: var(--bg-pink); border: 1.5px solid var(--border); border-radius: 12px; padding: 11px 14px; font: 600 14px 'Quicksand', sans-serif; color: var(--ink); outline: none; transition: border-color 0.2s;
+}
+select:focus, input[type="text"]:focus { border-color: var(--deep-green); background: #fff; }
+
+.btn-primary {
+  display: inline-flex; justify-content: center; align-items: center; gap: 8px; width: 100%; background: var(--deep-green); color: #fff; border: none; border-radius: 14px; padding: 14px 24px; font: 700 16px 'Quicksand', sans-serif; cursor: pointer; box-shadow: 0 8px 22px rgba(26,77,54,0.22); transition: transform 0.2s, background 0.2s;
+}
+.btn-primary:hover { background: var(--deep-green-hover); transform: translateY(-2px); }
+
+/* FEATURED DESTINATION CARD */
+.featured-dest-box {
+  margin-top: 28px;
+  background: var(--surface-alt);
+  border: 2px solid var(--deep-green);
+  border-radius: 22px;
+  padding: 28px;
+  display: none;
+  animation: fadeIn 0.4s ease;
+}
+
+.fd-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  gap: 12px;
+  border-bottom: 1.5px dashed var(--border);
+  padding-bottom: 16px;
+  margin-bottom: 18px;
+}
+
+.fd-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 26px;
+  color: var(--deep-green);
+  font-weight: 700;
+}
+
+.fd-badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.badge {
+  font-size: 12px;
+  font-weight: 700;
+  padding: 4px 12px;
+  border-radius: 99px;
+}
+.badge-region { background: var(--deep-green); color: #fff; }
+.badge-vibe { background: #ffe0e9; color: var(--rose-dark); }
+.badge-duration { background: #e8f5e9; color: #2e7d32; border: 1px solid #c8e6c9; }
+.badge-budget { background: #fff8e1; color: #b28704; border: 1px solid #ffe082; }
+
+.fd-grid-info {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  margin-bottom: 16px;
+}
+@media(max-width: 700px) {
+  .fd-grid-info { grid-template-columns: 1fr; }
+}
+
+.fd-section { margin-bottom: 16px; }
+.fd-section h4 { font-size: 14.5px; font-weight: 700; color: var(--deep-green); margin-bottom: 6px; display: flex; align-items: center; gap: 6px; }
+.fd-section p, .fd-section ul { font-size: 14.5px; color: var(--ink); }
+.fd-section ul { padding-left: 20px; }
+.fd-section li { margin-bottom: 5px; }
+
+/* DIRECTORY SECTION (2 MODULES PER ROW) */
+.dir-controls {
+  background: var(--surface);
+  border: 1.5px solid var(--border);
+  border-radius: 20px;
+  padding: 20px;
+  margin-bottom: 24px;
+  box-shadow: var(--shadow);
+}
+
+.dir-search-row {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr;
+  gap: 14px;
+}
+
+@media(max-width: 820px) {
+  .dir-search-row { grid-template-columns: 1fr; }
+}
+
+.dest-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 22px;
+}
+
+@media(max-width: 860px) {
+  .dest-grid { grid-template-columns: 1fr; }
+}
+
+.dest-card {
+  background: var(--surface);
+  border: 1.5px solid var(--border);
+  border-radius: 22px;
+  padding: 24px;
+  box-shadow: var(--shadow);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: transform 0.2s, border-color 0.2s;
+}
+
+.dest-card:hover {
+  transform: translateY(-3px);
+  border-color: var(--deep-green);
+}
+
+.dest-card h3 {
+  font-family: 'Playfair Display', serif;
+  font-size: 21px;
+  color: var(--deep-green);
+  margin: 10px 0 8px;
+}
+
+.dest-card p.short-desc {
+  font-size: 13.8px;
+  color: var(--muted);
+  margin-bottom: 16px;
+}
+
+.btn-outline {
+  background: var(--surface-alt);
+  color: var(--deep-green);
+  border: 1.5px solid var(--border);
+  border-radius: 12px;
+  padding: 10px 16px;
+  font: 700 13.5px 'Quicksand', sans-serif;
+  cursor: pointer;
+  width: 100%;
+  transition: all 0.2s;
+}
+.btn-outline:hover {
+  background: var(--deep-green);
+  color: #fff;
+  border-color: var(--deep-green);
+}
+
+/* MODAL FOR ITINERARY DETAILS */
+.modal-overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(34, 28, 31, 0.55);
+  backdrop-filter: blur(4px);
+  z-index: 999;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+.modal-overlay.open { display: flex; animation: fadeIn 0.25s ease; }
+
+.modal-box {
+  background: var(--surface);
+  border: 2px solid var(--deep-green);
+  border-radius: 26px;
+  max-width: 700px;
+  width: 100%;
+  max-height: 88vh;
+  overflow-y: auto;
+  padding: 30px;
+  position: relative;
+  box-shadow: 0 20px 50px rgba(0,0,0,0.2);
+}
+
+.modal-close {
+  position: absolute;
+  top: 20px;
+  right: 22px;
+  background: var(--surface-alt);
+  border: 1.5px solid var(--border);
+  color: var(--deep-green);
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  font-size: 20px;
+  font-weight: 700;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.modal-close:hover { background: var(--deep-green); color: #fff; }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap">
+    <nav class="top-nav">
+      <div class="nav-left">
+        <a class="nav-pill" href="/" data-i18n="nav_home">← Trang chủ</a>
+        <a class="nav-pill" href="/projects" data-i18n="nav_hub">✨ Subdomain Hub</a>
+      </div>
+      <div class="nav-right">
+        <div class="lang-switch" role="group" aria-label="Language switcher">
+          <button type="button" id="btn-vi" class="active" onclick="setLang('vi')">VI</button>
+          <button type="button" id="btn-en" onclick="setLang('en')">EN</button>
+        </div>
+      </div>
+    </nav>
+    <h1 class="hero-title" data-i18n="hero_title">✈️ Hôm Nay Đi Du Lịch Ở Đâu?</h1>
+    <p class="hero-sub" data-i18n="hero_sub">Trợ lý chọn điểm đến trong nước &amp; quốc tế theo phong cách nghỉ dưỡng, thời gian và ngân sách — kèm gợi ý lịch trình trải nghiệm chi tiết.</p>
+  </div>
+</header>
+
+<main class="wrap">
+  <!-- NAVIGATION TABS -->
+  <div class="view-tabs">
+    <button class="view-tab-btn active" onclick="switchView('picker', this)" data-i18n="tab_picker">🧭 Gợi Ý Điểm Đến Ngẫu Nhiên</button>
+    <button class="view-tab-btn" onclick="switchView('directory', this)" data-i18n="tab_directory">🗺️ Khám Phá Tất Cả Điểm Đến (<span id="totalDestCount">0</span>)</button>
+  </div>
+
+  <!-- TAB 1: RANDOM DESTINATION PICKER -->
+  <section id="view-picker" class="tab-section active">
+    <div class="picker-card">
+      <div class="filter-grid">
+        <div>
+          <label data-i18n="lbl_region">🌍 Khu vực / Phạm vi</label>
+          <select id="pickRegion">
+            <option value="all" data-i18n="opt_r_all">Tất cả điểm đến (Việt Nam &amp; Thế giới)</option>
+            <option value="vn_south" data-i18n="opt_r_vns">🇻🇳 Việt Nam - Miền Nam &amp; Gần Sài Gòn</option>
+            <option value="vn_central" data-i18n="opt_r_vnc">🇻🇳 Việt Nam - Miền Trung &amp; Tây Nguyên</option>
+            <option value="vn_north" data-i18n="opt_r_vnn">🇻🇳 Việt Nam - Miền Bắc &amp; Vùng cao</option>
+            <option value="asia" data-i18n="opt_r_asia">🌏 Châu Á (Không cần Visa phức tạp)</option>
+            <option value="global" data-i18n="opt_r_glob">✈️ Châu Âu / Úc / Thế giới</option>
+          </select>
+        </div>
+        <div>
+          <label data-i18n="lbl_vibe">✨ Phong cách chuyến đi (Vibe)</label>
+          <select id="pickVibe">
+            <option value="all" data-i18n="opt_v_all">Tất cả phong cách</option>
+            <option value="healing" data-i18n="opt_v_heal">🌿 Chữa lành &amp; Nghỉ dưỡng (Healing &amp; Slow)</option>
+            <option value="beach" data-i18n="opt_v_beach">🏖️ Biển xanh &amp; Đảo hoang sơ</option>
+            <option value="culture" data-i18n="opt_v_cult">🏛️ Văn hóa, Kiến trúc &amp; Cafe nghệ thuật</option>
+            <option value="adventure" data-i18n="opt_v_adv">🏔️ Khám phá thiên nhiên &amp; Trekking</option>
+            <option value="foodie" data-i18n="opt_v_food">🍜 Thiên đường ẩm thực &amp; Dạo phố</option>
+          </select>
+        </div>
+        <div>
+          <label data-i18n="lbl_duration">⏳ Thời gian dự kiến</label>
+          <select id="pickDuration">
+            <option value="all" data-i18n="opt_d_all">Bất kỳ thời lượng nào</option>
+            <option value="day" data-i18n="opt_d_day">☀️ Đi về trong ngày / Staycation (1 ngày)</option>
+            <option value="weekend" data-i18n="opt_d_wknd">🎒 Cuối tuần ngắn ngày (2N1Đ - 3N2Đ)</option>
+            <option value="long" data-i18n="opt_d_long">🛫 Kỳ nghỉ dài ngày (4+ ngày trở lên)</option>
+          </select>
+        </div>
+        <div>
+          <label data-i18n="lbl_budget">💳 Mức ngân sách</label>
+          <select id="pickBudget">
+            <option value="all" data-i18n="opt_b_all">Mọi mức ngân sách</option>
+            <option value="budget" data-i18n="opt_b_low">🌱 Tiết kiệm / Ngon - Bổ - Rẻ</option>
+            <option value="mid" data-i18n="opt_b_mid">✨ Tầm trung / Thoải mái</option>
+            <option value="luxury" data-i18n="opt_b_lux">💎 Nghỉ dưỡng cao cấp / Luxury</option>
+          </select>
+        </div>
+      </div>
+
+      <button class="btn-primary" onclick="pickRandomDestination()" data-i18n="btn_pick">🎲 Xoay La Bàn Chọn Điểm Đến Ngay!</button>
+
+      <!-- FEATURED DESTINATION RESULT -->
+      <div class="featured-dest-box" id="featuredDestBox">
+        <div class="fd-header">
+          <div>
+            <div style="font-size:12.5px; font-weight:700; color:var(--rose-dark); text-transform:uppercase; letter-spacing:0.5px; margin-bottom:4px;" data-i18n="res_tag">✨ Điểm đến lý tưởng dành cho bạn</div>
+            <h2 class="fd-title" id="fdTitle">--</h2>
+          </div>
+          <div class="fd-badges" id="fdBadges"></div>
+        </div>
+
+        <div class="fd-section">
+          <h4 data-i18n="sec_why">💖 Tại sao nên đi nơi này hôm nay?</h4>
+          <p id="fdOverview">--</p>
+        </div>
+
+        <div class="fd-grid-info">
+          <div class="fd-section" style="background:#fff; padding:14px; border-radius:14px; border:1px solid var(--border); margin-bottom:0;">
+            <h4 data-i18n="sec_season">🌤️ Thời điểm đẹp nhất</h4>
+            <p id="fdSeason" style="font-size:13.8px;">--</p>
+          </div>
+          <div class="fd-section" style="background:#fff; padding:14px; border-radius:14px; border:1px solid var(--border); margin-bottom:0;">
+            <h4 data-i18n="sec_food">🍽️ Đặc sản nhất định phải thử</h4>
+            <p id="fdFood" style="font-size:13.8px;">--</p>
+          </div>
+        </div>
+
+        <div class="fd-section" style="margin-top:16px;">
+          <h4 data-i18n="sec_highlights">📍 Trải nghiệm &amp; Lịch trình gợi ý</h4>
+          <ul id="fdHighlights"></ul>
+        </div>
+
+        <div class="fd-section" style="background:#fff; padding:14px; border-radius:14px; border:1px solid var(--border); margin-bottom:0;">
+          <h4 data-i18n="sec_tips">💡 Mẹo du lịch &amp; Góc sống ảo</h4>
+          <p id="fdTips" style="font-size:13.5px; color:var(--muted);">--</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TAB 2: FULL DESTINATION DIRECTORY -->
+  <section id="view-directory" class="tab-section">
+    <div class="dir-controls">
+      <div class="dir-search-row">
+        <div>
+          <label data-i18n="dir_search_lbl">🔍 Tìm kiếm điểm đến, quốc gia hoặc hoạt động</label>
+          <input type="text" id="dirSearchInput" oninput="renderDirectory()" placeholder="Ví dụ: Đà Lạt, Kyoto, Phú Quốc, Chiang Mai...">
+        </div>
+        <div>
+          <label data-i18n="lbl_region">🌍 Khu vực</label>
+          <select id="dirRegionFilter" onchange="renderDirectory()">
+            <option value="all" data-i18n="opt_r_all">Tất cả điểm đến</option>
+            <option value="vn_south" data-i18n="opt_r_vns">🇻🇳 Miền Nam &amp; Gần Sài Gòn</option>
+            <option value="vn_central" data-i18n="opt_r_vnc">🇻🇳 Miền Trung &amp; Tây Nguyên</option>
+            <option value="vn_north" data-i18n="opt_r_vnn">🇻🇳 Miền Bắc &amp; Vùng cao</option>
+            <option value="asia" data-i18n="opt_r_asia">🌏 Châu Á</option>
+            <option value="global" data-i18n="opt_r_glob">✈️ Châu Âu / Úc / Thế giới</option>
+          </select>
+        </div>
+        <div>
+          <label data-i18n="lbl_vibe">✨ Phong cách</label>
+          <select id="dirVibeFilter" onchange="renderDirectory()">
+            <option value="all" data-i18n="opt_v_all">Tất cả phong cách</option>
+            <option value="healing" data-i18n="opt_v_heal">🌿 Chữa lành &amp; Nghỉ dưỡng</option>
+            <option value="beach" data-i18n="opt_v_beach">🏖️ Biển xanh &amp; Đảo</option>
+            <option value="culture" data-i18n="opt_v_cult">🏛️ Văn hóa &amp; Nghệ thuật</option>
+            <option value="adventure" data-i18n="opt_v_adv">🏔️ Thiên nhiên &amp; Trekking</option>
+            <option value="foodie" data-i18n="opt_v_food">🍜 Ẩm thực &amp; Dạo phố</option>
+          </select>
+        </div>
+      </div>
+    </div>
+
+    <div class="dest-grid" id="directoryGrid"></div>
+  </section>
+</main>
+
+<!-- MODAL FOR DESTINATION DETAILS -->
+<div class="modal-overlay" id="destModal" onclick="closeModal(event)">
+  <div class="modal-box" onclick="event.stopPropagation()">
+    <button class="modal-close" onclick="closeModalDirect()">×</button>
+    <div id="modalContent"></div>
+  </div>
+</div>
+
+<script>
+// COMPREHENSIVE BILINGUAL TRAVEL DATABASE (VI / EN)
+const destinationsDB = [
+  // --- MIỀN NAM & GẦN SÀI GÒN ---
+  {
+    id: "vung-tau-ho-tram",
+    region: "vn_south",
+    vibe: ["beach", "healing", "foodie"],
+    duration: ["day", "weekend"],
+    budget: ["budget", "mid", "luxury"],
+    title: { vi: "Vũng Tàu & Hồ Tràm (Bà Rịa - Vũng Tàu)", en: "Vung Tau & Ho Tram Coastal Escape" },
+    regionLabel: { vi: "🇻🇳 Cách TP.HCM ~2 giờ lái xe", en: "🇻🇳 ~2 hrs drive from HCMC" },
+    durationLabel: { vi: "1 - 2 ngày", en: "1 - 2 Days" },
+    budgetLabel: { vi: "Tiết kiệm - Cao cấp", en: "Budget - Luxury" },
+    overview: {
+      vi: "Lựa chọn đổi gió nhanh gọn nhất cuối tuần: vừa có biển xanh, rừng nguyên sinh Bình Châu - Phước Bửu, vừa có hàng loạt quán cafe ngắm hoàng hôn cực chill.",
+      en: "The easiest weekend getaway from Ho Chi Minh City—combining breezy coastlines, forest reserves, luxury resorts, and sunset seaside cafes."
+    },
+    season: { vi: "Quanh năm (Đẹp nhất từ tháng 11 đến tháng 4)", en: "Year-round (Best from Nov to Apr)" },
+    food: { vi: "Bánh khọt gốc Vú Sữa, lẩu cá đuối, hàu nướng phô mai Long Sơn, bánh bông lan trứng muối.", en: "Crispy mini savory pancakes (Banh Khot), stingray hotpot, Long Son grilled oysters, salted egg sponge cake." },
+    highlights: {
+      vi: [
+        "Đón bình minh trên cung đường ven biển Hạ Long - Trần Phú và check-in Hẻm 444 Trần Phú.",
+        "Thư giãn tại các resort ven rừng - biển ở Hồ Tràm hoặc ngâm khoáng nóng Bình Châu.",
+        "Ngồi cafe ngắm hoàng hôn buông xuống biển tại Bãi Trước hoặc mũi Nghinh Phong."
+      ],
+      en: [
+        "Catch sunrise along the scenic Ha Long – Tran Phu coastal boulevard and Cape Nghinh Phong.",
+        "Unwind at beachfront forest resorts in Ho Tram or soak in Binh Chau natural hot springs.",
+        "Sip iced coffee at a cliffside cafe watching the sun dip into the ocean."
+      ]
+    },
+    tips: {
+      vi: "Nếu đi cuối tuần, hãy xuất phát lúc 6h sáng để tránh kẹt xe cao tốc Long Thành - Dầu Giây và thưởng thức bữa sáng bên biển.",
+      en: "Leave by 6:00 AM on weekends to beat highway traffic and enjoy breakfast right by the waves."
+    }
+  },
+  {
+    id: "phu-quoc",
+    region: "vn_south",
+    vibe: ["beach", "healing"],
+    duration: ["weekend", "long"],
+    budget: ["mid", "luxury"],
+    title: { vi: "Đảo Ngọc Phú Quốc (Kiên Giang)", en: "Phu Quoc Island (Pearl Island)" },
+    regionLabel: { vi: "🇻🇳 Đảo Nam Bộ (Bay 1h từ TP.HCM)", en: "🇻🇳 Southern Island (1h flight from HCMC)" },
+    durationLabel: { vi: "3 - 4 ngày", en: "3 - 4 Days" },
+    budgetLabel: { vi: "Tầm trung - Luxury", en: "Mid-range - Luxury" },
+    overview: {
+      vi: "Thiên đường nghỉ dưỡng biển đảo với nước biển trong vắt màu ngọc bích tại Bãi Sao, Bãi Khem và những khu nghỉ dưỡng đẳng cấp quốc tế.",
+      en: "A tropical island paradise renowned for turquoise waters at Bai Khem, vibrant night markets, and world-class beachfront resorts."
+    },
+    season: { vi: "Tháng 11 đến tháng 4 (Mùa khô, biển êm như mặt gương)", en: "November to April (Dry season, calm crystal-clear seas)" },
+    food: { vi: "Gỏi cá trích, bún quậy Kiến Xây, nhum biển nướng mỡ hành, ghẹ Hàm Ninh.", en: "Fresh herring salad, Kien Xay stir-noodle soup, grilled sea urchin, Ham Ninh steamed flower crabs." },
+    highlights: {
+      vi: [
+        "Đi cáp treo Hòn Thơm ngắm toàn cảnh quần đảo An Thới từ trên cao và lặn ngắm san hô.",
+        "Dạo chơi Thị trấn Hoàng Hôn (Sunset Town) và ngắm pháo hoa nghệ thuật buổi tối.",
+        "Thưởng thức hải sản tươi sống tại làng chài Rạch Vẹm hoặc Hàm Ninh."
+      ],
+      en: [
+        "Ride the world's longest over-sea cable car to Hon Thom Island and snorkel over coral reefs.",
+        "Stroll through Sunset Town at golden hour and watch evening seaside fireworks.",
+        "Feast on freshly caught seafood at Ham Ninh or Rach Vem fishing villages."
+      ]
+    },
+    tips: {
+      vi: "Nên thuê xe máy hoặc ô tô tự lái để tự do khám phá cả Bắc Đảo (Rạch Vẹm, Grand World) lẫn Nam Đảo (Bãi Khem, An Thới).",
+      en: "Rent a scooter or private car to freely explore both the tranquil North Island and vibrant South Island."
+    }
+  },
+  {
+    id: "can-tho-mekong",
+    region: "vn_south",
+    vibe: ["culture", "foodie", "healing"],
+    duration: ["day", "weekend"],
+    budget: ["budget", "mid"],
+    title: { vi: "Cần Thơ & Miền Tây Sông Nước", en: "Can Tho & Mekong Delta Waterways" },
+    regionLabel: { vi: "🇻🇳 Tây Nam Bộ (~3 giờ đi xe)", en: "🇻🇳 Mekong Delta (~3 hrs drive)" },
+    durationLabel: { vi: "2 ngày 1 đêm", en: "2 Days 1 Night" },
+    budgetLabel: { vi: "Tiết kiệm - Tầm trung", en: "Budget - Mid-range" },
+    overview: {
+      vi: "Trải nghiệm nhịp sống bình dị miền sông nước với chợ nổi Cái Răng lúc bình minh, vườn trái cây trĩu quả và những homestay xanh mướt.",
+      en: "Immerse yourself in gentle river life with dawn floating markets, lush tropical fruit orchards, and tranquil eco-lodges."
+    },
+    season: { vi: "Tháng 5 - Tháng 8 (Mùa trái cây chín) hoặc Tháng 9 - Tháng 11 (Mùa nước nổi)", en: "May–Aug (Fruit season) or Sep–Nov (Floating water season)" },
+    food: { vi: "Hủ tiếu ghe chợ nổi, bánh xèo củ hủ dừa, lẩu mắm, vịt nấu chao, bánh cống.", en: "Floating boat noodle soup, coconut-heart crispy crepes, fermented fish hotpot, fermented tofu duck." },
+    highlights: {
+      vi: [
+        "Thức dậy lúc 5h30 sáng ngồi ghe len lỏi giữa chợ nổi Cái Răng và thưởng thức tô hủ tiếu nóng hổi trên sông.",
+        "Tham quan Cồn Sơn: trải nghiệm làm bánh dân gian, xem cá lóc bay và hái chôm chôm, măng cụt tại vườn.",
+        "Ghé thăm Nhà cổ Bình Thủy mang kiến trúc Đông - Tây giao hòa hơn 150 năm tuổi."
+      ],
+      en: [
+        "Wake up at 5:30 AM to glide through Cai Rang Floating Market and eat a steaming bowl of noodles right on a wooden boat.",
+        "Visit Con Son Islet to pick seasonal fruits straight from trees and make traditional southern cakes.",
+        "Explore the 150-year-old Binh Thuy Ancient House blending French and Vietnamese architecture."
+      ]
+    },
+    tips: {
+      vi: "Đặt ghe riêng đi chợ nổi từ bến Ninh Kiều lúc 5h30 sáng để đón trọn khoảnh khắc mặt trời mọc trên sông Hậu.",
+      en: "Book a private sampan at Ninh Kieu Pier at 5:30 AM to catch sunrise over the Hau River."
+    }
+  },
+  {
+    id: "saigon-staycation",
+    region: "vn_south",
+    vibe: ["culture", "foodie", "healing"],
+    duration: ["day"],
+    budget: ["budget", "mid"],
+    title: { vi: "Art & Cafe Hopping Sài Gòn (Thảo Điền - Quận 1)", en: "Saigon Art & Cafe Hopping Day" },
+    regionLabel: { vi: "🇻🇳 Nội thành TP.HCM", en: "🇻🇳 Ho Chi Minh City" },
+    durationLabel: { vi: "1 ngày (Staycation)", en: "1 Day (Staycation)" },
+    budgetLabel: { vi: "Tiết kiệm - Tầm trung", en: "Budget - Mid-range" },
+    overview: {
+      vi: "Dành trọn một ngày làm 'khách du lịch tại chính thành phố mình sống': ghé bảo tàng mỹ thuật, thưởng thức matcha thủ công và workshop gốm.",
+      en: "Play tourist in your own city: wander through fine arts galleries, sip ceremonial matcha, and join a cozy pottery workshop."
+    },
+    season: { vi: "Quanh năm", en: "Year-round" },
+    food: { vi: "Bánh mì chảo Hòa Mã, dimsum Chợ Lớn, Matcha Latte & bánh ngọt kiểu Pháp.", en: "Hoa Ma sizzling pan banh mi, Chinatown dim sum, ceremonial Matcha Latte & French pastries." },
+    highlights: {
+      vi: [
+        "Buổi sáng tham quan Bảo tàng Mỹ thuật TP.HCM (kiến trúc Đông Dương vàng cổ điển) hoặc The Factory Contemporary Arts Centre.",
+        "Buổi trưa ăn brunch và thưởng thức Matcha Latte tại các con hẻm xanh mát ở Thảo Điền.",
+        "Buổi chiều tham gia lớp học làm gốm, vẽ tranh hoặc làm nến thơm thư giãn."
+      ],
+      en: [
+        "Morning visit to the HCMC Fine Arts Museum or The Factory Contemporary Arts Centre.",
+        "Brunch and ceremonial Matcha Latte tasting tucked inside leafy Thao Dien alleyways.",
+        "Afternoon hands-on pottery wheel, painting, or scented candle workshop."
+      ]
+    },
+    tips: {
+      vi: "Đi vào sáng thứ 7 hoặc Chủ nhật để ánh nắng xiên qua các ô cửa kính bảo tàng đẹp nhất!",
+      en: "Go on Saturday morning when golden sunlight streams through the museum's stained-glass windows!"
+    }
+  },
+
+  // --- MIỀN TRUNG & TÂY NGUYÊN ---
+  {
+    id: "da-lat",
+    region: "vn_central",
+    vibe: ["healing", "culture", "foodie"],
+    duration: ["weekend", "long"],
+    budget: ["budget", "mid", "luxury"],
+    title: { vi: "Đà Lạt Mộng Mơ (Lâm Đồng)", en: "Da Lat Misty Highlands" },
+    regionLabel: { vi: "🇻🇳 Cao nguyên Lâm Viên", en: "🇻🇳 Central Highlands" },
+    durationLabel: { vi: "3 ngày 2 đêm", en: "3 Days 2 Nights" },
+    budgetLabel: { vi: "Tiết kiệm - Cao cấp", en: "Budget - Luxury" },
+    overview: {
+      vi: "Thành phố ngàn hoa với tiết trời se lạnh quanh năm, rừng thông bạt ngàn và vô số tiệm cafe gỗ ấm cúng ẩn mình trong sương.",
+      en: "The City of Eternal Spring with crisp mountain air, misty pine forests, and cozy wooden cafes."
+    },
+    season: { vi: "Tháng 11 đến Tháng 4 (Mùa khô, nắng ấm, hoa dã quỳ & mai anh đào nở rộ)", en: "November to April (Crisp sunshine, wild sunflowers & cherry blossoms)" },
+    food: { vi: "Bánh căn xíu mại, lẩu gà lá é, bánh ướt lòng gà, sữa đậu nành nóng chợ đêm, hồng treo gió.", en: "Mini rice pancakes with meatball soup, basil chicken hotpot, hot soy milk, wind-dried persimmons." },
+    highlights: {
+      vi: [
+        "Săn mây buổi sáng sớm tại đồi Đa Phú hoặc Cầu Đất và thưởng thức ly cafe nóng giữa rừng thông.",
+        "Dạo bộ quanh Hồ Xuân Hương lúc hoàng hôn hoặc đạp xe xuyên rừng thông Tuyền Lâm.",
+        "Ghé thăm các tiệm đồ len thủ công, vườn hồng treo gió và các quán cafe acoustic buổi tối."
+      ],
+      en: [
+        "Chase morning clouds at Da Phu Hill or Cau Dat Tea Hills with a hot pour-over coffee.",
+        "Stroll around Xuan Huong Lake at dusk or cycle along serene Tuyen Lam Lake.",
+        "Browse handmade crochet & knitwear boutiques, persimmon farms, and intimate acoustic cafes."
+      ]
+    },
+    tips: {
+      vi: "Luôn mang theo áo khoác len hoặc trench coat mỏng vì nhiệt độ ban đêm ở Đà Lạt thường xuống 14–16°C.",
+      en: "Always pack a cozy cardigan or trench coat as nighttime temperatures dip to 14–16°C."
+    }
+  },
+  {
+    id: "hoi-an-da-nang",
+    region: "vn_central",
+    vibe: ["culture", "beach", "foodie"],
+    duration: ["weekend", "long"],
+    budget: ["mid", "luxury"],
+    title: { vi: "Phố Cổ Hội An & Đà Nẵng", en: "Hoi An Ancient Town & Da Nang" },
+    regionLabel: { vi: "🇻🇳 Duyên hải Miền Trung", en: "🇻🇳 Central Coast Vietnam" },
+    durationLabel: { vi: "3 - 4 ngày", en: "3 - 4 Days" },
+    budgetLabel: { vi: "Tầm trung - Cao cấp", en: "Mid-range - Luxury" },
+    overview: {
+      vi: "Sự kết hợp hoàn hảo giữa nét trầm mặc rêu phong của những bức tường vàng Hội An và nhịp sống biển hiện đại tại Đà Nẵng.",
+      en: "A seamless blend of lantern-lit heritage streets in Hoi An and modern sandy beaches in Da Nang."
+    },
+    season: { vi: "Tháng 2 đến Tháng 8 (Nắng đẹp, biển xanh ngắt)", en: "February to August (Sunny skies & calm turquoise water)" },
+    food: { vi: "Cao lầu, mì Quảng, bánh mì Phượng / Madam Khánh, cơm gà Bà Buội, nước mót thảo mộc.", en: "Cao Lau noodles, Mi Quang, Hoi An Banh Mi, chicken rice, herbal lotus Mot tea." },
+    highlights: {
+      vi: [
+        "Thức dậy lúc 6h sáng dạo phố cổ Hội An vắng người, ngắm nắng sớm chiếu lên những giàn hoa giấy.",
+        "Đi thuyền thả hoa đăng trên sông Hoài vào buổi tối và may đo áo dài / trang phục linen lấy ngay trong ngày.",
+        "Chạy xe máy qua đèo Hải Vân hùng vĩ nối liền Đà Nẵng và vịnh Lăng Cô."
+      ],
+      en: [
+        "Walk Hoi An's yellow-walled lanes at 6:00 AM before the crowds arrive, bathed in golden morning light.",
+        "Float paper lanterns on the Hoai River at night and get custom linen outfits tailored within 24 hours.",
+        "Ride across the dramatic Hai Van Pass overlooking the East Sea and Lang Co Bay."
+      ]
+    },
+    tips: {
+      vi: "Ở lại Hội An ít nhất 1 đêm để cảm nhận vẻ đẹp tĩnh lặng của phố cổ vào sáng sớm tinh mơ.",
+      en: "Stay overnight in Hoi An so you can experience its peaceful magic at sunrise."
+    }
+  },
+  {
+    id: "mang-den",
+    region: "vn_central",
+    vibe: ["healing", "adventure"],
+    duration: ["weekend", "long"],
+    budget: ["budget", "mid"],
+    title: { vi: "Măng Đen (Kon Tum - Nàng Thơ Tây Nguyên)", en: "Mang Den Pine Highlands (Kon Tum)" },
+    regionLabel: { vi: "🇻🇳 Bắc Tây Nguyên", en: "🇻🇳 Northern Central Highlands" },
+    durationLabel: { vi: "3 ngày 2 đêm", en: "3 Days 2 Nights" },
+    budgetLabel: { vi: "Tiết kiệm - Tầm trung", en: "Budget - Mid-range" },
+    overview: {
+      vi: "Vùng đất nguyên sơ được ví như 'Đà Lạt thứ hai' nhưng tĩnh lặng hơn gấp bội, bao bọc bởi rừng nguyên sinh và thác nước hùng vĩ.",
+      en: "An unspoiled highland retreat often called the 'Second Da Lat'—quieter, wilder, and wrapped in ancient pine forests."
+    },
+    season: { vi: "Tháng 10 đến Tháng 4 (Săn mây, hoa anh đào tháng 1)", en: "October to April (Cloud hunting & January cherry blossoms)" },
+    food: { vi: "Gà nướng cơm lam, lẩu xuyên tiêu, gỏi lá rừng Kon Tum, cafe Arabica Măng Đen.", en: "Bamboo-tube rice with grilled mountain chicken, Sichuan pepper hotpot, Kon Tum wild-leaf wraps." },
+    highlights: {
+      vi: [
+        "Dạo bước dưới hàng thông cổ thụ đường Hùng Vương và ngắm bình minh tại hồ Đăk Ke.",
+        "Khám phá thác Pa Sỹ hùng vĩ và chùa Khánh Lâm thanh tịnh giữa rừng.",
+        "Cắm trại hoặc nghỉ tại các farmstay gỗ giữa thung lũng."
+      ],
+      en: [
+        "Walk beneath century-old pines and watch sunrise reflect off Dak Ke Lake.",
+        "Visit Pa Sy Waterfall and the peaceful forest sanctuary of Khanh Lam Pagoda.",
+        "Stay in a cozy wooden farmstay overlooking misty valleys."
+      ]
+    },
+    tips: {
+      vi: "Măng Đen chưa bị thương mại hóa nhiều nên buổi tối rất yên tĩnh—lý tưởng để đọc sách, uống trà và nghỉ ngơi.",
+      en: "Mang Den remains wonderfully uncommercialized—ideal for slow mornings, reading, and digital detox."
+    }
+  },
+
+  // --- MIỀN BẮC & VÙNG CAO ---
+  {
+    id: "ha-noi-ninh-binh",
+    region: "vn_north",
+    vibe: ["culture", "foodie", "adventure"],
+    duration: ["weekend", "long"],
+    budget: ["budget", "mid", "luxury"],
+    title: { vi: "Hà Nội Mùa Thu & Tràng An - Ninh Bình", en: "Hanoi Heritage & Ninh Binh Karsts" },
+    regionLabel: { vi: "🇻🇳 Đồng bằng Sông Hồng", en: "🇻🇳 Northern Vietnam" },
+    durationLabel: { vi: "3 - 4 ngày", en: "3 - 4 Days" },
+    budgetLabel: { vi: "Tiết kiệm - Cao cấp", en: "Budget - Luxury" },
+    overview: {
+      vi: "Hành trình chạm vào chiều sâu văn hóa ngàn năm: từ phố cổ Hà Nội thơm mùi cốm mới đến những dãy núi đá vôi kỳ vĩ ở Ninh Bình.",
+      en: "A journey through timeless heritage—from Hanoi's tree-lined boulevards to Ninh Binh's dramatic limestone karsts."
+    },
+    season: { vi: "Tháng 9 - Tháng 11 (Thu Hà Nội) & Tháng 3 - Tháng 5 (Mùa lúa xanh/chín Tam Cốc)", en: "Sep–Nov (Hanoi Autumn) & Mar–May (Emerald/Golden rice paddies in Tam Coc)" },
+    food: { vi: "Phở bò, bún chả, cafe trứng Giảng, cốm làng Vòng, cơm cháy dê núi Ninh Bình.", en: "Hanoi Beef Pho, Bun Cha, Giảng Egg Coffee, young green rice (Com), Ninh Binh crispy rice." },
+    highlights: {
+      vi: [
+        "Nhâm nhi ly cafe trứng trên ban công nhìn ra phố cổ Hà Nội và dạo quanh Hồ Tây lúc hoàng hôn.",
+        "Ngồi thuyền nan xuôi dòng sông Ngô Đồng xuyên qua các hang động tại Tràng An hoặc Tam Cốc.",
+        "Chinh phục 500 bậc đá Hang Múa để ngắm toàn cảnh cánh đồng lúa uốn lượn bên dưới."
+      ],
+      en: [
+        "Sip creamy Egg Coffee overlooking Hanoi's Old Quarter and stroll around West Lake at sunset.",
+        "Glide by rowboat through river caves and limestone cliffs in Trang An or Tam Coc.",
+        "Climb 500 stone steps up Mua Cave Peak for a panoramic view over winding rivers and rice fields."
+      ]
+    },
+    tips: {
+      vi: "Ninh Bình chỉ cách Hà Nội 1.5 - 2 tiếng đi xe, bạn hoàn toàn có thể kết hợp cả hai trong một chuyến đi 4 ngày.",
+      en: "Ninh Binh is just 90 minutes south of Hanoi, making it effortless to combine both in one 4-day trip."
+    }
+  },
+  {
+    id: "ha-giang",
+    region: "vn_north",
+    vibe: ["adventure", "culture"],
+    duration: ["long"],
+    budget: ["budget", "mid"],
+    title: { vi: "Cao Nguyên Đá Hà Giang (Ha Giang Loop)", en: "Ha Giang Karst Plateau Loop" },
+    regionLabel: { vi: "🇻🇳 Cực Bắc Việt Nam", en: "🇻🇳 Far North Vietnam" },
+    durationLabel: { vi: "4 ngày 3 đêm", en: "4 Days 3 Nights" },
+    budgetLabel: { vi: "Tiết kiệm - Tầm trung", en: "Budget - Mid-range" },
+    overview: {
+      vi: "Cung đường phượt đẹp nhất Đông Nam Á với đèo Mã Pí Lèng hùng vĩ, dòng sông Nho Quế xanh ngọc và bản sắc văn hóa vùng cao độc đáo.",
+      en: "Southeast Asia's most breathtaking mountain loop featuring Ma Pi Leng Pass, emerald Nho Que River, and highland villages."
+    },
+    season: { vi: "Tháng 10 - Tháng 12 (Hoa tam giác mạch) & Tháng 2 - Tháng 4 (Hoa đào, hoa mận)", en: "Oct–Dec (Buckwheat flowers) & Feb–Apr (Peach & plum blossoms)" },
+    food: { vi: "Thắng dền, cháo ấu tẩu, lẩu gà đen, bánh tam giác mạch, mèn mén.", en: "Sweet ginger rice dumplings, black chicken hotpot, buckwheat cakes." },
+    highlights: {
+      vi: [
+        "Chinh phục tứ đại đỉnh đèo Mã Pí Lèng và đi thuyền trên hẻm vực Tu Sản - sông Nho Quế.",
+        "Ghé thăm làng cổ Lô Lô Chải dưới chân cột cờ Lũng Cú và dinh thự họ Vương.",
+        "Trải nghiệm phiên chợ vùng cao Đồng Văn sáng Chủ nhật đầy sắc màu thổ cẩm."
+      ],
+      en: [
+        "Traverse the legendary Ma Pi Leng Pass and boat through Tu San Canyon on the Nho Que River.",
+        "Visit the fairytale earthen-walled village of Lo Lo Chai near Lung Cu Flag Tower.",
+        "Experience the vibrant Sunday ethnic market in Dong Van Old Town."
+      ]
+    },
+    tips: {
+      vi: "Nếu chưa quen đường đèo dốc, hãy thuê dịch vụ Easy Rider (có tài xế bản địa chở) để an toàn và ngắm cảnh trọn vẹn!",
+      en: "Book an experienced local Easy Rider driver so you can safely soak in the dramatic cliffside views!"
+    }
+  },
+
+  // --- CHÂU Á (ASIA) ---
+  {
+    id: "chiang-mai",
+    region: "asia",
+    vibe: ["healing", "culture", "foodie"],
+    duration: ["long"],
+    budget: ["budget", "mid"],
+    title: { vi: "Chiang Mai (Đóa Hồng Phương Bắc Thái Lan)", en: "Chiang Mai, Thailand" },
+    regionLabel: { vi: "🇹🇭 Thái Lan (Miễn Visa)", en: "🇹🇭 Thailand (Visa-free)" },
+    durationLabel: { vi: "4 - 5 ngày", en: "4 - 5 Days" },
+    budgetLabel: { vi: "Tiết kiệm - Tầm trung", en: "Budget - Mid-range" },
+    overview: {
+      vi: "Thủ phủ của lối sống chậm (slow living), các quán cafe specialty ẩn trong rừng và những khu chợ thủ công mỹ nghệ tinh tế.",
+      en: "Northern Thailand's capital of slow living, specialty forest cafes, ancient temples, and artisan craft markets."
+    },
+    season: { vi: "Tháng 11 đến Tháng 2 (Thời tiết mát mẻ, lễ hội thả đèn trời Yi Peng)", en: "November to February (Cool weather & Yi Peng Lantern Festival)" },
+    food: { vi: "Mì Khao Soi cà ri vàng, xôi xoài, xúc xích thảo mộc Sai Ua, trà sữa Thái thủ công.", en: "Khao Soi coconut curry noodles, mango sticky rice, Sai Ua herbal sausage, artisanal Thai tea." },
+    highlights: {
+      vi: [
+        "Dạo chơi khu phố Nimmanhaemin sành điệu với hàng trăm quán cafe concept và tiệm đồ thủ công.",
+        "Ghé thăm chợ cuối tuần Jing Jai Market và Ban Kang Wat (làng nghệ thuật giữa rừng).",
+        "Tham gia lớp học nấu ăn món Thái hữu cơ tại trang trại ngoại ô."
+      ],
+      en: [
+        "Explore trendy Nimmanhaemin Road packed with specialty coffee shops and design boutiques.",
+        "Browse artisan goods at Jing Jai Weekend Market and the Baan Kang Wat artist village.",
+        "Take a half-day organic Thai cooking class on a countryside farm."
+      ]
+    },
+    tips: {
+      vi: "Chiang Mai cực kỳ thân thiện cho người đi một mình hoặc cặp đôi thích làm việc từ xa (Digital Nomad).",
+      en: "Chiang Mai is one of Asia's most welcoming hubs for solo travelers and creative digital nomads."
+    }
+  },
+  {
+    id: "kyoto-japan",
+    region: "asia",
+    vibe: ["culture", "healing", "foodie"],
+    duration: ["long"],
+    budget: ["mid", "luxury"],
+    title: { vi: "Kyoto (Cố Đô Ngàn Năm Nhật Bản)", en: "Kyoto, Japan" },
+    regionLabel: { vi: "🇯🇵 Vùng Kansai, Nhật Bản", en: "🇯🇵 Kansai Region, Japan" },
+    durationLabel: { vi: "5 - 7 ngày", en: "5 - 7 Days" },
+    budgetLabel: { vi: "Tầm trung - Cao cấp", en: "Mid-range - Luxury" },
+    overview: {
+      vi: "Trái tim văn hóa truyền thống Nhật Bản với rừng tre Arashiyama, trà đạo Uji trứ danh và những con phố cổ Gion thanh bình.",
+      en: "Japan's cultural heartland famous for Arashiyama bamboo groves, ceremonial Uji matcha, and lantern-lit Gion alleys."
+    },
+    season: { vi: "Tháng 3 - Tháng 4 (Hoa anh đào) & Tháng 11 (Mùa lá đỏ Momiji)", en: "Mar–Apr (Cherry Blossoms) & Nov (Autumn Foliage)" },
+    food: { vi: "Trà xanh Matcha Uji, đậu phụ Yudofu, mì Ramen Kyoto, bánh Wagashi truyền thống.", en: "Ceremonial Uji Matcha, Yudofu simmered tofu, Kyoto Ramen, delicate seasonal Wagashi sweets." },
+    highlights: {
+      vi: [
+        "Đi tàu đến vùng Uji cách Kyoto 20 phút để thưởng thức Matcha nguyên bản tại các trà thất hàng trăm năm tuổi.",
+        "Dạo bước qua hàng ngàn cổng Torii đỏ rực tại đền Fushimi Inari lúc sáng sớm.",
+        "Ngồi thư giãn bên bờ sông Kamo lúc chiều tà cùng người dân địa phương."
+      ],
+      en: [
+        "Take a 20-minute train ride to Uji to taste authentic stone-ground Matcha in centuries-old tea houses.",
+        "Walk beneath thousands of vermilion Torii gates at Fushimi Inari Shrine at dawn.",
+        "Unwind along the grassy banks of the Kamo River at sunset."
+      ]
+    },
+    tips: {
+      vi: "Hãy đến Fushimi Inari hoặc Rừng tre Arashiyama trước 7h30 sáng để tận hưởng sự tĩnh lặng tuyệt đối!",
+      en: "Arrive at Fushimi Inari or Arashiyama Bamboo Grove before 7:30 AM for crowd-free serenity!"
+    }
+  },
+  {
+    id: "taipei-jiufen",
+    region: "asia",
+    vibe: ["foodie", "culture", "healing"],
+    duration: ["long"],
+    budget: ["mid"],
+    title: { vi: "Đài Bắc & Làng Cổ Cửu Phần (Đài Loan)", en: "Taipei & Jiufen Old Street, Taiwan" },
+    regionLabel: { vi: "🇹🇼 Đài Loan", en: "🇹🇼 Taiwan" },
+    durationLabel: { vi: "4 - 5 ngày", en: "4 - 5 Days" },
+    budgetLabel: { vi: "Tầm trung", en: "Mid-range" },
+    overview: {
+      vi: "Thiên đường ẩm thực đường phố đêm khuya, hệ thống tàu điện siêu tiện lợi và ngôi làng cổ trên núi đẹp như phim Ghibli.",
+      en: "A late-night street food paradise with effortless transit and misty mountain tea houses straight out of a Studio Ghibli film."
+    },
+    season: { vi: "Tháng 10 đến Tháng 4 (Trời mát mẻ, dễ chịu)", en: "October to April (Crisp, pleasant weather)" },
+    food: { vi: "Trà sữa trân châu đường đen nguyên bản, mì bò Đài Loan, tiểu long bao, đậu hũ thối, bánh dứa.", en: "Original brown sugar bubble tea, braised beef noodle soup, Xiao Long Bao, pineapple cakes." },
+    highlights: {
+      vi: [
+        "Thưởng thức trà ô long núi cao trên ban công đèn lồng đỏ tại làng cổ Cửu Phần (Jiufen) lúc hoàng hôn.",
+        "Thả đèn trời ước nguyện trên đường ray cổ tại Thập Phần (Shifen).",
+        "Oanh tạc các khu chợ đêm Sĩ Lâm (Shilin), Raohe và khám phá khu sáng tạo Huashan 1914."
+      ],
+      en: [
+        "Sip high-mountain oolong tea on a red-lantern balcony in Jiufen as fog rolls over the sea.",
+        "Release sky lanterns along the historic railway tracks in Shifen.",
+        "Feast through Raohe Night Market and browse indie design shops at Huashan 1914 Creative Park."
+      ]
+    },
+    tips: {
+      vi: "Đừng quên mang theo thẻ EasyCard để quẹt thanh toán từ tàu điện ngầm đến các cửa hàng tiện lợi cực nhanh.",
+      en: "Grab an EasyCard at the airport—it works seamlessly on metros, buses, and convenience stores."
+    }
+  },
+  {
+    id: "bali-ubud",
+    region: "asia",
+    vibe: ["healing", "beach", "adventure"],
+    duration: ["long"],
+    budget: ["mid", "luxury"],
+    title: { vi: "Ubud & Canggu - Bali (Indonesia)", en: "Ubud & Canggu, Bali" },
+    regionLabel: { vi: "🇮🇩 Indonesia (Miễn Visa)", en: "🇮🇩 Indonesia (Visa-free)" },
+    durationLabel: { vi: "5 - 6 ngày", en: "5 - 6 Days" },
+    budgetLabel: { vi: "Tầm trung - Luxury", en: "Mid-range - Luxury" },
+    overview: {
+      vi: "Sự giao hòa kỳ diệu giữa những khu rừng nhiệt đới xanh thẳm ở Ubud và những bãi biển lướt sóng sôi động ở Canggu.",
+      en: "A soulful blend of lush jungle yoga sanctuaries in Ubud and breezy surf-and-cafe culture in Canggu."
+    },
+    season: { vi: "Tháng 4 đến Tháng 10 (Mùa khô, nắng rực rỡ)", en: "April to October (Dry season with sunny skies)" },
+    food: { vi: "Smoothie bowl trái cây nhiệt đới, vịt giòn Bebek Bengil, cơm trộn Nasi Campur, cafe Bali.", en: "Tropical smoothie bowls, crispy Balinese duck, Nasi Campur, Kintamani specialty coffee." },
+    highlights: {
+      vi: [
+        "Tập Yoga buổi sáng nhìn ra ruộng bậc thang Tegalalang và trải nghiệm tắm hoa thư giãn ở Ubud.",
+        "Ngắm hoàng hôn trên vách đá Uluwatu và xem điệu múa lửa Kecak truyền thống.",
+        "Dạo chơi các quán cafe healthy và beach club ven biển tại Canggu / Seminyak."
+      ],
+      en: [
+        "Take a morning jungle yoga class overlooking Tegalalang rice terraces in Ubud.",
+        "Watch sunset from Uluwatu's dramatic sea cliffs followed by a traditional Kecak fire dance.",
+        "Hop between sunlit healthy brunch spots and beachfront sunset lounges in Canggu."
+      ]
+    },
+    tips: {
+      vi: "Nên chia lịch trình làm 2 phần: 3 ngày ở rừng Ubud để chữa lành và 2-3 ngày ở biển Canggu/Uluwatu.",
+      en: "Split your stay: 3 nights in Ubud's serene jungle and 2–3 nights along the coast."
+    }
+  },
+
+  // --- GLOBAL (CHÂU ÂU / ÚC / THẾ GIỚI) ---
+  {
+    id: "paris-provence",
+    region: "global",
+    vibe: ["culture", "foodie", "healing"],
+    duration: ["long"],
+    budget: ["luxury"],
+    title: { vi: "Paris & Vùng Provence (Pháp)", en: "Paris & Provence, France" },
+    regionLabel: { vi: "🇫🇷 Pháp, Châu Âu", en: "🇫🇷 France, Europe" },
+    durationLabel: { vi: "7 - 10 ngày", en: "7 - 10 Days" },
+    budgetLabel: { vi: "Cao cấp / Luxury", en: "Luxury" },
+    overview: {
+      vi: "Kinh đô ánh sáng, nghệ thuật và thời trang kết hợp cùng những cánh đồng hoa oải hương tím ngát miền Nam nước Pháp.",
+      en: "The City of Light, art, and haute couture paired with sun-drenched lavender fields in Southern France."
+    },
+    season: { vi: "Tháng 5 - Tháng 7 (Mùa hè ấm áp, hoa oải hương nở) & Tháng 9 - Tháng 10 (Mùa thu lãng mạn)", en: "May–Jul (Blooming lavender) & Sep–Oct (Golden autumn)" },
+    food: { vi: "Bánh sừng bò Croissant, bánh Macaron, súp hành kiểu Pháp, phô mai và rượu vang vùng Bordeaux.", en: "Flaky butter croissants, macarons, French onion soup, artisanal cheeses & regional wines." },
+    highlights: {
+      vi: [
+        "Ngồi đọc sách tại vườn Luxembourg, tham quan bảo tàng Louvre và ngắm tháp Eiffel lấp lánh ánh đèn mỗi giờ.",
+        "Đi tàu cao tốc TGV xuống miền Nam khám phá các ngôi làng đá cổ ở Provence và chợ hoa địa phương.",
+        "Thưởng thức bữa sáng kiểu Pháp tại một quán cafe vỉa hè khu Le Marais."
+      ],
+      en: [
+        "Read in the Luxembourg Gardens, explore the Louvre, and watch the Eiffel Tower sparkle on the hour.",
+        "Ride the high-speed TGV south to wander stone hilltop villages and open-air markets in Provence.",
+        "Enjoy a slow morning espresso and croissant at a sidewalk bistro in Le Marais."
+      ]
+    },
+    tips: {
+      vi: "Đặt vé tham quan bảo tàng Louvre và tháp Eiffel online trước ít nhất 3-4 tuần để không phải xếp hàng dài.",
+      en: "Book Louvre and Eiffel Tower timed-entry tickets online 3–4 weeks ahead to skip long queues."
+    }
+  },
+  {
+    id: "melbourne-australia",
+    region: "global",
+    vibe: ["culture", "foodie", "adventure"],
+    duration: ["long"],
+    budget: ["luxury"],
+    title: { vi: "Melbourne & Cung Đường Great Ocean Road (Úc)", en: "Melbourne & Great Ocean Road, Australia" },
+    regionLabel: { vi: "🇦🇺 Bang Victoria, Úc", en: "🇦🇺 Victoria, Australia" },
+    durationLabel: { vi: "6 - 8 ngày", en: "6 - 8 Days" },
+    budgetLabel: { vi: "Cao cấp / Luxury", en: "Luxury" },
+    overview: {
+      vi: "Thủ đô cà phê của thế giới với những con hẻm nghệ thuật graffiti, kiến trúc cổ điển và cung đường ven biển ngoạn mục bậc nhất hành tinh.",
+      en: "The coffee capital of the world, famous for laneway street art, Victorian architecture, and dramatic coastal drives."
+    },
+    season: { vi: "Tháng 3 - Tháng 5 (Mùa thu lá vàng) & Tháng 9 - Tháng 11 (Mùa xuân)", en: "Mar–May (Autumn foliage) & Sep–Nov (Spring)" },
+    food: { vi: "Cà phê Flat White chuẩn Úc, bánh Pavlova, hải sản chợ Queen Victoria, brunch nghệ thuật.", en: "Specialty Melbourne Flat White, brunch smashed avo, Queen Victoria Market seafood." },
+    highlights: {
+      vi: [
+        "Khám phá văn hóa cafe ẩn trong các con hẻm nhỏ (Degraves Street, Hosier Lane) tại trung tâm Melbourne.",
+        "Lái xe dọc cung đường Great Ocean Road chiêm ngưỡng kỳ quan đá vôi Twelve Apostles.",
+        "Thưởng thức rượu vang và ẩm thực nông trại tại thung lũng Yarra Valley."
+      ],
+      en: [
+        "Discover hidden laneway cafes and street art along Degraves Street and Hosier Lane.",
+        "Drive the breathtaking Great Ocean Road to see the Twelve Apostles limestone stacks.",
+        "Indulge in farm-to-table dining and wine tasting in the nearby Yarra Valley."
+      ]
+    },
+    tips: {
+      vi: "Thời tiết Melbourne nổi tiếng có '4 mùa trong 1 ngày', luôn mang theo áo khoác nhẹ và kính râm trong túi!",
+      en: "Melbourne is famous for 'four seasons in one day'—always keep sunglasses and a light jacket handy!"
+    }
+  }
+];
+
+// UI TRANSLATIONS
+const i18n = {
+  vi: {
+    nav_home: "← Trang chủ",
+    nav_hub: "✨ Subdomain Hub",
+    hero_title: "✈️ Hôm Nay Đi Du Lịch Ở Đâu?",
+    hero_sub: "Trợ lý chọn điểm đến trong nước & quốc tế theo phong cách nghỉ dưỡng, thời gian và ngân sách — kèm gợi ý lịch trình trải nghiệm chi tiết.",
+    tab_picker: "🧭 Gợi Ý Điểm Đến Ngẫu Nhiên",
+    tab_directory: "🗺️ Khám Phá Tất Cả Điểm Đến",
+    lbl_region: "🌍 Khu vực / Phạm vi",
+    opt_r_all: "Tất cả điểm đến (Việt Nam & Thế giới)",
+    opt_r_vns: "🇻🇳 Việt Nam - Miền Nam & Gần Sài Gòn",
+    opt_r_vnc: "🇻🇳 Việt Nam - Miền Trung & Tây Nguyên",
+    opt_r_vnn: "🇻🇳 Việt Nam - Miền Bắc & Vùng cao",
+    opt_r_asia: "🌏 Châu Á (Không cần Visa phức tạp)",
+    opt_r_glob: "✈️ Châu Âu / Úc / Thế giới",
+    lbl_vibe: "✨ Phong cách chuyến đi (Vibe)",
+    opt_v_all: "Tất cả phong cách",
+    opt_v_heal: "🌿 Chữa lành & Nghỉ dưỡng (Healing & Slow)",
+    opt_v_beach: "🏖️ Biển xanh & Đảo hoang sơ",
+    opt_v_cult: "🏛️ Văn hóa, Kiến trúc & Cafe nghệ thuật",
+    opt_v_adv: "🏔️ Khám phá thiên nhiên & Trekking",
+    opt_v_food: "🍜 Thiên đường ẩm thực & Dạo phố",
+    lbl_duration: "⏳ Thời gian dự kiến",
+    opt_d_all: "Bất kỳ thời lượng nào",
+    opt_d_day: "☀️ Đi về trong ngày / Staycation (1 ngày)",
+    opt_d_wknd: "🎒 Cuối tuần ngắn ngày (2N1Đ - 3N2Đ)",
+    opt_d_long: "🛫 Kỳ nghỉ dài ngày (4+ ngày trở lên)",
+    lbl_budget: "💳 Mức ngân sách",
+    opt_b_all: "Mọi mức ngân sách",
+    opt_b_low: "🌱 Tiết kiệm / Ngon - Bổ - Rẻ",
+    opt_b_mid: "✨ Tầm trung / Thoải mái",
+    opt_b_lux: "💎 Nghỉ dưỡng cao cấp / Luxury",
+    btn_pick: "🎲 Xoay La Bàn Chọn Điểm Đến Ngay!",
+    res_tag: "✨ Điểm đến lý tưởng dành cho bạn",
+    sec_why: "💖 Tại sao nên đi nơi này hôm nay?",
+    sec_season: "🌤️ Thời điểm đẹp nhất",
+    sec_food: "🍽️ Đặc sản nhất định phải thử",
+    sec_highlights: "📍 Trải nghiệm & Lịch trình gợi ý",
+    sec_tips: "💡 Mẹo du lịch & Góc sống ảo",
+    dir_search_lbl: "🔍 Tìm kiếm điểm đến, quốc gia hoặc hoạt động",
+    btn_view_detail: "🗺️ Xem chi tiết lịch trình & đặc sản",
+    no_dest: "Không tìm thấy điểm đến nào khớp với bộ lọc hiện tại. Hãy thử mở rộng lựa chọn!"
+  },
+  en: {
+    nav_home: "← Home",
+    nav_hub: "✨ Subdomain Hub",
+    hero_title: "✈️ Where To Travel Today?",
+    hero_sub: "Curated domestic & international destination finder by travel vibe, trip length, and budget — complete with seasonal guides and local highlights.",
+    tab_picker: "🧭 Random Destination Compass",
+    tab_directory: "🗺️ Explore All Destinations",
+    lbl_region: "🌍 Region / Scope",
+    opt_r_all: "All Destinations (Vietnam & Worldwide)",
+    opt_r_vns: "🇻🇳 Vietnam - South & Near Saigon",
+    opt_r_vnc: "🇻🇳 Vietnam - Central Coast & Highlands",
+    opt_r_vnn: "🇻🇳 Vietnam - North & Mountains",
+    opt_r_asia: "🌏 Asia (Easy Getaways)",
+    opt_r_glob: "✈️ Europe / Australia / Worldwide",
+    lbl_vibe: "✨ Travel Vibe",
+    opt_v_all: "All Travel Vibes",
+    opt_v_heal: "🌿 Healing & Slow Retreat",
+    opt_v_beach: "🏖️ Turquoise Beaches & Islands",
+    opt_v_cult: "🏛️ Culture, Architecture & Art Cafes",
+    opt_v_adv: "🏔️ Nature Exploration & Trekking",
+    opt_v_food: "🍜 Street Food & City Strolls",
+    lbl_duration: "⏳ Trip Duration",
+    opt_d_all: "Any Trip Length",
+    opt_d_day: "☀️ Day Trip / Staycation (1 Day)",
+    opt_d_wknd: "🎒 Short Weekend (2–3 Days)",
+    opt_d_long: "🛫 Extended Vacation (4+ Days)",
+    lbl_budget: "💳 Budget Level",
+    opt_b_all: "Any Budget",
+    opt_b_low: "🌱 Budget-Friendly",
+    opt_b_mid: "✨ Mid-Range & Comfortable",
+    opt_b_lux: "💎 Luxury & Boutique Resorts",
+    btn_pick: "🎲 Spin the Compass Now!",
+    res_tag: "✨ Your Recommended Destination",
+    sec_why: "💖 Why Visit Today?",
+    sec_season: "🌤️ Best Time to Visit",
+    sec_food: "🍽️ Must-Try Local Flavors",
+    sec_highlights: "📍 Signature Experiences & Itinerary",
+    sec_tips: "💡 Insider Travel Tips",
+    dir_search_lbl: "🔍 Search destination, country, or activity",
+    btn_view_detail: "🗺️ View Full Guide & Highlights",
+    no_dest: "No destinations match your current filters. Try broadening your selection!"
+  }
+};
+
+const vibeNames = {
+  healing: { vi: "🌿 Chữa lành", en: "🌿 Healing" },
+  beach: { vi: "🏖️ Biển đảo", en: "🏖️ Beach & Island" },
+  culture: { vi: "🏛️ Văn hóa & Art", en: "🏛️ Culture & Art" },
+  adventure: { vi: "🏔️ Khám phá", en: "🏔️ Adventure" },
+  foodie: { vi: "🍜 Ẩm thực", en: "🍜 Foodie" }
+};
+
+let currentLang = 'vi';
+let lastPickedId = null;
+
+function setLang(lang) {
+  currentLang = lang;
+  document.documentElement.lang = lang;
+  document.getElementById('btn-vi').classList.toggle('active', lang === 'vi');
+  document.getElementById('btn-en').classList.toggle('active', lang === 'en');
+
+  document.querySelectorAll('[data-i18n]').forEach(el => {
+    const k = el.getAttribute('data-i18n');
+    if (i18n[lang][k]) {
+      if (k === 'tab_directory') {
+        el.innerHTML = `${i18n[lang][k]} (<span id="totalDestCount">${destinationsDB.length}</span>)`;
+      } else {
+        el.textContent = i18n[lang][k];
+      }
+    }
+  });
+
+  document.getElementById('dirSearchInput').placeholder = lang === 'vi'
+    ? "Ví dụ: Đà Lạt, Kyoto, Phú Quốc, Chiang Mai..."
+    : "e.g. Da Lat, Kyoto, Phu Quoc, Chiang Mai...";
+
+  if (lastPickedId) {
+    const d = destinationsDB.find(x => x.id === lastPickedId);
+    if (d) displayFeaturedDestination(d);
+  }
+  renderDirectory();
+  try { localStorage.setItem('alessa_travel_lang', lang); } catch(e){}
+}
+
+function switchView(viewName, btn) {
+  document.querySelectorAll('.tab-section').forEach(s => s.classList.remove('active'));
+  document.querySelectorAll('.view-tab-btn').forEach(b => b.classList.remove('active'));
+  document.getElementById('view-' + viewName).classList.add('active');
+  btn.classList.add('active');
+}
+
+function pickRandomDestination() {
+  const rFilter = document.getElementById('pickRegion').value;
+  const vFilter = document.getElementById('pickVibe').value;
+  const dFilter = document.getElementById('pickDuration').value;
+  const bFilter = document.getElementById('pickBudget').value;
+
+  const filtered = destinationsDB.filter(d => {
+    const matchR = rFilter === 'all' || d.region === rFilter;
+    const matchV = vFilter === 'all' || d.vibe.includes(vFilter);
+    const matchD = dFilter === 'all' || d.duration.includes(dFilter);
+    const matchB = bFilter === 'all' || d.budget.includes(bFilter);
+    return matchR && matchV && matchD && matchB;
+  });
+
+  if (filtered.length === 0) {
+    alert(i18n[currentLang].no_dest);
+    return;
+  }
+
+  let chosen = filtered[Math.floor(Math.random() * filtered.length)];
+  if (filtered.length > 1 && chosen.id === lastPickedId) {
+    chosen = filtered.find(x => x.id !== lastPickedId) || chosen;
+  }
+  lastPickedId = chosen.id;
+  displayFeaturedDestination(chosen);
+}
+
+function displayFeaturedDestination(d) {
+  const box = document.getElementById('featuredDestBox');
+  document.getElementById('fdTitle').textContent = d.title[currentLang];
+  const vibeBadges = d.vibe.map(v => `<span class="badge badge-vibe">${vibeNames[v][currentLang]}</span>`).join('');
+  document.getElementById('fdBadges').innerHTML = `
+    <span class="badge badge-region">${d.regionLabel[currentLang]}</span>
+    ${vibeBadges}
+    <span class="badge badge-duration">⏳ ${d.durationLabel[currentLang]}</span>
+    <span class="badge badge-budget">💳 ${d.budgetLabel[currentLang]}</span>
+  `;
+  document.getElementById('fdOverview').textContent = d.overview[currentLang];
+  document.getElementById('fdSeason').textContent = d.season[currentLang];
+  document.getElementById('fdFood').textContent = d.food[currentLang];
+  document.getElementById('fdHighlights').innerHTML = d.highlights[currentLang].map(item => `<li>${item}</li>`).join('');
+  document.getElementById('fdTips').textContent = d.tips[currentLang];
+  box.style.display = 'block';
+}
+
+function renderDirectory() {
+  const query = document.getElementById('dirSearchInput').value.toLowerCase().trim();
+  const rFilter = document.getElementById('dirRegionFilter').value;
+  const vFilter = document.getElementById('dirVibeFilter').value;
+  const grid = document.getElementById('directoryGrid');
+
+  const filtered = destinationsDB.filter(d => {
+    const matchR = rFilter === 'all' || d.region === rFilter;
+    const matchV = vFilter === 'all' || d.vibe.includes(vFilter);
+    const searchStr = (d.title.vi + " " + d.title.en + " " + d.overview.vi + " " + d.overview.en + " " + d.food.vi + " " + d.food.en).toLowerCase();
+    const matchQ = !query || searchStr.includes(query);
+    return matchR && matchV && matchQ;
+  });
+
+  document.getElementById('totalDestCount').textContent = filtered.length;
+
+  if (filtered.length === 0) {
+    grid.innerHTML = `<div style="grid-column: span 2; text-align:center; padding:40px; background:var(--surface); border-radius:20px; border:1.5px solid var(--border); color:var(--muted); font-weight:600;">${i18n[currentLang].no_dest}</div>`;
+    return;
+  }
+
+  grid.innerHTML = filtered.map(d => {
+    const vibeBadges = d.vibe.map(v => `<span class="badge badge-vibe">${vibeNames[v][currentLang]}</span>`).join('');
+    return `
+      <article class="dest-card">
+        <div>
+          <div class="fd-badges">
+            <span class="badge badge-region">${d.regionLabel[currentLang]}</span>
+            ${vibeBadges}
+            <span class="badge badge-duration">⏳ ${d.durationLabel[currentLang]}</span>
+          </div>
+          <h3>${d.title[currentLang]}</h3>
+          <p class="short-desc">${d.overview[currentLang]}</p>
+        </div>
+        <button class="btn-outline" onclick="openDestModal('${d.id}')">${i18n[currentLang].btn_view_detail}</button>
+      </article>
+    `;
+  }).join('');
+}
+
+function openDestModal(id) {
+  const d = destinationsDB.find(x => x.id === id);
+  if (!d) return;
+  const t = i18n[currentLang];
+  const vibeBadges = d.vibe.map(v => `<span class="badge badge-vibe">${vibeNames[v][currentLang]}</span>`).join('');
+  document.getElementById('modalContent').innerHTML = `
+    <div style="padding-right:30px; margin-bottom:14px;">
+      <div class="fd-badges" style="margin-bottom:10px;">
+        <span class="badge badge-region">${d.regionLabel[currentLang]}</span>
+        ${vibeBadges}
+        <span class="badge badge-duration">⏳ ${d.durationLabel[currentLang]}</span>
+        <span class="badge badge-budget">💳 ${d.budgetLabel[currentLang]}</span>
+      </div>
+      <h2 class="fd-title">${d.title[currentLang]}</h2>
+    </div>
+    <div class="fd-section">
+      <h4>${t.sec_why}</h4>
+      <p>${d.overview[currentLang]}</p>
+    </div>
+    <div class="fd-grid-info">
+      <div class="fd-section" style="background:var(--surface-alt); padding:14px; border-radius:14px; border:1px solid var(--border); margin-bottom:0;">
+        <h4>${t.sec_season}</h4>
+        <p style="font-size:13.8px;">${d.season[currentLang]}</p>
+      </div>
+      <div class="fd-section" style="background:var(--surface-alt); padding:14px; border-radius:14px; border:1px solid var(--border); margin-bottom:0;">
+        <h4>${t.sec_food}</h4>
+        <p style="font-size:13.8px;">${d.food[currentLang]}</p>
+      </div>
+    </div>
+    <div class="fd-section" style="margin-top:16px;">
+      <h4>${t.sec_highlights}</h4>
+      <ul>${d.highlights[currentLang].map(s => `<li>${s}</li>`).join('')}</ul>
+    </div>
+    <div class="fd-section" style="background:var(--surface-alt); padding:14px; border-radius:14px; border:1px solid var(--border); margin-bottom:0;">
+      <h4>${t.sec_tips}</h4>
+      <p style="font-size:13.5px; color:var(--muted);">${d.tips[currentLang]}</p>
+    </div>
+  `;
+  document.getElementById('destModal').classList.add('open');
+}
+
+function closeModal(e) {
+  if (e.target.id === 'destModal') closeModalDirect();
+}
+function closeModalDirect() {
+  document.getElementById('destModal').classList.remove('open');
+}
+
+// INIT
+try {
+  const saved = localStorage.getItem('alessa_travel_lang');
+  if (saved === 'en' || saved === 'vi') currentLang = saved;
+} catch(e){}
+setLang(currentLang);
+</script>
+
+</body>
+</html>
