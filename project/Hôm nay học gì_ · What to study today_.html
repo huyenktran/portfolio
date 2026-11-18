@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>What to study today? 🎓</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Pinyon+Script&family=Playfair+Display:wght@500;700&family=Quicksand:wght@500;700&display=swap">
+<style>
+:root{color-scheme:light;--ink:#111;--sky:#bfe3f8;--sky2:#6bb6e6;--line:#cfe5f5;--card:#ffffffd9;--star:#ffd84d;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+*{box-sizing:border-box;margin:0}
+body{min-height:100vh;color:var(--ink);font-family:Quicksand,'Noto Sans',system-ui,sans-serif;font-weight:500;line-height:1.55;background:linear-gradient(180deg,#e6f3fc,#fff 60%) fixed;padding:16px 5vw 70px}
+.w{max-width:960px;margin:auto}
+button,input{font:inherit;color:inherit}button{cursor:pointer;border:0;font-weight:700;background:none}
+:focus-visible{outline:3px solid var(--ink);outline-offset:2px}
+.top{display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap;font-size:14px;font-weight:700}.top a{color:inherit;text-decoration:none}
+.pill{padding:6px 14px;border-radius:99px;background:var(--card);border:1.5px solid var(--line)}
+.stat{display:flex;gap:8px;align-items:center}
+.kick{text-align:center;margin-top:20px;font-family:'Pinyon Script',cursive;font-size:34px}
+h1{font-family:'Playfair Display',serif;font-size:clamp(34px,8vw,58px);text-align:center;line-height:1.1}
+.sub{text-align:center;max-width:600px;margin:10px auto 18px;opacity:.85}
+.card{background:var(--card);backdrop-filter:blur(12px);border:1.5px solid var(--line);border-radius:28px;padding:20px;box-shadow:0 10px 34px #6bb6e633;margin-bottom:16px}
+h2{font-family:'Playfair Display',serif;font-size:24px;margin-bottom:10px}
+.btn{display:inline-block;padding:11px 22px;border-radius:99px;background:var(--sky);color:var(--ink);font-size:15px;transition:.2s;box-shadow:0 5px 14px #6bb6e644}.btn:hover{transform:translateY(-2px)}.btn:disabled{opacity:.45}
+.btn.k{background:var(--ink);color:#fff;box-shadow:none}.btn.g{background:#fff;border:1.5px solid var(--line);box-shadow:none}
+.topics{display:flex;flex-wrap:wrap;gap:8px}.topics button{padding:8px 16px;border-radius:99px;border:1.5px solid var(--line);background:#fff;font-size:14px}.topics button.on{background:var(--ink);color:#fff;border-color:var(--ink)}
+.games{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:12px}.games button{background:#fff;border:1.5px solid var(--line);border-radius:24px;padding:18px 12px;text-align:center;transition:.2s}.games button:hover{transform:translateY(-4px);border-color:var(--sky2);box-shadow:0 10px 24px #6bb6e633}.games span{font-size:36px;display:block}.games b{display:block;font-size:16px}.games small{display:block;opacity:.7;font-weight:500;font-size:12px}
+.plan{display:grid;gap:8px;margin-top:12px}.plan div{display:flex;align-items:center;gap:10px;padding:10px 14px;border-radius:18px;background:#fff;border:1.5px solid var(--line)}.plan div.d{background:#e3f6ea;border-color:#9bd9b4}.plan span{flex:1}
+table{width:100%;border-collapse:collapse;font-size:14px}th{text-align:left;font-size:12px;opacity:.7;padding:6px 8px;border-bottom:1.5px solid var(--line)}td{padding:8px;border-bottom:1px solid #e6f1f8;vertical-align:top}
+.ov{position:fixed;inset:0;background:#0b1a2488;z-index:50;display:none;align-items:center;justify-content:center;padding:14px}.ov.open{display:flex}
+.md{background:#fff;border-radius:30px;padding:22px;width:min(560px,100%);max-height:94vh;overflow:auto;border:3px solid var(--sky)}
+.hd{display:flex;justify-content:space-between;align-items:center;margin-bottom:8px}.hd b{font-family:'Playfair Display',serif;font-size:20px}.hd button{font-size:24px}
+.meta{text-align:center;font-weight:700;margin:4px 0 10px}
+.fc{display:grid;place-items:center;width:100%;min-height:200px;border-radius:26px;background:#f2f9fe;border:3px solid var(--sky2);padding:20px;text-align:center;font-family:'Playfair Display','Noto Serif',serif;font-size:clamp(22px,5vw,30px);font-weight:700;margin:10px 0;transition:.2s}.fc small{display:block;font:700 12px Quicksand;opacity:.6;margin-top:8px}
+.fc.b{background:#fff;border-color:var(--ink)}
+.ctl{display:flex;gap:8px;flex-wrap:wrap;justify-content:center;margin:8px 0}
+.opts{display:grid;gap:8px;margin:10px 0}.opt{padding:13px 16px;border-radius:18px;background:#fff;border:2px solid var(--line);text-align:left;font-size:16px}.opt:hover{border-color:var(--sky2)}.opt.ok{background:#d9f6e5;border-color:#4bc58f}.opt.no{background:#ffe1e1;border-color:#ff8f8f}
+.mg{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}.mg button{min-height:84px;border-radius:18px;background:var(--sky);border:2px solid #fff;padding:8px;font-size:13px;line-height:1.25;color:var(--ink)}.mg button.up{background:#fff;border-color:var(--sky2)}.mg button.ok{background:#d9f6e5;border-color:#4bc58f}
+.pads{display:grid;grid-template-columns:1fr 1fr;gap:10px;max-width:300px;margin:12px auto}.pad{height:110px;border-radius:24px;opacity:.55;transition:.12s;border:3px solid #fff}.pad.lit{opacity:1;transform:scale(1.04);box-shadow:0 0 24px #6bb6e6}
+.big{font-family:'Playfair Display',serif;font-size:clamp(34px,10vw,56px);text-align:center;margin:12px 0;letter-spacing:.1em}
+input.in{width:100%;padding:12px 16px;border-radius:99px;border:2px solid var(--ink);font-size:20px;text-align:center}
+.rx{height:200px;border-radius:26px;display:grid;place-items:center;font-size:22px;font-weight:700;color:#fff;margin:10px 0;cursor:pointer;user-select:none}
+.sp{display:grid;grid-template-columns:1fr 1fr;gap:12px}.spc{aspect-ratio:1;border-radius:50%;background:#f2f9fe;border:3px solid var(--sky2);display:grid;grid-template-columns:repeat(3,1fr);place-items:center;padding:12px}.spc button{font-size:clamp(22px,6vw,34px);line-height:1}
+.vh{min-height:26px;text-align:center;font-weight:700;margin:6px 0}
+.note{font-size:12px;opacity:.7;text-align:center;margin-top:16px}
+@media(max-width:600px){.mg{grid-template-columns:repeat(2,1fr)}}
+@media(prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+</head>
+<body>
+<div class="w">
+<div class="top"><a id="back" href="https://alessandratran.com/"></a><div class="stat"><span class="pill" id="st"></span><button class="pill" id="lg" type="button"></button></div></div>
+<div class="kick" id="kick"></div><h1 id="h1"></h1><p class="sub" id="sub"></p>
+
+<section class="card"><h2 id="pH"></h2><p id="pS" style="opacity:.8"></p><button class="btn k" id="pB" style="margin-top:10px"></button><div class="plan" id="plan"></div></section>
+<section class="card"><h2 id="tH"></h2><div class="topics" id="topics"></div></section>
+<section class="card"><h2 id="gH"></h2><div class="games" id="games"></div></section>
+<section class="card"><h2 id="bH"></h2><p id="bS" style="opacity:.8;margin-bottom:10px"></p><div class="games" id="brain"></div></section>
+<section class="card"><h2 id="lH"></h2><div style="overflow-x:auto"><table><thead><tr><th id="th1"></th><th id="th2"></th></tr></thead><tbody id="lst"></tbody></table></div></section>
+<p class="note" id="note"></p>
+</div>
+<div class="ov" id="ov"><div class="md" id="md"></div></div>
+<script>
+var D=[
+{e:"🌍",en:"Geography",vi:"Địa lý",c:"Capital of France|Paris|Thủ đô của Pháp|Paris\nCapital of Japan|Tokyo|Thủ đô của Nhật Bản|Tokyo\nCapital of Australia|Canberra|Thủ đô của Úc|Canberra\nCapital of Canada|Ottawa|Thủ đô của Canada|Ottawa\nCapital of Brazil|Brasília|Thủ đô của Brazil|Brasília\nCapital of Egypt|Cairo|Thủ đô của Ai Cập|Cairo\nCapital of Germany|Berlin|Thủ đô của Đức|Berlin\nCapital of Vietnam|Hanoi|Thủ đô của Việt Nam|Hà Nội\nCapital of Thailand|Bangkok|Thủ đô của Thái Lan|Bangkok\nCapital of South Korea|Seoul|Thủ đô của Hàn Quốc|Seoul"},
+{e:"🧪",en:"Chemistry",vi:"Hóa học",c:"Symbol: Au|Gold|Ký hiệu: Au|Vàng\nSymbol: Fe|Iron|Ký hiệu: Fe|Sắt\nSymbol: O|Oxygen|Ký hiệu: O|Oxy\nSymbol: Na|Sodium|Ký hiệu: Na|Natri\nSymbol: Ag|Silver|Ký hiệu: Ag|Bạc\nSymbol: C|Carbon|Ký hiệu: C|Cacbon\nSymbol: H|Hydrogen|Ký hiệu: H|Hiđro\nSymbol: Pb|Lead|Ký hiệu: Pb|Chì\nSymbol: He|Helium|Ký hiệu: He|Heli\nSymbol: K|Potassium|Ký hiệu: K|Kali"},
+{e:"🔢",en:"Math",vi:"Toán học",c:"√144|12|√144|12\n7 × 8|56|7 × 8|56\nSum of angles in a triangle|180°|Tổng các góc trong một tam giác|180°\nπ (approx.)|3.14|π (xấp xỉ)|3,14\n2⁵|32|2⁵|32\nPrime number after 7|11|Số nguyên tố sau số 7|11\n9²|81|9²|81\nArea of a rectangle|length × width|Diện tích hình chữ nhật|dài × rộng\nPerimeter of a square with side 5|20|Chu vi hình vuông cạnh 5|20\n15% of 200|30|15% của 200|30"},
+{e:"🌌",en:"Space",vi:"Vũ trụ",c:"Largest planet|Jupiter|Hành tinh lớn nhất|Sao Mộc\nClosest planet to the Sun|Mercury|Hành tinh gần Mặt Trời nhất|Sao Thủy\nThe Red Planet|Mars|Hành tinh Đỏ|Sao Hỏa\nPlanet with famous rings|Saturn|Hành tinh có vành đai nổi tiếng|Sao Thổ\nOur galaxy|Milky Way|Thiên hà của chúng ta|Dải Ngân Hà\nEarth’s natural satellite|Moon|Vệ tinh tự nhiên của Trái Đất|Mặt Trăng\nStar at the center of our solar system|Sun|Ngôi sao ở trung tâm hệ Mặt Trời|Mặt Trời\nFirst person on the Moon|Neil Armstrong|Người đầu tiên đặt chân lên Mặt Trăng|Neil Armstrong\nHottest planet|Venus|Hành tinh nóng nhất|Sao Kim\nNumber of planets in the solar system|8|Số hành tinh trong hệ Mặt Trời|8"},
+{e:"🐾",en:"Animals",vi:"Động vật",c:"Baby cow|Calf|Con non của bò|Bê\nBaby kangaroo|Joey|Con non của chuột túi|Chuột túi con\nA group of lions|Pride|Một nhóm sư tử|Đàn sư tử\nFastest land animal|Cheetah|Loài vật chạy nhanh nhất trên cạn|Báo săn\nLargest animal on Earth|Blue whale|Động vật lớn nhất Trái Đất|Cá voi xanh\nBlack-and-white striped animal|Zebra|Con vật có sọc đen trắng|Ngựa vằn\nOnly mammal that can truly fly|Bat|Loài thú duy nhất thật sự biết bay|Dơi\nAnimal with the longest neck|Giraffe|Con vật có cổ dài nhất|Hươu cao cổ\nBaby frog|Tadpole|Con non của ếch|Nòng nọc\nInsect that makes honey|Bee|Côn trùng làm ra mật ong|Ong"},
+{e:"🏛️",en:"History",vi:"Lịch sử",c:"Year the Titanic sank|1912|Năm tàu Titanic chìm|1912\nFirst president of the USA|George Washington|Tổng thống đầu tiên của Hoa Kỳ|George Washington\nYear World War II ended|1945|Năm Thế chiến II kết thúc|1945\nAncient wonder near Cairo|Great Pyramid of Giza|Kỳ quan cổ đại gần Cairo|Đại kim tự tháp Giza\nYear the Berlin Wall fell|1989|Năm Bức tường Berlin sụp đổ|1989\nDiscoverer of penicillin|Alexander Fleming|Người tìm ra penicillin|Alexander Fleming\nYear the Vietnam War ended|1975|Năm chiến tranh Việt Nam kết thúc|1975\nFirst Roman emperor|Augustus|Hoàng đế La Mã đầu tiên|Augustus\nPatented the telephone in 1876|Alexander Graham Bell|Người đăng ký bằng sáng chế điện thoại năm 1876|Alexander Graham Bell\nYear of the first Moon landing|1969|Năm con người lần đầu đặt chân lên Mặt Trăng|1969"},
+{e:"🫀",en:"Human body",vi:"Cơ thể người",c:"Organ that pumps blood|Heart|Cơ quan bơm máu|Tim\nLargest organ|Skin|Cơ quan lớn nhất|Da\nBones in an adult body|206|Số xương ở người trưởng thành|206\nOrgan that filters blood into urine|Kidney|Cơ quan lọc máu thành nước tiểu|Thận\nVitamin made with sunlight|Vitamin D|Vitamin tạo ra nhờ ánh nắng|Vitamin D\nHardest substance in the body|Tooth enamel|Chất cứng nhất trong cơ thể|Men răng\nOrgans we breathe with|Lungs|Cơ quan dùng để thở|Phổi\nCells that carry oxygen|Red blood cells|Tế bào vận chuyển oxy|Hồng cầu\nControl center of the body|Brain|Trung tâm điều khiển cơ thể|Não\nChambers in the human heart|4|Số ngăn của tim người|4"},
+{e:"🎨",en:"Art",vi:"Nghệ thuật",c:"Painter of the Mona Lisa|Leonardo da Vinci|Họa sĩ vẽ Mona Lisa|Leonardo da Vinci\nPainter of The Starry Night|Vincent van Gogh|Họa sĩ vẽ Đêm đầy sao|Vincent van Gogh\nPainter of Guernica|Pablo Picasso|Họa sĩ vẽ Guernica|Pablo Picasso\nPainter of The Scream|Edvard Munch|Họa sĩ vẽ Tiếng thét|Edvard Munch\nPainter of Girl with a Pearl Earring|Johannes Vermeer|Họa sĩ vẽ Cô gái đeo hoa tai ngọc trai|Johannes Vermeer\nPainter of The Persistence of Memory|Salvador Dalí|Họa sĩ vẽ Sự dai dẳng của ký ức|Salvador Dalí\nPainter of Water Lilies|Claude Monet|Họa sĩ vẽ Hoa súng|Claude Monet\nSculptor of the marble David in Florence|Michelangelo|Nhà điêu khắc tượng David bằng đá cẩm thạch ở Florence|Michelangelo\nPainter of The Birth of Venus|Sandro Botticelli|Họa sĩ vẽ Sự ra đời của thần Vệ Nữ|Sandro Botticelli\nPainter of The Kiss (golden)|Gustav Klimt|Họa sĩ vẽ Nụ hôn (phong cách vàng)|Gustav Klimt"},
+{e:"🎵",en:"Music",vi:"Âm nhạc",c:"Strings on a standard guitar|6|Số dây của đàn guitar thông thường|6\nComposer of The Four Seasons|Vivaldi|Nhà soạn nhạc của Bốn mùa|Vivaldi\nInstrument family of the violin|Strings|Họ nhạc cụ của đàn violin|Bộ dây\nComposer of The Magic Flute|Mozart|Nhà soạn nhạc của Cây sáo thần|Mozart\nTempo word meaning fast|Allegro|Thuật ngữ chỉ nhịp nhanh|Allegro\nNotes in a major scale|7|Số nốt trong một gam trưởng|7\nInstrument with 88 keys|Piano|Nhạc cụ có 88 phím|Piano\nMusical term for loud|Forte|Thuật ngữ âm nhạc chỉ to|Forte\nPianissimo means|Very soft|Pianissimo nghĩa là|Rất nhẹ\nHometown of The Beatles|Liverpool|Quê hương của ban nhạc The Beatles|Liverpool"},
+{e:"💻",en:"Technology",vi:"Công nghệ",c:"CPU stands for|Central Processing Unit|CPU là viết tắt của|Bộ xử lý trung tâm\nRAM stands for|Random Access Memory|RAM là viết tắt của|Bộ nhớ truy cập ngẫu nhiên\nAI stands for|Artificial Intelligence|AI là viết tắt của|Trí tuệ nhân tạo\nURL stands for|Uniform Resource Locator|URL là viết tắt của|Định vị tài nguyên thống nhất\n1 byte equals|8 bits|1 byte bằng|8 bit\nUSB stands for|Universal Serial Bus|USB là viết tắt của|Chuẩn kết nối tuần tự đa năng\nBinary uses the digits|0 and 1|Hệ nhị phân dùng các chữ số|0 và 1\nInventor of the World Wide Web|Tim Berners-Lee|Người phát minh ra World Wide Web|Tim Berners-Lee\nGPS stands for|Global Positioning System|GPS là viết tắt của|Hệ thống định vị toàn cầu\nHTML is used to|Structure web pages|HTML dùng để|Tạo cấu trúc trang web"},
+{e:"💼",en:"Money",vi:"Tiền bạc",c:"Inflation|Prices rising over time|Lạm phát|Giá cả tăng theo thời gian\nNet worth|Assets minus debts|Tài sản ròng|Tài sản trừ nợ\nROI stands for|Return on Investment|ROI là viết tắt của|Lợi nhuận trên vốn đầu tư\nEmergency fund goal|3 to 6 months of expenses|Mục tiêu quỹ khẩn cấp|3 đến 6 tháng chi tiêu\nCompound interest|Interest on interest|Lãi kép|Lãi sinh thêm lãi\nProfit|Revenue minus costs|Lợi nhuận|Doanh thu trừ chi phí\nDiversification|Spreading risk across investments|Đa dạng hóa|Chia nhỏ rủi ro qua nhiều khoản đầu tư\nBudget|A plan for income and spending|Ngân sách|Kế hoạch thu và chi\nAsset|Something that has value|Tài sản|Thứ có giá trị\nLiability|A debt or obligation|Khoản nợ phải trả|Khoản nợ hoặc nghĩa vụ"},
+{e:"🗣️",en:"Languages",vi:"Ngôn ngữ",c:"Hello in Spanish|Hola|Xin chào trong tiếng Tây Ban Nha|Hola\nThank you in French|Merci|Cảm ơn trong tiếng Pháp|Merci\nHello or bye in Italian|Ciao|Xin chào hoặc tạm biệt trong tiếng Ý|Ciao\nThank you in Japanese|Arigatō|Cảm ơn trong tiếng Nhật|Arigatō\nHello in German|Hallo|Xin chào trong tiếng Đức|Hallo\nThank you in Korean|Gamsahamnida|Cảm ơn trong tiếng Hàn|Gamsahamnida\nHello in Mandarin|Nǐ hǎo|Xin chào trong tiếng Trung|Nǐ hǎo\nGood morning in Spanish|Buenos días|Chào buổi sáng trong tiếng Tây Ban Nha|Buenos días\nPlease in German|Bitte|Làm ơn trong tiếng Đức|Bitte\nYes in French|Oui|Vâng trong tiếng Pháp|Oui"}];
+D.forEach(function(t){t.c=t.c.split("\n").map(function(r){return r.split("|")})});
+var T={en:{ti:"What to study today? 🎓",back:"← alessandratran.com",lg:"🌐 Tiếng Việt",kick:"learn a little, every day ✨",h1:"What to study today? 🎓",sub:"Pick a topic, flip flashcards, match pairs and train your brain in short 10 to 15 minute sessions.",
+pH:"🎲 Today’s plan",pS:"No idea where to start? Let us pick a topic and a 10 to 15 minute routine for you.",pB:"🎲 Plan my session",tH:"📚 Choose a topic",all:"✨ All topics",gH:"🎮 Study games",bH:"🧠 Brain training",bS:"Quick games that train memory, attention and speed. They work with any topic.",lH:"📋 Study list",th1:"Question",th2:"Answer",
+fc:"Flashcards",fcS:"Flip and review",mm:"Memory match",mmS:"Find the pairs",sq:"Speed quiz",sqS:"45 seconds, 4 choices",tf:"True or false",tfS:"Fast yes or no",ws:"Word scramble",wsS:"Unscramble the answer",
+sm:"Sequence memory",smS:"Repeat the pattern",nm:"Number memory",nmS:"Remember the digits",rx:"Reaction speed",rxS:"Tap when it turns green",sp:"Spot the match",spS:"Find the shared emoji",
+pts:"⭐ {n}",stk:"🔥 {n} day streak",close:"Close",again:"Play again",known:"✅ I know it",learn:"🔁 Review again",flip:"🔄 Flip",tapflip:"tap to flip",card:"Card {i}/{n}",done:"🎉 Finished!",score:"Score: {s}",fcDone:"You knew {k} of {n} cards on the first try.",moves:"Moves: {m} · Pairs: {d}/{n}",time:"⏱️ {s}s",streak:"Streak {n}",right:"🎉 Correct!",wrong:"💪 Answer: {a}",tr:"✔ True",fl:"✖ False",q:"“{f}” → “{a}”?",hint:"Hint: {f}",chk:"Check",skip:"Skip",unscr:"Unscramble the answer:",ok2:"🎉 Exactly!",pp:"Plan ready: {t}",steps:["Flashcards","Memory match","Speed quiz"],start:"Start",min:"about 3 minutes",
+seq:"Watch the pattern, then repeat it.",lvl:"Level {n}",over:"Game over! You reached level {n}.",watch:"Watch…",yours:"Your turn!",nmQ:"Type the number you saw:",nmGo:"Memorize it!",rxW:"Wait for green…",rxG:"TAP!",rxE:"Too early! Tap to try again.",rxR:"{ms} ms. Best: {b} ms. Tap to go again.",rxS:"Tap to start",spQ:"Tap the emoji that appears on both cards.",
+note:"Flashcards are short study aids written for this page. Check important facts with a trusted source. Your points and streak are saved only in this browser.",none:"No cards for this game yet."},
+vi:{ti:"Hôm nay học gì? 🎓",back:"← alessandratran.com",lg:"🌐 English",kick:"mỗi ngày học một chút ✨",h1:"Hôm nay học gì? 🎓",sub:"Chọn chủ đề, lật thẻ ghi nhớ, ghép cặp và luyện não trong các buổi học ngắn 10 đến 15 phút.",
+pH:"🎲 Kế hoạch hôm nay",pS:"Chưa biết bắt đầu từ đâu? Để mình chọn giúp bạn một chủ đề và buổi học 10 đến 15 phút.",pB:"🎲 Lên kế hoạch cho mình",tH:"📚 Chọn chủ đề",all:"✨ Tất cả chủ đề",gH:"🎮 Trò chơi học tập",bH:"🧠 Luyện não",bS:"Các trò chơi nhanh rèn trí nhớ, sự tập trung và tốc độ. Chơi được với mọi chủ đề.",lH:"📋 Danh sách để ôn",th1:"Câu hỏi",th2:"Đáp án",
+fc:"Thẻ ghi nhớ",fcS:"Lật thẻ và ôn lại",mm:"Trò chơi trí nhớ",mmS:"Tìm các cặp",sq:"Đố vui tốc độ",sqS:"45 giây, 4 lựa chọn",tf:"Đúng hay sai",tfS:"Trả lời nhanh",ws:"Xếp lại chữ",wsS:"Sắp xếp đáp án",
+sm:"Nhớ chuỗi hiệu ứng",smS:"Lặp lại thứ tự",nm:"Nhớ dãy số",nmS:"Ghi nhớ các chữ số",rx:"Tốc độ phản xạ",rxS:"Bấm khi chuyển xanh",sp:"Tìm hình giống nhau",spS:"Tìm biểu tượng chung",
+pts:"⭐ {n}",stk:"🔥 {n} ngày liên tiếp",close:"Đóng",again:"Chơi lại",known:"✅ Nhớ rồi",learn:"🔁 Ôn lại",flip:"🔄 Lật",tapflip:"bấm để lật",card:"Thẻ {i}/{n}",done:"🎉 Hoàn thành!",score:"Điểm: {s}",fcDone:"Bạn nhớ ngay {k} trên {n} thẻ.",moves:"Lượt: {m} · Cặp: {d}/{n}",time:"⏱️ {s} giây",streak:"Chuỗi {n}",right:"🎉 Đúng rồi!",wrong:"💪 Đáp án: {a}",tr:"✔ Đúng",fl:"✖ Sai",q:"“{f}” → “{a}”?",hint:"Gợi ý: {f}",chk:"Kiểm tra",skip:"Bỏ qua",unscr:"Sắp xếp lại đáp án:",ok2:"🎉 Chính xác!",pp:"Kế hoạch: {t}",steps:["Thẻ ghi nhớ","Trò chơi trí nhớ","Đố vui tốc độ"],start:"Bắt đầu",min:"khoảng 3 phút",
+seq:"Xem thứ tự sáng, rồi lặp lại.",lvl:"Cấp {n}",over:"Kết thúc! Bạn đạt cấp {n}.",watch:"Xem nhé…",yours:"Đến lượt bạn!",nmQ:"Gõ dãy số bạn vừa thấy:",nmGo:"Ghi nhớ nhé!",rxW:"Đợi màu xanh…",rxG:"BẤM!",rxE:"Bấm sớm quá! Bấm để thử lại.",rxR:"{ms} ms. Tốt nhất: {b} ms. Bấm để chơi lại.",rxS:"Bấm để bắt đầu",spQ:"Bấm vào biểu tượng có trên cả hai thẻ.",
+note:"Thẻ ghi nhớ là tài liệu ôn ngắn viết riêng cho trang này. Hãy kiểm tra lại các thông tin quan trọng với nguồn đáng tin cậy. Điểm và chuỗi ngày chỉ lưu trong trình duyệt này.",none:"Chưa có thẻ cho trò chơi này."}};
+var L="en",topic="all",DB={pts:0,days:{},plan:null},GT=null,$=function(s){return document.querySelector(s)};
+try{var sv=JSON.parse(localStorage.getItem("learn-today")||"null");if(sv)DB=Object.assign(DB,sv)}catch(e){}
+function save(){try{localStorage.setItem("learn-today",JSON.stringify(DB))}catch(e){}}
+function t(k,r){var v=T[L][k];if(r)for(var x in r)v=v.split("{"+x+"}").join(r[x]);return v}
+function esc(s){return String(s).replace(/&/g,"&amp;").replace(/</g,"&lt;")}
+function shuf(a){a=a.slice();for(var i=a.length-1;i>0;i--){var j=Math.floor(Math.random()*(i+1)),x=a[i];a[i]=a[j];a[j]=x}return a}
+function today(){var d=new Date();return d.getFullYear()+"-"+("0"+(d.getMonth()+1)).slice(-2)+"-"+("0"+d.getDate()).slice(-2)}
+function streak(){var n=0,d=new Date();if(!DB.days[today()])d.setDate(d.getDate()-1);for(;;){var k=d.getFullYear()+"-"+("0"+(d.getMonth()+1)).slice(-2)+"-"+("0"+d.getDate()).slice(-2);if(DB.days[k]){n++;d.setDate(d.getDate()-1)}else break}return n}
+function award(p){DB.pts+=p;DB.days[today()]=(DB.days[today()]||0)+1;save();stats()}
+function stats(){$("#st").textContent=t("pts",{n:DB.pts})+"  "+t("stk",{n:streak()})}
+function tn(i){return D[i][L]}
+function cards(ti){var o=[];D.forEach(function(d,i){if(ti==="all"||ti===i)d.c.forEach(function(c){o.push({f:L==="vi"?c[2]:c[0],b:L==="vi"?c[3]:c[1],t:i,e:d.e})})});return o}
+function others(c,n){var p=shuf(D[c.t].c.map(function(x){return L==="vi"?x[3]:x[1]}).filter(function(b){return b!==c.b}));return p.slice(0,n)}
+function cur(){return topic==="all"?"all":+topic}
+function open_(h){$("#md").innerHTML=h;$("#ov").classList.add("open")}
+function close_(){clearInterval(GT);clearTimeout(window.RT);$("#ov").classList.remove("open")}
+function hd(x){return'<div class="hd"><b>'+x+'</b><button data-a="cl" aria-label="'+t("close")+'">✕</button></div>'}
+function render(){$("#tH").textContent=t("tH");$("#topics").innerHTML='<button class="'+(topic==="all"?"on":"")+'" data-a="tp" data-v="all">'+t("all")+'</button>'+D.map(function(d,i){return'<button class="'+(topic==i&&topic!=="all"?"on":"")+'" data-a="tp" data-v="'+i+'">'+d.e+" "+d[L]+'</button>'}).join("");
+var G=[["fc","🃏"],["mm","🧩"],["sq","⚡"],["tf","✅"],["ws","🔤"]],B=[["sm","🎹"],["nm","🔢"],["rx","⏱️"],["sp","👀"]];
+$("#games").innerHTML=G.map(function(g){return'<button data-a="game" data-v="'+g[0]+'"><span>'+g[1]+'</span><b>'+t(g[0])+'</b><small>'+t(g[0]+"S")+'</small></button>'}).join("");
+$("#brain").innerHTML=B.map(function(g){return'<button data-a="game" data-v="'+g[0]+'"><span>'+g[1]+'</span><b>'+t(g[0])+'</b><small>'+t(g[0]+"S")+'</small></button>'}).join("");
+$("#lst").innerHTML=cards(cur()).map(function(c){return'<tr><td>'+c.e+" "+esc(c.f)+'</td><td><b>'+esc(c.b)+'</b></td></tr>'}).join("");stats();plan()}
+function plan(){var p=DB.plan,el=$("#plan");if(!p||p.d!==today()){el.innerHTML="";return}
+el.innerHTML='<p style="font-weight:700;margin-top:6px">'+t("pp",{t:D[p.t].e+" "+tn(p.t)})+'</p>'+["fc","mm","sq"].map(function(g,i){return'<div class="'+(p.done[i]?"d":"")+'"><span>'+(p.done[i]?"✅":"⬜")+" "+t("steps")[i]+' <small style="opacity:.6">· '+t("min")+'</small></span><button class="btn s k" data-a="step" data-v="'+i+'" style="padding:7px 16px;font-size:13px">'+t("start")+'</button></div>'}).join("")}
+/* ===== Flashcards ===== */
+var F={};
+function fcR(){var q=F.q,c=q[F.i];if(!c){award(5+F.k);open_(hd("🃏 "+t("fc"))+'<div class="big">🎉</div><p class="meta">'+t("fcDone",{k:F.k,n:F.n})+'</p><div class="ctl"><button class="btn k" data-g="fc">'+t("again")+'</button></div>');doneStep(0);return}
+open_(hd("🃏 "+t("fc"))+'<p class="meta">'+t("card",{i:Math.min(F.i+1,F.n),n:F.n})+'</p><button class="fc'+(F.b?" b":"")+'" data-g="flip">'+esc(F.b?c.b:c.f)+'<small>'+(F.b?c.e:t("tapflip"))+'</small></button><div class="ctl"><button class="btn g" data-g="learn">'+t("learn")+'</button><button class="btn k" data-g="known">'+t("known")+'</button></div>')}
+/* ===== Memory match ===== */
+var M={};
+function mmR(){var g=M;open_(hd("🧩 "+t("mm"))+'<p class="meta">'+t("moves",{m:g.m,d:g.d,n:g.n})+'</p><div class="mg">'+g.c.map(function(c,i){return'<button data-g="mc" data-v="'+i+'" class="'+(c.ok?"ok":g.p.indexOf(i)>-1?"up":"")+'" style="'+(c.x.length>14?"font-size:12px":"font-size:14px")+'">'+((c.ok||g.p.indexOf(i)>-1)?esc(c.x):"❓")+'</button>'}).join("")+'</div>'+(g.d===g.n?'<div class="big">🎉</div><div class="ctl"><button class="btn k" data-g="mm">'+t("again")+'</button></div>':""))}
+/* ===== Speed quiz ===== */
+var Q={};
+function sqR(){var g=Q;if(g.t<=0){clearInterval(GT);award(3+g.s);open_(hd("⚡ "+t("sq"))+'<div class="big">🏆</div><p class="meta">'+t("score",{s:g.s})+'</p><div class="ctl"><button class="btn k" data-g="sq">'+t("again")+'</button></div>');doneStep(2);return}
+var c=g.q[g.i%g.q.length],o=shuf([c.b].concat(others(c,3)));g.c=c;g.o=o;open_(hd("⚡ "+t("sq"))+'<p class="meta">'+t("time",{s:g.t})+' · '+t("score",{s:g.s})+' · '+t("streak",{n:g.k})+'</p><div class="fc" style="min-height:110px;font-size:clamp(18px,4.5vw,24px)">'+c.e+" "+esc(c.f)+'</div><div class="opts">'+o.map(function(x,i){return'<button class="opt" data-g="sqa" data-v="'+i+'">'+esc(x)+'</button>'}).join("")+'</div><div class="vh" id="vh"></div>')}
+function opn(){return $("#ov").classList.contains("open")}
+function sqRt(){if(Q.t<=0){sqR();return}var m=document.querySelector(".md .meta");if(m)m.textContent=t("time",{s:Q.t})+" · "+t("score",{s:Q.s})+" · "+t("streak",{n:Q.k})}
+/* ===== True / False ===== */
+var TF={};
+function tfR(){var g=TF;if(g.t<=0){clearInterval(GT);award(3+g.s);open_(hd("✅ "+t("tf"))+'<div class="big">🏆</div><p class="meta">'+t("score",{s:g.s})+'</p><div class="ctl"><button class="btn k" data-g="tf">'+t("again")+'</button></div>');return}
+var c=g.q[g.i%g.q.length],tr=Math.random()<.5,a=tr?c.b:others(c,1)[0];g.c=c;g.tr=tr;open_(hd("✅ "+t("tf"))+'<p class="meta" id="tm">'+t("time",{s:g.t})+' · '+t("score",{s:g.s})+'</p><div class="fc" style="min-height:140px;font-size:clamp(18px,4.5vw,24px)">'+c.e+" "+esc(t("q",{f:c.f,a:a}))+'</div><div class="ctl"><button class="btn k" data-g="tfa" data-v="1">'+t("tr")+'</button><button class="btn g" data-g="tfa" data-v="0">'+t("fl")+'</button></div>')}
+/* ===== Word scramble ===== */
+var W={};
+function nrm(s){return s.normalize("NFC").toLowerCase().replace(/\s+/g,"")}
+function wsR(){var g=W,c=g.q[g.i];if(!c){award(5+g.s);open_(hd("🔤 "+t("ws"))+'<div class="big">🎉</div><p class="meta">'+t("score",{s:g.s})+'</p><div class="ctl"><button class="btn k" data-g="ws">'+t("again")+'</button></div>');return}
+var ch=nrm(c.b).split(""),s=ch.slice(),n=0;do{s=shuf(ch);n++}while(s.join("")===ch.join("")&&n<8);g.c=c;
+open_(hd("🔤 "+t("ws"))+'<p class="meta">'+t("card",{i:g.i+1,n:g.q.length})+' · '+t("score",{s:g.s})+'</p><p class="meta">'+esc(t("hint",{f:c.f}))+'</p><p class="meta">'+t("unscr")+'</p><div class="big">'+s.join(" ").toUpperCase()+'</div><input class="in" id="wi" autocomplete="off" aria-label="'+t("unscr")+'"><div class="ctl"><button class="btn k" data-g="wchk">'+t("chk")+'</button><button class="btn g" data-g="wskip">'+t("skip")+'</button></div><div class="vh" id="vh"></div>');setTimeout(function(){var i=$("#wi");if(i)i.focus()},50)}
+/* ===== Brain: sequence ===== */
+var SQ={},PC=["#6bb6e6","#ffd84d","#111111","#f2a7c3"];
+function audio(f){try{var a=new(window.AudioContext||window.webkitAudioContext)(),o=a.createOscillator(),g=a.createGain();o.frequency.value=f;g.gain.value=.05;o.connect(g);g.connect(a.destination);o.start();setTimeout(function(){o.stop();a.close()},160)}catch(e){}}
+function smR(msg){open_(hd("🎹 "+t("sm"))+'<p class="meta">'+t("lvl",{n:SQ.s.length||1})+'</p><p class="meta" id="vh">'+msg+'</p><div class="pads">'+PC.map(function(c,i){return'<button class="pad" id="pd'+i+'" data-g="pad" data-v="'+i+'" style="background:'+c+'" aria-label="'+(i+1)+'"></button>'}).join("")+'</div>')}
+function smNext(){if(!opn())return;SQ.s.push(Math.floor(Math.random()*4));SQ.u=0;SQ.lock=true;smR(t("watch"));SQ.s.forEach(function(p,i){setTimeout(function(){lit(p)},700+i*650)});setTimeout(function(){SQ.lock=false;var v=$("#vh");if(v)v.textContent=t("yours")},700+SQ.s.length*650)}
+function lit(p){var e=$("#pd"+p);if(!e)return;e.classList.add("lit");audio(260+p*110);setTimeout(function(){e.classList.remove("lit")},350)}
+/* ===== Brain: number memory ===== */
+var NM={};
+function nmShow(){var n=NM.n,s="";for(var i=0;i<n;i++)s+=Math.floor(Math.random()*10);NM.s=s;open_(hd("🔢 "+t("nm"))+'<p class="meta">'+t("lvl",{n:n-2})+'</p><p class="meta">'+t("nmGo")+'</p><div class="big">'+s+'</div>');window.RT=setTimeout(nmAsk,800+n*600)}
+function nmAsk(){open_(hd("🔢 "+t("nm"))+'<p class="meta">'+t("lvl",{n:NM.n-2})+'</p><p class="meta">'+t("nmQ")+'</p><input class="in" id="ni" inputmode="numeric" autocomplete="off" aria-label="'+t("nmQ")+'"><div class="ctl"><button class="btn k" data-g="nchk">'+t("chk")+'</button></div><div class="vh" id="vh"></div>');setTimeout(function(){var i=$("#ni");if(i)i.focus()},50)}
+/* ===== Brain: reaction ===== */
+var RX={st:"idle",best:0};
+try{RX.best=+localStorage.getItem("learn-rx")||0}catch(e){}
+function rxR(txt,col){open_(hd("⏱️ "+t("rx"))+'<div class="rx" data-g="rxt" style="background:'+col+'">'+txt+'</div>')}
+/* ===== Brain: spot the match ===== */
+var SPG={},EM="🍎🚀🐶🎈🌟🍕🎸🐱🌈⚽🍩🦋🌻🎁🍉🐢🎨🚲🏀🌙🍇🔔🦄🍀".match(/./gu);
+function spR2(){var g=SPG;if(g.r>g.n){award(5+g.s);open_(hd("👀 "+t("sp"))+'<div class="big">🎉</div><p class="meta">'+t("score",{s:g.s})+'</p><div class="ctl"><button class="btn k" data-g="sp">'+t("again")+'</button></div>');return}
+var p=shuf(EM),sh=p[0],a=shuf([sh].concat(p.slice(1,6))),b=shuf([sh].concat(p.slice(6,11)));g.sh=sh;
+var c=function(x){return'<div class="spc">'+x.map(function(e){return'<button data-g="spa" data-v="'+e+'" aria-label="'+e+'">'+e+'</button>'}).join("")+'</div>'};
+open_(hd("👀 "+t("sp"))+'<p class="meta">'+t("card",{i:g.r,n:g.n})+' · '+t("score",{s:g.s})+'</p><p class="meta">'+t("spQ")+'</p><div class="sp">'+c(a)+c(b)+'</div><div class="vh" id="vh"></div>')}
+/* ===== Kế hoạch ===== */
+function doneStep(i){var p=DB.plan;if(p&&p.d===today()&&p.run===i){p.done[i]=true;p.run=-1;save();plan()}}
+function startGame(g){close_();var c=cards(cur());if(!c.length){return}
+if(g==="fc"){var q=shuf(c).slice(0,12);F={q:q.slice(),n:q.length,i:0,k:0,b:false,seen:{}};fcR()}
+else if(g==="mm"){var p=shuf(c).slice(0,6),tl=[];p.forEach(function(x,i){tl.push({x:x.f,k:i},{x:x.b,k:i})});M={c:shuf(tl),p:[],m:0,d:0,n:p.length};mmR()}
+else if(g==="sq"){Q={q:shuf(c),i:0,t:45,s:0,k:0,lock:false};sqR();GT=setInterval(function(){Q.t--;sqRt()},1000)}
+else if(g==="tf"){TF={q:shuf(c),i:0,t:30,s:0};tfR();GT=setInterval(function(){TF.t--;if(TF.t<=0)tfR();else{var m=$("#tm");if(m)m.textContent=t("time",{s:TF.t})+" · "+t("score",{s:TF.s})}},1000)}
+else if(g==="ws"){var w=shuf(c.filter(function(x){return/^[\p{L}\s]{4,14}$/u.test(x.b)})).slice(0,8);if(w.length<3){open_(hd(t("ws"))+'<p class="meta">'+t("none")+'</p>');return}W={q:w,i:0,s:0};wsR()}
+else if(g==="sm"){SQ={s:[],u:0,lock:true};smNext()}
+else if(g==="nm"){NM={n:3};nmShow()}
+else if(g==="rx"){RX.st="idle";rxR(t("rxS"),"#6bb6e6")}
+else if(g==="sp"){SPG={r:1,n:8,s:0};spR2()}}
+function lang(l){L=l;document.documentElement.lang=l;document.title=t("ti");$("#back").textContent=t("back");$("#lg").textContent=t("lg");$("#kick").textContent=t("kick");$("#h1").textContent=t("h1");$("#sub").textContent=t("sub");$("#pH").textContent=t("pH");$("#pS").textContent=t("pS");$("#pB").textContent=t("pB");$("#gH").textContent=t("gH");$("#bH").textContent=t("bH");$("#bS").textContent=t("bS");$("#lH").textContent=t("lH");$("#th1").textContent=t("th1");$("#th2").textContent=t("th2");$("#note").textContent=t("note");close_();render()}
+document.addEventListener("click",function(e){var b=e.target.closest("[data-a],[data-g]");if(!b)return;var a=b.dataset.a,g=b.dataset.g,v=b.dataset.v;
+if(a==="cl")close_();else if(a==="tp"){topic=v==="all"?"all":+v;render()}else if(a==="game")startGame(v);
+else if(a==="step"){var p=DB.plan;topic=p.t;render();p.run=+v;save();startGame(["fc","mm","sq"][+v])}
+else if(g){var q;
+if(g==="fc"||g==="mm"||g==="sq"||g==="tf"||g==="ws"||g==="sm"||g==="nm"||g==="rx"||g==="sp")startGame(g);
+else if(g==="flip"){F.b=!F.b;fcR()}
+else if(g==="known"||g==="learn"){var c=F.q[F.i];if(!c)return;if(g==="known"){if(!c.r)F.k++;F.i++}else{c.r=1;F.q.push(c);F.i++}F.b=false;if(g==="known")awardSoft();fcR()}
+else if(g==="mc"){var m=M,i=+v;if(m.p.length>=2||m.c[i].ok||m.p.indexOf(i)>-1)return;m.p.push(i);if(m.p.length===2){m.m++;var x=m.c[m.p[0]],y=m.c[m.p[1]];if(x.k===y.k){x.ok=y.ok=true;m.d++;m.p=[];if(m.d===m.n){award(5);doneStep(1)}}else{mmR();setTimeout(function(){if(!opn())return;m.p=[];mmR()},700);return}}mmR()}
+else if(g==="sqa"){var s=Q;if(s.lock)return;s.lock=true;var ok=s.o[+v]===s.c.b;document.querySelectorAll(".opt").forEach(function(o,i){o.disabled=true;if(s.o[i]===s.c.b)o.classList.add("ok");else if(i===+v)o.classList.add("no")});if(ok){s.s++;s.k++;DB.pts++}else s.k=0;$("#vh").textContent=ok?t("right"):t("wrong",{a:s.c.b});setTimeout(function(){if(!opn())return;s.i++;s.lock=false;if(s.t>0)sqR()},ok?500:1100)}
+else if(g==="tfa"){var z=TF;if(+v===(z.tr?1:0)){z.s++;DB.pts++}z.i++;if(z.t>0)tfR()}
+else if(g==="wchk"){var w=W,inp=$("#wi").value;if(nrm(inp)===nrm(w.c.b)){w.s++;DB.pts+=2;$("#vh").textContent=t("ok2");setTimeout(function(){if(!opn())return;w.i++;wsR()},600)}else $("#vh").textContent=t("wrong",{a:w.c.b})}
+else if(g==="wskip"){W.i++;wsR()}
+else if(g==="pad"){if(SQ.lock)return;var p=+v;lit(p);if(SQ.s[SQ.u]===p){SQ.u++;if(SQ.u===SQ.s.length){SQ.lock=true;setTimeout(smNext,700)}}else{SQ.lock=true;award(SQ.s.length);$("#vh").textContent=t("over",{n:SQ.s.length});var d=document.createElement("div");d.className="ctl";d.innerHTML='<button class="btn k" data-g="sm">'+t("again")+'</button>';$("#md").appendChild(d)}}
+else if(g==="nchk"){var ok2=$("#ni").value.trim()===NM.s;if(ok2){NM.n++;DB.pts+=NM.n;save();stats();nmShow()}else{award(NM.n-2);$("#vh").innerHTML=t("over",{n:NM.n-3<0?0:NM.n-3})+" ("+NM.s+")";var d2=document.createElement("div");d2.className="ctl";d2.innerHTML='<button class="btn k" data-g="nm">'+t("again")+'</button>';$("#md").appendChild(d2)}}
+else if(g==="rxt"){if(RX.st==="idle"||RX.st==="early"||RX.st==="res"){RX.st="wait";rxR(t("rxW"),"#111");window.RT=setTimeout(function(){RX.st="go";RX.t0=Date.now();rxR(t("rxG"),"#2fbf7a")},1000+Math.random()*3000)}
+else if(RX.st==="wait"){clearTimeout(window.RT);RX.st="early";rxR(t("rxE"),"#d4527a")}
+else if(RX.st==="go"){var ms=Date.now()-RX.t0;if(!RX.best||ms<RX.best){RX.best=ms;try{localStorage.setItem("learn-rx",ms)}catch(x){}}award(3);RX.st="res";rxR(t("rxR",{ms:ms,b:RX.best}),"#6bb6e6")}}
+else if(g==="spa"){var r=SPG;if(r.lock)return;var ok3=v===r.sh;if(ok3){r.s++;DB.pts++}$("#vh").textContent=ok3?t("right"):t("wrong",{a:r.sh});r.lock=true;setTimeout(function(){if(!opn())return;r.lock=false;r.r++;spR2()},ok3?500:1100)}}});
+function awardSoft(){DB.pts++;save();stats()}
+$("#pB").onclick=function(){var ti=Math.floor(Math.random()*D.length);DB.plan={d:today(),t:ti,done:[false,false,false],run:-1};topic=ti;save();render()};
+document.addEventListener("keydown",function(e){if(e.key==="Enter"){if(e.target.id==="wi"){var b=document.querySelector('[data-g="wchk"]');if(b)b.click()}if(e.target.id==="ni"){var c=document.querySelector('[data-g="nchk"]');if(c)c.click()}}});
+$("#ov").onclick=function(e){if(e.target===this)close_()};
+$("#lg").onclick=function(){var n=L==="en"?"vi":"en";lang(n);try{localStorage.setItem("lang-study",n)}catch(e){}};
+var s0="en";try{s0=localStorage.getItem("lang-study")||"en"}catch(e){}if(location.hash==="#vi")s0="vi";else if(location.hash==="#en")s0="en";
+lang(s0==="vi"?"vi":"en");
+</script>
+</body>
+</html>
