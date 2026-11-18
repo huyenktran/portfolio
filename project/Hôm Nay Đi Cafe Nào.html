@@ -1,0 +1,595 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<title>Hôm Nay Đi Cafe Nào</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Unbounded:wght@400;500;600&display=swap">
+<style>
+:root{--w1:#C4753B;--w2:#A95F2B;--w3:#D9904F;--fab:#FBF5EA;--fab2:#EFE3D0;--ink:#1E130C;--mute:#4B3F33;--line:rgba(21,16,11,.3);--amber:#F2B253;--amberhi:#FFE2A8;--amberlo:#B97A1E;--con:#1A1511;--sage:#5E7A52;--wine:#6B3F28;color-scheme:light}
+*{box-sizing:border-box}
+[hidden]{display:none!important}
+html{background:#3B2418}
+body{margin:0;font:400 16px/1.55 'Plus Jakarta Sans',system-ui,-apple-system,'Segoe UI',Roboto,sans-serif;color:var(--ink);min-height:100vh;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:0 44px;position:relative}
+body::before{content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;background:radial-gradient(ellipse at 50% 50%,transparent 45%,rgba(20,10,4,.55) 100%),url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='900' height='900'%3E%3Cfilter id='a' x='0' y='0' width='100%25' height='100%25'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.0035 0.006' numOctaves='4' seed='11' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0.96  0 0 0 0 0.9  0 0 0 0 0.82  3.4 0 0 0 -1.55'/%3E%3C/filter%3E%3Cfilter id='b' x='0' y='0' width='100%25' height='100%25'%3E%3CfeTurbulence type='turbulence' baseFrequency='0.0045 0.0075' numOctaves='5' seed='4' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 1  0 0 0 0 0.97  0 0 0 0 0.92  -10 0 0 0 2.0'/%3E%3C/filter%3E%3Cfilter id='c' x='0' y='0' width='100%25' height='100%25'%3E%3CfeTurbulence type='turbulence' baseFrequency='0.012 0.02' numOctaves='3' seed='23' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 1  0 0 0 0 0.95  0 0 0 0 0.88  -12 0 0 0 2.0'/%3E%3C/filter%3E%3Crect width='900' height='900' filter='url%28%23a%29' opacity='.2'/%3E%3Crect width='900' height='900' filter='url%28%23b%29' opacity='.34'/%3E%3Crect width='900' height='900' filter='url%28%23c%29' opacity='.16'/%3E%3C/svg%3E"),radial-gradient(ellipse at 20% 10%,rgba(236,220,198,.3),transparent 55%),linear-gradient(160deg,#4A2E1E,#6A4630 45%,#3B2418)}
+.wrap{max-width:980px;margin:0 auto}
+a{color:inherit}
+button{font:inherit;color:inherit;cursor:pointer}
+:focus-visible{outline:3px solid var(--ink);outline-offset:2px}
+.top{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:16px 0}
+.back{display:inline-flex;align-items:center;min-height:44px;text-decoration:none;font-weight:700;font-size:14px;color:var(--ink);letter-spacing:.02em}
+.back:hover{text-decoration:underline}
+.lang{display:flex;border:1px solid var(--ink);border-radius:999px;padding:3px;background:var(--fab);margin-left:auto}
+.lang button{border:0;background:transparent;min-width:52px;min-height:38px;border-radius:999px;font:700 13px 'Plus Jakarta Sans',sans-serif;letter-spacing:.14em;color:var(--ink)}
+.lang button[aria-pressed="true"]{background:var(--ink);color:var(--amberhi)}
+.banner{display:flex;gap:10px;align-items:flex-start;padding:10px 14px;border-radius:12px;background:var(--fab);border:1px solid var(--line);font-size:13px}
+.hero{display:grid;grid-template-columns:1.1fr .9fr;gap:26px;align-items:center;padding:30px 0 12px}
+.kick{display:inline-flex;align-items:center;gap:10px;font:500 13px 'Plus Jakarta Sans',sans-serif;letter-spacing:.3em;text-transform:uppercase;margin:0 0 12px}
+.rec{width:11px;height:11px;border-radius:50%;background:#B3141A;box-shadow:0 0 0 2px rgba(0,0,0,.55),0 0 10px 2px rgba(255,40,40,.7);animation:blink 1.6s steps(2,start) infinite}
+@keyframes blink{50%{opacity:.25}}
+h1{margin:0;font:600 clamp(40px,8vw,74px)/1 'Unbounded',Georgia,serif;letter-spacing:-.02em;text-wrap:balance;color:var(--ink);text-shadow:0 1px 0 rgba(255,220,170,.5)}
+h1 em{font-style:italic;font-weight:500}
+.sub{max-width:52ch;margin:16px 0 0;font-weight:500}
+.art{display:flex;justify-content:center}
+.art svg{width:min(100%,430px);height:auto;filter:drop-shadow(0 22px 22px rgba(40,6,12,.4))}
+.led{animation:lv 1.1s ease-in-out infinite alternate}
+.led:nth-child(2n){animation-duration:.8s}.led:nth-child(3n){animation-duration:1.5s}
+@keyframes lv{from{opacity:.25}to{opacity:1}}
+.tabs{display:flex;gap:6px;overflow-x:auto;scrollbar-width:none;padding:6px;border:1px solid var(--ink);border-radius:999px;background:var(--fab);margin:20px 0 18px;box-shadow:0 8px 20px -10px rgba(30,10,0,.7)}
+.tabs::-webkit-scrollbar{display:none}
+.tab{flex:1 0 auto;white-space:nowrap;border:0;background:transparent;border-radius:999px;padding:10px 16px;min-height:44px;font:500 14px 'Plus Jakarta Sans',sans-serif;letter-spacing:.06em;text-transform:uppercase;color:var(--ink)}
+.tab:hover{background:rgba(21,16,11,.08)}
+.tab[aria-selected="true"]{background:var(--ink);color:var(--amberhi)}
+.panel{border-radius:20px;padding:clamp(18px,4vw,32px);background:linear-gradient(180deg,var(--fab),var(--fab2));box-shadow:0 0 0 7px #3A2418,0 0 0 8px rgba(40,6,12,.75),inset 0 0 0 1px rgba(255,255,255,.5),0 30px 50px -16px rgba(30,10,0,.75);margin:0 8px}
+h2{font:600 clamp(26px,5vw,38px)/1.1 'Unbounded',Georgia,serif;margin:0 0 6px;letter-spacing:-.01em;text-wrap:balance}
+h3{font-family:'Unbounded',Georgia,serif;font-weight:600;margin:0}
+.help{color:var(--mute);margin:0 0 16px;font-size:14.5px;font-weight:500}
+.lbl{font:500 12px 'Plus Jakarta Sans',sans-serif;letter-spacing:.22em;text-transform:uppercase;margin:0 0 7px;color:var(--ink)}
+.fbar{margin:0 0 18px}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chip{border:1px solid var(--ink);background:#F5EDDF;color:var(--ink);border-radius:999px;padding:7px 14px;min-height:38px;font-size:13.5px;font-weight:500}
+.chip:hover{background:#fff}
+.chip[aria-pressed="true"]{background:var(--ink);color:var(--amberhi)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:46px;padding:11px 24px;border-radius:999px;border:1px solid #4A2C0C;font:700 14.5px 'Plus Jakarta Sans',sans-serif;letter-spacing:.02em;text-decoration:none;color:var(--ink);background:linear-gradient(180deg,var(--amberhi),var(--amber) 55%,#E59A33);box-shadow:inset 0 1px 0 rgba(255,255,255,.7),0 6px 14px -6px rgba(60,28,0,.8);transition:transform .15s,filter .15s}
+.btn:hover{filter:brightness(1.06);transform:translateY(-1px)}
+.btn:active{transform:translateY(1px)}
+.btn[disabled]{opacity:.45;cursor:default;transform:none;filter:none}
+.btn.ghost{background:#F5EDDF;border-color:var(--ink);box-shadow:none}
+.btn.ghost:hover{background:#fff}
+.btn.dark{background:var(--ink);color:var(--amberhi);border-color:var(--ink)}
+.btn.sm{min-height:38px;padding:7px 16px;font-size:13px}
+.row{display:flex;flex-wrap:wrap;gap:10px;align-items:center}
+.row.c{justify-content:center}
+.in{width:100%;border:1px solid var(--ink);background:#FBF6EC;color:var(--ink);font:inherit;padding:10px 14px;border-radius:12px;min-height:44px}
+textarea.in{min-height:90px;resize:vertical;line-height:1.5}
+.prog{display:flex;gap:6px;margin:0 0 18px}.prog i{flex:1;height:5px;border-radius:5px;background:rgba(21,16,11,.2)}.prog i.on{background:var(--ink)}
+.qn{font:500 12px 'Plus Jakarta Sans',sans-serif;letter-spacing:.22em;text-transform:uppercase;margin:0 0 6px}
+.opts{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,200px),1fr));gap:10px;margin-top:16px}
+.opt{text-align:left;border:1px solid var(--ink);background:#F7F0E2;border-radius:14px;padding:15px;font-weight:600;min-height:62px}
+.opt:hover{background:#fff;transform:translateY(-1px)}
+.opt b{display:block;font-size:22px;margin-bottom:4px}
+.res{margin-top:24px}
+.sheet{border:1.5px solid var(--ink);border-radius:16px;background:#FBF6EC;overflow:hidden;box-shadow:6px 6px 0 rgba(21,16,11,.85)}
+.sh{display:flex;flex-wrap:wrap;gap:10px;align-items:center;justify-content:space-between;padding:14px 18px;background:var(--ink);color:var(--amberhi)}
+.sh h3{font-size:clamp(22px,4.4vw,30px);line-height:1.1;overflow-wrap:anywhere}
+.sh .vt{font-size:.6em;opacity:.8;font-family:'Plus Jakarta Sans',sans-serif;font-weight:500}
+.sh small{font:500 12px 'Plus Jakarta Sans',sans-serif;letter-spacing:.22em;text-transform:uppercase;opacity:.85}
+.sr{display:grid;grid-template-columns:140px minmax(0,1fr) auto;gap:6px 14px;align-items:center;padding:11px 18px;border-top:1px solid var(--line)}
+.sr:first-of-type{border-top:0}
+.sr .k{font:500 12px 'Plus Jakarta Sans',sans-serif;letter-spacing:.2em;text-transform:uppercase}
+.sr .v{min-width:0;overflow-wrap:anywhere;font-weight:600}
+.sr .v small{font-weight:500;color:var(--mute)}
+.sr .ct{display:flex;gap:6px;align-items:center}
+.sr .ct label{display:inline-flex;gap:4px;align-items:center;font-size:12px;cursor:pointer}
+.ib{border:1px solid var(--ink);background:#F5EDDF;border-radius:10px;width:34px;height:34px;display:inline-grid;place-items:center;font-size:16px}
+.ib:hover{background:#fff}
+input[type=checkbox]{accent-color:var(--ink);width:17px;height:17px}
+.seq{display:flex;flex-wrap:wrap;gap:5px}
+.seq span,.tag{display:inline-block;border:1px solid var(--ink);border-radius:8px;padding:2px 9px;font-size:12.5px;font-weight:600;background:#F0E6D3}
+.chord{display:inline-block;margin-right:4px;font-weight:700}
+.sb{display:flex;flex-wrap:wrap;gap:8px;padding:14px 18px;border-top:1.5px solid var(--ink);background:var(--fab)}
+.wheel-wrap{position:relative;width:min(100%,430px);margin:6px auto 0}
+.wheel-wrap canvas{display:block;width:100%;height:auto;aspect-ratio:1;border-radius:50%;box-shadow:0 0 0 6px var(--ink),0 0 0 9px var(--amber),0 20px 36px -8px rgba(30,10,0,.8)}
+.ptr{position:absolute;top:-14px;left:50%;width:0;height:0;margin-left:-14px;border-left:14px solid transparent;border-right:14px solid transparent;border-top:30px solid var(--ink);filter:drop-shadow(0 3px 2px rgba(0,0,0,.4));z-index:2}
+.lanes{display:grid;gap:8px;margin:14px 0}
+.lane{position:relative;height:50px;border-radius:12px;background:repeating-linear-gradient(90deg,#F3EADA 0 28px,#EADFCB 28px 56px);border:1px solid var(--ink);overflow:hidden}
+.lane .dn{position:absolute;left:10px;top:50%;transform:translateY(-50%);font-size:12.5px;font-weight:600;max-width:calc(100% - 90px);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;z-index:1}
+.lane .duck{position:absolute;left:0;top:4px;font-size:34px;line-height:40px;width:46px;text-align:center;z-index:2}
+.lane .fin{position:absolute;right:0;top:0;bottom:0;width:12px;background:repeating-conic-gradient(#fff 0 25%,#000 0 50%) 0 0/12px 12px}
+.lane.win{box-shadow:0 0 0 3px var(--amber)}
+.deck{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,130px),1fr));gap:12px;margin:10px 0}
+.pc{perspective:800px;border:0;background:none;padding:0;aspect-ratio:2/3;position:relative}
+.pc .in2{position:absolute;inset:0;transform-style:preserve-3d;transition:transform .7s cubic-bezier(.2,.7,.2,1)}
+.pc.open .in2{transform:rotateY(180deg)}
+.pc.dim{opacity:.4}
+.pc .b,.pc .f{position:absolute;inset:0;backface-visibility:hidden;border-radius:14px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;padding:10px;text-align:center;border:1.5px solid var(--ink)}
+.pc .b{background:repeating-linear-gradient(45deg,#201812 0 8px,#2B2018 8px 16px);color:var(--amberhi);font-size:36px}
+.pc .f{transform:rotateY(180deg);background:#FBF6EC;font-size:13px;font-weight:700}
+.pc .f i{font-style:normal;font-weight:500;color:var(--mute);font-size:11.5px}
+.quick{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,250px),1fr));gap:14px}
+.qc{border:1px solid var(--ink);border-radius:16px;padding:16px;background:#F7F0E2;text-align:center;min-width:0}
+.qc h3{font-size:20px;margin-bottom:10px}
+.coinbox{perspective:600px;height:96px;display:grid;place-items:center}
+.coin{width:84px;height:84px;position:relative;transform-style:preserve-3d}
+.coin>div{position:absolute;inset:0;border-radius:50%;display:grid;place-items:center;backface-visibility:hidden;font:700 34px 'Unbounded',serif;border:3px solid var(--ink);background:radial-gradient(circle at 30% 30%,#FFE9B8,#E0A13F)}
+.coin .tl{transform:rotateY(180deg)}
+.cside{font-size:12.5px;font-weight:600;margin:4px 0}
+.cside b{display:inline-block;width:20px;height:20px;border-radius:50%;background:var(--ink);color:var(--amberhi);font-size:11px;line-height:20px;margin-right:6px}
+.die{display:grid;grid-template-columns:repeat(3,1fr);gap:7px;width:84px;height:84px;margin:6px auto 10px;padding:10px;border:3px solid var(--ink);border-radius:16px;background:#FBF6EC}
+.die i{border-radius:50%}.die i.on{background:var(--ink)}
+.die.roll{animation:shake .25s infinite}
+@keyframes shake{25%{transform:rotate(-8deg)}75%{transform:rotate(8deg)}}
+.dl{list-style:none;margin:0 0 10px;padding:0;text-align:left;font-size:12.5px;display:grid;gap:3px}
+.dl li{display:flex;gap:8px;padding:3px 6px;border-radius:8px}
+.dl li.win{background:var(--amber);font-weight:700}
+.dl b{width:16px}
+.slotwin{height:70px;border:3px solid var(--ink);border-radius:14px;display:grid;place-items:center;font:600 15px 'Unbounded',serif;padding:6px;margin:6px 0 12px;background:#FBF6EC;overflow:hidden}
+.empty{padding:22px;text-align:center;border:1px dashed var(--ink);border-radius:14px;font-weight:500}
+.alts{margin-top:20px;padding-top:16px;border-top:1px solid var(--line)}
+.alt{display:flex;flex-wrap:wrap;gap:10px;align-items:center;justify-content:space-between;padding:9px 0;border-bottom:1px solid var(--line)}
+.alt span{min-width:0;overflow-wrap:anywhere}
+.ml{list-style:none;margin:0;padding:0;display:grid;gap:10px}
+.ml>li{display:flex;gap:12px;justify-content:space-between;align-items:flex-start;padding:12px 14px;border:1px solid var(--ink);border-radius:14px;background:#F7F0E2;min-width:0}
+.ml>li>div{min-width:0;flex:1}
+.ml textarea{margin-top:8px}
+.frm{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px;margin:0 0 14px}
+.frm label{display:grid;gap:6px;font-weight:600;font-size:13.5px}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:14px}
+.card{border:1px solid var(--ink);border-radius:16px;padding:16px 18px;background:#F7F0E2;min-width:0}
+.card h3{font-size:21px;margin:0 0 4px;overflow-wrap:anywhere}
+.card p{margin:6px 0 0;font-size:14px;font-weight:500}
+.card .vt{font-family:'Plus Jakarta Sans',sans-serif;font-size:.68em;font-weight:500;color:var(--mute)}
+ol.st{counter-reset:s;list-style:none;margin:10px 0 0;padding:0;display:grid;gap:7px}
+ol.st li{counter-increment:s;display:flex;gap:10px;font-size:14px}
+ol.st li::before{content:counter(s);flex:0 0 24px;height:24px;border-radius:50%;background:var(--ink);color:var(--amberhi);font:600 13px 'Unbounded',serif;display:grid;place-items:center}
+ul.refs{margin:8px 0 0;padding-left:18px;font-size:13px}
+ul.refs a{font-weight:600}
+details.fx{border:1px solid var(--ink);border-radius:14px;background:#F7F0E2;padding:2px 16px;margin-bottom:10px}
+details.fx summary{cursor:pointer;padding:12px 0;font:600 19px 'Unbounded',serif;list-style:none;display:flex;justify-content:space-between;gap:10px}
+details.fx summary::-webkit-details-marker{display:none}
+details.fx summary::after{content:'+'}
+details.fx[open] summary::after{content:'–'}
+details.fx .vt{font-family:'Plus Jakarta Sans',sans-serif;font-size:.7em;font-weight:500;color:var(--mute)}
+details.fx>div{padding:0 0 14px}
+footer{margin-top:34px;text-align:center;font-size:12.5px;display:grid;gap:8px;font-weight:500}
+.linkb{background:none;border:0;text-decoration:underline;font:inherit;font-weight:700;padding:0}
+#dock{position:fixed;left:0;right:0;bottom:0;z-index:40;padding:10px max(12px,env(safe-area-inset-right,0px)) calc(10px + env(safe-area-inset-bottom,0px)) max(12px,env(safe-area-inset-left,0px))}
+.dk{max-width:760px;margin:0 auto;border:1.5px solid var(--ink);border-radius:18px;padding:14px 18px;background:#FBF6EC;box-shadow:0 -6px 30px rgba(30,10,0,.5),6px 6px 0 var(--ink);text-align:center}
+.dk.work{border-color:var(--ink);background:linear-gradient(180deg,#FFF1CF,#FBF6EC)}
+.dk.rest{background:linear-gradient(180deg,#DFEBD8,#FBF6EC)}
+.dk .top2{display:flex;justify-content:space-between;gap:10px;font:500 12px 'Plus Jakarta Sans',sans-serif;letter-spacing:.2em;text-transform:uppercase}
+.dk .nm{font:600 20px 'Unbounded',serif;margin-top:4px;overflow-wrap:anywhere}
+.dk .cue{font-size:13px;font-weight:500;color:var(--mute)}
+.dk .tm{font:600 clamp(44px,12vw,68px)/1.1 'Unbounded',serif;font-variant-numeric:tabular-nums}
+.dk .bar{height:7px;border-radius:7px;background:rgba(21,16,11,.18);overflow:hidden;margin:6px 0 10px}
+.dk .bar i{display:block;height:100%;width:0;background:var(--ink)}
+.dk .ctl{display:flex;flex-wrap:wrap;gap:8px;justify-content:center}
+body.hasdock .wrap{padding-bottom:260px}
+.modal{position:fixed;inset:0;background:rgba(21,10,0,.65);display:grid;place-items:center;padding:16px;z-index:60}
+.mbox{background:var(--fab);border:1.5px solid var(--ink);border-radius:20px;max-width:680px;width:100%;max-height:86vh;display:flex;flex-direction:column;overflow:hidden}
+.mhead{display:flex;justify-content:space-between;align-items:center;gap:10px;padding:16px 22px;border-bottom:1px solid var(--ink)}
+.mhead h2{font-size:24px;margin:0}
+.xbtn{border:0;background:transparent;font-size:20px}
+.mbody{padding:14px 22px 22px;overflow:auto}
+.mbody h3{font-size:19px;margin:16px 0 4px}
+.mbody p{margin:0;font-weight:500}
+@media(max-width:760px){.hero{grid-template-columns:1fr}.art{order:-1}.art svg{width:min(80%,320px)}.sr{grid-template-columns:1fr auto}.sr .k{grid-column:1/-1}.panel{margin:0 4px}}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+
+.back,.kick,h1,.top,.sub,footer,footer a,footer .linkb{color:#F8EEDD}
+h1 em{color:#E9C99A}
+.kick{color:#E9C99A}
+.sub{color:#EADBC4}
+.rec{background:#E9C99A!important}
+.price{color:var(--wine)}
+.mapb{text-decoration:none;display:inline-flex;align-items:center}
+.fx2{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:10px;margin-top:10px}
+.fx2 label{display:grid;gap:4px;font-size:12px;letter-spacing:.08em;text-transform:uppercase;font-weight:600}
+.fx2 select,.fx2 input{font:inherit;font-size:15px;letter-spacing:0;text-transform:none;padding:10px 12px;border:2px solid var(--ink);border-radius:10px;background:#fff;color:var(--ink);width:100%}
+h1{font-size:clamp(28px,5.6vw,52px);line-height:1.12;letter-spacing:-.03em;text-shadow:0 2px 14px rgba(20,10,4,.5)}
+h1 em{font-style:normal;font-weight:600}
+h2{font-family:'Unbounded',system-ui,sans-serif;font-size:clamp(20px,3.4vw,28px);font-weight:600;letter-spacing:-.02em}
+.sh h3{font-family:'Unbounded',system-ui,sans-serif;font-size:clamp(17px,3vw,22px);letter-spacing:-.01em}
+.kick{letter-spacing:.22em}
+.sub,.kick,.back{text-shadow:0 1px 8px rgba(20,10,4,.75)}
+.hero{position:relative}
+.hero>div:first-child{background:rgba(32,18,11,.84);-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px);border:1px solid rgba(233,201,154,.35);border-radius:22px;padding:clamp(18px,3.6vw,30px);box-shadow:0 18px 40px -16px rgba(0,0,0,.7)}
+.back{background:rgba(32,18,11,.84);border:1px solid rgba(233,201,154,.35);border-radius:999px;padding:0 16px;text-shadow:none}
+footer{background:rgba(32,18,11,.84);border-radius:18px;padding:18px 20px;margin-top:28px;color:#F8EEDD}
+footer *{color:#F8EEDD}
+.sub,.kick{text-shadow:none}
+h1{text-shadow:none}
+.hero .kick,.hero h1,.hero .sub{color:#F8EEDD}
+.hero .kick{color:#E9C99A}
+
+</style>
+<div class="wrap" id="app">
+<header class="top">
+ <a class="back" href="https://www.alessandratran.com" data-i="back"></a>
+ <div class="lang" role="group" aria-label="Language / Ngôn ngữ"><button type="button" data-l="vi" aria-pressed="true">VI</button><button type="button" data-l="en" aria-pressed="false">EN</button></div>
+</header>
+<div class="banner" role="note"><span aria-hidden="true">☕</span><span><span id="bannertxt"></span> <button class="linkb" type="button" id="bannerlink"></button></span></div>
+<section class="hero">
+ <div>
+  <p class="kick"><i class="rec" aria-hidden="true"></i><span data-i="kick"></span></p>
+  <h1 id="h1"></h1>
+  <p class="sub" data-i="sub"></p>
+ </div>
+ <div class="art" id="art" aria-hidden="true"></div>
+</section>
+<main>
+<div class="tabs" role="tablist" id="tabs"></div>
+<div class="panel">
+ <div class="fbar" id="fbar"><p class="lbl" data-i="cat"></p><div class="chips" id="chips"></div>
+  <div class="fx2"><label><span data-i="vibe"></span><select id="csel"></select></label><label><span data-i="pr"></span><select id="tsel"></select></label><label><span data-i="area"></span><select id="ssel"></select></label></div>
+  <p class="help" id="fcount" style="margin:10px 0 0"></p></div>
+
+ <section id="p-gen" role="tabpanel"><h2 data-i="genH"></h2><p class="help" data-i="genP"></p><div id="genbox"></div><div class="row" style="margin-top:16px"><button class="btn" id="genall" type="button"></button></div></section>
+
+ <section id="p-quiz" role="tabpanel" hidden><div id="quiz"></div></section>
+
+ <section id="p-wheel" role="tabpanel" hidden>
+  <h2 data-i="wheelH"></h2><p class="help" data-i="wheelP"></p>
+  <div class="wheel-wrap"><i class="ptr"></i><canvas id="wheel" width="860" height="860" aria-label="Wheel"></canvas></div>
+  <div class="row c" style="margin-top:20px"><button class="btn" id="spin" type="button"></button><button class="btn ghost" id="reshuffle" type="button"></button></div>
+  <div class="res" id="res-wheel" aria-live="polite"></div>
+ </section>
+
+ <section id="p-duck" role="tabpanel" hidden>
+  <h2 data-i="duckH"></h2><p class="help" data-i="duckP"></p>
+  <div class="lanes" id="lanes"></div>
+  <div class="row c"><button class="btn" id="go" type="button"></button><button class="btn ghost" id="newduck" type="button"></button></div>
+  <div class="res" id="res-duck" aria-live="polite"></div>
+ </section>
+
+ <section id="p-cards" role="tabpanel" hidden>
+  <h2 data-i="cardH"></h2><p class="help" data-i="cardP"></p>
+  <div class="deck" id="deck"></div>
+  <div class="row c"><button class="btn ghost" id="deal" type="button"></button></div>
+  <div class="res" id="res-cards" aria-live="polite"></div>
+ </section>
+
+ <section id="p-quick" role="tabpanel" hidden>
+  <h2 data-i="quickH"></h2><p class="help" data-i="quickP"></p>
+  <div class="quick">
+   <div class="qc"><h3 data-i="coin"></h3><div class="coinbox"><div class="coin" id="coin"><div class="h">A</div><div class="tl">B</div></div></div><div class="cside" id="cA"></div><div class="cside" id="cB"></div><div class="row c"><button class="btn sm" id="flip" type="button"></button><button class="btn sm ghost" id="coinNew" type="button"></button></div></div>
+   <div class="qc"><h3 data-i="dice"></h3><div class="die" id="die"></div><ul class="dl" id="dlist"></ul><div class="row c"><button class="btn sm" id="roll" type="button"></button><button class="btn sm ghost" id="diceNew" type="button"></button></div></div>
+   <div class="qc"><h3 data-i="slot"></h3><div class="slotwin" id="slotwin">☕</div><div class="row c"><button class="btn sm" id="pull" type="button"></button></div></div>
+  </div>
+  <div class="res" id="res-quick" aria-live="polite"></div>
+ </section>
+
+ <section id="p-mine" role="tabpanel" hidden>
+  <h2 data-i="mineH"></h2><p class="help" data-i="mineP"></p>
+  <div class="fx2" style="margin-bottom:10px"><label><span data-i="mName"></span><input id="mn" type="text" maxlength="60" autocomplete="off"></label><label><span data-i="mNote"></span><input id="mt" type="text" maxlength="120" autocomplete="off"></label></div>
+  <div class="row" style="margin-bottom:14px"><button class="btn sm" id="madd" type="button"></button><button class="btn sm ghost" id="mpick" type="button"></button><button class="btn ghost sm" id="mclear" type="button"></button></div>
+  <div class="res" id="res-mine" aria-live="polite"></div>
+  <ul class="ml" id="mlist"></ul>
+ </section>
+
+ <section id="p-list" role="tabpanel" hidden>
+  <h2 data-i="listH"></h2><p class="help" data-i="listP"></p>
+  <div class="fx2" style="margin-bottom:14px"><label><span data-i="search"></span><input id="q" type="search" autocomplete="off"></label></div>
+  <div class="grid" id="lbody"></div>
+ </section>
+</div>
+</main>
+<footer><div><button class="linkb" type="button" id="footterms"></button></div><div>© <span id="yr"></span> Alessandra Tran · <a href="https://www.alessandratran.com">alessandratran.com</a></div><div id="srcnote"></div></footer>
+</div>
+<div class="modal" id="terms" role="dialog" aria-modal="true" aria-labelledby="termsh" hidden>
+ <div class="mbox"><div class="mhead"><h2 id="termsh"></h2><button class="xbtn" type="button" id="tclose" aria-label="Close">✕</button></div><div class="mbody" id="tbody"></div></div>
+</div>
+<script>
+function b(v,e){return{vi:v,en:e};}
+var CU={
+ch:{e:'🏪',vi:'Chuỗi quen thuộc',en:'Familiar chains'},
+sp:{e:'☕',vi:'Specialty và rang xay',en:'Specialty coffee'},
+br:{e:'🥐',vi:'Brunch và concept',en:'Brunch and concept'},
+ou:{e:'🌿',vi:'Sân vườn, ngoài trời',en:'Garden and outdoor'},
+vt:{e:'📻',vi:'Retro, vintage',en:'Retro and vintage'},
+vw:{e:'🌆',vi:'Có view',en:'With a view'},
+bk:{e:'📚',vi:'Sách và nghệ thuật',en:'Books and art'}
+};
+var CK=['ch','sp','br','ou','vt','vw','bk'];
+var CATQ={ch:'quán cà phê',sp:'specialty coffee',br:'brunch cafe',ou:'cà phê sân vườn',vt:'cà phê retro vintage',vw:'cà phê có view đẹp',bk:'cà phê sách'};
+var VB={work:b('Làm việc, học bài','Work or study'),date:b('Hẹn hò','Date'),friends:b('Tụ tập bạn bè','Friends'),solo:b('Đi một mình','Solo'),family:b('Gia đình','Family'),biz:b('Gặp đối tác','Meetings'),photo:b('Chụp ảnh','Photos'),chill:b('Ngồi thư giãn','Chilling'),quiet:b('Yên tĩnh','Quiet'),walk:b('Đi dạo kết hợp','Pair with a stroll')};
+var VK=['work','date','friends','solo','family','biz','photo','chill','quiet','walk'];
+var PRL=['',b('Dưới 50.000đ/ly','Under 50,000 VND per drink'),b('50.000 đến 90.000đ/ly','50,000 to 90,000 VND per drink'),b('Trên 90.000đ/ly','Over 90,000 VND per drink')];
+var AREA={q1:'Quận 1',td:'Thảo Điền'};
+/* gu = true: ô tìm kiếm theo gu, không phải một quán cụ thể */
+var R=[
+{n:'The Workshop Coffee',c:'sp',p:3,a:'q1',v:['work','solo','quiet','biz'],k:b('Cà phê pha thủ công, cold brew','Pour-over and cold brew'),note:b('Tòa nhà công nghiệp cũ ở Quận 1, thích hợp ngồi làm việc yên tĩnh.','An old industrial building in District 1, good for quiet work sessions.'),q:'The Workshop Coffee Ngô Đức Kế'},
+{n:"L'Usine",c:'br',p:3,a:'q1',v:['date','friends','photo','chill'],k:b('Brunch, bánh ngọt, cà phê','Brunch, pastries, coffee'),note:b('Vừa là cửa hàng concept vừa là quán cà phê, bày biện đẹp.','A concept store and cafe in one, nicely styled.'),q:"L'Usine Saigon"},
+{n:'Au Parc',c:'br',p:3,a:'q1',v:['date','friends','chill','family'],k:b('Brunch kiểu Địa Trung Hải, nước ép','Mediterranean brunch, juices'),note:b('Không gian sáng, hợp bữa trưa nhẹ kèm cà phê.','A bright room, good for a light lunch with coffee.'),q:'Au Parc Hàn Thuyên'},
+{n:'Cafe Apartment 42 Nguyễn Huệ',c:'vw',p:2,a:'q1',v:['photo','friends','date','walk'],k:b('Nhiều quán nhỏ trong một chung cư cũ','Many small cafes inside an old apartment block'),note:b('Nhìn ra phố đi bộ Nguyễn Huệ; mỗi tầng một quán nên cần xem trước bản đồ.','Overlooks the Nguyen Hue walking street; each floor is a different cafe, so check the map first.'),q:'42 Nguyễn Huệ cafe apartment'},
+{n:'The Deck Saigon',c:'vw',p:3,a:'td',v:['date','friends','photo','chill'],k:b('Cà phê, cocktail bên sông','Coffee and cocktails by the river'),note:b('Bờ sông Sài Gòn, đẹp nhất vào buổi chiều.','On the Saigon River, loveliest in the afternoon.'),q:'The Deck Saigon Nguyễn U Dĩ'},
+{n:'Saigon Outcast',c:'ou',p:2,a:'td',v:['friends','chill','photo'],k:b('Không gian mở, nghệ thuật, sự kiện','Open space, art, events'),note:b('Nhiều khu ngồi ngoài trời, thỉnh thoảng có sự kiện.','Plenty of outdoor seating, with events from time to time.'),q:'Saigon Outcast Thảo Điền'},
+{n:'Đường Sách Nguyễn Văn Bình',c:'bk',p:1,a:'q1',v:['quiet','family','walk','solo'],k:b('Phố sách, quán cà phê nhỏ, đọc sách','Book street, small cafes, reading'),note:b('Gần Nhà thờ Đức Bà và Bưu điện, hợp đi dạo.','Next to Notre-Dame Cathedral and the Post Office, great for a stroll.'),q:'Đường sách Nguyễn Văn Bình'},
+{n:'Cộng Cà Phê',c:'vt',p:1,v:['friends','photo','chill'],k:b('Cà phê cốt dừa, trang trí bao cấp','Coconut coffee, communist-era decor'),note:b('Chuỗi quán trang trí hoài cổ, nhiều chi nhánh.','A chain with nostalgic decor and many branches.'),q:'Cộng Cà Phê'},
+{n:'Trung Nguyên Legend',c:'ch',p:2,v:['biz','friends','family'],k:b('Cà phê phin, cà phê Việt','Phin coffee, Vietnamese coffee'),note:b('Không gian rộng, hợp gặp gỡ hoặc tiếp khách.','Spacious, suited to meetings or hosting guests.'),q:'Trung Nguyên Legend Café'},
+{n:'Highlands Coffee',c:'ch',p:1,v:['friends','family','work'],k:b('Phin sữa đá, freeze, bánh mì que','Phin milk coffee, freeze drinks, banh mi sticks'),note:b('Nhiều chi nhánh, dễ tìm gần nhà.','Many branches, easy to find near you.'),q:'Highlands Coffee'},
+{n:'The Coffee House',c:'ch',p:1,v:['work','friends','solo'],k:b('Cà phê sữa, trà trái cây','Milk coffee, fruit teas'),note:b('Không gian thoáng, quen thuộc với dân văn phòng.','Airy rooms familiar to office workers.'),q:'The Coffee House'},
+{n:'Phúc Long',c:'ch',p:1,v:['friends','family','work'],k:b('Trà, cà phê, trà sữa','Tea, coffee, milk tea'),note:b('Chuỗi trà và cà phê lâu năm.','A long-running tea and coffee chain.'),q:'Phúc Long Coffee & Tea'},
+{n:'Katinat Saigon Kafe',c:'ch',p:2,v:['friends','date','chill'],k:b('Cà phê, trà trái cây, matcha','Coffee, fruit tea, matcha'),note:b('Thiết kế hiện đại, nhiều chi nhánh ở trung tâm.','Modern design with many central branches.'),q:'Katinat Saigon Kafe'},
+{n:'Phê La',c:'ch',p:2,v:['friends','chill'],k:b('Trà ô long, trà sữa','Oolong tea, milk tea'),note:b('Hợp ngồi tán gẫu với món trà.','A comfortable place to chat over tea.'),q:'Phê La'},
+{n:'Starbucks',c:'ch',p:2,v:['work','biz','solo'],k:b('Latte, frappuccino, Wi-Fi','Latte, frappuccino, Wi-Fi'),note:b('Dễ tìm, hợp ngồi làm việc ngắn; nên hỏi chi nhánh cụ thể.','Easy to find and good for short work sessions; ask about the specific branch.'),q:'Starbucks'},
+{n:'The Coffee Bean & Tea Leaf',c:'ch',p:2,v:['work','biz','friends'],k:b('Ice blended, latte, trà','Ice blended, latte, tea'),note:b('Chuỗi cà phê quốc tế, không gian khá yên tĩnh.','An international chain with relatively calm rooms.'),q:'The Coffee Bean & Tea Leaf'},
+{n:'Passio Coffee',c:'ch',p:1,v:['friends','chill'],k:b('Trà trái cây, cà phê','Fruit tea, coffee'),note:b('Chuỗi cà phê và trà trái cây.','A coffee and fruit tea chain.'),q:'Passio Coffee'},
+{n:'Cà phê sân vườn gần bạn',c:'ou',p:2,gu:1,v:['chill','friends','family','photo'],k:b('Ghế mây, cây xanh, không gian mở','Rattan chairs, plants and open air'),note:b('Mở Google Maps để tìm quán sân vườn quanh vị trí của bạn.','Open Google Maps to find garden cafes near you.'),q:'cà phê sân vườn'},
+{n:'Cà phê sách gần bạn',c:'bk',p:2,gu:1,v:['quiet','solo','work'],k:b('Kệ sách, đọc sách, không gian tĩnh','Bookshelves, reading and calm'),note:b('Mở Google Maps để tìm quán cà phê sách quanh bạn.','Open Google Maps to find book cafes near you.'),q:'cà phê sách'},
+{n:'Cà phê làm việc yên tĩnh gần bạn',c:'sp',p:2,gu:1,v:['work','solo','quiet','biz'],k:b('Ổ cắm, Wi-Fi, ít ồn (xem đánh giá trước)','Sockets, Wi-Fi, low noise (check reviews first)'),note:b('Mở Google Maps rồi đọc đánh giá về Wi-Fi và độ ồn.','Open Google Maps and read reviews about Wi-Fi and noise.'),q:'cà phê làm việc yên tĩnh có wifi'},
+{n:'Cà phê view đẹp gần bạn',c:'vw',p:3,gu:1,v:['date','photo','friends','chill'],k:b('Tầng cao, ban công, ven sông','Rooftops, balconies, riverside'),note:b('Mở Google Maps để tìm quán có view quanh bạn.','Open Google Maps to find cafes with a view near you.'),q:'cà phê view đẹp'},
+{n:'Cà phê retro, vintage gần bạn',c:'vt',p:2,gu:1,v:['photo','friends','chill'],k:b('Nội thất cũ, nhạc xưa, không khí hoài cổ','Old furniture, vintage music, nostalgic mood'),note:b('Mở Google Maps để tìm quán phong cách hoài cổ.','Open Google Maps to find nostalgic cafes.'),q:'cà phê vintage retro'},
+{n:'Cà phê brunch gần bạn',c:'br',p:3,gu:1,v:['date','friends','chill'],k:b('Bữa sáng muộn, bánh ngọt, trứng','Late breakfast, pastries and eggs'),note:b('Mở Google Maps để tìm quán brunch quanh bạn.','Open Google Maps to find brunch spots near you.'),q:'brunch cafe'},
+{n:'Cà phê vỉa hè kiểu Sài Gòn',c:'vt',p:1,gu:1,v:['solo','chill','friends','walk'],k:b('Ghế nhựa thấp, cà phê sữa đá, ngắm phố','Low plastic stools, iced milk coffee, street watching'),note:b('Mở Google Maps để tìm quán vỉa hè gần bạn.','Open Google Maps to find street-side cafes near you.'),q:'cà phê vỉa hè'}
+];
+
+var TERMS={
+vi:{title:'Điều khoản sử dụng và miễn trừ trách nhiệm',upd:'Cập nhật 18/11/2026, phiên bản 1.0',intro:'Vui lòng đọc kỹ trước khi dùng trang “Hôm nay đi cafe nào”. Bằng việc sử dụng trang, bạn đồng ý với các điều khoản dưới đây.',
+s:[['1. Mục đích','Trang là công cụ gợi ý và giải trí giúp bạn chọn nơi uống cà phê ở TP.HCM. Trang không phải hướng dẫn chính thức, dịch vụ đặt chỗ hay quảng cáo.'],
+['2. Độ chính xác của thông tin','Tên quán, khu vực, mức giá và mô tả được tổng hợp từ kiến thức chung và có thể đã lỗi thời. Quán có thể đổi địa chỉ, giờ mở cửa, thực đơn, giá hoặc đã đóng cửa. Các tiện ích như Wi-Fi, ổ cắm, điều hòa, mức ồn không được bảo đảm; hãy kiểm tra bản đồ, đánh giá hoặc gọi điện trước khi đến.'],
+['3. Ô “gần bạn”','Các ô có chữ “gần bạn” không phải một quán cụ thể mà chỉ là lối tắt tới kết quả tìm kiếm trên Google Maps theo gu. Chúng tôi không kiểm soát kết quả tìm kiếm.'],
+['4. Khu vực','Các khu vực như “Quận 1” dùng theo cách gọi quen thuộc. Đơn vị hành chính tại TP.HCM đã có thay đổi nên tên khu vực chỉ mang tính tham khảo.'],
+['5. Mức giá','Mức giá là ước tính cho một ly thông thường, không gồm đồ ăn và phụ phí, và có thể thay đổi.'],
+['6. Không quảng cáo, không đánh giá','Việc nhắc tên một quán hay thương hiệu không phải lời chứng thực, xếp hạng hay quảng cáo, và trang không có quan hệ thương mại với các quán được nêu trừ khi ghi rõ. Tên và thương hiệu thuộc về chủ sở hữu tương ứng. Nếu bạn là chủ quán và muốn sửa hoặc gỡ thông tin, vui lòng liên hệ qua trang Liên hệ.'],
+['7. Caffeine và sức khỏe','Trang không đưa ra tư vấn dinh dưỡng hay y tế. Nếu bạn mang thai, có bệnh tim mạch, huyết áp, mất ngủ hoặc đang dùng thuốc, hãy hỏi bác sĩ về việc dùng caffeine. Nếu bạn dị ứng, hãy hỏi quán về thành phần trước khi gọi.'],
+['8. Liên kết bản đồ','Các nút “Google Maps” là kết quả tìm kiếm của bên thứ ba. Chúng tôi không kiểm soát và không chịu trách nhiệm về nội dung hay chính sách của họ.'],
+['9. Gợi ý ngẫu nhiên','Vòng quay, đua vịt, lật bài và các trò chơi chỉ chọn ngẫu nhiên trong danh sách đang hiển thị. Kết quả không phản ánh chất lượng hay lời khuyên.'],
+['10. Danh sách của bạn','Quán bạn tự thêm chỉ lưu trong trình duyệt của bạn (localStorage), không gửi về máy chủ. Xóa dữ liệu trình duyệt sẽ xóa các mục này. Đừng ghi thông tin nhạy cảm.'],
+['11. Không bảo đảm và giới hạn trách nhiệm','Trang được cung cấp “nguyên trạng”. Trong phạm vi pháp luật cho phép, chúng tôi không chịu trách nhiệm về thiệt hại trực tiếp hay gián tiếp phát sinh từ việc dùng trang, bao gồm chi phí, thời gian và trải nghiệm tại quán.'],
+['12. Sở hữu trí tuệ, luật áp dụng và liên hệ','Giao diện và mã của trang thuộc về chủ trang; tên và thương hiệu thuộc về chủ sở hữu của họ. Điều khoản chịu sự điều chỉnh của pháp luật Việt Nam. Nếu có sai sót hoặc cần gỡ nội dung, vui lòng liên hệ qua trang Liên hệ. Đây là bản mẫu, chưa phải tư vấn pháp lý, nên cần luật sư rà soát trước khi dùng chính thức.']],
+close:'Đóng',banner:'Gợi ý chỉ để tham khảo. Hãy kiểm tra giờ mở cửa, địa chỉ và tiện ích trước khi đi. Không quảng cáo cho quán nào.',bannerL:'Xem điều khoản',footT:'Điều khoản và miễn trừ'},
+en:{title:'Terms of use and disclaimer',upd:'Updated 18 November 2026, version 1.0',intro:'Please read carefully before using “Which cafe today”. By using the page you accept the terms below.',
+s:[['1. Purpose','This page is a suggestion and entertainment tool that helps you choose a cafe in Ho Chi Minh City. It is not an official guide, a booking service or advertising.'],
+['2. Accuracy of information','Venue names, areas, price tiers and descriptions are compiled from general knowledge and may be out of date. Venues can move, change hours, menus or prices, or close. Amenities such as Wi-Fi, power sockets, air conditioning and noise levels are not guaranteed; check the map, reviews or call ahead before you go.'],
+['3. “Near you” cards','Cards labelled “near you” are not a specific venue but shortcuts to a Google Maps search for that style. We do not control search results.'],
+['4. Areas','Area names such as “Quận 1” follow common usage. Administrative units in Ho Chi Minh City have changed, so area names are for orientation only.'],
+['5. Prices','Price tiers are estimates for a regular drink, excluding food and extras, and may change.'],
+['6. No advertising, no ratings','Listing a venue or brand is not an endorsement, ranking or advertisement, and this page has no commercial relationship with the venues named unless stated. Names and brands belong to their owners. If you own a venue and want information corrected or removed, please contact us through the Contact page.'],
+['7. Caffeine and health','This page gives no nutrition or medical advice. If you are pregnant, or have a heart, blood pressure or sleep condition or take medication, ask your doctor about caffeine. If you have an allergy, ask the venue about ingredients before ordering.'],
+['8. Map links','“Google Maps” buttons are third-party search results. We do not control or take responsibility for their content or policies.'],
+['9. Random picks','The wheel, duck race, cards and games choose randomly from the list currently shown. A result is not a quality judgement or advice.'],
+['10. Your list','Venues you add are stored only in your browser (localStorage) and sent to no server. Clearing browser data removes them. Please do not enter sensitive information.'],
+['11. No warranty and limitation of liability','The page is provided “as is”. To the extent permitted by law we are not liable for direct or indirect loss arising from using the page, including cost, time and your experience at a venue.'],
+['12. IP, governing law and contact','The page design and code belong to the site owner; names and brands belong to their owners. These terms are governed by the laws of Vietnam. For errors or removal requests, please use the Contact page. This is a template and not legal advice; have a lawyer review it before formal use.']],
+close:'Close',banner:'Suggestions are for reference only. Check opening hours, address and amenities before you go. No venue is advertised here.',bannerL:'Read the terms',footT:'Terms and disclaimer'}};
+
+(function(){
+'use strict';
+var $=function(s,r){return(r||document).querySelector(s);};
+var $$=function(s,r){return Array.prototype.slice.call((r||document).querySelectorAll(s));};
+var rnd=function(n){return Math.floor(Math.random()*n);};
+var pick=function(a){return a[rnd(a.length)];};
+var reduce=window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches;
+function sample(a,n){var c=a.slice();for(var i=c.length-1;i>0;i--){var j=rnd(i+1),t=c[i];c[i]=c[j];c[j]=t;}return c.slice(0,n);}
+function esc(s){return String(s==null?'':s).replace(/[&<>"']/g,function(c){return{'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c];});}
+function fold(s){return String(s).toLowerCase().replace(/đ/g,'d').normalize('NFD').replace(/[̀-ͯ]/g,'');}
+function enc(s){return encodeURIComponent(s);}
+function lsGet(k){try{return localStorage.getItem(k);}catch(e){return null;}}
+function lsSet(k,v){try{localStorage.setItem(k,v);}catch(e){}}
+
+var T={
+vi:{back:'← Về trang chủ',kick:'Today series · Random generator',sub:'Chưa biết hôm nay ngồi cafe nào? Lọc theo gu, dịp, mức giá và khu vực rồi để vòng quay, đua vịt hay lá bài chọn giúp. Mỗi quán có nút mở Google Maps, và có cả danh sách quán do chính bạn thêm.',
+ cat:'Kiểu quán',all:'Tất cả',vibe:'Dịp',pr:'Mức giá',area:'Khu vực',anyV:'Mọi dịp',anyP:'Mọi mức giá',anyA:'Mọi khu vực',
+ t_gen:'Gợi ý',t_quiz:'Hỏi đáp',t_wheel:'Vòng quay',t_duck:'Đua vịt',t_cards:'Lật bài',t_quick:'Nhanh tay',t_mine:'Của tôi',t_list:'Tất cả',
+ genH:'Hôm nay đi cafe nào?',genP:'Bấm để chọn một quán theo bộ lọc phía trên.',genall:'Chọn quán khác',
+ wheelH:'Vòng quay cafe',wheelP:'Mỗi ô là một quán. Quay để chọn.',spin:'Quay!',spinning:'Đang quay…',reshuffle:'Đổi quán trên vòng',
+ duckH:'Đua vịt',duckP:'Mỗi chú vịt mang tên một quán. Vịt về nhất là nơi bạn ngồi hôm nay.',go:'Bắt đầu đua',racing:'Đang đua…',newduck:'Đổi đội hình',
+ cardH:'Lật bài',cardP:'Năm lá bài úp. Chọn một lá để xem quán.',deal:'Chia bài lại',
+ quickH:'Nhanh tay',quickP:'Lười nghĩ? Tung xu, đổ xúc xắc hoặc kéo máy xèng.',coin:'Tung xu',dice:'Xúc xắc',slot:'Máy xèng',flip:'Tung!',coinNew:'Đổi quán',roll:'Đổ xúc xắc',diceNew:'Đổi quán',pull:'Kéo cần',
+ mineH:'Quán của tôi',mineP:'Tự thêm những quán bạn hay ghé rồi để máy chọn ngẫu nhiên. Danh sách chỉ nằm trong trình duyệt này, không gửi đi đâu.',mName:'Tên quán',mNote:'Ghi chú (tuỳ chọn)',mAdd:'Thêm',mPick:'Chọn ngẫu nhiên',mClear:'Xóa hết',mConfirm:'Bấm lần nữa để xóa hết',mEmpty:'Chưa có quán nào. Hãy thêm vài quán bạn thích.',mNeed:'Hãy thêm ít nhất một quán.',del:'Xóa',mToday:'Hôm nay bạn ngồi ở',
+ listH:'Tất cả quán',listP:'Toàn bộ quán và gợi ý khớp bộ lọc.',search:'Tìm theo tên',noRes:'Không có quán nào khớp. Hãy bỏ bớt bộ lọc.',cnt:'{n} gợi ý khớp bộ lọc',
+ f_c:'Kiểu quán',f_pr:'Giá ước tính',f_a:'Khu vực',f_v:'Hợp với',f_k:'Nổi bật',f_n:'Ghi chú',sheet:'Quán gợi ý',sheetG:'Gợi ý theo gu',map:'Mở Google Maps',more:'Tìm quán cùng kiểu',copy:'Sao chép',copied:'Đã sao chép ✓',copyFail:'Không sao chép được',
+ qOf:'Câu {a}/{b}',restart:'Làm lại',another:'Quán khác',today:'Hôm nay bạn ngồi ở',alsoTry:'Các quán khác',view:'Xem',whyQ:'Hợp với dịp, kiểu quán và mức giá bạn chọn.',whyR:'Số phận đã chọn. Nhớ kiểm tra giờ mở cửa trước khi đi!',coinW:'Hôm nay bạn ngồi ở',diceW:'Con số may mắn',relaxed:'Đã nới lỏng: {x}',
+ qq:{w:'Hôm nay bạn đi cafe để làm gì?',s:'Bạn thích kiểu quán nào?',p:'Ngân sách mỗi ly?'},
+ srcnote:'Thông tin được tổng hợp từ kiến thức chung và có thể đã thay đổi; hãy kiểm tra giờ mở cửa, địa chỉ và tiện ích trước khi đi. Ô “gần bạn” và nút bản đồ chỉ là tìm kiếm trên Google Maps. Trang không quảng cáo hay đánh giá quán nào và chỉ nhằm giải trí.'},
+en:{back:'← Back to homepage',kick:'Today series · Random generator',sub:'Not sure which cafe to sit in today? Filter by style, occasion, price and area, then let the wheel, duck race or cards choose. Every place has a Google Maps button, and you can add your own list too.',
+ cat:'Cafe style',all:'All',vibe:'Occasion',pr:'Price',area:'Area',anyV:'Any occasion',anyP:'Any price',anyA:'Any area',
+ t_gen:'Pick',t_quiz:'Quiz',t_wheel:'Wheel',t_duck:'Duck race',t_cards:'Flip cards',t_quick:'Quick picks',t_mine:'My list',t_list:'All places',
+ genH:'Which cafe today?',genP:'Tap to pick a place from the filters above.',genall:'Pick another',
+ wheelH:'Cafe wheel',wheelP:'Every slice is a place. Spin to choose.',spin:'Spin!',spinning:'Spinning…',reshuffle:'Shuffle the wheel',
+ duckH:'Duck race',duckP:'Every duck carries a cafe name. The first across the line is where you sit today.',go:'Start race',racing:'Racing…',newduck:'New lineup',
+ cardH:'Flip cards',cardP:'Five face-down cards. Choose one to reveal a place.',deal:'Deal again',
+ quickH:'Quick picks',quickP:'Too lazy to decide? Flip a coin, roll a die or pull the slot lever.',coin:'Coin flip',dice:'Dice',slot:'Slot machine',flip:'Flip!',coinNew:'New places',roll:'Roll the die',diceNew:'New places',pull:'Pull lever',
+ mineH:'My cafes',mineP:'Add the cafes you often visit and let the page pick one at random. The list stays in this browser and is sent nowhere.',mName:'Cafe name',mNote:'Note (optional)',mAdd:'Add',mPick:'Pick at random',mClear:'Clear all',mConfirm:'Tap again to clear all',mEmpty:'Nothing here yet. Add a few cafes you like.',mNeed:'Add at least one cafe first.',del:'Delete',mToday:'Today you sit at',
+ listH:'All places',listP:'Every place and idea matching your filters.',search:'Search by name',noRes:'No place matches. Try removing some filters.',cnt:'{n} suggestions match your filters',
+ f_c:'Style',f_pr:'Estimated price',f_a:'Area',f_v:'Good for',f_k:'Known for',f_n:'Note',sheet:'Suggested cafe',sheetG:'Style suggestion',map:'Open in Google Maps',more:'Find similar places',copy:'Copy',copied:'Copied ✓',copyFail:'Could not copy',
+ qOf:'Question {a}/{b}',restart:'Start over',another:'Another place',today:'Today you sit at',alsoTry:'Other places',view:'View',whyQ:'A good match for the occasion, style and price you picked.',whyR:'Fate has spoken. Check opening hours before you go!',coinW:'Today you sit at',diceW:'Lucky number',relaxed:'Loosened: {x}',
+ qq:{w:'What are you going to the cafe for?',s:'Which style do you like?',p:'Budget per drink?'},
+ srcnote:'Information is compiled from general knowledge and may have changed; check opening hours, address and amenities before you go. “Near you” cards and map buttons are only Google Maps searches. This page does not advertise or rate any venue and is for entertainment only.'}
+};
+var Tm=TERMS,L='vi';
+function t(k,o){var s=T[L][k];if(s==null)s=T.vi[k];if(s==null)s='';if(o&&typeof s==='string')for(var x in o)s=s.split('{'+x+'}').join(o[x]);return s;}
+function V(o){return o[L];}
+function cname(c){return CU[c]?V(CU[c]):'';}
+function areaName(a){return AREA[a]||'';}
+function nm(d){return d.n;}
+function label(d){return d.n;}
+function rid(d){return R.indexOf(d);}
+function mapUrl(q){return 'https://www.google.com/maps/search/?api=1&query='+enc(q+' Ho Chi Minh City');}
+function priceStr(p){return new Array(p+1).join('₫')+'<span style="opacity:.25">'+new Array(4-p).join('₫')+'</span>';}
+
+/* filters */
+var F={cu:{},v:'',p:'',a:''},tab='gen',SHOWN={};
+function passes(d,F2){
+  if(Object.keys(F2.cu).length&&!F2.cu[d.c])return false;
+  if(F2.v&&d.v.indexOf(F2.v)<0)return false;if(F2.p!==''&&d.p!==+F2.p)return false;if(F2.a&&d.a!==F2.a)return false;return true;}
+function filtered(){return R.filter(function(d){return passes(d,F);});}
+function pool(n){var f=filtered();return sample(f,Math.min(n,f.length));}
+function sel(id,opts,cur){$(id).innerHTML=opts.map(function(o){return '<option value="'+o[0]+'"'+(String(cur)===o[0]?' selected':'')+'>'+esc(o[1])+'</option>';}).join('');}
+function renderFilters(){
+  $('#chips').innerHTML='<button class="chip" type="button" data-cu="all" aria-pressed="'+(!Object.keys(F.cu).length)+'">'+t('all')+'</button>'+CK.map(function(c){return '<button class="chip" type="button" data-cu="'+c+'" aria-pressed="'+(!!F.cu[c])+'">'+CU[c].e+' '+esc(cname(c))+'</button>';}).join('');
+  sel('#csel',[['',t('anyV')]].concat(VK.map(function(k){return [k,V(VB[k])];})),F.v);
+  sel('#tsel',[['',t('anyP')],['1',V(PRL[1])],['2',V(PRL[2])],['3',V(PRL[3])]],F.p);
+  sel('#ssel',[['',t('anyA')]].concat(Object.keys(AREA).map(function(k){return [k,AREA[k]];})),F.a);
+  $('#fcount').textContent=t('cnt',{n:filtered().length});
+  $('#fbar').hidden=(tab==='quiz'||tab==='mine');}
+function refreshTab(){
+  if(tab==='gen'){gen.d=null;renderGen();}else if(tab==='wheel')newWheel();else if(tab==='duck')newDucks();else if(tab==='cards')dealCards();else if(tab==='quick'){coinNew();diceNew();}else if(tab==='list')renderList();}
+$('#chips').addEventListener('click',function(e){var x=e.target.closest('[data-cu]');if(!x)return;var c=x.dataset.cu;if(c==='all')F.cu={};else if(F.cu[c])delete F.cu[c];else F.cu[c]=1;renderFilters();refreshTab();});
+$('#csel').onchange=function(){F.v=this.value;renderFilters();refreshTab();};
+$('#tsel').onchange=function(){F.p=this.value;renderFilters();refreshTab();};
+$('#ssel').onchange=function(){F.a=this.value;renderFilters();refreshTab();};
+
+/* sheet */
+function sheet(d){
+  var id=rid(d),rows=[['c',CU[d.c].e+' '+esc(cname(d.c))],['pr','<span class="price">'+priceStr(d.p)+'</span><br><small>'+esc(V(PRL[d.p]))+'</small>']];
+  if(d.a)rows.push(['a',esc(areaName(d.a))]);
+  rows.push(['v',d.v.map(function(k){return '<span class="tag">'+esc(V(VB[k]))+'</span>';}).join(' ')],['k',esc(V(d.k))],['n',esc(V(d.note))]);
+  return '<div class="sheet"><div class="sh"><div><small>'+t(d.gu?'sheetG':'sheet')+'</small><h3>'+CU[d.c].e+' '+esc(d.n)+'</h3></div></div>'+rows.map(function(x){return '<div class="sr"><span class="k">'+t('f_'+x[0])+'</span><span class="v">'+x[1]+'</span><span></span></div>';}).join('')+
+   '<div class="sb"><a class="btn sm mapb" target="_blank" rel="noopener" href="'+esc(mapUrl(d.q))+'">📍 '+t('map')+'</a>'+(d.gu?'':'<a class="btn sm ghost mapb" target="_blank" rel="noopener" href="'+esc(mapUrl(CATQ[d.c]))+'">'+t('more')+'</a>')+'<button class="btn sm ghost" type="button" data-copy="'+id+'">'+t('copy')+'</button></div></div>';}
+document.addEventListener('click',function(e){var x=e.target.closest('[data-copy]');if(!x)return;var d=R[+x.dataset.copy];if(!d)return;var txt=d.n+' ('+cname(d.c)+(d.a?', '+areaName(d.a):'')+')\n'+V(d.k)+'\n'+mapUrl(d.q);try{navigator.clipboard.writeText(txt).then(function(){x.textContent=t('copied');setTimeout(function(){x.textContent=t('copy');},1600);},function(){x.textContent=t('copyFail');});}catch(er){x.textContent=t('copyFail');}});
+
+/* results */
+function showRes(id,r,whyKey,labelKey,altsFn){SHOWN[id]={r:r,whyKey:whyKey,labelKey:labelKey,altsFn:altsFn};drawRes(id);var el=$('#res-'+id);if(!reduce&&el)try{el.scrollIntoView({behavior:'smooth',block:'nearest'});}catch(x){}}
+function drawRes(id){var s=SHOWN[id],el=$('#res-'+id);if(!s||!el)return;el.innerHTML=(s.labelKey?'<p class="qn">'+esc(t(s.labelKey))+'</p>':'')+(s.whyKey?'<p class="help" style="margin-bottom:12px">'+esc(t(s.whyKey))+'</p>':'')+(s.r.custom?customSheet(s.r):sheet(s.r))+(s.altsFn?s.altsFn():'');}
+function rerenderRes(){Object.keys(SHOWN).forEach(drawRes);}
+function empty(){return '<div class="empty">'+t('noRes')+'</div>';}
+function customSheet(d){return '<div class="sheet"><div class="sh"><div><small>'+t('mineH')+'</small><h3>📍 '+esc(d.n)+'</h3></div></div>'+(d.note?'<div class="sr"><span class="k">'+t('mNote')+'</span><span class="v">'+esc(d.note)+'</span><span></span></div>':'')+'</div>';}
+
+/* tabs */
+var TABS=['gen','quiz','wheel','duck','cards','quick','mine','list'];
+function renderTabs(){$('#tabs').innerHTML=TABS.map(function(k){return '<button class="tab" type="button" role="tab" data-tab="'+k+'" aria-selected="'+(k===tab)+'" id="tab-'+k+'">'+t('t_'+k)+'</button>';}).join('');}
+$('#tabs').addEventListener('click',function(e){var x=e.target.closest('[data-tab]');if(x)showTab(x.dataset.tab);});
+function showTab(k){tab=k;TABS.forEach(function(x){$('#p-'+x).hidden=x!==k;});$$('#tabs .tab').forEach(function(x){x.setAttribute('aria-selected',String(x.dataset.tab===k));});renderFilters();
+  if(k==='gen')renderGen();if(k==='wheel'){if(!wheel.items.length)newWheel();else drawWheel();}
+  if(k==='duck'&&!duck.list.length)newDucks();if(k==='cards'&&!$('#deck').children.length)dealCards();
+  if(k==='quick'&&!coin.a&&filtered().length)(coinNew(),diceNew());if(k==='mine')renderMine();if(k==='list')renderList();}
+
+/* pick */
+var gen={d:null};
+function renderGen(){var f=filtered();if(!f.length){$('#genbox').innerHTML=empty();$('#genall').disabled=true;return;}$('#genall').disabled=false;if(!gen.d||f.indexOf(gen.d)<0)gen.d=pick(f);$('#genbox').innerHTML=sheet(gen.d);}
+$('#genall').onclick=function(){var f=filtered();if(!f.length)return;var n=gen.d;if(f.length>1)while(n===gen.d)n=pick(f);gen.d=n;renderGen();};
+
+/* tabs */
+var TABS=['gen','quiz','wheel','duck','cards','quick','mine','list'];
+function renderTabs(){$('#tabs').innerHTML=TABS.map(function(k){return '<button class="tab" type="button" role="tab" data-tab="'+k+'" aria-selected="'+(k===tab)+'" id="tab-'+k+'">'+t('t_'+k)+'</button>';}).join('');}
+$('#tabs').addEventListener('click',function(e){var x=e.target.closest('[data-tab]');if(x)showTab(x.dataset.tab);});
+function showTab(k){tab=k;TABS.forEach(function(x){$('#p-'+x).hidden=x!==k;});$$('#tabs .tab').forEach(function(x){x.setAttribute('aria-selected',String(x.dataset.tab===k));});renderFilters();
+  if(k==='gen')renderGen();if(k==='wheel'){if(!wheel.items.length)newWheel();else drawWheel();}
+  if(k==='duck'&&!duck.list.length)newDucks();if(k==='cards'&&!$('#deck').children.length)dealCards();
+  if(k==='quick'&&!coin.a&&filtered().length)(coinNew(),diceNew());if(k==='mine')renderMine();if(k==='list')renderList();}
+
+/* pick */
+var gen={d:null};
+function renderGen(){var f=filtered();if(!f.length){$('#genbox').innerHTML=empty();$('#genall').disabled=true;return;}$('#genall').disabled=false;if(!gen.d||f.indexOf(gen.d)<0)gen.d=pick(f);$('#genbox').innerHTML=sheet(gen.d);}
+$('#genall').onclick=function(){var f=filtered();if(!f.length)return;var n=gen.d;if(f.length>1)while(n===gen.d)n=pick(f);gen.d=n;renderGen();};
+
+/* quiz */
+var Q=[
+ {k:'w',o:[{e:'💻',l:b('Làm việc, học bài','Work or study'),v:'work'},{e:'💞',l:b('Hẹn hò','A date'),v:'date'},{e:'🎉',l:b('Tụ tập bạn bè','Friends'),v:'friends'},{e:'🎧',l:b('Một mình thư giãn','Solo chill'),v:'solo'},{e:'👨‍👩‍👧',l:b('Cùng gia đình','Family'),v:'family'},{e:'💼',l:b('Gặp đối tác','A meeting'),v:'biz'}]},
+ {k:'s',o:[{e:'🏪',l:b('Quen thuộc, dễ tìm','Familiar and easy'),c:'ch'},{e:'☕',l:b('Specialty, yên tĩnh','Specialty and calm'),c:'sp'},{e:'🌿',l:b('Sân vườn, ngoài trời','Garden and outdoor'),c:'ou'},{e:'📻',l:b('Retro, vintage','Retro and vintage'),c:'vt'},{e:'🌆',l:b('Có view đẹp','A nice view'),c:'vw'},{e:'📚',l:b('Sách và nghệ thuật','Books and art'),c:'bk'},{e:'🥐',l:b('Brunch, concept','Brunch and concept'),c:'br'}]},
+ {k:'p',o:[{e:'🥢',l:b('Dưới 50 nghìn','Under 50k'),p:1},{e:'☕',l:b('50 đến 90 nghìn','50k to 90k'),p:2},{e:'✨',l:b('Trên 90 nghìn','Over 90k'),p:3},{e:'🤷',l:b('Sao cũng được','Any'),p:0}]}
+];
+var qs={step:0,ans:[]},qRank=[],qIdx=0,qRelaxed=[];
+function renderQuiz(){var el=$('#quiz');if(qs.step>=Q.length){finishQuiz();return;}
+  var q=Q[qs.step],pr='';for(var i=0;i<Q.length;i++)pr+='<i class="'+(i<=qs.step?'on':'')+'"></i>';
+  el.innerHTML='<div class="prog">'+pr+'</div><p class="qn">'+t('qOf',{a:qs.step+1,b:Q.length})+'</p><h2>'+esc(t('qq')[q.k])+'</h2><div class="opts">'+q.o.map(function(o,i){return '<button class="opt" type="button" data-o="'+i+'"><b>'+o.e+'</b>'+esc(V(o.l))+'</button>';}).join('')+'</div>'+(qs.step?'<div class="row" style="margin-top:18px"><button class="btn ghost sm" type="button" id="qback">←</button><button class="btn ghost sm" type="button" id="qrs">'+t('restart')+'</button></div>':'');}
+$('#quiz').addEventListener('click',function(e){var o=e.target.closest('[data-o]');
+  if(o){qs.ans[qs.step]=Q[qs.step].o[+o.dataset.o];qs.step++;renderQuiz();return;}
+  if(e.target.closest('#qback')){qs.step--;renderQuiz();return;}
+  if(e.target.closest('#qrs')||e.target.closest('#qagain')){qs={step:0,ans:[]};qIdx=0;delete SHOWN.quiz;renderQuiz();return;}
+  if(e.target.closest('#qnext')){qIdx=(qIdx+1)%Math.max(1,qRank.length);drawQuiz();return;}
+  var v=e.target.closest('[data-qpick]');if(v){qIdx=+v.dataset.qpick;drawQuiz();}});
+function finishQuiz(){var a={v:'',c:'',p:0};qs.ans.forEach(function(x){if(x.v)a.v=x.v;if(x.c)a.c=x.c;if('p' in x)a.p=x.p;});
+  qRelaxed=[];
+  qRank=R.map(function(d){var s=Math.random()*1.5;if(a.v&&d.v.indexOf(a.v)>=0)s+=4;if(a.c&&d.c===a.c)s+=4;if(a.p)s+=d.p===a.p?3:(Math.abs(d.p-a.p)===1?0:-3);return{d:d,s:s};}).sort(function(x,y){return y.s-x.s;}).slice(0,4).map(function(x){return x.d;});qIdx=0;drawQuiz();}
+function drawQuiz(){var pr='';for(var k=0;k<Q.length;k++)pr+='<i class="on"></i>';
+  $('#quiz').innerHTML='<div class="prog">'+pr+'</div><div id="res-quiz"></div><div class="row" style="margin-top:22px"><button class="btn" type="button" id="qnext">'+t('another')+'</button><button class="btn ghost" type="button" id="qagain">'+t('restart')+'</button></div>';
+  var altsFn=function(){var o='';qRank.forEach(function(a,i){if(i!==qIdx)o+='<div class="alt"><span>'+CU[a.c].e+' '+esc(a.n)+'</span><span><button class="btn sm ghost" type="button" data-qpick="'+i+'">'+t('view')+'</button></span></div>';});return '<div class="alts"><p class="lbl">'+t('alsoTry')+'</p>'+o+'</div>';};
+  showRes('quiz',qRank[qIdx],'whyQ','today',altsFn);}
+
+/* wheel */
+var WC=[['#4A2E1E','#FBF1DF'],['#F4E8D6','#1E130C'],['#C98B4A','#1E130C'],['#2A1810','#F4E8D6'],['#E2CBA6','#1E130C'],['#7B5039','#FBF1DF']];
+var wheel={items:[],theta:0,spinning:false},wcv=$('#wheel'),wx=wcv.getContext('2d');
+function trunc(ctx,s,w){if(ctx.measureText(s).width<=w)return s;while(s.length>2&&ctx.measureText(s+'…').width>w)s=s.slice(0,-1);return s+'…';}
+function drawWheel(){var n=wheel.items.length,W2=wcv.width,c=W2/2,R2=c-6;wx.clearRect(0,0,W2,W2);if(!n)return;var a=2*Math.PI/n;
+  wheel.items.forEach(function(m,i){var s=wheel.theta+i*a,col=WC[i%WC.length];wx.beginPath();wx.moveTo(c,c);wx.arc(c,c,R2,s,s+a);wx.closePath();wx.fillStyle=col[0];wx.fill();wx.strokeStyle='rgba(21,16,11,.7)';wx.lineWidth=3;wx.stroke();
+    wx.save();wx.translate(c,c);wx.rotate(s+a/2);wx.fillStyle=col[1];wx.textAlign='right';wx.textBaseline='middle';wx.font='700 28px "Plus Jakarta Sans",system-ui,sans-serif';wx.fillText(trunc(wx,label(m),R2*.72),R2-24,0);wx.restore();});
+  var g=wx.createRadialGradient(c,c,4,c,c,70);g.addColorStop(0,'#FFE2A8');g.addColorStop(1,'#B97A1E');wx.beginPath();wx.arc(c,c,56,0,7);wx.fillStyle=g;wx.fill();wx.lineWidth=6;wx.strokeStyle='#15100B';wx.stroke();
+  wx.fillStyle='#15100B';wx.font='700 40px "Unbounded",serif';wx.textAlign='center';wx.textBaseline='middle';wx.fillText('☕',c,c+2);}
+function newWheel(){wheel.items=pool(8);wheel.theta=rnd(628)/100;drawWheel();delete SHOWN.wheel;var ok=wheel.items.length>=2;$('#res-wheel').innerHTML=ok?'':empty();$('#spin').disabled=!ok;}
+function spinWheel(){if(wheel.spinning||wheel.items.length<2)return;wheel.spinning=true;$('#spin').disabled=true;$('#spin').textContent=t('spinning');
+  var n=wheel.items.length,a=2*Math.PI/n,win=rnd(n),target=1.5*Math.PI-(win+.5)*a+(rnd(100)/100-.5)*a*.7,start=wheel.theta%(2*Math.PI),end=target-Math.floor(target/(2*Math.PI))*2*Math.PI+2*Math.PI*(5+rnd(3));if(end<start)end+=2*Math.PI;
+  var d=reduce?1:4400,t0=performance.now();
+  (function f(now){var k=Math.min(1,(now-t0)/d),e=1-Math.pow(1-k,3);wheel.theta=start+(end-start)*e;drawWheel();if(k<1)requestAnimationFrame(f);else{wheel.spinning=false;$('#spin').disabled=false;$('#spin').textContent=t('spin');showRes('wheel',wheel.items[win],'whyR','today');}})(t0);}
+$('#spin').onclick=spinWheel;$('#reshuffle').onclick=function(){if(!wheel.spinning)newWheel();};
+
+/* duck */
+var duck={list:[],racing:false,pos:[]};
+function newDucks(){duck.list=pool(5);duck.pos=duck.list.map(function(){return 0;});delete SHOWN.duck;var ok=duck.list.length>=2;$('#res-duck').innerHTML=ok?'':empty();
+  $('#lanes').innerHTML=duck.list.map(function(m){return '<div class="lane"><span class="dn">'+esc(label(m))+'</span><span class="duck">🦆</span><i class="fin"></i></div>';}).join('');$('#go').disabled=!ok;}
+function raceFrame(){var lanes=$$('#lanes .lane'),win=-1;duck.list.forEach(function(m,i){if(win<0){duck.pos[i]=Math.min(1,duck.pos[i]+0.0026+Math.random()*0.0042*(Math.random()<.08?2.2:1));if(duck.pos[i]>=1)win=i;}var ln=lanes[i],w=ln.clientWidth-46-12;ln.querySelector('.duck').style.transform='translateX('+(duck.pos[i]*w)+'px) scaleX(-1)';});return win;}
+function startRace(){if(duck.racing||duck.list.length<2)return;duck.racing=true;duck.pos=duck.list.map(function(){return 0;});$('#res-duck').innerHTML='';$$('#lanes .lane').forEach(function(l){l.classList.remove('win');});$('#go').disabled=true;$('#go').textContent=t('racing');
+  (function f(){var w=raceFrame();if(w<0){requestAnimationFrame(f);return;}duck.racing=false;$('#go').disabled=false;$('#go').textContent=t('go');$$('#lanes .lane')[w].classList.add('win');showRes('duck',duck.list[w],'whyR','today');})();}
+$('#go').onclick=startRace;$('#newduck').onclick=function(){if(!duck.racing)newDucks();};
+
+/* cards */
+var deckList=[];
+function dealHtml(){$('#deck').innerHTML=deckList.map(function(m,i){return '<button type="button" class="pc" data-c="'+i+'" aria-label="Card '+(i+1)+'"><div class="in2"><div class="b"><span>☕</span></div><div class="f"><span style="font-size:28px">'+CU[m.c].e+'</span><b>'+esc(label(m))+'</b><i>'+esc(cname(m.c))+'</i></div></div></button>';}).join('');}
+function dealCards(){deckList=pool(5);delete SHOWN.cards;$('#res-cards').innerHTML=deckList.length?'':empty();dealHtml();}
+$('#deck').addEventListener('click',function(e){var b=e.target.closest('.pc');if(!b||$('#deck .pc.open'))return;b.classList.add('open');$$('#deck .pc').forEach(function(x){if(x!==b)x.classList.add('dim');});setTimeout(function(){showRes('cards',deckList[+b.dataset.c],'whyR','today');},reduce?0:650);});
+$('#deal').onclick=dealCards;
+
+/* quick */
+var coin={a:null,b:null,rot:0,busy:false};
+function coinNew(){var p=pool(2);coin.a=p[0]||null;coin.b=p[1]||p[0]||null;coin.rot=0;var c=$('#coin');c.style.transition='none';c.style.transform='rotateY(0deg)';$('#cA').innerHTML=coin.a?'<b>A</b>'+esc(label(coin.a)):'';$('#cB').innerHTML=coin.b?'<b>B</b>'+esc(label(coin.b)):'';$('#flip').disabled=!coin.a;delete SHOWN.quick;$('#res-quick').innerHTML=coin.a?'':empty();}
+$('#flip').onclick=function(){if(coin.busy||!coin.a)return;coin.busy=true;var heads=Math.random()<.5;coin.rot=Math.ceil(coin.rot/360)*360+1800+(heads?0:180);var c=$('#coin');c.style.transition=reduce?'none':'transform 1.4s cubic-bezier(.2,.7,.2,1)';c.style.transform='rotateY('+coin.rot+'deg)';setTimeout(function(){coin.busy=false;showRes('quick',heads?coin.a:coin.b,'whyR','coinW');},reduce?0:1450);};
+$('#coinNew').onclick=coinNew;
+var PIPS={1:[4],2:[0,8],3:[0,4,8],4:[0,2,6,8],5:[0,2,4,6,8],6:[0,2,3,5,6,8]},dice={items:[],busy:false};
+function drawDie(n){var h='';for(var i=0;i<9;i++)h+='<i class="'+(PIPS[n].indexOf(i)>=0?'on':'')+'"></i>';$('#die').innerHTML=h;}
+function drawDList(w){$('#dlist').innerHTML=dice.items.map(function(m,i){return '<li class="'+(w===i?'win':'')+'"><b>'+(i+1)+'</b><span>'+esc(label(m))+'</span></li>';}).join('');}
+function diceNew(){dice.items=pool(6);drawDie(6);drawDList(-1);$('#roll').disabled=dice.items.length<1;}
+$('#roll').onclick=function(){if(dice.busy||!dice.items.length)return;dice.busy=true;var die=$('#die'),ticks=0,n=dice.items.length;die.classList.add('roll');drawDList(-1);var iv=setInterval(function(){drawDie(1+rnd(6));ticks++;if(ticks>(reduce?1:9)){clearInterval(iv);die.classList.remove('roll');var i=rnd(n);drawDie(i+1);drawDList(i);dice.busy=false;showRes('quick',dice.items[i],'whyR','diceW');}},90);};
+$('#diceNew').onclick=diceNew;
+var slotBusy=false;
+$('#pull').onclick=function(){var f=filtered();if(slotBusy||!f.length)return;slotBusy=true;$('#pull').disabled=true;var d=40,ticks=0,max=reduce?1:20,win=pick(f);(function step(){ticks++;$('#slotwin').textContent=label(ticks>=max?win:pick(f));if(ticks<max){d*=1.12;setTimeout(step,d);}else{slotBusy=false;$('#pull').disabled=false;showRes('quick',win,'whyR','today');}})();};
+
+/* mine */
+var KEY='homNayCafe.mine',mine=[];
+try{var mj=JSON.parse(lsGet(KEY)||'[]');if(Array.isArray(mj))mine=mj.filter(function(x){return x&&typeof x.n==='string';}).slice(0,60).map(function(x){return{n:String(x.n).slice(0,60),note:String(x.note||'').slice(0,120)};});}catch(e){}
+function saveMine(){lsSet(KEY,JSON.stringify(mine));}
+function renderMine(){$('#mlist').innerHTML=mine.length?mine.map(function(x,i){return '<li><div><b>📍 '+esc(x.n)+'</b>'+(x.note?'<br><small>'+esc(x.note)+'</small>':'')+'</div><button class="ib" type="button" data-mdel="'+i+'" aria-label="'+esc(t('del'))+'">✕</button></li>';}).join(''):'<div class="empty">'+t('mEmpty')+'</div>';$('#mclear').hidden=!mine.length;}
+$('#madd').onclick=function(){var n=$('#mn').value.trim();if(!n)return;mine.unshift({n:n.slice(0,60),note:$('#mt').value.trim().slice(0,120)});mine=mine.slice(0,60);saveMine();$('#mn').value='';$('#mt').value='';renderMine();};
+$('#mn').addEventListener('keydown',function(e){if(e.key==='Enter')$('#madd').click();});
+$('#mpick').onclick=function(){if(!mine.length){$('#res-mine').innerHTML='<div class="empty">'+t('mNeed')+'</div>';delete SHOWN.mine;return;}var x=pick(mine);showRes('mine',{custom:true,n:x.n,note:x.note},'whyR','mToday');};
+$('#mlist').addEventListener('click',function(e){var d=e.target.closest('[data-mdel]');if(!d)return;mine.splice(+d.dataset.mdel,1);saveMine();renderMine();});
+var mcf=false;$('#mclear').onclick=function(){var bt=$('#mclear');if(!mcf){mcf=true;bt.textContent=t('mConfirm');setTimeout(function(){mcf=false;bt.textContent=t('mClear');},3000);return;}mcf=false;mine=[];saveMine();renderMine();bt.textContent=t('mClear');delete SHOWN.mine;$('#res-mine').innerHTML='';};
+
+/* list */
+function renderList(){var q=fold($('#q').value.trim()),f=filtered().filter(function(d){return !q||fold(d.n).indexOf(q)>=0;});
+  $('#lbody').innerHTML=f.length?f.map(function(d){var id=rid(d);return '<div class="card"><h3>'+CU[d.c].e+' '+esc(d.n)+'</h3><div class="row" style="margin:6px 0"><span class="tag">'+esc(cname(d.c))+'</span><span class="price">'+priceStr(d.p)+'</span>'+(d.a?'<span class="tag">'+esc(areaName(d.a))+'</span>':'')+'</div><p>'+esc(V(d.k))+'</p><p>'+esc(V(d.note))+'</p><div class="row" style="margin-top:10px"><a class="btn sm mapb" target="_blank" rel="noopener" href="'+esc(mapUrl(d.q))+'">📍 '+t('map')+'</a><button class="btn sm ghost" type="button" data-copy="'+id+'">'+t('copy')+'</button></div></div>';}).join(''):'<div class="empty" style="grid-column:1/-1">'+t('noRes')+'</div>';}
+$('#q').addEventListener('input',renderList);
+
+/* terms */
+function renderTerms(){var d=Tm[L];$('#termsh').textContent=d.title;$('#tbody').innerHTML='<p><em>'+esc(d.upd)+'</em></p><p style="margin-top:8px">'+esc(d.intro)+'</p>'+d.s.map(function(s){return '<h3>'+esc(s[0])+'</h3><p>'+esc(s[1])+'</p>';}).join('');$('#tclose').setAttribute('aria-label',d.close);}
+var lastF=null;function openTerms(){lastF=document.activeElement;renderTerms();$('#terms').hidden=false;$('#tclose').focus();}
+function closeTerms(){$('#terms').hidden=true;if(lastF&&lastF.focus)try{lastF.focus();}catch(e){}}
+$('#bannerlink').onclick=openTerms;$('#footterms').onclick=openTerms;$('#tclose').onclick=closeTerms;
+document.addEventListener('keydown',function(e){if(e.key==='Escape'&&!$('#terms').hidden)closeTerms();});
+$('#terms').addEventListener('click',function(e){if(e.target===$('#terms'))closeTerms();});
+
+/* art: iced coffee glass */
+function artSvg(){return '<svg viewBox="0 0 440 290" role="img" aria-label=""><ellipse cx="220" cy="262" rx="120" ry="14" fill="rgba(0,0,0,.35)"/><path d="M150 60 h140 l-14 190 q-1 12 -14 12 h-84 q-13 0 -14 -12z" fill="#F4E8D6" fill-opacity=".92" stroke="#1E130C" stroke-width="4"/><path d="M158 118 h124 l-9 124 q-1 8 -10 8 h-86 q-9 0 -10 -8z" fill="#8A5A3A"/><path d="M162 160 h116 l-5 82 q-1 8 -10 8 h-86 q-9 0 -10 -8z" fill="#4A2E1E"/><rect x="176" y="150" width="30" height="30" rx="5" fill="#fff" fill-opacity=".55" transform="rotate(-12 191 165)"/><rect x="232" y="176" width="28" height="28" rx="5" fill="#fff" fill-opacity=".45" transform="rotate(14 246 190)"/><rect x="204" y="206" width="26" height="26" rx="5" fill="#fff" fill-opacity=".4" transform="rotate(-6 217 219)"/><path d="M236 14 L262 150" stroke="#C98B4A" stroke-width="9" stroke-linecap="round"/><ellipse cx="220" cy="60" rx="70" ry="9" fill="#FBF1DF" stroke="#1E130C" stroke-width="4"/></svg>';}
+
+/* language */
+function applyStatic(){$$('[data-i]').forEach(function(el){el.textContent=t(el.dataset.i);});
+  $('#h1').innerHTML=L==='vi'?'Hôm nay đi <em>cafe</em> nào?':'Which <em>cafe</em> today?';
+  $('#spin').textContent=wheel.spinning?t('spinning'):t('spin');$('#reshuffle').textContent=t('reshuffle');$('#go').textContent=duck.racing?t('racing'):t('go');$('#newduck').textContent=t('newduck');$('#deal').textContent=t('deal');
+  $('#flip').textContent=t('flip');$('#coinNew').textContent=t('coinNew');$('#roll').textContent=t('roll');$('#diceNew').textContent=t('diceNew');$('#pull').textContent=t('pull');
+  $('#genall').textContent='🎲 '+t('genall');$('#madd').textContent=t('mAdd');$('#mpick').textContent='🎲 '+t('mPick');$('#mclear').textContent=t('mClear');$('#q').placeholder=t('search');
+  $('#bannertxt').textContent=Tm[L].banner;$('#bannerlink').textContent=Tm[L].bannerL;$('#footterms').textContent=Tm[L].footT;$('#srcnote').textContent=t('srcnote');$('#yr').textContent=new Date().getFullYear();
+  $$('.lang button').forEach(function(x){x.setAttribute('aria-pressed',String(x.dataset.l===L));});document.documentElement.lang=L;}
+function setLang(l,fromHash){if(l!=='vi'&&l!=='en')return;L=l;lsSet('homNayCafe.lang',l);if(!fromHash){try{history.replaceState(null,'','#'+l);}catch(e){location.hash=l;}}
+  applyStatic();renderTabs();renderFilters();if(qs.step>=Q.length&&qRank.length)drawQuiz();else renderQuiz();rerenderRes();
+  if(tab==='gen')renderGen();if(tab==='mine')renderMine();if(tab==='list')renderList();if(tab==='wheel')drawWheel();
+  if(tab==='duck'){$$('#lanes .dn').forEach(function(el,i){if(duck.list[i])el.textContent=label(duck.list[i]);});}
+  if(tab==='cards'&&deckList.length&&!$('#deck .pc.open'))dealHtml();
+  if(tab==='quick'){$('#cA').innerHTML=coin.a?'<b>A</b>'+esc(label(coin.a)):'';$('#cB').innerHTML=coin.b?'<b>B</b>'+esc(label(coin.b)):'';drawDList(-1);}
+  if(!$('#terms').hidden)renderTerms();}
+$$('.lang button').forEach(function(x){x.onclick=function(){setLang(x.dataset.l);};});
+window.addEventListener('hashchange',function(){var h=location.hash.slice(1);if((h==='vi'||h==='en')&&h!==L)setLang(h,true);});
+(function(){var h=location.hash.slice(1),l='vi';if(h==='en'||h==='vi')l=h;else{var s=lsGet('homNayCafe.lang');if(s==='en'||s==='vi')l=s;else if((navigator.language||'').toLowerCase().indexOf('vi')!==0)l='en';}
+  L=l;$('#art').innerHTML=artSvg();applyStatic();renderTabs();renderFilters();renderQuiz();$$('section[role=tabpanel]').forEach(function(s){s.hidden=s.id!=='p-gen';});renderGen();})();
+})();
+</script>
+
+</body></html>
